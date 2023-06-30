@@ -170,7 +170,12 @@ class RandomWalker:
             num_steps = 0
 
             while num_steps == 0:
-                num_steps = random.randint(0, self.max_angle_steps)
+                if self.angle_fixed_randomise_turn:
+                    right = bool(random.getrandbits(1))
+                    if right:
+                        num_steps = random.randint(0, self.max_angle_steps)
+                    else:
+                        num_steps = random.randint(0, (self.max_angle_steps * -1))
 
         elif self.angle_distribution == 'normal':
             central_moment_difference = prev_angle_central_moment - self.angle_norm_mu 
@@ -185,7 +190,13 @@ class RandomWalker:
             num_steps = 0
 
             while num_steps == 0:
-                num_steps = int(np.random.beta(self.angle_beta_alpha, self.angle_beta_beta) * self.max_angle_steps) #rescale it to be bounded by 0 and max_step_length rather than by 0 and 1
+                if self.angle_fixed_randomise_turn:
+                    right = bool(random.getrandbits(1))
+                    if right:
+                        num_steps = int(np.random.beta(self.angle_beta_alpha, self.angle_beta_beta) * self.max_angle_steps) #rescale it to be bounded by 0 and max_step_length rather than by 0 and 1
+                    else:
+                        num_steps = (int(np.random.beta(self.angle_beta_alpha, self.angle_beta_beta) * self.max_angle_steps) * -1) #rescale it to be bounded by 0 and max_step_length rather than by 0 and 1
+                
 
         elif self.angle_distribution == 'cauchy':
             central_moment_difference = prev_angle_central_moment - self.angle_cauchy_mode 
@@ -200,16 +211,34 @@ class RandomWalker:
             num_steps = 0
 
             while num_steps == 0:
-                num_steps = int(np.random.gamma(self.angle_gamma_kappa, self.angle_gamma_theta))
+                if self.angle_fixed_randomise_turn:
+                    right = bool(random.getrandbits(1))
+                    if right:
+                        num_steps = int(np.random.gamma(self.angle_gamma_kappa, self.angle_gamma_theta)) 
+                    else:
+                        num_steps = (int(np.random.gamma(self.angle_gamma_kappa, self.angle_gamma_theta)) * -1) 
         
         elif self.angle_distribution == 'weibull':
             num_steps = 0
 
             while num_steps == 0:
-                num_steps = int(np.random.weibull(self.angle_weibull_alpha) * self.max_angle_steps) #rescale it to be bounded by 0 and max_step_length rather than by 0 and 1
+                if self.angle_fixed_randomise_turn:
+                    right = bool(random.getrandbits(1))
+                    if right:
+                        num_steps = int(np.random.weibull(self.angle_weibull_alpha)) 
+                    else:
+                        num_steps = (int(np.random.weibull(self.angle_weibull_alpha)) * -1) 
         
         elif self.angle_distribution == 'poisson':
             num_steps = 0
+            
+            while num_steps == 0:
+                if self.angle_fixed_randomise_turn:
+                    right = bool(random.getrandbits(1))
+                    if right:
+                        num_steps = int(np.random.poisson(self.angle_poisson_lambda)) #
+                    else:
+                        num_steps = (int(np.random.poisson(self.angle_poisson_lambda)) * -1) 
 
             while num_steps == 0:
                 num_steps = int(np.random.poisson(self.angle_poisson_lambda))
