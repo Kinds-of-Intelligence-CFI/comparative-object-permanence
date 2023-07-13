@@ -1,0 +1,2156 @@
+!ArenaConfig
+arenas:
+  # 0.yaml
+  0: !Arena
+    pass_mark: 0
+    t: 0
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 2}
+      rotations: [0]
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 39.5} # back wall
+      - !Vector3 {x: 3.23, y: 4, z: 38.75} # R Mid
+      - !Vector3 {x: 2.08, y: 0, z: 38.75} # R Left buttress lower
+      - !Vector3 {x: 4.58, y: 0, z: 38.75} # R Right buttress lower
+      - !Vector3 {x: 2.08, y: 4.5, z: 38.75} # R Left buttress upper
+      - !Vector3 {x: 4.58, y: 4.5, z: 38.75} # R Right buttress upper
+      - !Vector3 {x: 3.33, y: 6.5, z: 38.75} # R Upper
+      - !Vector3 {x: 10, y: 0, z: 38.75} # E lower
+      - !Vector3 {x: 8.75, y: 0.5, z: 38.75} # E Left buttress lower
+      - !Vector3 {x: 11.25, y: 0.5, z: 38.75} # E right buttress
+      - !Vector3 {x: 9, y: 4.5, z: 38.75} # E mid
+      - !Vector3 {x: 8.75, y: 5, z: 38.75} # E Left buttress upper
+      - !Vector3 {x: 10, y: 7, z: 38.75} # E upper
+      rotations: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      sizes:
+      - !Vector3 {x: 40, y: 20, z: 1}
+      - !Vector3 {x: 2.8, y: 0.5, z: 0.5} # R Mid
+      - !Vector3 {x: 0.5, y: 4, z: 0.5} # R Left buttress lower
+      - !Vector3 {x: 0.5, y: 4, z: 0.5} # R Right buttress lower
+      - !Vector3 {x: 0.5, y: 2, z: 0.5} # R Left buttress upper
+      - !Vector3 {x: 0.5, y: 2, z: 0.5} # R Right buttress upper
+      - !Vector3 {x: 3, y: 0.5, z: 0.5} # R Upper
+      - !Vector3 {x: 3, y: 0.5, z: 0.5} # E lower
+      - !Vector3 {x: 0.5, y: 3.5, z: 0.5} # E Left buttress lower
+      - !Vector3 {x: 0.5, y: 6, z: 0.5} # E Right buttress
+      - !Vector3 {x: 1, y: 0.5, z: 0.5} # E mid
+      - !Vector3 {x: 0.5, y: 2, z: 0.5} # E Left buttress upper
+      - !Vector3 {x: 3, y: 0.5, z: 0.5} # E upper
+      colors:
+      - !RGB {r: 0, g: 0, b: 0}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 0, g: 0, b: 0}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 16.66, y: 4, z: 38.75} # A Mid
+      - !Vector3 {x: 15.41, y: 0, z: 38.75} # A Left buttress lower
+      - !Vector3 {x: 17.91, y: 0, z: 38.75} # A Right buttress lower
+      - !Vector3 {x: 15.41, y: 4.5, z: 38.75} # A Left buttress upper
+      - !Vector3 {x: 17.91, y: 4.5, z: 38.75} # A Right buttress upper
+      - !Vector3 {x: 16.66, y: 6.5, z: 38.75} # A Upper
+      sizes:
+      - !Vector3 {x: 3, y: 0.5, z: 0.5} # A Mid
+      - !Vector3 {x: 0.5, y: 4, z: 0.5} # A Left buttress lower
+      - !Vector3 {x: 0.5, y: 4, z: 0.5} # A Right buttress lower
+      - !Vector3 {x: 0.5, y: 2, z: 0.5} # A Left buttress upper
+      - !Vector3 {x: 0.5, y: 2, z: 0.5} # A Right buttress upper
+      - !Vector3 {x: 3, y: 0.5, z: 0.5} # A Upper
+      rotations: [0, 0, 0, 0, 0, 0]
+      colors:
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 23.33, y: 0, z: 38.75} # D bottom
+      - !Vector3 {x: 22.08, y: 0.5, z: 38.75} # D Left buttress
+      - !Vector3 {x: 24.58, y: 0.5, z: 38.75} # D Right buttress
+      - !Vector3 {x: 23.33, y: 7, z: 38.75} # D top
+      sizes:
+      - !Vector3 {x: 3, y: 0.5, z: 0.5} # D bottom
+      - !Vector3 {x: 0.5, y: 6, z: 0.5} # D Left buttress
+      - !Vector3 {x: 0.5, y: 6, z: 0.5} # D Right buttress
+      - !Vector3 {x: 3, y: 0.5, z: 0.5} # D top
+      rotations: [0, 0, 0, 0]
+      colors:
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 30, y: 0, z: 38.75} # Y base
+      - !Vector3 {x: 30, y: 3, z: 38.75} # Y mid
+      - !Vector3 {x: 28.75, y: 3.5, z: 38.75} # Y upper left
+      - !Vector3 {x: 31.25, y: 3.5, z: 38.75} # Y upper right
+      sizes:
+      - !Vector3 {x: 0.5, y: 3, z: 0.5} # Y base
+      - !Vector3 {x: 3, y: 0.5, z: 0.5} # Y mid
+      - !Vector3 {x: 0.5, y: 3.5, z: 0.5} # Y upper left
+      - !Vector3 {x: 0.5, y: 3.5, z: 0.5} # Y upper right
+      rotations: [0, 0, 0, 0]
+      colors:
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 35.41, y: 0, z: 38.75} # ? dark base
+      - !Vector3 {x: 35.41, y: 0.5, z: 38.75} # ? dot
+      - !Vector3 {x: 35.41, y: 1.5, z: 38.75} # ? dot gap
+      - !Vector3 {x: 35.41, y: 2, z: 38.75} # ? stick
+      - !Vector3 {x: 36.66, y: 4, z: 38.75} # ? mid
+      - !Vector3 {x: 35.41, y: 4.5, z: 38.75} # ? left buttress dark
+      - !Vector3 {x: 37.91, y: 0, z: 38.75} # ? right buttress lower dark
+      - !Vector3 {x: 37.91, y: 4.5, z: 38.75} # ? right buttress upper
+      - !Vector3 {x: 36.66, y: 6.5, z: 38.75} # ? top
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5} # ? dark base
+      - !Vector3 {x: 0.5, y: 1, z: 0.5} # ? dot
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5} # ? dot gap
+      - !Vector3 {x: 0.5, y: 2, z: 0.5} # ? stick
+      - !Vector3 {x: 3, y: 0.5, z: 0.5} # ? mid
+      - !Vector3 {x: 0.5, y: 2, z: 0.5} # left buttress dark
+      - !Vector3 {x: 0.5, y: 4, z: 0.5} # right buttress lower dark
+      - !Vector3 {x: 0.5, y: 2, z: 0.5} # right buttress upper
+      - !Vector3 {x: 3, y: 0.5, z: 0.5} # ? top
+      rotations: [0, 0, 0, 0, 0, 0, 0, 0, 0]
+      colors:
+      - !RGB {r: 0, g: 0, b: 0}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 0, g: 0, b: 0}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 0, g: 0, b: 0}
+      - !RGB {r: 0, g: 0, b: 0}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 30}
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+      rotations: [0]
+  # 1.yaml
+  1: !Arena
+    pass_mark: 0
+    t: 0
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1.1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 36, y: 0, z: 36}
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+  # 2.yaml
+  2: !Arena
+    pass_mark: 0
+    t: 0
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 1, z: 1}
+      rotations: [0]
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      rotations: [0]
+      colors: 
+      - !RGB {r: 0, g: 0, b: 255}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 40}
+    - !Item
+      name: DeathZone
+      rotations: [0]
+      positions:
+      - !Vector3 {x: 10, y: 0, z: 30}
+      sizes:
+      - !Vector3 {x: 10, y: 0, z: 10}
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 30, y: 0, z: 30}      
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+  # 3.yaml
+  3: !Arena
+    t: 0
+    pass_mark: 0.5
+    items:
+      - !Item
+        name: Agent
+        positions:
+        - !Vector3 {x: 20, y: 0, z: 15}
+        rotations: [0] #Agent Rotation Parameter
+      - !Item
+        name: CylinderTunnel
+        positions:
+        - !Vector3 {x: 20, y: 0, z: 25}
+        - !Vector3 {x: 27.5, y: 0, z: 22.99}
+        - !Vector3 {x: 12.5, y: 0, z: 22.99}
+        sizes:
+        - !Vector3 {x: 5, y: 10, z: 4}
+        - !Vector3 {x: 5, y: 10, z: 4}
+        - !Vector3 {x: 5, y: 10, z: 4}
+        colors:
+        - !RGB {r: 153, g: 153, b: 153} #color parameter
+        - !RGB {r: 153, g: 153, b: 153} #color parameter
+        - !RGB {r: 153, g: 153, b: 153} #color parameter
+        rotations: [0, 60, 300]
+      - !Item
+        name: GoodGoal
+        positions:
+        - !Vector3 {x: 12.5, y: 0, z: 23.5}
+        sizes:
+        - !Vector3 {x: 1.5, y: 1.5, z: 1.5} #Goal Size
+  # 4.yaml
+  4: !Arena
+    t: 0
+    pass_mark: 0.5
+    items:
+      - !Item
+        name: Agent
+        positions:
+        - !Vector3 {x: 20, y: 0, z: 15}
+        rotations: [0] #Agent Rotation Parameter
+      - !Item
+        name: CylinderTunnel
+        positions:
+        - !Vector3 {x: 20, y: 0, z: 25}
+        - !Vector3 {x: 27.5, y: 0, z: 22.99}
+        - !Vector3 {x: 12.5, y: 0, z: 22.99}
+        sizes:
+        - !Vector3 {x: 5, y: 10, z: 4}
+        - !Vector3 {x: 5, y: 10, z: 4}
+        - !Vector3 {x: 5, y: 10, z: 4}
+        colors:
+        - !RGB {r: 236, g: 195, b: 153} #color parameter
+        - !RGB {r: 236, g: 195, b: 153} #color parameter
+        - !RGB {r: 236, g: 195, b: 153} #color parameter
+        rotations: [0, 60, 300]
+      - !Item
+        name: GoodGoal
+        positions:
+        - !Vector3 {x: 27.5, y: 0, z: 22.5}
+        sizes:
+        - !Vector3 {x: 1.5, y: 1.5, z: 1.5} #Goal Size
+
+  # 5.yaml
+  5: !Arena
+    pass_mark: 0
+    t: 0
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1.1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 10, y: 0, z: 10}
+      - !Vector3 {x: 15, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+      - !Vector3 {x: 2, y: 2, z: 2}
+  # 6.yaml
+  6: !Arena
+    pass_mark: 1.5
+    t: 0
+    #blackouts: [19, 80]
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 1, z: 2}
+      rotations: [0]
+      frozenAgentDelays: [10]
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 10}
+      - !Vector3 {x: 20, y: .5, z: 2.5}
+      - !Vector3 {x: 10, y: 0, z: 39.5}
+      - !Vector3 {x: 30, y: 0, z: 39.5}
+      #- !Vector3 {x: 5, y: 0, z: 38}
+      - !Vector3 {x: 20, y: 0, z: 38}
+      - !Vector3 {x: 20, y: 0, z: 39.9}
+      #rotations: [0,0,0,0,45,0]
+      #rotations: [0,0,45,0]
+      rotations: [0,0,0,0,45,0]
+      colors:
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 102, g: 51, b: 1} #color parameter
+      - !RGB {r: 102, g: 51, b: 1} #color parameter
+      - !RGB {r: 222, g: 0, b: 0}
+      - !RGB {r: 222, g: 0, b: 0}
+      sizes:
+      - !Vector3 {x: 2, y: .5, z: 19.5}
+      - !Vector3 {x: 2, y: .5, z: 5}
+      - !Vector3 {x: 10, y: 5, z: 1}
+      - !Vector3 {x: 10, y: 5, z: 1}
+      #- !Vector3 {x: 1, y: .5, z: 2}
+      - !Vector3 {x: 2, y: 2, z: 2}
+      - !Vector3 {x: 10, y: 2, z: 0.1}
+    - !Item
+      name: WallTransparent
+      positions:
+      - !Vector3 {x: 18.75, y: 0, z: 4}
+      - !Vector3 {x: 21.25, y: 0, z: 4}
+      - !Vector3 {x: 20, y: 0, z: 20}
+      rotations: [0,0,0]
+      sizes:
+      - !Vector3 {x: .5, y: 1.5, z: 8}
+      - !Vector3 {x: .5, y: 1.5, z: 8}
+      - !Vector3 {x: 10, y: 1, z: .5}
+    #- !Item
+    #  name: Ramp
+    #  rotations: [90]
+    #  positions:
+    #  - !Vector3 {x: 10, y: 0, z: 37}
+    #  colors:
+    #  - !RGB {r: 255, g: 0, b: 255}
+    #  sizes:
+    #  - !Vector3 {x: 4, y: .1, z: 1}
+    - !Item
+      name: DeathZone
+      rotations: [0]
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 30}
+      sizes:
+      - !Vector3 {x: 10, y: 0, z: 20}
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 22}
+      rotations: [358]
+      sizes:
+      - !Vector3 {x: 2.5, y: 2.5, z: 2.5} #Goal Size
+  # 7.yaml
+  7: !Arena
+    pass_mark: 2
+    t: 0
+    blackouts: [25, 60]
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 1, z: 2}
+      rotations: [0]
+      frozenAgentDelays: [10]
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 10}
+      - !Vector3 {x: 20, y: .5, z: 2.5}
+      - !Vector3 {x: 30, y: 0, z: 30}
+      - !Vector3 {x: 5, y: 0, z: 38}
+      - !Vector3 {x: 35, y: 0, z: 38}
+      - !Vector3 {x: 20, y: 0, z: 38}
+      - !Vector3 {x: 20, y: 0, z: 39.9}
+      rotations: [0,0,0,0,0,45,0]
+      colors:
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: -1, g: -1, b: -1} #color parameter
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255} 
+      - !RGB {r: 222, g: 0, b: 0}
+      - !RGB {r: 222, g: 0, b: 0}
+      sizes:
+      - !Vector3 {x: 2, y: .5, z: 19.5}
+      - !Vector3 {x: 2, y: .5, z: 5}
+      - !Vector3 {x: 10, y: 0.5, z: 1}
+      - !Vector3 {x: 1, y: .5, z: 2}
+      - !Vector3 {x: 1, y: .5, z: 2}
+      - !Vector3 {x: 2, y: 2, z: 2}
+      - !Vector3 {x: 10, y: 2, z: 0.1}
+    - !Item
+      name: WallTransparent
+      positions:
+      - !Vector3 {x: 18.75, y: 0, z: 4}
+      - !Vector3 {x: 21.25, y: 0, z: 4}
+      - !Vector3 {x: 20, y: 0, z: 20}
+      rotations: [0,0,0]
+      sizes:
+      - !Vector3 {x: .5, y: 1.5, z: 8}
+      - !Vector3 {x: .5, y: 1.5, z: 8}
+      - !Vector3 {x: 10, y: 1, z: .5}
+    - !Item
+      name: Ramp
+      rotations: [90,270]
+      positions:
+      - !Vector3 {x: 10, y: 0, z: 38}
+      - !Vector3 {x: 30, y: 0, z: 38}
+      colors:
+      - !RGB {r: 255, g: 0, b: 255}
+      - !RGB {r: 255, g: 0, b: 255}
+      sizes:
+      - !Vector3 {x: 4, y: .1, z: 1}
+      - !Vector3 {x: 4, y: .1, z: 1}
+    - !Item
+      name: DeathZone
+      rotations: [0]
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 30}
+      sizes:
+      - !Vector3 {x: 10, y: 0, z: 20}
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 22}
+      rotations: [2]
+      sizes:
+      - !Vector3 {x: 3, y: 3, z: 3}
+  # 8.yaml
+  8: !Arena
+    pass_mark: 1
+    t: 500
+    items:
+    - !Item
+      name: WallTransparent
+      positions:
+      - !Vector3 {x: 13.3, y: 0, z: 33}
+      - !Vector3 {x: 26.6, y: 0, z: 33}
+      - !Vector3 {x: 8, y: 0, z: 36}
+      - !Vector3 {x: 20, y: 0, z: 36}
+      - !Vector3 {x: 33.4, y: 0, z: 36}
+      sizes:
+      - !Vector3 {x: 14, y: 4, z: 1}
+      - !Vector3 {x: 14, y: 4, z: 1}
+      - !Vector3 {x: 1, y: 4, z: 3}
+      - !Vector3 {x: 1, y: 4, z: 3}
+      - !Vector3 {x: 1, y: 4, z: 3}
+      rotations: [90, 90, 90, 90, 90]
+      colors:
+      - !RGB {r: 153, g: 153, b: 153} #color parameter
+      - !RGB {r: 153, g: 153, b: 153} #color parameter
+      - !RGB {r: 153, g: 153, b: 153} #color parameter
+      - !RGB {r: 153, g: 153, b: 153} #color parameter
+      - !RGB {r: 153, g: 153, b: 153} #color parameter
+    - !Item
+      name: Ramp
+      positions:
+      - !Vector3 {x: 6.6, y: 0, z: 28}
+      - !Vector3 {x: 20, y: 0, z: 28}
+      - !Vector3 {x: 33.3, y: 0, z: 28}
+     # - !Vector3 {x: 6.6, y: 0, z: 32}
+     # - !Vector3 {x: 20, y: 0, z: 32}
+     # - !Vector3 {x: 33.3, y: 0, z: 32}
+      sizes:
+      - !Vector3 {x: 6, y: 2.1, z: 4}
+      - !Vector3 {x: 6, y: 2.1, z: 4}
+      - !Vector3 {x: 6, y: 2.1, z: 4}
+     # - !Vector3 {x: 6, y: 2.1, z: 4}
+     # - !Vector3 {x: 6, y: 2.1, z: 4}
+     # - !Vector3 {x: 6, y: 2.1, z: 4}
+      colors:
+      - !RGB {r: 255, g: 0, b: 255}
+      - !RGB {r: 255, g: 0, b: 255}
+      - !RGB {r: 255, g: 0, b: 255}
+     # - !RGB {r: 255, g: 0, b: 255}
+     # - !RGB {r: 255, g: 0, b: 255}
+     # - !RGB {r: 255, g: 0, b: 255}
+      rotations: [180, 180, 180]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 8, y: 10, z: 38}
+     # - !Vector3 {x: 20, y: 7, z: 38}
+     # - !Vector3 {x: 33.4, y: 7, z: 38}
+      sizes:
+      - !Vector3 {x: 2, y: 1, z: 1}
+     # - !Vector3 {x: 2, y: 1, z: 1}
+     # - !Vector3 {x: 2, y: 1, z: 1}
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 15}
+      rotations: [0]
+    - !Item
+      name: DeathZone
+      positions:
+      - !Vector3 {x: 1.8, y: 0, z: 28}
+      - !Vector3 {x: 11.4, y: 0, z: 28}
+      - !Vector3 {x: 15.2, y: 0, z: 28}
+      - !Vector3 {x: 24.8, y: 0, z: 28}
+      - !Vector3 {x: 28.5, y: 0, z: 28}
+      - !Vector3 {x: 38.1, y: 0, z: 28}
+      sizes:
+      - !Vector3 {x: 3.6, y: 1, z: 3}
+      - !Vector3 {x: 3.6, y: 1, z: 3}
+      - !Vector3 {x: 3.6, y: 1, z: 3}
+      - !Vector3 {x: 3.6, y: 1, z: 3}
+      - !Vector3 {x: 3.6, y: 1, z: 3}
+      - !Vector3 {x: 3.6, y: 1, z: 3}
+      rotations: [0, 0, 0, 0, 0, 0]
+
+  # 9.yaml
+  9: !Arena
+    pass_mark: 1.5
+    t: 250
+    items:
+    - !Item
+      name: Wall
+      rotations: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] #,0,0,0,0,0,0,0,0,0,0,0,0]
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 10} #Bottom half full
+#Top half full of holes (comment out)
+      - !Vector3 {x: 1, y: 0, z: 21}
+      - !Vector3 {x: 3, y: 0, z: 21}
+      - !Vector3 {x: 5, y: 0, z: 21}
+      - !Vector3 {x: 7, y: 0, z: 21}
+      - !Vector3 {x: 9, y: 0, z: 21}
+      - !Vector3 {x: 11, y: 0, z: 21}
+      - !Vector3 {x: 13, y: 0, z: 21}
+      - !Vector3 {x: 15, y: 0, z: 21}
+      - !Vector3 {x: 17, y: 0, z: 21}
+      - !Vector3 {x: 19, y: 0, z: 21}
+      - !Vector3 {x: 21, y: 0, z: 21}
+      - !Vector3 {x: 23, y: 0, z: 21}
+      - !Vector3 {x: 25, y: 0, z: 21}
+      - !Vector3 {x: 27, y: 0, z: 21}
+      - !Vector3 {x: 29, y: 0, z: 21}
+      - !Vector3 {x: 31, y: 0, z: 21}
+      - !Vector3 {x: 33, y: 0, z: 21}
+      - !Vector3 {x: 35, y: 0, z: 21}
+      - !Vector3 {x: 37, y: 0, z: 21}
+      - !Vector3 {x: 39, y: 0, z: 21}
+      - !Vector3 {x: 1, y: 0, z: 23}
+      - !Vector3 {x: 3, y: 0, z: 23}
+      # - !Vector3 {x: 5, y: 0, z: 23}
+      # - !Vector3 {x: 7, y: 0, z: 23}
+      - !Vector3 {x: 9, y: 0, z: 23}
+      - !Vector3 {x: 11, y: 0, z: 23}
+      # - !Vector3 {x: 13, y: 0, z: 23}
+      # - !Vector3 {x: 15, y: 0, z: 23}
+      - !Vector3 {x: 17, y: 0, z: 23}
+      - !Vector3 {x: 19, y: 0, z: 23}
+      - !Vector3 {x: 21, y: 0, z: 23}
+      # - !Vector3 {x: 23, y: 0, z: 23}
+      # - !Vector3 {x: 25, y: 0, z: 23}
+      - !Vector3 {x: 27, y: 0, z: 23}
+      - !Vector3 {x: 29, y: 0, z: 23}
+      # - !Vector3 {x: 31, y: 0, z: 23}
+      # - !Vector3 {x: 33, y: 0, z: 23}
+      - !Vector3 {x: 35, y: 0, z: 23}
+      - !Vector3 {x: 37, y: 0, z: 23}
+      - !Vector3 {x: 39, y: 0, z: 23}
+      - !Vector3 {x: 1, y: 0, z: 25}
+      - !Vector3 {x: 3, y: 0, z: 25}
+      # - !Vector3 {x: 5, y: 0, z: 25}
+      # - !Vector3 {x: 7, y: 0, z: 25}
+      - !Vector3 {x: 9, y: 0, z: 25}
+      - !Vector3 {x: 11, y: 0, z: 25}
+      # - !Vector3 {x: 13, y: 0, z: 25}
+      # - !Vector3 {x: 15, y: 0, z: 25}
+      - !Vector3 {x: 17, y: 0, z: 25}
+      - !Vector3 {x: 19, y: 0, z: 25}
+      - !Vector3 {x: 21, y: 0, z: 25}
+      # - !Vector3 {x: 23, y: 0, z: 25}
+      # - !Vector3 {x: 25, y: 0, z: 25}
+      - !Vector3 {x: 27, y: 0, z: 25}
+      - !Vector3 {x: 29, y: 0, z: 25}
+      # - !Vector3 {x: 31, y: 0, z: 25}
+      # - !Vector3 {x: 33, y: 0, z: 25}
+      - !Vector3 {x: 35, y: 0, z: 25}
+      - !Vector3 {x: 37, y: 0, z: 25}
+      - !Vector3 {x: 39, y: 0, z: 25}
+      - !Vector3 {x: 1, y: 0, z: 27}
+      - !Vector3 {x: 3, y: 0, z: 27}
+      - !Vector3 {x: 5, y: 0, z: 27}
+      - !Vector3 {x: 7, y: 0, z: 27}
+      - !Vector3 {x: 9, y: 0, z: 27}
+      - !Vector3 {x: 11, y: 0, z: 27}
+      - !Vector3 {x: 13, y: 0, z: 27}
+      - !Vector3 {x: 15, y: 0, z: 27}
+      - !Vector3 {x: 17, y: 0, z: 27}
+      - !Vector3 {x: 19, y: 0, z: 27}
+      - !Vector3 {x: 21, y: 0, z: 27}
+      - !Vector3 {x: 23, y: 0, z: 27}
+      - !Vector3 {x: 25, y: 0, z: 27}
+      - !Vector3 {x: 27, y: 0, z: 27}
+      - !Vector3 {x: 29, y: 0, z: 27}
+      - !Vector3 {x: 31, y: 0, z: 27}
+      - !Vector3 {x: 33, y: 0, z: 27}
+      - !Vector3 {x: 35, y: 0, z: 27}
+      - !Vector3 {x: 37, y: 0, z: 27}
+      - !Vector3 {x: 39, y: 0, z: 27}
+      - !Vector3 {x: 1, y: 0, z: 29}
+      - !Vector3 {x: 3, y: 0, z: 29}
+      # - !Vector3 {x: 5, y: 0, z: 29}
+      # - !Vector3 {x: 7, y: 0, z: 29}
+      - !Vector3 {x: 9, y: 0, z: 29}
+      - !Vector3 {x: 11, y: 0, z: 29}
+      # - !Vector3 {x: 13, y: 0, z: 29}
+      # - !Vector3 {x: 15, y: 0, z: 29}
+      - !Vector3 {x: 17, y: 0, z: 29}
+      - !Vector3 {x: 19, y: 0, z: 29}
+      - !Vector3 {x: 21, y: 0, z: 29}
+      # - !Vector3 {x: 23, y: 0, z: 29}
+      # - !Vector3 {x: 25, y: 0, z: 29}
+      - !Vector3 {x: 27, y: 0, z: 29}
+      - !Vector3 {x: 29, y: 0, z: 29}
+      # - !Vector3 {x: 31, y: 0, z: 29}
+      # - !Vector3 {x: 33, y: 0, z: 29}
+      - !Vector3 {x: 35, y: 0, z: 29}
+      - !Vector3 {x: 37, y: 0, z: 29}
+      - !Vector3 {x: 39, y: 0, z: 29}
+      - !Vector3 {x: 1, y: 0, z: 31}
+      - !Vector3 {x: 3, y: 0, z: 31}
+      # - !Vector3 {x: 5, y: 0, z: 31}
+      # - !Vector3 {x: 7, y: 0, z: 31}
+      - !Vector3 {x: 9, y: 0, z: 31}
+      - !Vector3 {x: 11, y: 0, z: 31}
+      # - !Vector3 {x: 13, y: 0, z: 31}
+      # - !Vector3 {x: 15, y: 0, z: 31}
+      - !Vector3 {x: 17, y: 0, z: 31}
+      - !Vector3 {x: 19, y: 0, z: 31}
+      - !Vector3 {x: 21, y: 0, z: 31}
+      # - !Vector3 {x: 23, y: 0, z: 31}
+      # - !Vector3 {x: 25, y: 0, z: 31}
+      - !Vector3 {x: 27, y: 0, z: 31}
+      - !Vector3 {x: 29, y: 0, z: 31}
+      # - !Vector3 {x: 31, y: 0, z: 31}
+      # - !Vector3 {x: 33, y: 0, z: 31}
+      - !Vector3 {x: 35, y: 0, z: 31}
+      - !Vector3 {x: 37, y: 0, z: 31}
+      - !Vector3 {x: 39, y: 0, z: 31}
+      - !Vector3 {x: 1, y: 0, z: 33}
+      - !Vector3 {x: 3, y: 0, z: 33}
+      - !Vector3 {x: 5, y: 0, z: 33}
+      - !Vector3 {x: 7, y: 0, z: 33}
+      - !Vector3 {x: 9, y: 0, z: 33}
+      - !Vector3 {x: 11, y: 0, z: 33}
+      - !Vector3 {x: 13, y: 0, z: 33}
+      - !Vector3 {x: 15, y: 0, z: 33}
+      - !Vector3 {x: 17, y: 0, z: 33}
+      - !Vector3 {x: 19, y: 0, z: 33}
+      - !Vector3 {x: 21, y: 0, z: 33}
+      - !Vector3 {x: 23, y: 0, z: 33}
+      - !Vector3 {x: 25, y: 0, z: 33}
+      - !Vector3 {x: 27, y: 0, z: 33}
+      - !Vector3 {x: 29, y: 0, z: 33}
+      - !Vector3 {x: 31, y: 0, z: 33}
+      - !Vector3 {x: 33, y: 0, z: 33}
+      - !Vector3 {x: 35, y: 0, z: 33}
+      - !Vector3 {x: 37, y: 0, z: 33}
+      - !Vector3 {x: 39, y: 0, z: 33}
+      - !Vector3 {x: 1, y: 0, z: 35}
+      - !Vector3 {x: 3, y: 0, z: 35}
+      # - !Vector3 {x: 5, y: 0, z: 35}
+      # - !Vector3 {x: 7, y: 0, z: 35}
+      - !Vector3 {x: 9, y: 0, z: 35}
+      - !Vector3 {x: 11, y: 0, z: 35}
+      # - !Vector3 {x: 13, y: 0, z: 35}
+      # - !Vector3 {x: 15, y: 0, z: 35}
+      - !Vector3 {x: 17, y: 0, z: 35}
+      - !Vector3 {x: 19, y: 0, z: 35}
+      - !Vector3 {x: 21, y: 0, z: 35}
+      # - !Vector3 {x: 23, y: 0, z: 35}
+      # - !Vector3 {x: 25, y: 0, z: 35}
+      - !Vector3 {x: 27, y: 0, z: 35}
+      - !Vector3 {x: 29, y: 0, z: 35}
+      # - !Vector3 {x: 31, y: 0, z: 35}
+      # - !Vector3 {x: 33, y: 0, z: 35}
+      - !Vector3 {x: 35, y: 0, z: 35}
+      - !Vector3 {x: 37, y: 0, z: 35}
+      - !Vector3 {x: 39, y: 0, z: 35}
+      - !Vector3 {x: 1, y: 0, z: 37}
+      - !Vector3 {x: 3, y: 0, z: 37}
+      # - !Vector3 {x: 5, y: 0, z: 37}
+      # - !Vector3 {x: 7, y: 0, z: 37}
+      - !Vector3 {x: 9, y: 0, z: 37}
+      - !Vector3 {x: 11, y: 0, z: 37}
+      # - !Vector3 {x: 13, y: 0, z: 37}
+      # - !Vector3 {x: 15, y: 0, z: 37}
+      - !Vector3 {x: 17, y: 0, z: 37}
+      - !Vector3 {x: 19, y: 0, z: 37}
+      - !Vector3 {x: 21, y: 0, z: 37}
+      # - !Vector3 {x: 23, y: 0, z: 37}
+      # - !Vector3 {x: 25, y: 0, z: 37}
+      - !Vector3 {x: 27, y: 0, z: 37}
+      - !Vector3 {x: 29, y: 0, z: 37}
+      # - !Vector3 {x: 31, y: 0, z: 37}
+      # - !Vector3 {x: 33, y: 0, z: 37}
+      - !Vector3 {x: 35, y: 0, z: 37}
+      - !Vector3 {x: 37, y: 0, z: 37}
+      - !Vector3 {x: 39, y: 0, z: 37}
+      - !Vector3 {x: 1, y: 0, z: 39}
+      - !Vector3 {x: 3, y: 0, z: 39}
+      - !Vector3 {x: 5, y: 0, z: 39}
+      - !Vector3 {x: 7, y: 0, z: 39}
+      - !Vector3 {x: 9, y: 0, z: 39}
+      - !Vector3 {x: 11, y: 0, z: 39}
+      - !Vector3 {x: 13, y: 0, z: 39}
+      - !Vector3 {x: 15, y: 0, z: 39}
+      - !Vector3 {x: 17, y: 0, z: 39}
+      - !Vector3 {x: 19, y: 0, z: 39}
+      - !Vector3 {x: 21, y: 0, z: 39}
+      - !Vector3 {x: 23, y: 0, z: 39}
+      - !Vector3 {x: 25, y: 0, z: 39}
+      - !Vector3 {x: 27, y: 0, z: 39}
+      - !Vector3 {x: 29, y: 0, z: 39}
+      - !Vector3 {x: 31, y: 0, z: 39}
+      - !Vector3 {x: 33, y: 0, z: 39}
+      - !Vector3 {x: 35, y: 0, z: 39}
+      - !Vector3 {x: 37, y: 0, z: 39}
+      - !Vector3 {x: 39, y: 0, z: 39}
+      sizes:
+      - !Vector3 {x: 40, y: 1, z: 20}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      colors:
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+    - !Item
+      name: Ramp
+      positions:
+      - !Vector3 {x: 20, y: 1, z: 10}
+      rotations: [0]
+      sizes:
+      - !Vector3 {x: 40, y: 5, z: 20}
+      colors:
+      - !RGB {r: 255, g: 0, b: 255}
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 6, y: 12, z: 24} # GoodGoal Position
+      sizes:
+      - !Vector3 {x: 2.5, y: 2.5, z: 2.5} # GoodGoal Size
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 7, z: 2} # Agent Position
+      rotations: [0] # Agent Rotation
+    - !Item
+    # Perimeters for contrast around holes
+      name: Wall
+      positions:
+      - !Vector3 {x: 6, y: 1, z: 21.75}
+      - !Vector3 {x: 14, y: 1, z: 21.75}
+      - !Vector3 {x: 32, y: 1, z: 21.75}
+      - !Vector3 {x: 24, y: 1, z: 21.75}
+      - !Vector3 {x: 6, y: 1, z: 26.25}
+      - !Vector3 {x: 14, y: 1, z: 26.25}
+      - !Vector3 {x: 32, y: 1, z: 26.25}
+      - !Vector3 {x: 24, y: 1, z: 26.25}
+      #- !Vector3 {x: 6, y: 1, z: 27.75}
+      #- !Vector3 {x: 14, y: 1, z: 27.75}
+      #- !Vector3 {x: 32, y: 1, z: 27.75}
+      #- !Vector3 {x: 24, y: 1, z: 27.75}
+      #- !Vector3 {x: 6, y: 1, z: 32.25}
+      #- !Vector3 {x: 14, y: 1, z: 32.25}
+      #- !Vector3 {x: 32, y: 1, z: 32.25}
+      #- !Vector3 {x: 24, y: 1, z: 32.25}
+      #- !Vector3 {x: 6, y: 1, z: 33.75}
+      #- !Vector3 {x: 14, y: 1, z: 33.75}
+      #- !Vector3 {x: 32, y: 1, z: 33.75}
+      #- !Vector3 {x: 24, y: 1, z: 33.75}
+      #- !Vector3 {x: 6, y: 1, z: 38.25}
+      #- !Vector3 {x: 14, y: 1, z: 38.25}
+      #- !Vector3 {x: 32, y: 1, z: 38.25}
+      #- !Vector3 {x: 24, y: 1, z: 38.25}
+      ## vertical bounding boxes
+      - !Vector3 {x: 3.75, y: 1, z: 24}
+      - !Vector3 {x: 8.25, y: 1, z: 24}
+      - !Vector3 {x: 11.75, y: 1, z: 24}
+      - !Vector3 {x: 16.25, y: 1, z: 24}
+      - !Vector3 {x: 21.75, y: 1, z: 24}
+      - !Vector3 {x: 26.25, y: 1, z: 24}
+      - !Vector3 {x: 29.75, y: 1, z: 24}
+      - !Vector3 {x: 34.25, y: 1, z: 24}
+      #- !Vector3 {x: 3.75, y: 1, z: 30}
+      #- !Vector3 {x: 8.25, y: 1, z: 30}
+      #- !Vector3 {x: 11.75, y: 1, z: 30}
+      #- !Vector3 {x: 16.25, y: 1, z: 30}
+      #- !Vector3 {x: 21.75, y: 1, z: 30}
+      #- !Vector3 {x: 26.25, y: 1, z: 30}
+      #- !Vector3 {x: 29.75, y: 1, z: 30}
+      #- !Vector3 {x: 34.25, y: 1, z: 30}
+      #- !Vector3 {x: 3.75, y: 1, z: 36}
+      #- !Vector3 {x: 8.25, y: 1, z: 36}
+      #- !Vector3 {x: 11.75, y: 1, z: 36}
+      #- !Vector3 {x: 16.25, y: 1, z: 36}
+      #- !Vector3 {x: 21.75, y: 1, z: 36}
+      #- !Vector3 {x: 26.25, y: 1, z: 36}
+      #- !Vector3 {x: 29.75, y: 1, z: 36}
+      #- !Vector3 {x: 34.25, y: 1, z: 36}
+      sizes:
+      - !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      - !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      - !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      - !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      - !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      - !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      - !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      - !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      #- !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      #- !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      #- !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      #- !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      #- !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      #- !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      #- !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      #- !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      #- !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      #- !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      #- !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      #- !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      #- !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      #- !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      #- !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      #- !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      ##vertical bbs
+      - !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      - !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      - !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      - !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      - !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      - !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      - !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      - !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      #- !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      #- !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      #- !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      #- !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      #- !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      #- !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      #- !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      #- !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      #- !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      #- !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      #- !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      #- !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      #- !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      #- !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      #- !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      #- !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      #rotations: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      #rotations: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      rotations: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      colors:
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      #- !RGB {r: 255, g: 255, b: 255}
+      #- !RGB {r: 255, g: 255, b: 255}
+      #- !RGB {r: 255, g: 255, b: 255}
+      #- !RGB {r: 255, g: 255, b: 255}
+      #- !RGB {r: 255, g: 255, b: 255}
+      #- !RGB {r: 255, g: 255, b: 255}
+      #- !RGB {r: 255, g: 255, b: 255}
+      #- !RGB {r: 255, g: 255, b: 255}
+      #- !RGB {r: 255, g: 255, b: 255}
+      #- !RGB {r: 255, g: 255, b: 255}
+      #- !RGB {r: 255, g: 255, b: 255}
+      #- !RGB {r: 255, g: 255, b: 255}
+      #- !RGB {r: 255, g: 255, b: 255}
+      #- !RGB {r: 255, g: 255, b: 255}
+      #- !RGB {r: 255, g: 255, b: 255}
+      #- !RGB {r: 255, g: 255, b: 255}
+      ## vertical bbs
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      #- !RGB {r: 255, g: 255, b: 255}
+      #- !RGB {r: 255, g: 255, b: 255}
+      #- !RGB {r: 255, g: 255, b: 255}
+      #- !RGB {r: 255, g: 255, b: 255}
+      #- !RGB {r: 255, g: 255, b: 255}
+      #- !RGB {r: 255, g: 255, b: 255}
+      #- !RGB {r: 255, g: 255, b: 255}
+      #- !RGB {r: 255, g: 255, b: 255}
+      #- !RGB {r: 255, g: 255, b: 255}
+      #- !RGB {r: 255, g: 255, b: 255}
+      #- !RGB {r: 255, g: 255, b: 255}
+      #- !RGB {r: 255, g: 255, b: 255}
+      #- !RGB {r: 255, g: 255, b: 255}
+      #- !RGB {r: 255, g: 255, b: 255}
+      #- !RGB {r: 255, g: 255, b: 255}
+      #- !RGB {r: 255, g: 255, b: 255}
+#    - !Item
+#    # walls to block front holes
+#      name: Wall
+#      positions:
+#      - !Vector3 {x: 6, y: 0, z: 24} #front far left
+#      - !Vector3 {x: 14, y: 0, z: 24} #front close left
+#      - !Vector3 {x: 32, y: 0, z: 24} #front close right
+#      - !Vector3 {x: 24, y: 0, z: 24} #front far right
+#      sizes:
+#      - !Vector3 {x: 4, y: 1, z: 4} #front far left
+#      - !Vector3 {x: 4, y: 1, z: 4} #front close left
+#      - !Vector3 {x: 4, y: 1, z: 4} #front close right
+#      - !Vector3 {x: 4, y: 1, z: 4} #front far right
+#      rotations: [0, 0, 0, 0]
+#      colors:
+#      - !RGB {r: 0, g: 0, b: 255} #front far left
+#      - !RGB {r: 0, g: 0, b: 255} #front close left
+#      - !RGB {r: 0, g: 0, b: 255} #front close right
+#      - !RGB {r: 0, g: 0, b: 255} #front far right
+    - !Item
+    # walls to block middle holes
+      name: Wall
+      positions:
+      - !Vector3 {x: 6, y: 0, z: 30} #middle far left
+      - !Vector3 {x: 14, y: 0, z: 30} #middle close left
+      - !Vector3 {x: 32, y: 0, z: 30} #middle close right
+      - !Vector3 {x: 24, y: 0, z: 30} #middle far right
+      sizes:
+      - !Vector3 {x: 4, y: 1, z: 4} #middle far left
+      - !Vector3 {x: 4, y: 1, z: 4} #middle close left
+      - !Vector3 {x: 4, y: 1, z: 4} #middle close right
+      - !Vector3 {x: 4, y: 1, z: 4} #middle far right
+      rotations: [0, 0, 0, 0]
+      colors:
+      - !RGB {r: 0, g: 0, b: 255} #middle far left
+      - !RGB {r: 0, g: 0, b: 255} #middle close left
+      - !RGB {r: 0, g: 0, b: 255} #middle close right
+      - !RGB {r: 0, g: 0, b: 255} #middle far right
+    - !Item
+    # walls to block far holes
+      name: Wall
+      positions:
+      - !Vector3 {x: 6, y: 0, z: 36} #far far left
+      - !Vector3 {x: 14, y: 0, z: 36} #far close left
+      - !Vector3 {x: 32, y: 0, z: 36} #far close right
+      - !Vector3 {x: 24, y: 0, z: 36} #far far right
+      sizes:
+      - !Vector3 {x: 4, y: 1, z: 4} #far far left
+      - !Vector3 {x: 4, y: 1, z: 4} #far close left
+      - !Vector3 {x: 4, y: 1, z: 4} #far close right
+      - !Vector3 {x: 4, y: 1, z: 4} #far far right
+      rotations: [0, 0, 0, 0]
+      colors:
+      - !RGB {r: 0, g: 0, b: 255} #far far left
+      - !RGB {r: 0, g: 0, b: 255} #far close left
+      - !RGB {r: 0, g: 0, b: 255} #far close right
+      - !RGB {r: 0, g: 0, b: 255} #far far right
+  # 10.yaml
+  10: !Arena
+    pass_mark: 1
+    t: 250
+    items:
+    - !Item
+      name: Wall
+      rotations: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0] #,0,0,0,0,0,0,0,0,0,0,0,0]
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 10} #Bottom half full
+#Top half full of holes (comment out)
+      - !Vector3 {x: 1, y: 0, z: 21}
+      - !Vector3 {x: 3, y: 0, z: 21}
+      - !Vector3 {x: 5, y: 0, z: 21}
+      - !Vector3 {x: 7, y: 0, z: 21}
+      - !Vector3 {x: 9, y: 0, z: 21}
+      - !Vector3 {x: 11, y: 0, z: 21}
+      - !Vector3 {x: 13, y: 0, z: 21}
+      - !Vector3 {x: 15, y: 0, z: 21}
+      - !Vector3 {x: 17, y: 0, z: 21}
+      - !Vector3 {x: 19, y: 0, z: 21}
+      - !Vector3 {x: 21, y: 0, z: 21}
+      - !Vector3 {x: 23, y: 0, z: 21}
+      - !Vector3 {x: 25, y: 0, z: 21}
+      - !Vector3 {x: 27, y: 0, z: 21}
+      - !Vector3 {x: 29, y: 0, z: 21}
+      - !Vector3 {x: 31, y: 0, z: 21}
+      - !Vector3 {x: 33, y: 0, z: 21}
+      - !Vector3 {x: 35, y: 0, z: 21}
+      - !Vector3 {x: 37, y: 0, z: 21}
+      - !Vector3 {x: 39, y: 0, z: 21}
+      - !Vector3 {x: 1, y: 0, z: 23}
+      - !Vector3 {x: 3, y: 0, z: 23}
+      # - !Vector3 {x: 5, y: 0, z: 23}
+      # - !Vector3 {x: 7, y: 0, z: 23}
+      - !Vector3 {x: 9, y: 0, z: 23}
+      - !Vector3 {x: 11, y: 0, z: 23}
+      # - !Vector3 {x: 13, y: 0, z: 23}
+      # - !Vector3 {x: 15, y: 0, z: 23}
+      - !Vector3 {x: 17, y: 0, z: 23}
+      - !Vector3 {x: 19, y: 0, z: 23}
+      - !Vector3 {x: 21, y: 0, z: 23}
+      # - !Vector3 {x: 23, y: 0, z: 23}
+      # - !Vector3 {x: 25, y: 0, z: 23}
+      - !Vector3 {x: 27, y: 0, z: 23}
+      - !Vector3 {x: 29, y: 0, z: 23}
+      # - !Vector3 {x: 31, y: 0, z: 23}
+      # - !Vector3 {x: 33, y: 0, z: 23}
+      - !Vector3 {x: 35, y: 0, z: 23}
+      - !Vector3 {x: 37, y: 0, z: 23}
+      - !Vector3 {x: 39, y: 0, z: 23}
+      - !Vector3 {x: 1, y: 0, z: 25}
+      - !Vector3 {x: 3, y: 0, z: 25}
+      # - !Vector3 {x: 5, y: 0, z: 25}
+      # - !Vector3 {x: 7, y: 0, z: 25}
+      - !Vector3 {x: 9, y: 0, z: 25}
+      - !Vector3 {x: 11, y: 0, z: 25}
+      # - !Vector3 {x: 13, y: 0, z: 25}
+      # - !Vector3 {x: 15, y: 0, z: 25}
+      - !Vector3 {x: 17, y: 0, z: 25}
+      - !Vector3 {x: 19, y: 0, z: 25}
+      - !Vector3 {x: 21, y: 0, z: 25}
+      # - !Vector3 {x: 23, y: 0, z: 25}
+      # - !Vector3 {x: 25, y: 0, z: 25}
+      - !Vector3 {x: 27, y: 0, z: 25}
+      - !Vector3 {x: 29, y: 0, z: 25}
+      # - !Vector3 {x: 31, y: 0, z: 25}
+      # - !Vector3 {x: 33, y: 0, z: 25}
+      - !Vector3 {x: 35, y: 0, z: 25}
+      - !Vector3 {x: 37, y: 0, z: 25}
+      - !Vector3 {x: 39, y: 0, z: 25}
+      - !Vector3 {x: 1, y: 0, z: 27}
+      - !Vector3 {x: 3, y: 0, z: 27}
+      - !Vector3 {x: 5, y: 0, z: 27}
+      - !Vector3 {x: 7, y: 0, z: 27}
+      - !Vector3 {x: 9, y: 0, z: 27}
+      - !Vector3 {x: 11, y: 0, z: 27}
+      - !Vector3 {x: 13, y: 0, z: 27}
+      - !Vector3 {x: 15, y: 0, z: 27}
+      - !Vector3 {x: 17, y: 0, z: 27}
+      - !Vector3 {x: 19, y: 0, z: 27}
+      - !Vector3 {x: 21, y: 0, z: 27}
+      - !Vector3 {x: 23, y: 0, z: 27}
+      - !Vector3 {x: 25, y: 0, z: 27}
+      - !Vector3 {x: 27, y: 0, z: 27}
+      - !Vector3 {x: 29, y: 0, z: 27}
+      - !Vector3 {x: 31, y: 0, z: 27}
+      - !Vector3 {x: 33, y: 0, z: 27}
+      - !Vector3 {x: 35, y: 0, z: 27}
+      - !Vector3 {x: 37, y: 0, z: 27}
+      - !Vector3 {x: 39, y: 0, z: 27}
+      - !Vector3 {x: 1, y: 0, z: 29}
+      - !Vector3 {x: 3, y: 0, z: 29}
+      # - !Vector3 {x: 5, y: 0, z: 29}
+      # - !Vector3 {x: 7, y: 0, z: 29}
+      - !Vector3 {x: 9, y: 0, z: 29}
+      - !Vector3 {x: 11, y: 0, z: 29}
+      # - !Vector3 {x: 13, y: 0, z: 29}
+      # - !Vector3 {x: 15, y: 0, z: 29}
+      - !Vector3 {x: 17, y: 0, z: 29}
+      - !Vector3 {x: 19, y: 0, z: 29}
+      - !Vector3 {x: 21, y: 0, z: 29}
+      # - !Vector3 {x: 23, y: 0, z: 29}
+      # - !Vector3 {x: 25, y: 0, z: 29}
+      - !Vector3 {x: 27, y: 0, z: 29}
+      - !Vector3 {x: 29, y: 0, z: 29}
+      # - !Vector3 {x: 31, y: 0, z: 29}
+      # - !Vector3 {x: 33, y: 0, z: 29}
+      - !Vector3 {x: 35, y: 0, z: 29}
+      - !Vector3 {x: 37, y: 0, z: 29}
+      - !Vector3 {x: 39, y: 0, z: 29}
+      - !Vector3 {x: 1, y: 0, z: 31}
+      - !Vector3 {x: 3, y: 0, z: 31}
+      # - !Vector3 {x: 5, y: 0, z: 31}
+      # - !Vector3 {x: 7, y: 0, z: 31}
+      - !Vector3 {x: 9, y: 0, z: 31}
+      - !Vector3 {x: 11, y: 0, z: 31}
+      # - !Vector3 {x: 13, y: 0, z: 31}
+      # - !Vector3 {x: 15, y: 0, z: 31}
+      - !Vector3 {x: 17, y: 0, z: 31}
+      - !Vector3 {x: 19, y: 0, z: 31}
+      - !Vector3 {x: 21, y: 0, z: 31}
+      # - !Vector3 {x: 23, y: 0, z: 31}
+      # - !Vector3 {x: 25, y: 0, z: 31}
+      - !Vector3 {x: 27, y: 0, z: 31}
+      - !Vector3 {x: 29, y: 0, z: 31}
+      # - !Vector3 {x: 31, y: 0, z: 31}
+      # - !Vector3 {x: 33, y: 0, z: 31}
+      - !Vector3 {x: 35, y: 0, z: 31}
+      - !Vector3 {x: 37, y: 0, z: 31}
+      - !Vector3 {x: 39, y: 0, z: 31}
+      - !Vector3 {x: 1, y: 0, z: 33}
+      - !Vector3 {x: 3, y: 0, z: 33}
+      - !Vector3 {x: 5, y: 0, z: 33}
+      - !Vector3 {x: 7, y: 0, z: 33}
+      - !Vector3 {x: 9, y: 0, z: 33}
+      - !Vector3 {x: 11, y: 0, z: 33}
+      - !Vector3 {x: 13, y: 0, z: 33}
+      - !Vector3 {x: 15, y: 0, z: 33}
+      - !Vector3 {x: 17, y: 0, z: 33}
+      - !Vector3 {x: 19, y: 0, z: 33}
+      - !Vector3 {x: 21, y: 0, z: 33}
+      - !Vector3 {x: 23, y: 0, z: 33}
+      - !Vector3 {x: 25, y: 0, z: 33}
+      - !Vector3 {x: 27, y: 0, z: 33}
+      - !Vector3 {x: 29, y: 0, z: 33}
+      - !Vector3 {x: 31, y: 0, z: 33}
+      - !Vector3 {x: 33, y: 0, z: 33}
+      - !Vector3 {x: 35, y: 0, z: 33}
+      - !Vector3 {x: 37, y: 0, z: 33}
+      - !Vector3 {x: 39, y: 0, z: 33}
+      - !Vector3 {x: 1, y: 0, z: 35}
+      - !Vector3 {x: 3, y: 0, z: 35}
+      # - !Vector3 {x: 5, y: 0, z: 35}
+      # - !Vector3 {x: 7, y: 0, z: 35}
+      - !Vector3 {x: 9, y: 0, z: 35}
+      - !Vector3 {x: 11, y: 0, z: 35}
+      # - !Vector3 {x: 13, y: 0, z: 35}
+      # - !Vector3 {x: 15, y: 0, z: 35}
+      - !Vector3 {x: 17, y: 0, z: 35}
+      - !Vector3 {x: 19, y: 0, z: 35}
+      - !Vector3 {x: 21, y: 0, z: 35}
+      # - !Vector3 {x: 23, y: 0, z: 35}
+      # - !Vector3 {x: 25, y: 0, z: 35}
+      - !Vector3 {x: 27, y: 0, z: 35}
+      - !Vector3 {x: 29, y: 0, z: 35}
+      # - !Vector3 {x: 31, y: 0, z: 35}
+      # - !Vector3 {x: 33, y: 0, z: 35}
+      - !Vector3 {x: 35, y: 0, z: 35}
+      - !Vector3 {x: 37, y: 0, z: 35}
+      - !Vector3 {x: 39, y: 0, z: 35}
+      - !Vector3 {x: 1, y: 0, z: 37}
+      - !Vector3 {x: 3, y: 0, z: 37}
+      # - !Vector3 {x: 5, y: 0, z: 37}
+      # - !Vector3 {x: 7, y: 0, z: 37}
+      - !Vector3 {x: 9, y: 0, z: 37}
+      - !Vector3 {x: 11, y: 0, z: 37}
+      # - !Vector3 {x: 13, y: 0, z: 37}
+      # - !Vector3 {x: 15, y: 0, z: 37}
+      - !Vector3 {x: 17, y: 0, z: 37}
+      - !Vector3 {x: 19, y: 0, z: 37}
+      - !Vector3 {x: 21, y: 0, z: 37}
+      # - !Vector3 {x: 23, y: 0, z: 37}
+      # - !Vector3 {x: 25, y: 0, z: 37}
+      - !Vector3 {x: 27, y: 0, z: 37}
+      - !Vector3 {x: 29, y: 0, z: 37}
+      # - !Vector3 {x: 31, y: 0, z: 37}
+      # - !Vector3 {x: 33, y: 0, z: 37}
+      - !Vector3 {x: 35, y: 0, z: 37}
+      - !Vector3 {x: 37, y: 0, z: 37}
+      - !Vector3 {x: 39, y: 0, z: 37}
+      - !Vector3 {x: 1, y: 0, z: 39}
+      - !Vector3 {x: 3, y: 0, z: 39}
+      - !Vector3 {x: 5, y: 0, z: 39}
+      - !Vector3 {x: 7, y: 0, z: 39}
+      - !Vector3 {x: 9, y: 0, z: 39}
+      - !Vector3 {x: 11, y: 0, z: 39}
+      - !Vector3 {x: 13, y: 0, z: 39}
+      - !Vector3 {x: 15, y: 0, z: 39}
+      - !Vector3 {x: 17, y: 0, z: 39}
+      - !Vector3 {x: 19, y: 0, z: 39}
+      - !Vector3 {x: 21, y: 0, z: 39}
+      - !Vector3 {x: 23, y: 0, z: 39}
+      - !Vector3 {x: 25, y: 0, z: 39}
+      - !Vector3 {x: 27, y: 0, z: 39}
+      - !Vector3 {x: 29, y: 0, z: 39}
+      - !Vector3 {x: 31, y: 0, z: 39}
+      - !Vector3 {x: 33, y: 0, z: 39}
+      - !Vector3 {x: 35, y: 0, z: 39}
+      - !Vector3 {x: 37, y: 0, z: 39}
+      - !Vector3 {x: 39, y: 0, z: 39}
+      sizes:
+      - !Vector3 {x: 40, y: 1, z: 20}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      # - !Vector3 {x: 2, y: 3, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      - !Vector3 {x: 2, y: 1, z: 2}
+      colors:
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      # - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+      - !RGB {r: 0, g: 0, b: 255}
+    - !Item
+      name: Ramp
+      positions:
+      - !Vector3 {x: 20, y: 1, z: 10}
+      rotations: [0]
+      sizes:
+      - !Vector3 {x: 40, y: 5, z: 20}
+      colors:
+      - !RGB {r: 255, g: 0, b: 255}
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 32, y: 12, z: 24} # GoodGoal Position
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2} # GoodGoal Size
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 7, z: 2} # Agent Position
+      rotations: [0] # Agent Rotation
+    - !Item
+    # Perimeters for contrast around holes
+      name: Wall
+      positions:
+      - !Vector3 {x: 6, y: 1, z: 21.75}
+      - !Vector3 {x: 14, y: 1, z: 21.75}
+      - !Vector3 {x: 32, y: 1, z: 21.75}
+      - !Vector3 {x: 24, y: 1, z: 21.75}
+      - !Vector3 {x: 6, y: 1, z: 26.25}
+      - !Vector3 {x: 14, y: 1, z: 26.25}
+      - !Vector3 {x: 32, y: 1, z: 26.25}
+      - !Vector3 {x: 24, y: 1, z: 26.25}
+      - !Vector3 {x: 6, y: 1, z: 27.75}
+      - !Vector3 {x: 14, y: 1, z: 27.75}
+      - !Vector3 {x: 32, y: 1, z: 27.75}
+      - !Vector3 {x: 24, y: 1, z: 27.75}
+      - !Vector3 {x: 6, y: 1, z: 32.25}
+      - !Vector3 {x: 14, y: 1, z: 32.25}
+      - !Vector3 {x: 32, y: 1, z: 32.25}
+      - !Vector3 {x: 24, y: 1, z: 32.25}
+      - !Vector3 {x: 6, y: 1, z: 33.75}
+      - !Vector3 {x: 14, y: 1, z: 33.75}
+      - !Vector3 {x: 32, y: 1, z: 33.75}
+      - !Vector3 {x: 24, y: 1, z: 33.75}
+      - !Vector3 {x: 6, y: 1, z: 38.25}
+      - !Vector3 {x: 14, y: 1, z: 38.25}
+      - !Vector3 {x: 32, y: 1, z: 38.25}
+      - !Vector3 {x: 24, y: 1, z: 38.25}
+      ## vertical bounding boxes
+      - !Vector3 {x: 3.75, y: 1, z: 24}
+      - !Vector3 {x: 8.25, y: 1, z: 24}
+      - !Vector3 {x: 11.75, y: 1, z: 24}
+      - !Vector3 {x: 16.25, y: 1, z: 24}
+      - !Vector3 {x: 21.75, y: 1, z: 24}
+      - !Vector3 {x: 26.25, y: 1, z: 24}
+      - !Vector3 {x: 29.75, y: 1, z: 24}
+      - !Vector3 {x: 34.25, y: 1, z: 24}
+      - !Vector3 {x: 3.75, y: 1, z: 30}
+      - !Vector3 {x: 8.25, y: 1, z: 30}
+      - !Vector3 {x: 11.75, y: 1, z: 30}
+      - !Vector3 {x: 16.25, y: 1, z: 30}
+      - !Vector3 {x: 21.75, y: 1, z: 30}
+      - !Vector3 {x: 26.25, y: 1, z: 30}
+      - !Vector3 {x: 29.75, y: 1, z: 30}
+      - !Vector3 {x: 34.25, y: 1, z: 30}
+      - !Vector3 {x: 3.75, y: 1, z: 36}
+      - !Vector3 {x: 8.25, y: 1, z: 36}
+      - !Vector3 {x: 11.75, y: 1, z: 36}
+      - !Vector3 {x: 16.25, y: 1, z: 36}
+      - !Vector3 {x: 21.75, y: 1, z: 36}
+      - !Vector3 {x: 26.25, y: 1, z: 36}
+      - !Vector3 {x: 29.75, y: 1, z: 36}
+      - !Vector3 {x: 34.25, y: 1, z: 36}
+      sizes:
+      - !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      - !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      - !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      - !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      - !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      - !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      - !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      - !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      - !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      - !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      - !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      - !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      - !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      - !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      - !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      - !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      - !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      - !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      - !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      - !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      - !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      - !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      - !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      - !Vector3 {x: 5, y: 0.0000001, z: 0.5}
+      ##vertical bbs
+      - !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      - !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      - !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      - !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      - !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      - !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      - !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      - !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      - !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      - !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      - !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      - !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      - !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      - !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      - !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      - !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      - !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      - !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      - !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      - !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      - !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      - !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      - !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      - !Vector3 {x: 0.5, y: 0.0000001, z: 4}
+      rotations: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      colors:
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      ## vertical bbs
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
