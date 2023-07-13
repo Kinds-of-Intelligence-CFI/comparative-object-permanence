@@ -50,7 +50,7 @@ arenas:
      # - !RGB {r: 255, g: 0, b: 255}
       rotations: [180, 180, 180]
     - !Item
-      name: GoodGoalMulti
+      name: GoodGoal
       positions:
       #- !Vector3 {x: 8, y: 10, z: 38}
       #- !Vector3 {x: 20, y: 10, z: 38}

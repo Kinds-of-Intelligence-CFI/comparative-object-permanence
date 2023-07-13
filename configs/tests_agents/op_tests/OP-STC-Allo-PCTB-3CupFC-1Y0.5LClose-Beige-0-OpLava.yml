@@ -1,0 +1,83 @@
+!ArenaConfig
+arenas:
+  -1: !Arena
+    pass_mark: -0.5
+    t: 500
+    items:
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 13.3, y: 0, z: 33}
+      - !Vector3 {x: 26.6, y: 0, z: 33}
+      - !Vector3 {x: 8, y: 0, z: 36}
+      - !Vector3 {x: 20, y: 0, z: 36}
+      - !Vector3 {x: 33.4, y: 0, z: 36}
+      sizes:
+      - !Vector3 {x: 14, y: 4, z: 1}
+      - !Vector3 {x: 14, y: 4, z: 1}
+      - !Vector3 {x: 1, y: 4, z: 3}
+      - !Vector3 {x: 1, y: 4, z: 3}
+      - !Vector3 {x: 1, y: 4, z: 3}
+      rotations: [90, 90, 90, 90, 90]
+      colors:
+      - !RGB {r: 236, g: 195, b: 153} #color parameter
+      - !RGB {r: 236, g: 195, b: 153} #color parameter
+      - !RGB {r: 236, g: 195, b: 153} #color parameter
+      - !RGB {r: 236, g: 195, b: 153} #color parameter
+      - !RGB {r: 236, g: 195, b: 153} #color parameter
+    - !Item
+      name: Ramp
+      positions:
+      - !Vector3 {x: 6.6, y: 0, z: 28}
+      - !Vector3 {x: 20, y: 0, z: 28}
+      - !Vector3 {x: 33.3, y: 0, z: 28}
+     # - !Vector3 {x: 6.6, y: 0, z: 32}
+     # - !Vector3 {x: 20, y: 0, z: 32}
+     # - !Vector3 {x: 33.3, y: 0, z: 32}
+      sizes:
+      - !Vector3 {x: 6, y: 2.1, z: 4}
+      - !Vector3 {x: 6, y: 2.1, z: 4}
+      - !Vector3 {x: 6, y: 2.1, z: 4}
+     # - !Vector3 {x: 6, y: 2.1, z: 4}
+     # - !Vector3 {x: 6, y: 2.1, z: 4}
+     # - !Vector3 {x: 6, y: 2.1, z: 4}
+      colors:
+      - !RGB {r: 255, g: 0, b: 255}
+      - !RGB {r: 255, g: 0, b: 255}
+      - !RGB {r: 255, g: 0, b: 255}
+     # - !RGB {r: 255, g: 0, b: 255}
+     # - !RGB {r: 255, g: 0, b: 255}
+     # - !RGB {r: 255, g: 0, b: 255}
+      rotations: [180, 180, 180]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 8, y: 10, z: 38}
+     # - !Vector3 {x: 20, y: 7, z: 38}
+     # - !Vector3 {x: 33.4, y: 7, z: 38}
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5} #Goal Size
+     # - !Vector3 {x: 0.5, y: 0.5, z: 0.5} #Goal Size
+     # - !Vector3 {x: 0.5, y: 0.5, z: 0.5} #Goal Size
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 15}
+      rotations: [0]
+    - !Item
+      name: DeathZone
+      positions:
+      - !Vector3 {x: 1.8, y: 0, z: 28}
+      - !Vector3 {x: 11.4, y: 0, z: 28}
+      - !Vector3 {x: 15.2, y: 0, z: 28}
+      - !Vector3 {x: 24.8, y: 0, z: 28}
+      - !Vector3 {x: 28.5, y: 0, z: 28}
+      - !Vector3 {x: 38.1, y: 0, z: 28}
+      sizes:
+      - !Vector3 {x: 3.6, y: 1, z: 3}
+      - !Vector3 {x: 3.6, y: 1, z: 3}
+      - !Vector3 {x: 3.6, y: 1, z: 3}
+      - !Vector3 {x: 3.6, y: 1, z: 3}
+      - !Vector3 {x: 3.6, y: 1, z: 3}
+      - !Vector3 {x: 3.6, y: 1, z: 3}
+      rotations: [0, 0, 0, 0, 0, 0]
