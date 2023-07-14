@@ -1,0 +1,36 @@
+!ArenaConfig
+arenas:
+  -1: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 25} # Platform Position
+      rotations: [0] # Platform Rotation
+      sizes:
+      - !Vector3 {x: 40, y: 1.5, z: 30} # Platform Size
+      colors:
+      - !RGB {r: 0, g: 0, b: 256} #Platform Color
+    - !Item
+      name: Ramp
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 7.5} # Ramp Position
+      rotations: [180] # Ramp Rotation
+      sizes:
+      - !Vector3 {x: 20, y: 1.5, z: 5} # Ramp Size
+      colors:
+      - !RGB {r: 256, g: 0, b: 256} #Ramp Color
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 15, y: 1.5, z: 20} #GoodGoalMulti Position
+      sizes:
+      - !Vector3 {x: 5, y: 5, z: 5} #GoodGoalMulti Size
+    blackouts: [-15]

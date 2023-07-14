@@ -1,0 +1,19 @@
+!ArenaConfig
+arenas:
+  -1: !Arena
+    pass_mark: -0.1 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+

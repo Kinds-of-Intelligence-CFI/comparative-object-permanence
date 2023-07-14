@@ -1,0 +1,22 @@
+!ArenaConfig
+arenas:
+  -1: !Arena
+    pass_mark: 1 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 30}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+
+    blackouts: [-15]
