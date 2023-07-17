@@ -2,18 +2,23 @@
 Author: M. D. Crosby 2021-2022.
 Adapted for current study by: K. Voudouris.
 """
+import argparse
+import numpy as np
+import os
 import random
 
 from animalai.envs.actions import AAIActions, AAIAction
+from animalai.envs.environment import AnimalAIEnvironment
 from animalai.envs.raycastparser import RayCastParser
 from animalai.envs.raycastparser import RayCastObjects
 
 class vanillaBraitenberg():
     """Implements a simple Braitenberg vehicle agent that heads towards food
     Can change the number of rays but only responds to GOODGOALs, GOODGOALMULTI and BADGOAL"""
-    def __init__(self, no_rays):
+    def __init__(self, no_rays, max_degrees):
         self.no_rays = no_rays
         assert(self.no_rays % 2 == 1), "Only supports odd number of rays (but environment should only allow odd number"
+        self.max_degrees = max_degrees
         self.listOfObjects = [RayCastObjects.GOODGOAL, RayCastObjects.GOODGOALMULTI, RayCastObjects.BADGOAL, RayCastObjects.IMMOVABLE, RayCastObjects.MOVABLE]
         self.raycast_parser = RayCastParser(self.listOfObjects, self.no_rays)
         self.actions = AAIActions()
@@ -47,28 +52,7 @@ class vanillaBraitenberg():
             newAction = self.actions.BACKWARDSRIGHT
         elif self.right(obs, RayCastObjects.BADGOAL):
             newAction = self.actions.BACKWARDSLEFT
-        else: # if there are no objects in the agents view then:
-            # if self.prev_action == self.actions.NOOP: #if the previous action was a no action, then randomly select forwardsleft or forwardsright.
-            #     select_left_right = random.getrandbits(1)
-            #     if select_left_right == 0:
-            #         newAction = self.actions.LEFT
-            #     else:
-            #         newAction = self.actions.RIGHT
-            # elif self.prev_action == self.actions.LEFT: # if the previous action was a forwardsleft, then with a 0.95 probability continue that action, otherwise, go forwardsright. Encourages a bit of exploration.
-            #     select_change = random.randint(0,20)
-            #     if select_change == 0:
-            #         newAction = self.actions.RIGHT
-            #     else:
-            #         newAction = self.prev_action
-            # elif self.prev_action == self.actions.RIGHT: # if the previous action was a forwardsright, then with a 0.95 probability continue that action, otherwise, go forwardsleft. Encourages a bit of exploration.
-            #     select_change = random.randint(0,20)
-            #     if select_change == 0:
-            #         newAction = self.actions.LEFT
-            #     else:
-            #         newAction = self.prev_action
-            # else:
-            #    select_change = random.randint(0,20)
-            #    if select_change == 0:
+        else: 
             select_random_action = random.randint(0,89) #pick a new random action with a probability of 0.1 (9 actions out of 90 possible integers), otherwise execute the previous action. Encourages exploration.
             if select_random_action == 0:
                 newAction = self.actions.NOOP
@@ -117,3 +101,103 @@ class vanillaBraitenberg():
                 # print("found " + str(object) + " right")
                 return True
         return False
+
+
+
+def watch_vanilla_braitenberg_agent_single_config(configuration_file: str, agent: vanillaBraitenberg):
+    
+    port = 4000 + random.randint(
+        0, 1000
+        )  # use a random port to avoid problems if a previous version exits slowly
+    
+    aai_env = AnimalAIEnvironment( 
+    inference=True, #Set true when watching the agent
+    seed = 123,
+    worker_id=random.randint(0, 65500),
+    file_name="../../env/AnimalAI",
+    arenas_configurations=configuration_file,
+    base_port=port,
+    useCamera=False,
+    useRayCasts=True,
+    raysPerSide = int((agent.no_rays)/2),
+    rayMaxDegrees = agent.max_degrees
+    )
+
+    behavior = list(aai_env.behavior_specs.keys())[0] # by default should be AnimalAI?team=0
+
+    done = False
+    episodeReward = 0
+
+    aai_env.step() # take first step to get an observation
+
+    dec, term = aai_env.get_steps(behavior)
+ 
+    while not done:
+
+        observations = aai_env.get_obs_dict(dec.obs)
+
+        raycasts = observations["rays"] # Get the raycast data
+
+        action = agent.get_action(raycasts)
+
+        aai_env.set_actions(behavior, action.action_tuple)
+
+        aai_env.step()
+
+        dec, term = aai_env.get_steps(behavior)
+        
+        if len(dec.reward) > 0 and len(term) <= 0:
+            episodeReward += dec.reward
+
+        elif len(term) > 0: #Episode is over
+            episodeReward += term.reward
+            print(f"Episode Reward: {episodeReward}")
+            done = True
+        
+        else:
+            pass
+
+    aai_env.close()
+
+        
+    
+        
+
+
+
+
+if __name__ == "__main__":
+
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument("--config_file", 
+                        type=str, 
+                        help="What config file should be run? Defaults to a random file from the competition folder.")
+    
+    parser.add_argument("--no_rays", 
+                        type=int, 
+                        help="How many rays should the raycaster produce? Must be an odd number. Defaults to 11.",
+                        default = 11)
+    parser.add_argument("--max_degrees", 
+                        type=int, 
+                        help = "Over how many degrees ought the raycasts be distributed? Defaults to 60.",
+                        default = 60)
+    
+    args = parser.parse_args()
+
+    no_rays = args.no_rays 
+    max_degrees = args.max_degrees
+
+    if args.config_file is not None:
+        configuration_file = args.config_file
+    else:
+        config_folder = "../../configs/tests_agents/op_tests/"
+        configuration_files = os.listdir(config_folder)
+        configuration_random = random.randint(0, len(configuration_files))
+        configuration_file = config_folder + configuration_files[configuration_random]
+        print(f"Using configuration file {configuration_file}")
+
+    singleEpisodeVanillaBraitenberg = vanillaBraitenberg(no_rays=no_rays,
+                                             max_degrees=max_degrees)
+    
+    watch_vanilla_braitenberg_agent_single_config(configuration_file=configuration_file, agent = singleEpisodeVanillaBraitenberg)
