@@ -232,7 +232,7 @@ An additional 3 units and 4 turns are added in the presence of a decoy to accoun
 
 ### `STC-Allo-PCTB-3CupFC-2Y1.5LRClose-Grey-0-OPQ`
 
-![OP-STC-Allo-PCTB-3CupFC-2Y1.5LRClose-Grey-0-OPQ](../figs/appendices/ShortestPath_OP-STC-Allo-PCTB-3CupFC-2Y1.5LRClose-Grey-0-OPQ)
+![OP-STC-Allo-PCTB-3CupFC-2Y1.5LRClose-Grey-0-OPQ](../figs/appendices/ShortestPath_OP-STC-Allo-PCTB-3CupFC-2Y1.5LRClose-Grey-0-OPQ.png)
 
 In this task, the agent has to obtain 2 `GoodGoalMulti`. This is one of the paths it could take. It would take the following route:
 
@@ -258,7 +258,7 @@ When there is lava at the edges of the ramps, the route is more circuitous (108)
 
 ### `OP-STC-Allo-PCTB-12CupGrid-G2FarLeftFar-NA-0-NA`
 
-![OP-STC-Allo-PCTB-12CupGrid-G2FarLeftFar-NA-0-NA](../figs/appendices/ShortestPath_OP-STC-Allo-PCTB-12CupGrid-G2FarLeftFar-NA-0-NA)
+![OP-STC-Allo-PCTB-12CupGrid-G2FarLeftFar-NA-0-NA](../figs/appendices/ShortestPath_OP-STC-Allo-PCTB-12CupGrid-G2FarLeftFar-NA-0-NA.png)
 
 In this task, the agent has to obtain 1 `GoodGoal` that falls into one of the holes in the grid. This is one of the paths it could take. It would take the following route:
 
