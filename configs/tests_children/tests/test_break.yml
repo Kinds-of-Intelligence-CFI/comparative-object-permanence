@@ -1,0 +1,132 @@
+!ArenaConfig
+arenas:
+  -1: !Arena
+    pass_mark: 0
+    t: 0
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 2}
+      rotations: [0]
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 39.5} # back wall
+      rotations: [0]
+      sizes:
+      - !Vector3 {x: 40, y: 20, z: 1}
+      colors:
+      - !RGB {r: 0, g: 0, b: 0}
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 1, y: 0, z: 38.75} # N Left
+      - !Vector3 {x: 7, y: 0, z: 38.75} # N Right
+      - !Vector3 {x: 6.5, y: 3, z: 38.75} # N Mid
+      sizes:
+      - !Vector3 {x: 0.5, y: 7, z: 0.5} # A Mid
+      - !Vector3 {x: 0.5, y: 7, z: 0.5} # A Left buttress lower
+      - !Vector3 {x: 0.5, y: 8, z: 0.5} # A Right buttress lower
+      rotations: [0, 0, 0]
+      colors:
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+    - !Item
+      name: Ramp
+      positions:
+      - !Vector3 {x: 4, y: 0, z: 38.75} # Ramp
+      - !Vector3 {x: 6.5, y: 0, z: 38.75} # Ramp
+      sizes:
+      - !Vector3 {x: 0.5, y: 6, z: 4} # Ramp
+      - !Vector3 {x: 0.5, y: 0.1, z: 0.5} # Ramp
+      rotations: [90, 270]
+      colors:
+      - !RGB {r: 0, g: 0, b: 0}
+      - !RGB {r: 0, g: 0, b: 0}
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 12, y: 0, z: 38.75} # I bottom
+      - !Vector3 {x: 12, y: 0.5, z: 38.75} # I mid
+      - !Vector3 {x: 12, y: 6.5, z: 38.75} # I top
+      sizes:
+      - !Vector3 {x: 6, y: 0.5, z: 0.5} # I bottom
+      - !Vector3 {x: 0.5, y: 6, z: 0.5} # I mid
+      - !Vector3 {x: 6, y: 0.5, z: 0.5} # I top
+      rotations: [0, 0, 0]
+      colors:
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 38.75} # C bottom
+      - !Vector3 {x: 17, y: 0.5, z: 38.75} # C left
+      - !Vector3 {x: 23, y: 0.5, z: 38.75} # C right dark
+      - !Vector3 {x: 20, y: 6.5, z: 38.75} # C top
+      sizes:
+      - !Vector3 {x: 6, y: 0.5, z: 0.5} # C bottom
+      - !Vector3 {x: 0.5, y: 6, z: 0.5} # C left
+      - !Vector3 {x: 0.5, y: 6, z: 0.5} # C right dark
+      - !Vector3 {x: 6, y: 0.5, z: 0.5} # C top
+      rotations: [0, 0, 0, 0]
+      colors:
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 0, g: 0, b: 0}
+      - !RGB {r: 255, g: 255, b: 255}
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 28, y: 0, z: 38.75} # E bottom
+      - !Vector3 {x: 25, y: 0.5, z: 38.75} # E left lower
+      - !Vector3 {x: 25, y: 3.75, z: 38.75} # E left upper
+      - !Vector3 {x: 31, y: 0.5, z: 38.75} # C right lower dark
+      - !Vector3 {x: 31, y: 3.75, z: 38.75} # C right upper dark
+      - !Vector3 {x: 28, y: 3.25, z: 38.75} # C mid
+      - !Vector3 {x: 28, y: 6.5, z: 38.75} # C top
+      sizes:
+      - !Vector3 {x: 6, y: 0.5, z: 0.5} # C bottom
+      - !Vector3 {x: 0.5, y: 2.75, z: 0.5} # E left lower
+      - !Vector3 {x: 0.5, y: 2.75, z: 0.5} # E left upper
+      - !Vector3 {x: 0.5, y: 2.75, z: 0.5} # E right lower dark
+      - !Vector3 {x: 0.5, y: 2.75, z: 0.5} # E right upper dark
+      - !Vector3 {x: 6, y: 0.5, z: 0.5} # C mid
+      - !Vector3 {x: 6, y: 0.5, z: 0.5} # C top
+      rotations: [0, 0, 0, 0, 0, 0, 0]
+      colors:
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 0, g: 0, b: 0}
+      - !RGB {r: 0, g: 0, b: 0}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 36, y: 0, z: 38.75} # ! dark bottom
+      - !Vector3 {x: 36, y: 0.5, z: 38.75} # ! dot
+      - !Vector3 {x: 36, y: 1.5, z: 38.75} # ! dot gap
+      - !Vector3 {x: 36, y: 2, z: 38.75} # ! stick
+      sizes:
+      - !Vector3 {x: 2, y: 0.5, z: 0.5} # ! dark bottom
+      - !Vector3 {x: 2, y: 1, z: 0.5} # ! dot
+      - !Vector3 {x: 2, y: 0.5, z: 0.5} # ! dot gap
+      - !Vector3 {x: 2, y: 5, z: 0.5} # ! stick
+      rotations: [0, 0, 0, 0]
+      colors:
+      - !RGB {r: 0, g: 0, b: 0}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 0, g: 0, b: 0}
+      - !RGB {r: 255, g: 255, b: 255}
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 30}
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+      rotations: [0]
