@@ -143,12 +143,14 @@ class RandomWalker:
             num_steps = abs(num_steps) #make num_steps a positive number so it only goes forwards.
 
         if num_steps > 0: #Move forwards
-            step_list = deque([3]*abs(num_steps)) # add in a stationary movement to reduce effect of momentum on next step.
-            step_list.append(0)
+            step_list = deque([3]*abs(num_steps)) 
+            step_list.append(0) # add in a stationary movement to reduce effect of momentum on next step.
+            step_list.append(0) # add in a stationary movement to reduce effect of momentum on next step.
         
         elif num_steps < 0: #Move backwards
             step_list = deque([6]*abs(num_steps))
-            step_list.append(0)
+            step_list.append(0) # add in a stationary movement to reduce effect of momentum on next step.
+            step_list.append(0) # add in a stationary movement to reduce effect of momentum on next step.
 
         else:
             raise ValueError("Saccade length is 0. Try increasing max_saccade_length.")
