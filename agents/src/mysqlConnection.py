@@ -64,11 +64,18 @@ def removePreviouslyRunInstances(cur, yaml_files, task_names, agentid, agent_tab
 
     return task_names, yaml_files
 
-def selectID(cur, id_name, table_name, WHERE_column, WHERE_clause, distinct = True):
-    if distinct:
-        query = f"SELECT DISTINCT {id_name} FROM {table_name} WHERE {WHERE_column} = '{WHERE_clause}';"
+def selectID(cur, id_name, table_name, WHERE_column, WHERE_clause, secondary_WHERE_column = None, secondary_WHERE_clause = None, distinct = True):
+    if secondary_WHERE_column is None:
+        if distinct:
+            query = f"SELECT DISTINCT {id_name} FROM {table_name} WHERE {WHERE_column} = '{WHERE_clause}';"
+        else:
+            query = f"SELECT {id_name} FROM {table_name} WHERE {WHERE_column} = '{WHERE_clause}';"
     else:
-        query = f"SELECT {id_name} FROM {table_name} WHERE {WHERE_column} = '{WHERE_clause}';"
+        if distinct:
+            query = f"SELECT DISTINCT {id_name} FROM {table_name} WHERE {WHERE_column} = '{WHERE_clause}' AND {secondary_WHERE_column} = '{secondary_WHERE_clause}';"
+        else:
+            query = f"SELECT {id_name} FROM {table_name} WHERE {WHERE_column} = '{WHERE_clause}' AND {secondary_WHERE_column} = '{secondary_WHERE_clause}';"
+
 
     cur.execute(query)
 
