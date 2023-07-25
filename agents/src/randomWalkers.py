@@ -178,7 +178,7 @@ class RandomWalker:
                     if right:
                         num_steps = random.randint(0, self.max_angle_steps)
                     else:
-                        num_steps = random.randint(0, (self.max_angle_steps * -1))
+                        num_steps = random.randint(0, (self.max_angle_steps)) * -1
 
         elif self.angle_distribution == 'normal':
             central_moment_difference = prev_angle_central_moment - self.angle_norm_mu 
