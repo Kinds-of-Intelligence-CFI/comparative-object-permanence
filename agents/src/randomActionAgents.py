@@ -64,12 +64,12 @@ class RandomActionAgent:
 
         elif self.step_length_distribution == 'cauchy':
             num_steps = -1
-            while num_steps < 0:
+            while num_steps <= 0:
                 num_steps = int(np.random.standard_cauchy() + self.cauchy_mode)
         
         elif self.step_length_distribution == 'gamma':
             num_steps = -1
-            while num_steps < 0:
+            while num_steps <= 0:
                 num_steps = int(np.random.gamma(self.gamma_kappa, self.gamma_theta))
         
         elif self.step_length_distribution == 'weibull':
