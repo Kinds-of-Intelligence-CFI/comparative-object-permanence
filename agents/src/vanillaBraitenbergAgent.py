@@ -19,62 +19,72 @@ class vanillaBraitenberg():
         self.no_rays = no_rays
         assert(self.no_rays % 2 == 1), "Only supports odd number of rays (but environment should only allow odd number"
         self.max_degrees = max_degrees
-        self.listOfObjects = [RayCastObjects.GOODGOAL, RayCastObjects.GOODGOALMULTI, RayCastObjects.BADGOAL, RayCastObjects.IMMOVABLE, RayCastObjects.MOVABLE]
+        self.listOfObjects = [RayCastObjects.GOODGOAL, RayCastObjects.GOODGOALMULTI, RayCastObjects.BADGOAL, RayCastObjects.IMMOVABLE, RayCastObjects.MOVABLE, RayCastObjects.ARENA]
         self.raycast_parser = RayCastParser(self.listOfObjects, self.no_rays)
         self.actions = AAIActions()
-        self.prev_action = self.actions.NOOP
+        self.prev_action = self.actions.FORWARDS
 
     def prettyPrint(self, obs) -> str:
         """Prints the parsed observation"""
         return self.raycast_parser.prettyPrint(obs)
     
-    def get_action(self, obs) -> AAIAction:
-        """Returns the action to take given the current parsed raycast observation"""
+    def checkStationarity(self, vel_observations):
+        bool_array = (vel_observations <= np.array([1,1,1]))
+        if sum(bool_array) == 3:
+            return True
+        else:
+            return False
+    
+    def get_action(self, observations) -> AAIAction:
+        """Returns the action to take given the current parsed raycast observation and other observations"""
+        obs = observations["rays"]
+
         obs = self.raycast_parser.parse(obs)
 
-        newAction = self.actions.NOOP #initialise the new action to be no action
+        velocities = observations["velocity"]
 
-        if self.ahead(obs, RayCastObjects.GOODGOALMULTI):
-            newAction = self.actions.FORWARDS
-        elif self.left(obs, RayCastObjects.GOODGOALMULTI):
-            newAction = self.actions.FORWARDSLEFT
-        elif self.right(obs, RayCastObjects.GOODGOALMULTI):
-            newAction = self.actions.FORWARDSRIGHT
-        elif self.ahead(obs, RayCastObjects.GOODGOAL):
-            newAction = self.actions.FORWARDS
-        elif self.left(obs, RayCastObjects.GOODGOAL):
-            newAction = self.actions.FORWARDSLEFT
-        elif self.right(obs, RayCastObjects.GOODGOAL):
-            newAction = self.actions.FORWARDSRIGHT
-        elif self.ahead(obs, RayCastObjects.BADGOAL):
-            newAction = self.actions.BACKWARDS
-        elif self.left(obs, RayCastObjects.BADGOAL):
-            newAction = self.actions.BACKWARDSRIGHT
-        elif self.right(obs, RayCastObjects.BADGOAL):
-            newAction = self.actions.BACKWARDSLEFT
-        else: 
-            select_random_action = random.randint(0,89) #pick a new random action with a probability of 0.1 (9 actions out of 90 possible integers), otherwise execute the previous action. Encourages exploration.
-            if select_random_action == 0:
-                newAction = self.actions.NOOP
-            elif select_random_action == 1:
-                newAction = self.actions.LEFT
-            elif select_random_action == 2:
-                newAction = self.actions.RIGHT
-            elif select_random_action == 3:
-                newAction = self.actions.FORWARDS
-            elif select_random_action == 4:
+        newAction = self.actions.FORWARDS #initialise the new action to be no action
+
+        if self.checkStationarity(velocities) and self.prev_action != self.actions.FORWARDSLEFT and self.prev_action != self.actions.FORWARDSRIGHT:
+            select_LR = random.randint(0,1)
+            if select_LR == 0:
                 newAction = self.actions.FORWARDSLEFT
-            elif select_random_action == 5:
-                newAction = self.actions.FORWARDSRIGHT
-            elif select_random_action == 6:
-                newAction = self.actions.BACKWARDS
-            elif select_random_action == 7:
-                newAction = self.actions.BACKWARDSLEFT
-            elif select_random_action == 8:
-                newAction = self.actions.BACKWARDSRIGHT 
             else:
-                newAction = self.prev_action
-        
+                newAction = self.actions.FORWARDSRIGHT
+        elif self.checkStationarity(velocities) and self.prev_action == self.actions.FORWARDSLEFT:
+            newAction = self.actions.FORWARDSLEFT
+        elif self.checkStationarity(velocities) and self.prev_action == self.actions.FORWARDSRIGHT:
+            newAction = self.actions.FORWARDSRIGHT
+        elif self.ahead(obs, RayCastObjects.GOODGOALMULTI) and not self.checkStationarity(velocities):
+            newAction = self.actions.FORWARDS
+        elif self.left(obs, RayCastObjects.GOODGOALMULTI) and not self.checkStationarity(velocities):
+            newAction = self.actions.LEFT
+        elif self.right(obs, RayCastObjects.GOODGOALMULTI) and not self.checkStationarity(velocities):
+            newAction = self.actions.RIGHT
+        elif self.ahead(obs, RayCastObjects.GOODGOAL) and not self.checkStationarity(velocities):
+            newAction = self.actions.FORWARDS
+        elif self.left(obs, RayCastObjects.GOODGOAL) and not self.checkStationarity(velocities):
+            newAction = self.actions.LEFT
+        elif self.right(obs, RayCastObjects.GOODGOAL) and not self.checkStationarity(velocities):
+            newAction = self.actions.RIGHT
+        elif self.ahead(obs, RayCastObjects.BADGOAL) and not self.checkStationarity(velocities):
+            newAction = self.actions.BACKWARDS
+        elif self.left(obs, RayCastObjects.BADGOAL) and not self.checkStationarity(velocities):
+            newAction = self.actions.RIGHT
+        elif self.right(obs, RayCastObjects.BADGOAL) and not self.checkStationarity(velocities):
+            newAction = self.actions.LEFT
+        elif self.ahead(obs, RayCastObjects.IMMOVABLE) and not self.checkStationarity(velocities):
+            select_LR = random.randint(0,1)
+            if select_LR == 0:
+                newAction = self.actions.FORWARDSLEFT
+            else:
+                newAction = self.actions.FORWARDSRIGHT
+        elif ((self.ahead(obs, RayCastObjects.IMMOVABLE) and self.prev_action == self.actions.FORWARDSLEFT) or (self.left(obs, RayCastObjects.IMMOVABLE) and not self.ahead(obs, RayCastObjects.IMMOVABLE))) and not self.checkStationarity(velocities):
+            newAction = self.actions.FORWARDSLEFT
+        elif ((self.ahead(obs, RayCastObjects.IMMOVABLE) and self.prev_action == self.actions.FORWARDSRIGHT) or (self.right(obs, RayCastObjects.IMMOVABLE) and not self.ahead(obs, RayCastObjects.IMMOVABLE))) and not self.checkStationarity(velocities):
+            newAction = self.actions.FORWARDSRIGHT
+        else:
+            newAction = self.prev_action        
         self.prev_action = newAction
         
         return newAction
@@ -82,7 +92,7 @@ class vanillaBraitenberg():
     def ahead(self, obs, object):
         """Returns true if the input object is ahead of the agent"""
         if(obs[self.listOfObjects.index(object)][int((self.no_rays-1)/2)] > 0):
-            # print("found " + str(object) + " ahead")
+            #print("found " + str(object) + " ahead")
             return True
         return False
 
@@ -90,7 +100,7 @@ class vanillaBraitenberg():
         """Returns true if the input object is left of the agent"""
         for i in range(int((self.no_rays-1)/2)):
             if(obs[self.listOfObjects.index(object)][i] > 0):
-                # print("found " + str(object) + " left")
+                #print("found " + str(object) + " left")
                 return True
         return False
 
@@ -98,7 +108,7 @@ class vanillaBraitenberg():
         """Returns true if the input object is right of the agent"""
         for i in range(int((self.no_rays-1)/2)):
             if(obs[self.listOfObjects.index(object)][i+int((self.no_rays-1)/2) + 1] > 0):
-                # print("found " + str(object) + " right")
+                #print("found " + str(object) + " right")
                 return True
         return False
 
@@ -136,9 +146,12 @@ def watch_vanilla_braitenberg_agent_single_config(configuration_file: str, agent
 
         observations = aai_env.get_obs_dict(dec.obs)
 
-        raycasts = observations["rays"] # Get the raycast data
 
-        action = agent.get_action(raycasts)
+        #raycasts = observations["rays"] # Get the raycast data
+
+        action = agent.get_action(observations)
+
+        #print(action)
 
         aai_env.set_actions(behavior, action.action_tuple)
 
