@@ -38,7 +38,9 @@ These are the different occluder types in the test. These are ignored, and inclu
 
 ## `pass_mark`
 
-The number of points needed for performance on the test to be considered a *pass*. Varies from -0.6 to 18.9 inclusive.
+The number of points needed for performance on the test to be considered a *pass*. Varies from -0.5 to 19 inclusive. For instances with multiple yellow rewards, the pass_mark is set so that if the agent were to wait until just before time out to obtain the first reward, and then wait until just before time out to obtain the second reward, they would still have a passing score. Reward can never be below -1 unless the agent navigates into lava, because health is 0 when reward is -1. So for an instance with 2 goals of size 0.5, the agent could wait until reward is -0.999 (health is 0.01), obtain the first reward for a total of -0.499 (health 0.51), then wait until time out again and obtain the second reward, finishing with a reward of -0.499, so the pass_mark is -0.5. For the case with 2 goals of size 2.5, the agents could wait (reward -0.999, health 0.01), obtain the reward (reward 1.501 health 1), wait until health runs to 0.01 (reward 0.501) and obtain the final reward (reward 3.01 health 1), so the pass_mark is 3.
+
+The same thinking applies to instances with 5 goals. If the goals are all of size 0.5, then the pass_mark would be -0.5. If the goals are all of size 4, then the pass_mark would be 15, because the agent could wait until the task has almost timed out until it obtains each reward (losing a total of 5 over the course).
 
 ## `time_limit`
 
