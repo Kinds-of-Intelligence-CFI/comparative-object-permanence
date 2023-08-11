@@ -60,10 +60,10 @@ seed_distinct <- agent_data %>% select(aai_seed) %>% distinct() %>% drop_na()
 
 #### Sample Sizes
 
-- `r nrow(random_walker_distinct)` types of random walker, tested on `r nrow(seed_distinct)` RNG seeds. Total sample size: `r nrow(random_walker_distinct) * nrow(seed_distinct)`.
-- `r nrow(random_action_distinct)` types of random action agent, tested on `r nrow(seed_distinct)` RNG seeds. Total sample size: `r nrow(random_action_distinct) * nrow(seed_distinct)`.
-- `r nrow(vanilla_braitenberg_distinct)` type of simple goal-directed rule-based agent, tested on `r nrow(seed_distinct)` RNG seeds. Total sample size: `r nrow(vanilla_braitenberg_distinct) * nrow(seed_distinct)`.
-- `r nrow(children_distinct)` children, aged between 4 and 7. We collected some data for `r age_table$count[1]` four year olds, `r age_table$count[2]` five year olds, `r age_table$count[3]` six year olds, `r age_table$count[4]` seven year-olds. Guardians identified participants' genders. `r gender_table$count[1]` were identified as *Female*, `r gender_table$count[2]` were identified as *Male*, 0 were identified as *Other*. Below is a table of gender by age.
+-   `r nrow(random_walker_distinct)` types of random walker, tested on `r nrow(seed_distinct)` RNG seeds. Total sample size: `r nrow(random_walker_distinct) * nrow(seed_distinct)`.
+-   `r nrow(random_action_distinct)` types of random action agent, tested on `r nrow(seed_distinct)` RNG seeds. Total sample size: `r nrow(random_action_distinct) * nrow(seed_distinct)`.
+-   `r nrow(vanilla_braitenberg_distinct)` type of simple goal-directed rule-based agent, tested on `r nrow(seed_distinct)` RNG seeds. Total sample size: `r nrow(vanilla_braitenberg_distinct) * nrow(seed_distinct)`.
+-   `r nrow(children_distinct)` children, aged between 4 and 7. We collected some data for `r age_table$count[1]` four year olds, `r age_table$count[2]` five year olds, `r age_table$count[3]` six year olds, `r age_table$count[4]` seven year-olds. Guardians identified participants' genders. `r gender_table$count[1]` were identified as *Female*, `r gender_table$count[2]` were identified as *Male*, 0 were identified as *Other*. Below is a table of gender by age.
 
 ```{r gender by age table}
 
@@ -73,7 +73,7 @@ gender_by_age_table
 
 #### Task Performances
 
-``` {r instance counts}
+```{r instance counts}
 
 children_distinct_instances <- final_results %>% select(c(InstanceName, SubSuite, agent_type)) %>% filter(agent_type == "child") %>%
   distinct() %>% drop_na()
@@ -92,8 +92,6 @@ agent_instance_type_counts <- agent_distinct_instances %>% select(SubSuite) %>% 
 Agents were tested on a total of `r nrow(agent_distinct_instances)` instances, consisting of `r agent_instance_type_counts$count[2]` basic tasks, `r agent_instance_type_counts$count[3]` object permanence control tasks, and `r agent_instance_type_counts$count[1]` object permanence test tasks.
 
 Children were tested on a total of `r nrow(children_distinct_instances)` instances, consisting of `r children_instance_type_counts$count[2]` basic tasks, `r children_instance_type_counts$count[3]` object permanence control tasks, and `r children_instance_type_counts$count[1]` object permanence test tasks. They were able to play some of those tasks more than once, namely the Chiandetti & Vallortigara (2011) object permanence tests. They could also play the basic tasks and the object permanence control tasks as many times as they wanted.
-
-
 
 ```{r overall success performances}
 
