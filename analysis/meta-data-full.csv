@@ -1705,10 +1705,10 @@ OP-RP-Allo-PCTB-12CupGrid-G2.5CloseLeftMid-NA-0-NA.yml,Controls,OP Controls,PCTB
 OP-RP-Allo-PCTB-12CupGrid-G2.5CloseRightClose-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G2.5CloseRightClose,NA,NA,1.5,250,0,1,1,0,1,0,0,0,1,0,1,2.5,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,27,1,12
 OP-RP-Allo-PCTB-12CupGrid-G2.5CloseRightFar-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G2.5CloseRightFar,NA,NA,1.5,250,0,1,1,0,1,0,0,0,1,0,1,2.5,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,37,1,12
 OP-RP-Allo-PCTB-12CupGrid-G2.5CloseRightMid-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G2.5CloseRightMid,NA,NA,1.5,250,0,1,1,0,1,0,0,0,1,0,1,2.5,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,32,1,12
-OP-RP-Allo-PCTB-12CupGrid-G2.5FarLeftFar-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G2.5FarLeft,G2.5Far,NA,1.5,250,0,1,1,0,1,0,0,0,1,0,1,2.5,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,255,0,47,2,12
+OP-RP-Allo-PCTB-12CupGrid-G2.5FarLeftFar-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G2.5FarLeftFar,NA,NA,1.5,250,0,1,1,0,1,0,0,0,1,0,1,2.5,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,255,0,47,2,12
 OP-RP-Allo-PCTB-12CupGrid-G2.5FarLeftClose-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G2.5FarLeftClose,NA,NA,1.5,250,0,1,1,0,1,0,0,0,1,0,1,2.5,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,255,0,37,1,12
 OP-RP-Allo-PCTB-12CupGrid-G2.5FarLeftMid-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G2.5FarLeftMid,NA,NA,1.5,250,0,1,1,0,1,0,0,0,1,0,1,2.5,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,255,0,42,2,12
-OP-RP-Allo-PCTB-12CupGrid-G2.5FarRightFar-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G2.5FarRight,G2.5Far,NA,1.5,250,0,1,1,0,1,0,0,0,1,0,1,2.5,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,45,2,12
+OP-RP-Allo-PCTB-12CupGrid-G2.5FarRightFar-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G2.5FarRightFar,NA,NA,1.5,250,0,1,1,0,1,0,0,0,1,0,1,2.5,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,45,2,12
 OP-RP-Allo-PCTB-12CupGrid-G2.5FarRightClose-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G2.5FarRightClose,NA,NA,1.5,250,0,1,1,0,1,0,0,0,1,0,1,2.5,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,35,1,12
 OP-RP-Allo-PCTB-12CupGrid-G2.5FarRightMid-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G2.5FarRightMid,NA,NA,1.5,250,0,1,1,0,1,0,0,0,1,0,1,2.5,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,40,2,12
 OP-RP-Allo-PCTB-12CupGrid-G2CloseLeftClose-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G2CloseLeftClose,NA,NA,1,250,0,1,1,0,1,0,0,0,1,0,1,2,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,255,0,29,1,12
@@ -1717,10 +1717,10 @@ OP-RP-Allo-PCTB-12CupGrid-G2CloseLeftMid-NA-0-NA.yml,Controls,OP Controls,PCTB,1
 OP-RP-Allo-PCTB-12CupGrid-G2CloseRightClose-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G2CloseRightClose,NA,NA,1,250,0,1,1,0,1,0,0,0,1,0,1,2,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,27,1,12
 OP-RP-Allo-PCTB-12CupGrid-G2CloseRightFar-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G2CloseRightFar,NA,NA,1,250,0,1,1,0,1,0,0,0,1,0,1,2,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,37,1,12
 OP-RP-Allo-PCTB-12CupGrid-G2CloseRightMid-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G2CloseRightMid,NA,NA,1,250,0,1,1,0,1,0,0,0,1,0,1,2,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,32,1,12
-OP-RP-Allo-PCTB-12CupGrid-G2FarLeftFar-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G2FarLeft,G2Far,NA,1,250,0,1,1,0,1,0,0,0,1,0,1,2,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,255,0,47,2,12
+OP-RP-Allo-PCTB-12CupGrid-G2FarLeftFar-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G2FarLeftFar,NA,NA,1,250,0,1,1,0,1,0,0,0,1,0,1,2,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,255,0,47,2,12
 OP-RP-Allo-PCTB-12CupGrid-G2FarLeftClose-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G2FarLeftClose,NA,NA,1,250,0,1,1,0,1,0,0,0,1,0,1,2,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,255,0,37,1,12
 OP-RP-Allo-PCTB-12CupGrid-G2FarLeftMid-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G2FarLeftMid,NA,NA,1,250,0,1,1,0,1,0,0,0,1,0,1,2,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,255,0,42,2,12
-OP-RP-Allo-PCTB-12CupGrid-G2FarRightFar-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G2FarRight,G2Far,NA,1,250,0,1,1,0,1,0,0,0,1,0,1,2,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,45,2,12
+OP-RP-Allo-PCTB-12CupGrid-G2FarRightFar-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G2FarRightFar,NA,NA,1,250,0,1,1,0,1,0,0,0,1,0,1,2,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,45,2,12
 OP-RP-Allo-PCTB-12CupGrid-G2FarRightClose-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G2FarRightClose,NA,NA,1,250,0,1,1,0,1,0,0,0,1,0,1,2,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,35,1,12
 OP-RP-Allo-PCTB-12CupGrid-G2FarRightMid-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G2FarRightMid,NA,NA,1,250,0,1,1,0,1,0,0,0,1,0,1,2,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,40,2,12
 OP-RP-Allo-PCTB-12CupGrid-G3.5CloseLeftClose-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G3.5CloseLeftClose,NA,NA,2.5,250,0,1,1,0,1,0,0,0,1,0,1,3.5,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,255,0,29,1,12
@@ -1729,10 +1729,10 @@ OP-RP-Allo-PCTB-12CupGrid-G3.5CloseLeftMid-NA-0-NA.yml,Controls,OP Controls,PCTB
 OP-RP-Allo-PCTB-12CupGrid-G3.5CloseRightClose-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G3.5CloseRightClose,NA,NA,2.5,250,0,1,1,0,1,0,0,0,1,0,1,3.5,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,27,1,12
 OP-RP-Allo-PCTB-12CupGrid-G3.5CloseRightFar-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G3.5CloseRightFar,NA,NA,2.5,250,0,1,1,0,1,0,0,0,1,0,1,3.5,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,37,1,12
 OP-RP-Allo-PCTB-12CupGrid-G3.5CloseRightMid-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G3.5CloseRightMid,NA,NA,2.5,250,0,1,1,0,1,0,0,0,1,0,1,3.5,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,32,1,12
-OP-RP-Allo-PCTB-12CupGrid-G3.5FarLeftFar-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G3.5FarLeft,G3.5Far,NA,2.5,250,0,1,1,0,1,0,0,0,1,0,1,3.5,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,255,0,47,2,12
+OP-RP-Allo-PCTB-12CupGrid-G3.5FarLeftFar-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G3.5FarLeftFar,NA,NA,2.5,250,0,1,1,0,1,0,0,0,1,0,1,3.5,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,255,0,47,2,12
 OP-RP-Allo-PCTB-12CupGrid-G3.5FarLeftClose-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G3.5FarLeftClose,NA,NA,2.5,250,0,1,1,0,1,0,0,0,1,0,1,3.5,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,255,0,37,1,12
 OP-RP-Allo-PCTB-12CupGrid-G3.5FarLeftMid-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G3.5FarLeftMid,NA,NA,2.5,250,0,1,1,0,1,0,0,0,1,0,1,3.5,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,255,0,42,2,12
-OP-RP-Allo-PCTB-12CupGrid-G3.5FarRightFar-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G3.5FarRight,G3.5Far,NA,2.5,250,0,1,1,0,1,0,0,0,1,0,1,3.5,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,45,2,12
+OP-RP-Allo-PCTB-12CupGrid-G3.5FarRightFar-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G3.5FarRightFar,NA,NA,2.5,250,0,1,1,0,1,0,0,0,1,0,1,3.5,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,45,2,12
 OP-RP-Allo-PCTB-12CupGrid-G3.5FarRightClose-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G3.5FarRightClose,NA,NA,2.5,250,0,1,1,0,1,0,0,0,1,0,1,3.5,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,35,1,12
 OP-RP-Allo-PCTB-12CupGrid-G3.5FarRightMid-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G3.5FarRightMid,NA,NA,2.5,250,0,1,1,0,1,0,0,0,1,0,1,3.5,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,40,2,12
 OP-RP-Allo-PCTB-12CupGrid-G3CloseLeftClose-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G3CloseLeftClose,NA,NA,2,250,0,1,1,0,1,0,0,0,1,0,1,3,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,255,0,29,1,12
@@ -1741,10 +1741,10 @@ OP-RP-Allo-PCTB-12CupGrid-G3CloseLeftMid-NA-0-NA.yml,Controls,OP Controls,PCTB,1
 OP-RP-Allo-PCTB-12CupGrid-G3CloseRightClose-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G3CloseRightClose,NA,NA,2,250,0,1,1,0,1,0,0,0,1,0,1,3,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,27,1,12
 OP-RP-Allo-PCTB-12CupGrid-G3CloseRightFar-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G3CloseRightFar,NA,NA,2,250,0,1,1,0,1,0,0,0,1,0,1,3,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,37,1,12
 OP-RP-Allo-PCTB-12CupGrid-G3CloseRightMid-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G3CloseRightMid,NA,NA,2,250,0,1,1,0,1,0,0,0,1,0,1,3,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,32,1,12
-OP-RP-Allo-PCTB-12CupGrid-G3FarLeftFar-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G3FarLeft,G3Far,NA,2,250,0,1,1,0,1,0,0,0,1,0,1,3,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,255,0,47,2,12
+OP-RP-Allo-PCTB-12CupGrid-G3FarLeftFar-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G3FarLeftFar,NA,NA,2,250,0,1,1,0,1,0,0,0,1,0,1,3,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,255,0,47,2,12
 OP-RP-Allo-PCTB-12CupGrid-G3FarLeftClose-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G3FarLeftClose,NA,NA,2,250,0,1,1,0,1,0,0,0,1,0,1,3,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,255,0,37,1,12
 OP-RP-Allo-PCTB-12CupGrid-G3FarLeftMid-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G3FarLeftMid,NA,NA,2,250,0,1,1,0,1,0,0,0,1,0,1,3,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,255,0,42,2,12
-OP-RP-Allo-PCTB-12CupGrid-G3FarRightFar-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G3FarRight,G3Far,NA,2,250,0,1,1,0,1,0,0,0,1,0,1,3,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,45,2,12
+OP-RP-Allo-PCTB-12CupGrid-G3FarRightFar-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G3FarRightFar,NA,NA,2,250,0,1,1,0,1,0,0,0,1,0,1,3,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,45,2,12
 OP-RP-Allo-PCTB-12CupGrid-G3FarRightClose-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G3FarRightClose,NA,NA,2,250,0,1,1,0,1,0,0,0,1,0,1,3,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,35,1,12
 OP-RP-Allo-PCTB-12CupGrid-G3FarRightMid-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G3FarRightMid,NA,NA,2,250,0,1,1,0,1,0,0,0,1,0,1,3,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,40,2,12
 OP-RP-Allo-PCTB-12CupGrid-G4CloseLeftClose-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G4CloseLeftClose,NA,NA,3,250,0,1,1,0,1,0,0,0,1,0,1,4,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,255,0,29,1,12
@@ -1753,10 +1753,10 @@ OP-RP-Allo-PCTB-12CupGrid-G4CloseLeftMid-NA-0-NA.yml,Controls,OP Controls,PCTB,1
 OP-RP-Allo-PCTB-12CupGrid-G4CloseRightClose-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G4CloseRightClose,NA,NA,3,250,0,1,1,0,1,0,0,0,1,0,1,4,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,27,1,12
 OP-RP-Allo-PCTB-12CupGrid-G4CloseRightFar-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G4CloseRightFar,NA,NA,3,250,0,1,1,0,1,0,0,0,1,0,1,4,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,37,1,12
 OP-RP-Allo-PCTB-12CupGrid-G4CloseRightMid-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G4CloseRightMid,NA,NA,3,250,0,1,1,0,1,0,0,0,1,0,1,4,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,32,1,12
-OP-RP-Allo-PCTB-12CupGrid-G4FarLeftFar-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G4FarLeft,G4Far,NA,3,250,0,1,1,0,1,0,0,0,1,0,1,4,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,255,0,47,2,12
+OP-RP-Allo-PCTB-12CupGrid-G4FarLeftFar-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G4FarLeftFar,NA,NA,3,250,0,1,1,0,1,0,0,0,1,0,1,4,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,255,0,47,2,12
 OP-RP-Allo-PCTB-12CupGrid-G4FarLeftClose-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G4FarLeftClose,NA,NA,3,250,0,1,1,0,1,0,0,0,1,0,1,4,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,255,0,37,1,12
 OP-RP-Allo-PCTB-12CupGrid-G4FarLeftMid-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G4FarLeftMid,NA,NA,3,250,0,1,1,0,1,0,0,0,1,0,1,4,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,0,0,255,0,42,2,12
-OP-RP-Allo-PCTB-12CupGrid-G4FarRightFar-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G4FarRight,G4Far,NA,3,250,0,1,1,0,1,0,0,0,1,0,1,4,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,45,2,12
+OP-RP-Allo-PCTB-12CupGrid-G4FarRightFar-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G4FarRightFar,NA,NA,3,250,0,1,1,0,1,0,0,0,1,0,1,4,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,45,2,12
 OP-RP-Allo-PCTB-12CupGrid-G4FarRightClose-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G4FarRightClose,NA,NA,3,250,0,1,1,0,1,0,0,0,1,0,1,4,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,35,1,12
 OP-RP-Allo-PCTB-12CupGrid-G4FarRightMid-NA-0-NA.yml,Controls,OP Controls,PCTB,12CupGrid,G4FarRightMid,NA,NA,3,250,0,1,1,0,1,0,0,0,1,0,1,4,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,40,2,12
 OP-RP-Allo-PCTB-3CupFCNoW-1G0.5LClose-NA-0-OpLava.yml,Controls,OP Controls,PCTB,3CupFCNoW,1G0.5LClose,NA,OpLava,-0.5,500,1,1,1,0,1,0,0,0,1,0,1,0.5,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,1,NA,NA,NA,0,36.4,2,3
@@ -4203,9 +4203,9 @@ OP-STC-Allo-PCTB-8CupGridMidFar-G2FarRightClose-NA-0-NA.yml,Spatio-Temporal Cont
 OP-STC-Allo-PCTB-8CupGridMidFar-G2FarRightFar-NA-0-NA.yml,Spatio-Temporal Continuity,Allocentric OP,PCTB,8CupGridMidFar,G2FarRightFar,NA,NA,1,250,0,1,1,0,1,0,0,0,1,0,1,2,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,1,1,0,0,255,0,45,2,8
 tutorial_0_ready-G2-sanity.yml,Tutorial,Basic,Green Goal Ahead,Ready,Medium-Long,NA,NA,1,Inf,0,0,1,0,1,0,0,0,1,0,1,2,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,255,255,255,0,28,0,1
 tutorial_1_turning-G2-rightfar.yml,Tutorial,Basic,Green Goal Turning,Right,RightFar,NA,NA,1,Inf,0,0,1,0,1,0,0,0,1,0,1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,NA,NA,NA,0,50.9,1,1
-tutorial_2_forcedchoice-lavaleft-G2right.yml,Tutorial,Basic,Forced Choice Lava,Goal Right Lava Left,G2,NA,NA,1,Inf,1,0,1,0,1,0,0,0,1,0,1,2,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,39,1,1
-tutorial_3_3choicecylinder-G2-left.yml,Tutorial,Basic,Multi-choice,Goal Left,G2,Grey,NA,1,Inf,0,0,1,0,1,0,0,0,1,0,1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,153,153,153,0,16,1,3
-tutorial_4_3choicecylinder-G2-right.yml,Tutorial,Basic,Multi-choice,Goal Right,G2,Beige,NA,1,Inf,0,0,1,0,1,0,0,0,1,0,1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,236,195,153,0,16,1,3
+tutorial_2_forcedchoice-lavaleft-G2-right.yml,Tutorial,Basic,Forced Choice Lava,Goal Right Lava Left,G2,NA,NA,1,Inf,1,0,1,0,1,0,0,0,1,0,1,2,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,39,1,1
+tutorial_3_3choicecylinder-G1.5-left.yml,Tutorial,Basic,Multi-choice,Goal Left,G1.5,Grey,NA,0.5,Inf,0,0,1,0,1,0,0,0,1,0,1,1.5,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,153,153,153,0,16,1,3
+tutorial_4_3choicecylinder-G1.5-right.yml,Tutorial,Basic,Multi-choice,Goal Right,G1.5,Beige,NA,0.5,Inf,0,0,1,0,1,0,0,0,1,0,1,1.5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,236,195,153,0,16,1,3
 tutorial_5_multi-2Y2-left.yml,Tutorial,Basic,Multiple Stationary Yellow Goals,2Y,Y2,NA,NA,3,Inf,0,0,0,2,0,2,0,0,0,2,2,2,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,NA,NA,NA,0,33.9,2,2
 tutorial_6_OP-RP-Allo-CVChick-G2.52Occluder-Left-Brown-0-OPQ_variant.yml,Controls,OP Controls,CVChick,G2.52Occluder,Left Child Variant (Thicker Walls),Brown,OPQ,1.5,Inf,1,0,1,0,0,0,1,0,1,0,1,2.5,0,1,10,0,0,0,0,1,1,1,0,0,0,1,0,0,1,102,51,1,0,46,3,2
 tutorial_7_OP-RP-Allo-CVChick-LOG31XtraLowIpsi-Right-RND-0-OPQ.yml,Controls,OP Controls,CVChick,LOG31XtraLowIpsi,Right Child Variant,RND,OPQ,2,Inf,1,0,1,0,0,0,1,0,1,0,1,3,0,1,10,1,0,35,0,1,1,1,0,0,0,0,0,1,1,NA,NA,NA,1,46,3,2
@@ -4213,9 +4213,9 @@ test_break.yml,Tutorial,Basic,Green Goal Ahead,Ready,Medium-Long,NA,NA,1,Inf,0,0
 test_start.yml,Tutorial,Basic,Green Goal Ahead,Ready,Medium-Long,NA,NA,1,Inf,0,0,1,0,1,0,0,0,1,0,1,2,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,255,255,255,0,28,0,1
 tutorial_0_ready-G2-sanity_timelimit.yml,Tutorial,Basic,Green Goal Ahead,Ready,Medium-Long,NA,NA,1,500,0,0,1,0,1,0,0,0,1,0,1,2,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,255,255,255,0,28,0,1
 tutorial_1_turning-G2-rightfar_timelimit.yml,Tutorial,Basic,Green Goal Turning,Right,RightFar,NA,NA,1,500,0,0,1,0,1,0,0,0,1,0,1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,NA,NA,NA,0,50.9,1,1
-tutorial_2_forcedchoice-lavaleft-G2right_timelimit.yml,Tutorial,Basic,Forced Choice Lava,Goal Right Lava Left,G2,NA,NA,1,500,1,0,1,0,1,0,0,0,1,0,1,2,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,39,1,1
-tutorial_3_3choicecylinder-G2-left_timelimit.yml,Tutorial,Basic,Multi-choice,Goal Left,G2,Grey,NA,1,500,0,0,1,0,1,0,0,0,1,0,1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,153,153,153,0,16,1,3
-tutorial_4_3choicecylinder-G2-right_timelimit.yml,Tutorial,Basic,Multi-choice,Goal Right,G2,Beige,NA,1,500,0,0,1,0,1,0,0,0,1,0,1,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,236,195,153,0,16,1,3
+tutorial_2_forcedchoice-lavaleft-G2-right_timelimit.yml,Tutorial,Basic,Forced Choice Lava,Goal Right Lava Left,G2,NA,NA,1,500,1,0,1,0,1,0,0,0,1,0,1,2,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,255,0,39,1,1
+tutorial_3_3choicecylinder-G1.5-left_timelimit.yml,Tutorial,Basic,Multi-choice,Goal Left,G1.5,Grey,NA,0.5,500,0,0,1,0,1,0,0,0,1,0,1,1.5,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,153,153,153,0,16,1,3
+tutorial_4_3choicecylinder-G1.5-right_timelimit.yml,Tutorial,Basic,Multi-choice,Goal Right,G1.5,Beige,NA,0.5,500,0,0,1,0,1,0,0,0,1,0,1,1.5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,236,195,153,0,16,1,3
 tutorial_5_multi-2Y2-left_timelimit.yml,Tutorial,Basic,Multiple Stationary Yellow Goals,2Y,Y2,NA,NA,2,500,0,0,0,2,0,2,0,0,0,2,2,2,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,NA,NA,NA,0,33.9,2,2
 tutorial_6_OP-RP-Allo-CVChick-G2.52Occluder-Left-Brown-0-OPQ_variant_timelimit.yml,Controls,OP Controls,CVChick,G2.52Occluder,Left Child Variant (Thicker Walls),Brown,OPQ,1.5,500,1,0,1,0,0,0,1,0,1,0,1,2.5,0,1,10,0,0,0,0,1,1,1,0,0,0,1,0,0,1,102,51,1,0,46,3,2
 tutorial_7_OP-RP-Allo-CVChick-LOG31XtraLowIpsi-Right-RND-0-OPQ_timelimit.yml,Controls,OP Controls,CVChick,LOG31XtraLowIpsi,Right Child Variant,RND,OPQ,2,500,1,0,1,0,0,0,1,0,1,0,1,3,0,1,10,1,0,35,0,1,1,1,0,0,0,0,0,1,1,NA,NA,NA,1,46,3,2
