@@ -1,0 +1,120 @@
+---
+title: "Comparative-Object-Permanence"
+author: "K. Voudouris"
+format: html
+editor: visual
+execute: 
+  echo: false
+  warning: false
+  error: false
+---
+
+This document presents the descriptive statistics and and comparative analytics for the agents studied in the `comparative-object-permanence` study. This document does not contain any psychometric analysis (measurement layouts). Below, '*agents*' refers to artificial agents like random walkers or deep reinforcement learners. '*children*' refers to human children (!).
+
+```{r preamble}
+
+library(tidyverse)
+library(DT)
+
+```
+
+```{r data import}
+
+final_results <- read.csv("../results_final_clean.csv") %>%
+  filter(problem_flag == "N") #remove the problematic data points.
+
+```
+
+## Descriptives
+
+```{r descriptives}
+
+agent_data <- final_results %>% 
+  select(c(agent_tag, aai_seed, age, gender)) %>% distinct()
+
+random_walker_distinct <- agent_data %>% select(agent_tag) %>%
+  filter(str_detect(agent_tag, "Random Walker")) %>% distinct()
+
+random_action_distinct <- agent_data %>% select(agent_tag) %>%
+  filter(str_detect(agent_tag, "Random Action Agent")) %>% distinct()
+
+vanilla_braitenberg_distinct <- agent_data %>% select(agent_tag) %>%
+  filter(str_detect(agent_tag, "Vanilla")) %>% distinct()
+
+children_distinct <- agent_data %>% select(agent_tag) %>%
+  filter(str_detect(agent_tag, "_01")) %>% distinct()
+
+age_table <- agent_data %>% select(age) %>% group_by(age) %>%
+  summarise(count = n())
+
+gender_table <- agent_data %>% select(gender) %>% group_by(gender) %>%
+  summarise(count = n())
+
+gender_by_age_table <- agent_data %>% select(gender, age) %>% group_by(gender, age) %>%
+  summarise(Count = n()) %>% drop_na() %>% rename(Gender = gender, Age = age) %>% DT::datatable()
+
+seed_distinct <- agent_data %>% select(aai_seed) %>% distinct() %>% drop_na()
+  
+
+```
+
+#### Sample Sizes
+
+- `r nrow(random_walker_distinct)` types of random walker, tested on `r nrow(seed_distinct)` RNG seeds. Total sample size: `r nrow(random_walker_distinct) * nrow(seed_distinct)`.
+- `r nrow(random_action_distinct)` types of random action agent, tested on `r nrow(seed_distinct)` RNG seeds. Total sample size: `r nrow(random_action_distinct) * nrow(seed_distinct)`.
+- `r nrow(vanilla_braitenberg_distinct)` type of simple goal-directed rule-based agent, tested on `r nrow(seed_distinct)` RNG seeds. Total sample size: `r nrow(vanilla_braitenberg_distinct) * nrow(seed_distinct)`.
+- `r nrow(children_distinct)` children, aged between 4 and 7. We collected some data for `r age_table$count[1]` four year olds, `r age_table$count[2]` five year olds, `r age_table$count[3]` six year olds, `r age_table$count[4]` seven year-olds. Guardians identified participants' genders. `r gender_table$count[1]` were identified as *Female*, `r gender_table$count[2]` were identified as *Male*, 0 were identified as *Other*. Below is a table of gender by age.
+
+```{r gender by age table}
+
+gender_by_age_table
+
+```
+
+#### Task Performances
+
+``` {r instance counts}
+
+children_distinct_instances <- final_results %>% select(c(InstanceName, SubSuite, agent_type)) %>% filter(agent_type == "child") %>%
+  distinct() %>% drop_na()
+
+children_instance_type_counts <- children_distinct_instances %>% select(SubSuite) %>% group_by(SubSuite) %>% summarise(Count = n())
+
+
+agent_distinct_instances <- final_results %>% select(c(InstanceName, SubSuite, agent_type)) %>% filter(agent_type != "child") %>%
+  distinct() %>% drop_na()
+
+agent_instance_type_counts <- agent_distinct_instances %>% select(SubSuite) %>% group_by(SubSuite) %>% summarise(Count = n())
+
+
+```
+
+Agents were tested on a total of `r nrow(agent_distinct_instances)` instances, consisting of `r agent_instance_type_counts$count[2]` basic tasks, `r agent_instance_type_counts$count[3]` object permanence control tasks, and `r agent_instance_type_counts$count[1]` object permanence test tasks.
+
+Children were tested on a total of `r nrow(children_distinct_instances)` instances, consisting of `r children_instance_type_counts$count[2]` basic tasks, `r children_instance_type_counts$count[3]` object permanence control tasks, and `r children_instance_type_counts$count[1]` object permanence test tasks. They were able to play some of those tasks more than once, namely the Chiandetti & Vallortigara (2011) object permanence tests. They could also play the basic tasks and the object permanence control tasks as many times as they wanted.
+
+
+
+```{r overall success performances}
+
+performances_table <- final_results %>% 
+  select(c(agent_tag, agent_type, success)) %>%
+  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
+                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
+                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
+                                           ifelse(agent_type == "child", "Human Child", agent_type))))) %>%
+  group_by(agent_type) %>% 
+  summarise(`Total Passes` = sum(success),
+            `Total Instances` = n(),
+            `Percentage Instances Passed (4 d.p.)` = round(`Total Passes`/`Total Instances`*100, digits = 4)) %>%
+  arrange(desc(`Percentage Instances Passed (4 d.p.)`))
+
+```
+
+For the `r nrow(performances_table)` kinds of agents, the number of instances that they passed, as well as the proportion of total instances that they passed, is provided in the table below. The behaviour of the random walkers and random action agents serve as a baseline for chance performance.
+
+```{r overall success table}
+
+datatable(performances_table)
+
+```
