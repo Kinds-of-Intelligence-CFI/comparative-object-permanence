@@ -132,7 +132,7 @@ task_ids <- dbReadTable(myDB, "instances") # obtain task IDs, to be used for que
 
 ## Define a function for building queries for the trajectory tables
 
-cuptask_trajectory_query_builder <- function(reference_df, agentname, seed, instanceidstring, paradigmtype, gridtype = NULL, subsuitetype = NULL){
+trajectory_query_builder <- function(reference_df, agentname, seed, instanceidstring, paradigmtype, gridtype = NULL, subsuitetype = NULL){
   ## get the table names by looking at the agent_tag
   
   if (str_detect(agentname, "Random Walker")){
@@ -203,6 +203,10 @@ cvchick_tasks_ids <- left_join(cvchick_tasks, task_ids, by = c("InstanceName" = 
 ## Get the specific data for children's trajectories on the test tasks.
 children_trajectory_data_cvchick <- filter(children_trajectory_data, str_detect(instancename_child, "CVChick"))
 
+## Add a column that encodes the side that the goal is on
+cvchick_tasks_ids <- cvchick_tasks_ids %>%
+  mutate(cvchickcorrectchoice = ifelse(str_detect(InstanceName, "Left"), "L", "R"))
+
 ### the platform down the centre has a width of 2 centred on the x coordinate of 20.
 
 cvchick_reference <- data.frame(label = c("Left", "Right"),
@@ -222,7 +226,7 @@ for (row in 1:nrow(cvchick_tasks_ids)){
   
   if (str_count(agentname) > 7){ #must be an agent
     
-    queries <- cuptask_trajectory_query_builder(reference_df = cvchick_reference, agentname = agentname, seed = seed, instanceidstring = instanceidstring, paradigmtype = "CVChick")
+    queries <- trajectory_query_builder(reference_df = cvchick_reference, agentname = agentname, seed = seed, instanceidstring = instanceidstring, paradigmtype = "CVChick")
     
     left_result <- dbGetQuery(myDB, queries[1]) #get the query for the left side
     right_result <- dbGetQuery(myDB, queries[2]) #get the query for the right side
@@ -313,7 +317,7 @@ for (row in 1:nrow(pctb_grid_tasks_ids)){
   if (str_count(agentname) > 7){ #must be an agent
     
     #Get the trajectory query
-    row_query <- cuptask_trajectory_query_builder(reference_df = grid_task_reference, agentname = agentname, seed = seed, instanceidstring = instanceidstring, paradigmtype = "Grid", gridtype = taskname, subsuitetype = subsuitename)
+    row_query <- trajectory_query_builder(reference_df = grid_task_reference, agentname = agentname, seed = seed, instanceidstring = instanceidstring, paradigmtype = "Grid", gridtype = taskname, subsuitetype = subsuitename)
     
     result <- dbGetQuery(myDB, row_query) #get the result
     
@@ -403,7 +407,7 @@ for (row in 1:nrow(pctb_3cup_tasks_ids)){
   if (str_count(agentname) > 7){ #must be an agent
     
     #get queries for 3 cup tasks
-    row_queries <- cuptask_trajectory_query_builder(reference_df = threeCup_task_reference, agentname = agentname, seed = seed, instanceidstring = instanceidstring, paradigmtype = "3Cup")
+    row_queries <- trajectory_query_builder(reference_df = threeCup_task_reference, agentname = agentname, seed = seed, instanceidstring = instanceidstring, paradigmtype = "3Cup")
     
     left_result <- dbGetQuery(myDB, row_queries[1]) # get the query the result of the query for the left cup
     mid_result <- dbGetQuery(myDB, row_queries[2]) # for the mid cup
@@ -628,7 +632,8 @@ checking_dataframe <- final_results_distilled %>%
            (cvchickleftchoice == cvchickrightchoice & cvchickleftchoice == TRUE) |  #should be impossible to go both left and right (unless they stick to the wall, which is possible but rare)
             (pctbgridcupchoice != pctbgridcorrectchoice & success == 1) | # this should be impossible - and there aren't any cases of it.
            (pctbgridcupchoice == pctbgridcorrectchoice & success == 0) | # all these cases are conceivably cases where the agent entered the cup but managed to avoid the goal. The RP versions, the goal is the smallest possible (2x2x2) in a hole of size 4x4x4. So there is room around the edge for the agent to walk. Looking at the coordinates, this looks feasible. # On the grid tasks, it is possible to enter the hole but not succeed (by sticking to the walls). And we have already set that if they succeeded but didn't enter the hole, then that was because it was a room practice task. These were the only tasks where that was the case.
-           episodeEndType == "time, obtained 1/2 goals" & threecupleftchoice == threecupmidchoice & threecupmidchoice == threecuprightchoice & threecuprightchoice == FALSE) #should be impossible to have a score that suggests they entered at least 1 cup, but then coordinates disagre
+           (episodeEndType == "time, obtained 1/2 goals" & threecupleftchoice == threecupmidchoice & threecupmidchoice == threecuprightchoice & threecuprightchoice == FALSE) | #should be impossible to have a score that suggests they entered at least 1 cup, but then coordinates disagre
+           success == 1 & ((cvchickcorrectchoice == "L" & cvchickrightchoice == TRUE)|(cvchickcorrectchoice == "R" & cvchickleftchoice == TRUE))) #shouldn't be able to have gone the wrong way and still passed.
 
 
 checking_episode_end_annotation <- final_results_distilled %>%
@@ -670,8 +675,8 @@ write.csv(final_results_distilled, "analysis/results_final_clean_distilled.csv",
 
 ## Not Run
 
-# ## For the agents in checking_dataframe that aren't children, they need to be rerun.
-# 
+## For the agents in checking_dataframe that aren't children, they need to be rerun.
+
 # database_connection <- read.csv("agents/scripts/databaseConnectionDetails.csv")
 # db_name <- database_connection$database_name[1]
 # db_user <- database_connection$username[1]
@@ -685,12 +690,12 @@ write.csv(final_results_distilled, "analysis/results_final_clean_distilled.csv",
 # myDB <- dbConnect(drv,
 #                   user = db_user,
 #                   password = db_pw,
-#                   dbname = db_name, 
-#                   host = db_host, 
+#                   dbname = db_name,
+#                   host = db_host,
 #                   port = db_port)
 # 
 # 
-# checking_dataframe_agents <- uncertain_cases %>% filter(agent_type != "child")
+# checking_dataframe_agents <- checking_dataframe %>% filter(agent_type != "child")
 # 
 # for (row in 1:nrow(checking_dataframe_agents)){
 # #for (row in 1:1){
@@ -698,7 +703,7 @@ write.csv(final_results_distilled, "analysis/results_final_clean_distilled.csv",
 #   agentname <- checking_dataframe_agents$agent_tag[row]
 #   seed <- checking_dataframe_agents$aai_seed[row]
 #   instancename <- checking_dataframe_agents$InstanceName[row]
-#   
+# 
 #   if (str_detect(agentname, "Random Walker")){
 #     agent_table_name <- "randomwalkers"
 #     agent_results_table_name <- "randomwalkerinstanceresults"
@@ -714,36 +719,37 @@ write.csv(final_results_distilled, "analysis/results_final_clean_distilled.csv",
 #   } else {
 #     stop("Agent not recognised.")
 #   }
-#   
+# 
 #   instanceid_query <- paste0("SELECT instanceid FROM instances WHERE instancename = '", instancename, "';")
 #   instanceid <- dbGetQuery(myDB, instanceid_query)
-#   
+# 
 #   if (nrow(instanceid) != 1){
 #     stop("Multiple instanceids selected.")
 #   } else {
 #     instanceid <- instanceid$instanceid[1]
 #   }
-#   
+# 
 #   agentid_query <- paste0("SELECT agentid FROM ", agent_table_name, " WHERE agent_tag = '", agentname, "' AND aai_seed = ", seed, ";")
 #   agentid <- dbGetQuery(myDB, agentid_query)
-#   
+# 
 #   if (nrow(agentid) != 1){
 #     stop("Multiple agentids selected.")
 #   } else {
 #     agentid <- agentid$agentid[1]
 #   }
-#   
+# 
 #   delete_main_query <- paste0("DELETE FROM ", agent_results_table_name, " WHERE agentid = ", agentid, " AND instanceid = ", instanceid, ";")
-#   
+# 
 #   main_rows_affected <- dbExecute(myDB, delete_main_query)
 #   cat("Deleted", main_rows_affected, "from", agent_results_table_name, ".\n")
-#   
+# 
 #   delete_intra_query <- paste0("DELETE FROM ", agent_intraresults_table_name, " WHERE agentid = ", agentid, " AND instanceid = ", instanceid, ";")
-#   
+# 
 #   intra_rows_affected <- dbExecute(myDB, delete_intra_query)
 #   cat("Deleted", intra_rows_affected, "from", agent_intraresults_table_name, ".\n")
 # }
 # 
 # #2023-08-10 - 1478 inconsistent results deleted.
+# #2023-08-14 - 2 inconsistent results deleted.
 # 
 # dbDisconnect(myDB)
