@@ -48,11 +48,24 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="fullcontent">
+<body>
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
-<main class="content" id="quarto-document-content">
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-full">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#descriptives" id="toc-descriptives" class="nav-link active" data-scroll-target="#descriptives">Descriptives</a>
+  <ul>
+  <li><a href="#sample-sizes" id="toc-sample-sizes" class="nav-link" data-scroll-target="#sample-sizes">Sample Sizes</a></li>
+  <li><a href="#overall-performances" id="toc-overall-performances" class="nav-link" data-scroll-target="#overall-performances">Overall Performances</a></li>
+  <li><a href="#task-specific-performances" id="toc-task-specific-performances" class="nav-link" data-scroll-target="#task-specific-performances">Task-Specific Performances</a></li>
+  </ul></li>
+  </ul>
+</nav>
+</div>
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -91,23 +104,99 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell">
 <div class="cell-output-display">
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-5d40e0cbd4b273ac4ca4" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-5d40e0cbd4b273ac4ca4">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8"],["F","F","F","F","M","M","M","M"],[4,5,6,7,4,5,6,7],[2,4,2,1,4,11,4,2]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Gender<\/th>\n      <th>Age<\/th>\n      <th>Count<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-16623c857ed82fdbaaad" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-16623c857ed82fdbaaad">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8"],["F","F","F","F","M","M","M","M"],[4,5,6,7,4,5,6,7],[2,4,2,1,4,11,4,2]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Gender<\/th>\n      <th>Age<\/th>\n      <th>Count<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
-<section id="task-performances" class="level4">
-<h4 class="anchored" data-anchor-id="task-performances">Task Performances</h4>
+<section id="overall-performances" class="level4">
+<h4 class="anchored" data-anchor-id="overall-performances">Overall Performances</h4>
 <p>Agents were tested on a total of 8402 instances, consisting of basic tasks, object permanence control tasks, and object permanence test tasks.</p>
 <p>Children were tested on a total of 37 instances, consisting of basic tasks, object permanence control tasks, and object permanence test tasks. They were able to play some of those tasks more than once, namely the Chiandetti &amp; Vallortigara (2011) object permanence tests. They could also play the basic tasks and the object permanence control tasks as many times as they wanted.</p>
 <p>For the 4 kinds of agents, the number of instances that they passed, as well as the proportion of total instances that they passed, is provided in the table below. The behaviour of the random walkers and random action agents serve as a baseline for chance performance.</p>
 <div class="cell">
 <div class="cell-output-display">
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-d594527708622231e139" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-d594527708622231e139">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4"],["Human Child","Simple Goal-Directed Agent","Random Action Agent","Random Walker"],[1034,8987,4832,4525],[1414,21005,42010,62908],[73.1259,42.7851,11.502,7.193]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>agent_type<\/th>\n      <th>Total Passes<\/th>\n      <th>Total Instances<\/th>\n      <th>Percentage Instances Passed (4 d.p.)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-331804fd275628e836c1" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-331804fd275628e836c1">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4"],["Human Child","Simple Goal-Directed Agent","Random Action Agent","Random Walker"],[1034,8987,4832,4525],[1414,21005,42010,62908],[73.1259,42.7851,11.502,7.193]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>agent_type<\/th>\n      <th>Total Passes<\/th>\n      <th>Total Instances<\/th>\n      <th>Percentage Instances Passed (4 d.p.)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
+<p>For the 4 kinds of agents, we computed how many points they obtained from those that were available. For instances with lava, the worst possible score is to wait until the penultimate step and then step into lava, returning a score of -2. In instances without lava, the worst score is -1, if they wait for the episode to time out. The maximum score is a theoretical score, if they obtained the reward(s) immediately with no time decrement. The agents were only tested on instances with a time limit, so this maximum is impossible to obtain as it takes at least some time to navigate towards a reward. The children had some tutorial tests that did not have a time limit, and so they were able to achieve this maximum in some instances. Another caveat is that the children often navigated into lava if they had made the wrong choice and wanted to move on quickly, resulting in a lower reward than they would have obtained had they waited for the episode to time out.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-ce56a5e75d53b44017c3" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-ce56a5e75d53b44017c3">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4"],["Human Child","Simple Goal-Directed Agent","Random Walker","Random Action Agent"],[0,0,0,0],[0.1286,0,0,0],[0.184,0,0,0],[0.8333,0.2,0,0],[0.912,0.25,0.06,0.08400000000000001],[0.9419999999999999,0.3333,0.1429,0.1375],[0.7344000000000001,0.4962,0.177,0.1997],[0.96,0.855,0.2,0.1825],[0.974,0.9467,0.2222,0.2222],[0.9908,0.968,0.26,0.2743],[1,0.98,0.3333,0.7133],[1,0.996,0.996,0.996],[0.3662,0.4061,0.2244,0.2579]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>agent_type<\/th>\n      <th>Min<\/th>\n      <th>10%<\/th>\n      <th>20%<\/th>\n      <th>30%<\/th>\n      <th>40%<\/th>\n      <th>Median<\/th>\n      <th>Arithmetic Mean<\/th>\n      <th>60%<\/th>\n      <th>70%<\/th>\n      <th>80%<\/th>\n      <th>90%<\/th>\n      <th>Max<\/th>\n      <th>Standard Deviation<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6,7,8,9,10,11,12,13,14]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>We can present the distributions of these results in the following raincloud plot:</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="comparative-analysis_files/figure-html/proportion%20scores%20cloud%20plot-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="task-specific-performances" class="level4">
+<h4 class="anchored" data-anchor-id="task-specific-performances">Task-Specific Performances</h4>
+<p>Next, we look at the specific task types and compare performances there.</p>
+<section id="basic-tasks" class="level5">
+<h5 class="anchored" data-anchor-id="basic-tasks">Basic Tasks</h5>
+<p>These are basic tasks that test fundamental capabilities required for interacting successfully with the Animal-AI Environment.</p>
+<p>First, the success rates across this subset of tests is provided. It should be noted that children were given tests with no time limit, meaning they had as long as they needed to complete the tests. This was not the case for the agents, who had a time limit so that the episode eventually ended and didn’t delay training. However, we expect that the children will get very high scores on these tests. The tasks they failed are the ones involving lava.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-aa59faf5765cdccd94cc" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-aa59faf5765cdccd94cc">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4"],["Human Child","Simple Goal-Directed Agent","Random Action Agent","Random Walker"],[256,1212,957,1161],[258,1230,2460,3690],[99.2248,98.53660000000001,38.9024,31.4634]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>agent_type<\/th>\n      <th>Total Passes<\/th>\n      <th>Total Instances<\/th>\n      <th>Percentage Instances Passed (4 d.p.)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>Here are the proportions of points obtained for these tests:</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-0e900c544e7b5f7fbab7" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-0e900c544e7b5f7fbab7">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4"],["Human Child","Simple Goal-Directed Agent","Random Action Agent","Random Walker"],[0,0,0,0],[1,0.9365,0,0],[1,0.9533,0,0],[1,0.9573,0,0],[1,0.9667,0,0],[1,0.976,0,0],[0.9922,0.9597,0.3387,0.2917],[1,0.98,0.3267,0],[1,0.986,0.7738,0.5765],[1,0.99,0.884,0.9067],[1,0.9933,0.962,0.9867],[1,0.996,0.996,0.996],[0.08790000000000001,0.0804,0.4204,0.4191]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>agent_type<\/th>\n      <th>Min<\/th>\n      <th>10%<\/th>\n      <th>20%<\/th>\n      <th>30%<\/th>\n      <th>40%<\/th>\n      <th>Median<\/th>\n      <th>Arithmetic Mean<\/th>\n      <th>60%<\/th>\n      <th>70%<\/th>\n      <th>80%<\/th>\n      <th>90%<\/th>\n      <th>Max<\/th>\n      <th>Standard Deviation<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6,7,8,9,10,11,12,13,14]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="comparative-analysis_files/figure-html/proportion%20scores%20graph%20basic%20tasks-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>We can also examine the way that the agents failed these tasks. In the table, we provide the percentage of tasks that ended in certain ways for each agent:</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-de99c35f817e1bc403cc" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-de99c35f817e1bc403cc">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12"],["Human Child","Human Child","Human Child","Random Action Agent","Random Action Agent","Random Action Agent","Random Walker","Random Walker","Random Walker","Simple Goal-Directed Agent","Simple Goal-Directed Agent","Simple Goal-Directed Agent"],["No","No","Yes","No","No","Yes","No","No","Yes","No","No","Yes"],[1,2,1,1,2,1,1,2,1,1,2,1],[0,0,0,0,0,54.4444,0,0,77.03700000000001,0,0,0],[0,0,25,60.0847,50,30,67.3164,60,20,0.0847,0,37.7778],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,40,0,0,40,0,0,0,0],[100,100,75,39.9153,10,15.5556,32.6836,0,2.963,99.9153,100,62.2222],[214,36,8,2360,10,90,3540,15,135,1180,5,45]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Agent<\/th>\n      <th>Lava Present<\/th>\n      <th>Number of Goals<\/th>\n      <th>Lava Percentage<\/th>\n      <th>Time Percentage<\/th>\n      <th>Lava + 1 Goal Percentage<\/th>\n      <th>Time + 1 Goal Percentage<\/th>\n      <th>Passed Percentage<\/th>\n      <th>Total Instances<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":12,"columnDefs":[{"className":"dt-right","targets":[3,4,5,6,7,8,9]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,12,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="object-permanence-controls" class="level5">
+<h5 class="anchored" data-anchor-id="object-permanence-controls">Object Permanence Controls</h5>
+<p>Now we look at the object permanence control tasks for our two paradigms. N</p>
+<p>First, the success rates across this subset of tests is provided. Note that for the CVChick OP control tasks, the children did not have a time limit, while the artificial agents did. This was not the case for the agents, who had a time limit so that the episode eventually ended and didn’t delay training. However, we expect that the children will get very high scores on these tests. The tasks they failed are the ones involving lava.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-481279a1b48bba40e499" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-481279a1b48bba40e499">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8"],["Human Child","Human Child","Random Action Agent","Random Action Agent","Random Walker","Random Walker","Simple Goal-Directed Agent","Simple Goal-Directed Agent"],["CVChick","PCTB","CVChick","PCTB","CVChick","PCTB","CVChick","PCTB"],[26,68,1352,1013,1250,858,4968,1598],[36,108,14530,6720,21795,10066,7265,3360],[72.2222,62.963,9.3049,15.0744,5.7353,8.5237,68.3827,47.5595]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Agent<\/th>\n      <th>Paradigm<\/th>\n      <th>Total Passes<\/th>\n      <th>Total Instances<\/th>\n      <th>Percentage Instances Passed (4 d.p.)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[3,4,5]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>Here are the proportions of points obtained for these tests:</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-5502096f4e93560a5e95" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-5502096f4e93560a5e95">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4"],["Simple Goal-Directed Agent","Human Child","Random Walker","Random Action Agent"],[0,0,0,0],[0.0075,0,0,0],[0.2222,0,0,0],[0.2857,0.2077,0.0733,0.074],[0.8167,0.7747000000000001,0.155,0.1233],[0.9333,0.8524,0.2,0.1625],[0.6544,0.6122,0.2033,0.2161],[0.9543,0.8911,0.2222,0.2],[0.9675,0.9068000000000001,0.25,0.2223],[0.9771,0.947,0.2857,0.2733],[0.9825,1,0.3333,0.75],[0.9889,1,0.9913999999999999,0.9925],[0.3871,0.4089,0.21,0.2517]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>agent_type<\/th>\n      <th>Min<\/th>\n      <th>10%<\/th>\n      <th>20%<\/th>\n      <th>30%<\/th>\n      <th>40%<\/th>\n      <th>Median<\/th>\n      <th>Arithmetic Mean<\/th>\n      <th>60%<\/th>\n      <th>70%<\/th>\n      <th>80%<\/th>\n      <th>90%<\/th>\n      <th>Max<\/th>\n      <th>Standard Deviation<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6,7,8,9,10,11,12,13,14]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="comparative-analysis_files/figure-html/proportion%20scores%20graph%20control%20tasks-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
 </section>
 </section>
 

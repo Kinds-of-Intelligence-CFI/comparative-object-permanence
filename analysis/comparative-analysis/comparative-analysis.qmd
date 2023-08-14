@@ -1,7 +1,12 @@
 ---
 title: "Comparative-Object-Permanence"
 author: "K. Voudouris"
-format: html
+format: 
+  html:
+    page-layout: full
+    toc: true
+    toc-depth: 4
+    toc-expand: true
 editor: source
 execute: 
   echo: false
@@ -15,6 +20,13 @@ This document presents the descriptive statistics and and comparative analytics 
 
 library(tidyverse)
 library(DT)
+library(ggtext)
+library(ggdist)
+library(colorspace)
+library(ragg)
+library(extrafont) # may need to run font_import();loadfonts() to get the fonts used here.
+
+pal <- c("#FF8C00", "#A034F0", "#159090", "#FF007F") # color palette for plots
 
 ```
 
@@ -71,7 +83,7 @@ gender_by_age_table
 
 ```
 
-#### Task Performances
+#### Overall Performances
 
 ```{r instance counts}
 
@@ -128,7 +140,369 @@ proportions <- final_results %>%
   group_by(agent_type) %>% 
   summarise_at(vars(proportionSuccess),
                list(Min=min, `10%`=~quantile(., probs = 0.1), `20%`=~quantile(., probs = 0.2), `30%`=~quantile(., probs = 0.3), `40%`=~quantile(., probs = 0.4), Median=median, `Arithmetic Mean`=mean, `60%`=~quantile(., probs = 0.6),  
-                    `70%`=~quantile(., probs = 0.7), `80%`=~quantile(., probs = 0.8), `90%`=~quantile(., probs = 0.9), max=max)) %>%
-  arrange(desc(Median))
+                    `70%`=~quantile(., probs = 0.7), `80%`=~quantile(., probs = 0.8), `90%`=~quantile(., probs = 0.9), Max=max, `Standard Deviation` = sd)) %>%
+  arrange(desc(Median)) %>%
+  mutate(across(Min:`Standard Deviation`, ~round(.x, digits = 4)))
 
+```
+
+For the `r nrow(proportions)` kinds of agents, we computed how many points they obtained from those that were available. For instances with lava, the worst possible score is to wait until the penultimate step and then step into lava, returning a score of -2. In instances without lava, the worst score is -1, if they wait for the episode to time out. The maximum score is a theoretical score, if they obtained the reward(s) immediately with no time decrement. The agents were only tested on instances with a time limit, so this maximum is impossible to obtain as it takes at least some time to navigate towards a reward. The children had some tutorial tests that did not have a time limit, and so they were able to achieve this maximum in some instances. Another caveat is that the children often navigated into lava if they had made the wrong choice and wanted to move on quickly, resulting in a lower reward than they would have obtained had they waited for the episode to time out.
+
+```{r proportion scores table}
+
+datatable(proportions)
+
+```
+
+We can present the distributions of these results in the following raincloud plot:
+
+```{r proportion scores cloud plot}
+
+raincloud_data <- final_results %>%
+  select(c(agent_tag, agent_type, proportionSuccess)) %>%
+  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
+                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
+                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
+                                           ifelse(agent_type == "child", "Human Child", agent_type))))) %>%
+  group_by(agent_type)
+
+raincloud_data %>% 
+  ggplot(aes(x = agent_type, y = proportionSuccess)) + 
+  ggdist::stat_halfeye(
+    aes(color = agent_type,
+        fill = after_scale(lighten(color, .5))),
+    adjust = 10, 
+    width = .6, 
+    .width = 0,
+    normalize = "all",
+    justification = -0.5, 
+    point_color = NA) + 
+  geom_boxplot(
+    aes(color = agent_type,
+        color = after_scale(darken(color, .1, space = "HLS")),
+        fill = after_scale(desaturate(lighten(color, .8), .4))),
+    width = .42, 
+    outlier.shape = NA
+  ) +
+  # geom_point(
+  #   aes(color = agent_type,
+  #       color = after_scale(darken(color, .1, space = "HLS")),
+  #       fill = agent_type),
+  #   # fill = "white",
+  #   shape = 21,
+  #   stroke = .4,
+  #   size = 2,
+  #   #position = position_jitter(seed = 1, width = .12)
+  #   position = position_dodgejust(width = 1, justification = 1.1)
+  # ) + 
+  # geom_point(
+  #   aes(fill = agent_type),
+  #   color = "transparent",
+  #   shape = 21,
+  #   stroke = .4,
+  #   size = 2,
+  #   alpha = .3,
+  #   position = position_jitter(seed = 1, width = .12)
+  # )  +
+  coord_flip(xlim = c(1.2, NA), clip = "off") +
+   scale_color_manual(values = pal, guide = "none") +
+   scale_fill_manual(values = pal, guide = "none") +
+  labs(
+    x = NULL,
+    y = "Proportion Points Obtained",
+    title = "Proportion of Points Obtained By Agent Type",
+  ) +
+  theme_minimal(base_family = "Arial", base_size = 10) +
+  theme(
+    panel.grid.minor = element_blank(),
+    panel.grid.major.y = element_blank(),
+    axis.ticks = element_blank(),
+    axis.text.y = element_text(
+      color = darken(pal, .1, space = "HLS"),
+      size = 10
+    ),
+    axis.title.x = element_text(margin = margin(t = 10),
+                                size = 10),
+    plot.title = element_markdown(face = "bold", size = 15),
+    plot.subtitle = element_text(
+      color = "grey40", hjust = 0,
+      margin = margin(0, 0, 20, 0)
+    ),
+    plot.title.position = "plot",
+    plot.caption = element_markdown(
+      color = "grey40", lineheight = 1.2,
+      margin = margin(20, 0, 0, 0)),
+    plot.margin = margin(15, 15, 10, 15)
+  )
+
+
+# adapted from: https://gist.github.com/z3tt/8b2a06d05e8fae308abbf027ce357f01
+```
+
+#### Task-Specific Performances
+
+Next, we look at the specific task types and compare performances there.
+
+##### Basic Tasks
+
+These are basic tasks that test fundamental capabilities required for interacting successfully with the Animal-AI Environment.
+
+```{r basic tasks overview}
+
+basic_tasks <- final_results %>% 
+  filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "Basic") %>%
+  select(c(agent_tag, agent_type, proportionSuccess, success, episodeEndType, lavaPresence, numGoalsAll)) %>%
+  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
+                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
+                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
+                                           ifelse(agent_type == "child", "Human Child", agent_type)))))
+
+```
+
+First, the success rates across this subset of tests is provided. It should be noted that children were given tests with no time limit, meaning they had as long as they needed to complete the tests. This was not the case for the agents, who had a time limit so that the episode eventually ended and didn't delay training. However, we expect that the children will get very high scores on these tests. The tasks they failed are the ones involving lava.
+
+```{r basic tasks success rates}
+
+basic_tasks %>%
+  group_by(agent_type) %>%
+  summarise(`Total Passes` = sum(success),
+            `Total Instances` = n(),
+            `Percentage Instances Passed (4 d.p.)` = round(`Total Passes`/`Total Instances`*100, digits = 4)) %>%
+  arrange(desc(`Percentage Instances Passed (4 d.p.)`)) %>% datatable()
+
+```
+
+Here are the proportions of points obtained for these tests:
+
+```{r proportion scores basic tasks}
+
+basic_tasks %>%
+  group_by(agent_type) %>% 
+  summarise_at(vars(proportionSuccess),
+               list(Min=min, `10%`=~quantile(., probs = 0.1), `20%`=~quantile(., probs = 0.2), `30%`=~quantile(., probs = 0.3), `40%`=~quantile(., probs = 0.4), Median=median, `Arithmetic Mean`=mean, `60%`=~quantile(., probs = 0.6),  
+                    `70%`=~quantile(., probs = 0.7), `80%`=~quantile(., probs = 0.8), `90%`=~quantile(., probs = 0.9), Max=max, `Standard Deviation` = sd)) %>%
+  arrange(desc(Median)) %>%
+  mutate(across(Min:`Standard Deviation`, ~round(.x, digits = 4))) %>% datatable()
+
+```
+
+```{r proportion scores graph basic tasks}
+
+basic_tasks %>% 
+  ggplot(aes(x = agent_type, y = proportionSuccess)) + 
+  ggdist::stat_halfeye(
+    aes(color = agent_type,
+        fill = after_scale(lighten(color, .5))),
+    adjust = 10, 
+    width = .6, 
+    .width = 0,
+    #normalize = "all",
+    justification = -0.5, 
+    point_color = NA) + 
+  geom_boxplot(
+    aes(color = agent_type,
+        color = after_scale(darken(color, .1, space = "HLS")),
+        fill = after_scale(desaturate(lighten(color, .8), .4))),
+    width = .42, 
+    outlier.shape = NA
+  ) +
+  # geom_point(
+  #   aes(color = agent_type,
+  #       color = after_scale(darken(color, .1, space = "HLS")),
+  #       fill = agent_type),
+  #   # fill = "white",
+  #   shape = 21,
+  #   stroke = .4,
+  #   size = 2,
+  #   #position = position_jitter(seed = 1, width = .12)
+  #   position = position_dodgejust(width = 1, justification = 1.1)
+  # ) + 
+  # geom_point(
+  #   aes(fill = agent_type),
+  #   color = "transparent",
+  #   shape = 21,
+  #   stroke = .4,
+  #   size = 2,
+  #   alpha = .3,
+  #   position = position_jitter(seed = 1, width = .12)
+  # )  +
+  coord_flip(xlim = c(1.2, NA), clip = "off") +
+   scale_color_manual(values = pal, guide = "none") +
+   scale_fill_manual(values = pal, guide = "none") +
+  labs(
+    x = NULL,
+    y = "Proportion Points Obtained",
+    title = "Proportion of Points Obtained By Agent Type",
+  ) +
+  theme_minimal(base_family = "Arial", base_size = 10) +
+  theme(
+    panel.grid.minor = element_blank(),
+    panel.grid.major.y = element_blank(),
+    axis.ticks = element_blank(),
+    axis.text.y = element_text(
+      color = darken(pal, .1, space = "HLS"),
+      size = 10
+    ),
+    axis.title.x = element_text(margin = margin(t = 10),
+                                size = 10),
+    plot.title = element_markdown(face = "bold", size = 15),
+    plot.subtitle = element_text(
+      color = "grey40", hjust = 0,
+      margin = margin(0, 0, 20, 0)
+    ),
+    plot.title.position = "plot",
+    plot.caption = element_markdown(
+      color = "grey40", lineheight = 1.2,
+      margin = margin(20, 0, 0, 0)),
+    plot.margin = margin(15, 15, 10, 15)
+  )
+
+
+# adapted from: https://gist.github.com/z3tt/8b2a06d05e8fae308abbf027ce357f01
+```
+
+We can also examine the way that the agents failed these tasks. In the table, we provide the percentage of tasks that ended in certain ways for each agent:
+
+```{r basic tasks episode end types}
+
+basic_tasks %>% group_by(agent_type, lavaPresence, numGoalsAll) %>%
+  summarise(`Total Instances` = n(),
+            `Lava` = round(sum(episodeEndType == "lava")/`Total Instances`*100, 4),
+            `Time` = round(sum(episodeEndType == "time")/`Total Instances`*100, 4),
+            `Lava + 1 Goal` = round(sum(episodeEndType == "lava, obtained 1/2 goals")/`Total Instances`*100, 4),
+            `Time + 1 Goal` = round(sum(episodeEndType == "time, obtained 1/2 goals")/`Total Instances`*100, 4),
+            `Passed` = round(sum(episodeEndType == "all goal(s) obtained")/`Total Instances`*100, 4)) %>%
+  ungroup() %>%
+  transmute(`Agent` = agent_type,
+            `Lava Present` = ifelse(lavaPresence == 1, "Yes", "No"),
+            `Number of Goals` = numGoalsAll,
+            `Lava Percentage` = Lava,
+            `Time Percentage` = Time,
+            `Lava + 1 Goal Percentage` = `Lava + 1 Goal`,
+            `Time + 1 Goal Percentage` = `Time + 1 Goal`,
+            `Passed Percentage` = Passed,
+            `Total Instances` = `Total Instances`) %>%
+  datatable(options = list(pageLength = nrow(.)))
+
+```
+
+##### Object Permanence Controls
+
+Now we look at the object permanence control tasks for our two paradigms. N
+
+
+```{r control tasks overview}
+
+control_tasks <- final_results %>% 
+  filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "OP Controls") %>%
+  select(c(agent_tag, agent_type, proportionSuccess, success, episodeEndType, lavaPresence, Paradigm, cvchickleftchoice, cvchickrightchoice, pctb3cupcorrectchoice, pctbgridcupchoice, pctbgridcorrectchoice, threecupleftchoice, threecupmidchoice, threecuprightchoice)) %>%
+  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
+                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
+                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
+                                           ifelse(agent_type == "child", "Human Child", agent_type)))))
+
+```
+
+First, the success rates across this subset of tests is provided. Note that for the CVChick OP control tasks, the children did not have a time limit, while the artificial agents did. This was not the case for the agents, who had a time limit so that the episode eventually ended and didn't delay training. However, we expect that the children will get very high scores on these tests. The tasks they failed are the ones involving lava.
+
+```{r control tasks success rates}
+
+control_tasks %>%
+  group_by(agent_type, Paradigm) %>%
+  summarise(`Total Passes` = sum(success),
+            `Total Instances` = n(),
+            `Percentage Instances Passed (4 d.p.)` = round(`Total Passes`/`Total Instances`*100, digits = 4)) %>%
+  arrange(agent_type) %>% 
+  rename(Agent = agent_type) %>%
+  datatable()
+
+```
+
+Here are the proportions of points obtained for these tests:
+
+```{r proportion scores control tasks}
+
+control_tasks %>%
+  group_by(agent_type) %>% 
+  summarise_at(vars(proportionSuccess),
+               list(Min=min, `10%`=~quantile(., probs = 0.1), `20%`=~quantile(., probs = 0.2), `30%`=~quantile(., probs = 0.3), `40%`=~quantile(., probs = 0.4), Median=median, `Arithmetic Mean`=mean, `60%`=~quantile(., probs = 0.6),  
+                    `70%`=~quantile(., probs = 0.7), `80%`=~quantile(., probs = 0.8), `90%`=~quantile(., probs = 0.9), Max=max, `Standard Deviation` = sd)) %>%
+  arrange(desc(Median)) %>%
+  mutate(across(Min:`Standard Deviation`, ~round(.x, digits = 4))) %>% datatable()
+
+```
+
+```{r proportion scores graph control tasks}
+
+control_tasks %>% 
+  ggplot(aes(x = agent_type, y = proportionSuccess)) + 
+  ggdist::stat_halfeye(
+    aes(color = agent_type,
+        fill = after_scale(lighten(color, .5))),
+    adjust = 10, 
+    width = .6, 
+    .width = 0,
+    #normalize = "all",
+    justification = -0.5, 
+    point_color = NA) + 
+  geom_boxplot(
+    aes(color = agent_type,
+        color = after_scale(darken(color, .1, space = "HLS")),
+        fill = after_scale(desaturate(lighten(color, .8), .4))),
+    width = .42, 
+    outlier.shape = NA
+  ) +
+  # geom_point(
+  #   aes(color = agent_type,
+  #       color = after_scale(darken(color, .1, space = "HLS")),
+  #       fill = agent_type),
+  #   # fill = "white",
+  #   shape = 21,
+  #   stroke = .4,
+  #   size = 2,
+  #   #position = position_jitter(seed = 1, width = .12)
+  #   position = position_dodgejust(width = 1, justification = 1.1)
+  # ) + 
+  # geom_point(
+  #   aes(fill = agent_type),
+  #   color = "transparent",
+  #   shape = 21,
+  #   stroke = .4,
+  #   size = 2,
+  #   alpha = .3,
+  #   position = position_jitter(seed = 1, width = .12)
+  # )  +
+  coord_flip(xlim = c(1.2, NA), clip = "off") +
+   scale_color_manual(values = pal, guide = "none") +
+   scale_fill_manual(values = pal, guide = "none") +
+  labs(
+    x = NULL,
+    y = "Proportion Points Obtained",
+    title = "Proportion of Points Obtained By Agent Type",
+  ) +
+  theme_minimal(base_family = "Arial", base_size = 10) +
+  theme(
+    panel.grid.minor = element_blank(),
+    panel.grid.major.y = element_blank(),
+    axis.ticks = element_blank(),
+    axis.text.y = element_text(
+      color = darken(pal, .1, space = "HLS"),
+      size = 10
+    ),
+    axis.title.x = element_text(margin = margin(t = 10),
+                                size = 10),
+    plot.title = element_markdown(face = "bold", size = 15),
+    plot.subtitle = element_text(
+      color = "grey40", hjust = 0,
+      margin = margin(0, 0, 20, 0)
+    ),
+    plot.title.position = "plot",
+    plot.caption = element_markdown(
+      color = "grey40", lineheight = 1.2,
+      margin = margin(20, 0, 0, 0)),
+    plot.margin = margin(15, 15, 10, 15)
+  )
+
+
+# adapted from: https://gist.github.com/z3tt/8b2a06d05e8fae308abbf027ce357f01
 ```
