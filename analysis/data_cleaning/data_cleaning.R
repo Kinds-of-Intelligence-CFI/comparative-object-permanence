@@ -47,7 +47,7 @@ myDB <- dbConnect(drv,
 metadata <- read.csv("analysis/meta-data-full.csv") %>% mutate(minPossReward = ifelse(lavaPresence == 1 & time_limit != Inf, -2,
                                                                                       ifelse(lavaPresence == 1 & time_limit == Inf, -1,
                                                                                              ifelse(lavaPresence != 1 & time_limit == Inf, 0, -1))),
-                                                               maxPossReward = pass_mark + 1) %>%
+                                                               maxPossReward = ifelse(numYellowGoals > 1, numYellowGoals * mainGoalSize, pass_mark + 1)) %>%
   filter(numYellowGoals != 5) # Removing the 8 tasks that involve 5 yellow goals, as it is unclear what the pass_mark should be here, due to the role of health increasing the time span of the episode.
 
 ## Load raw performances
