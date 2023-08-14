@@ -2,7 +2,7 @@
 title: "Comparative-Object-Permanence"
 author: "K. Voudouris"
 format: html
-editor: visual
+editor: source
 execute: 
   echo: false
   warning: false
@@ -114,5 +114,21 @@ For the `r nrow(performances_table)` kinds of agents, the number of instances th
 ```{r overall success table}
 
 datatable(performances_table)
+
+```
+
+```{r proportion scores}
+
+proportions <- final_results %>% 
+  select(c(agent_tag, agent_type, proportionSuccess)) %>%
+  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
+                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
+                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
+                                           ifelse(agent_type == "child", "Human Child", agent_type))))) %>%
+  group_by(agent_type) %>% 
+  summarise_at(vars(proportionSuccess),
+               list(Min=min, `10%`=~quantile(., probs = 0.1), `20%`=~quantile(., probs = 0.2), `30%`=~quantile(., probs = 0.3), `40%`=~quantile(., probs = 0.4), Median=median, `Arithmetic Mean`=mean, `60%`=~quantile(., probs = 0.6),  
+                    `70%`=~quantile(., probs = 0.7), `80%`=~quantile(., probs = 0.8), `90%`=~quantile(., probs = 0.9), max=max)) %>%
+  arrange(desc(Median))
 
 ```
