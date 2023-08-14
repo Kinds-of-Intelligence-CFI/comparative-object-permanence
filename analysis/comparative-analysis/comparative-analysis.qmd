@@ -5,7 +5,7 @@ format:
   html:
     page-layout: full
     toc: true
-    toc-depth: 4
+    toc-depth: 5
     toc-expand: true
 editor: source
 execute: 
@@ -506,3 +506,111 @@ control_tasks %>%
 
 # adapted from: https://gist.github.com/z3tt/8b2a06d05e8fae308abbf027ce357f01
 ```
+
+We can also examine the way that the agents failed these tasks. In the table, we provide the percentage of tasks that ended in certain ways for each agent:
+
+```{r control tasks episode end types}
+
+control_tasks %>% group_by(agent_type, lavaPresence, Paradigm) %>%
+  summarise(`Total Instances` = n(),
+            `Lava` = round(sum(episodeEndType == "lava")/`Total Instances`*100, 4),
+            `Time` = round(sum(episodeEndType == "time")/`Total Instances`*100, 4),
+            `Passed` = round(sum(episodeEndType == "all goal(s) obtained")/`Total Instances`*100, 4)) %>%
+  ungroup() %>%
+  transmute(`Agent` = agent_type,
+            `Lava Present` = ifelse(lavaPresence == 1, "Yes", "No"),
+            Paradigm = Paradigm,
+            `Lava Percentage` = Lava,
+            `Time Percentage` = Time,
+            `Passed Percentage` = Passed,
+            `Total Instances` = `Total Instances`) %>%
+  datatable(options = list(pageLength = nrow(.)))
+
+```
+
+Now we can look at the PCTB Grid, PCTB 3 Cup, and CVChick control tasks individually, and examine the which choices the agents made. Note that we do not have this data on the children, only the artificial agents.
+
+###### Chiandetti & Vallortigara Chick Tasks
+
+In this task, the agent needs to search for a reward, while avoiding lava. They might be bad at navigating or scared of lava, so the choice they make at the start is useful. The fundamental choice is whether to go left or right. The agents could also stay on the choice platform, making no choice at all. This covers a small proportion of the arena, so it is justified to assume that chance selection approaches 50:50.
+
+```{r CVChick control tasks overview}
+
+cvchick_choices <- final_results %>%
+  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
+                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
+                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
+                                           ifelse(agent_type == "child", "Human Child", agent_type))))) %>% 
+  filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "OP Controls" & Paradigm == "CVChick") %>%
+  select(c(agent_type, cvchickcorrectchoice, cvchickleftchoice, cvchickrightchoice, success)) %>% drop_na()
+
+cvchick_choices_table <- cvchick_choices %>% group_by(agent_type) %>%
+  summarise(`Total Instances` = n(),
+            `Percentage Instances Passed (4 d.p.)` = round(sum(success)/`Total Instances`*100, digits = 4),
+            `Percentage Correct Choice` = round(sum((cvchickleftchoice == TRUE & cvchickcorrectchoice == "L" & cvchickrightchoice == FALSE)|(cvchickrightchoice == TRUE & cvchickcorrectchoice == "R" & cvchickleftchoice == FALSE))/`Total Instances`*100, digits = 4),
+            `Percentage Incorrect Choice` = round(sum((cvchickleftchoice == FALSE & cvchickcorrectchoice == "L" & cvchickrightchoice == TRUE)|(cvchickrightchoice == FALSE & cvchickcorrectchoice == "R" & cvchickleftchoice == TRUE))/`Total Instances`*100, digits = 4),
+            `Percentage No Choice` = round(sum(cvchickleftchoice == FALSE & cvchickrightchoice == FALSE)/`Total Instances`*100, digits = 4))
+
+datatable(cvchick_choices_table)
+
+#rowSums(cvchick_choices_table[4:6]) # should be ~100 within rounding error.
+```
+
+As can be seen, the random agents picked left over right at chance. The rule-based agents picked the correct side above chance, and when they did, they tended to go on to obtain the reward.
+
+###### PCTB 3 Cup Task
+
+In this task, the agent needs to search for a reward, while sometimes avoiding lava. They might be bad at navigating or scared of lava, so the choice they make at the start is useful. The fundamental choice is to choose the left, middle, or right cup. The agents could also make no choice at all. This covers more than half of the space, while the choice cups cover about 1/6 of the space each. This defines chance performance for the agents.
+
+
+```{r PCTB 3 Cup control tasks overview}
+
+pctb3cup_choices <- final_results %>%
+  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
+                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
+                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
+                                           ifelse(agent_type == "child", "Human Child", agent_type))))) %>% 
+  filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "OP Controls" & str_detect(Task, "3Cup")) %>%
+  select(c(agent_type, threecupleftchoice, threecupmidchoice, threecuprightchoice, pctb3cupcorrectchoice, success)) %>% drop_na()
+
+pctb3cup_choices_table <- pctb3cup_choices %>% group_by(agent_type) %>%
+  summarise(`Total Instances` = n(),
+            `Percentage Instances Passed (4 d.p.)` = round(sum(success)/`Total Instances`*100, digits = 4),
+            `Percentage Correct Choice` = round(sum((threecupleftchoice == TRUE & pctb3cupcorrectchoice == "L")|(pctb3cupcorrectchoice == "M" & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "R" & threecuprightchoice == TRUE))/`Total Instances`*100, digits = 4),
+            `Percentage Incorrect Choice` = round(sum((threecupleftchoice == FALSE & pctb3cupcorrectchoice == "L" & (threecuprightchoice == TRUE | threecupmidchoice == TRUE))|(threecupmidchoice == FALSE & pctb3cupcorrectchoice == "M" & (threecupleftchoice == TRUE | threecuprightchoice == TRUE))|(threecuprightchoice == FALSE & pctb3cupcorrectchoice == "R" & (threecupleftchoice == TRUE | threecupmidchoice == TRUE)))/`Total Instances`*100, digits = 4),
+            `Percentage No Choice` = round(sum(threecupleftchoice == FALSE & threecupmidchoice == FALSE & threecuprightchoice == FALSE)/`Total Instances`*100, digits = 4),
+            `Percentage Adjacent Choice` = round(sum((pctb3cupcorrectchoice == "L" & threecupleftchoice == FALSE & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "R" & threecuprightchoice == FALSE & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "M" & threecupmidchoice == FALSE & (threecupleftchoice == TRUE | threecuprightchoice == TRUE)))/`Total Instances`*100, digits = 4))
+
+datatable(pctb3cup_choices_table)
+
+#rowSums(pctb3cup_choices_table[4:6]) # should be ~100 within rounding error.
+```
+
+Note that some of these tasks are free choice, so the agent could visit multiple cups with no penalty (except time). We have calculated the percentage of instances where the agent picked an adjacent cup to the correct one, but not the correct one. 
+
+###### PCTB Grid Task
+
+In this task, the agent needs to search for a reward in a grid. They might be bad at navigating and so accidentally fall into another hole on their way. We can look at the pattern of choices to determine whether its navigation that is to blame for bad choices.
+
+```{r PCTB Grid Control tasks overview}
+
+pctbgrid_choices <- final_results %>%
+  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
+                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
+                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
+                                           ifelse(agent_type == "child", "Human Child", agent_type))))) %>% 
+  filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "OP Controls" & str_detect(Task, "Grid")) %>%
+  select(c(agent_type, InstanceName, pctbgridcorrectchoice, pctbgridcupchoice, success)) %>% drop_na()
+
+pctbgrid_choices_table <- pctbgrid_choices %>% group_by(agent_type) %>%
+  summarise(`Total Instances` = n(),
+            `Percentage Instances Passed (4 d.p.)` = round(sum(success)/`Total Instances`*100, digits = 4),
+            `Percentage Correct Choice` = round(sum(pctbgridcorrectchoice == pctbgridcupchoice)/`Total Instances`*100, digits = 4),
+            `Percentage Incorrect Choice` = round(sum(pctbgridcorrectchoice != pctbgridcupchoice)/`Total Instances`*100, digits = 4),
+            `Percentage Same Side Choice` = round(sum((str_detect(pctbgridcorrectchoice, "Right") & str_detect(pctbgridcupchoice, "Right") | (str_detect(pctbgridcorrectchoice, "Left") & str_detect(pctbgridcupchoice, "Left"))))/`Total Instances`*100, digits = 4))
+
+datatable(pctbgrid_choices_table)
+
+#rowSums(pctbgrid_choices_table[4:6]) # should be ~100 within rounding error.
+```
+
