@@ -600,17 +600,21 @@ pctbgrid_choices <- final_results %>%
                                     ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
                                            ifelse(agent_type == "child", "Human Child", agent_type))))) %>% 
   filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "OP Controls" & str_detect(Task, "Grid")) %>%
-  select(c(agent_type, InstanceName, pctbgridcorrectchoice, pctbgridcupchoice, success)) %>% drop_na()
+  select(c(agent_type, InstanceName, pctbgridcorrectchoice, pctbgridcupchoice, success, numChoices)) %>% drop_na()
 
-pctbgrid_choices_table <- pctbgrid_choices %>% group_by(agent_type) %>%
+pctbgrid_choices_table <- pctbgrid_choices %>% group_by(agent_type, numChoices) %>%
   summarise(`Total Instances` = n(),
             `Percentage Instances Passed (4 d.p.)` = round(sum(success)/`Total Instances`*100, digits = 4),
             `Percentage Correct Choice` = round(sum(pctbgridcorrectchoice == pctbgridcupchoice)/`Total Instances`*100, digits = 4),
-            `Percentage Incorrect Choice` = round(sum(pctbgridcorrectchoice != pctbgridcupchoice)/`Total Instances`*100, digits = 4),
-            `Percentage Same Side Choice` = round(sum((str_detect(pctbgridcorrectchoice, "Right") & str_detect(pctbgridcupchoice, "Right") | (str_detect(pctbgridcorrectchoice, "Left") & str_detect(pctbgridcupchoice, "Left"))))/`Total Instances`*100, digits = 4))
+            `Percentage Incorrect Choice` = round(sum(pctbgridcorrectchoice != pctbgridcupchoice & pctbgridcupchoice != "NoChoiceMade")/`Total Instances`*100, digits = 4),
+            `Percentage No Choice` = round(sum(pctbgridcupchoice == "NoChoiceMade")/`Total Instances`*100, digits = 4),
+            `Percentage Correct Side Choice` = round(sum((str_detect(pctbgridcorrectchoice, "Right") & str_detect(pctbgridcupchoice, "Right")) | (str_detect(pctbgridcorrectchoice, "Left") & str_detect(pctbgridcupchoice, "Left")))/`Total Instances`*100, digits = 4),
+            `Percentage Correct Column Choice` = round(sum((str_detect(pctbgridcorrectchoice, "CloseRight") & str_detect(pctbgridcupchoice, "CloseRight")) | (str_detect(pctbgridcorrectchoice, "CloseLeft") & str_detect(pctbgridcupchoice, "CloseLeft")) | (str_detect(pctbgridcorrectchoice, "FarRight") & str_detect(pctbgridcupchoice, "FarRight")) | (str_detect(pctbgridcorrectchoice, "FarLeft") & str_detect(pctbgridcupchoice, "FarLeft")))/`Total Instances`*100, digits = 4),
+            `Percentage Correct Row Choice` = round(sum((str_detect(pctbgridcorrectchoice, "RightClose") & str_detect(pctbgridcupchoice, "RightClose")) | (str_detect(pctbgridcorrectchoice, "LeftClose") & str_detect(pctbgridcupchoice, "LeftClose")) | (str_detect(pctbgridcorrectchoice, "LeftMid") & str_detect(pctbgridcupchoice, "LeftMid")) | (str_detect(pctbgridcorrectchoice, "RightMid") & str_detect(pctbgridcupchoice, "RightMid")) | (str_detect(pctbgridcorrectchoice, "LeftFar") & str_detect(pctbgridcupchoice, "LeftFar")) | (str_detect(pctbgridcorrectchoice, "RightFar") & str_detect(pctbgridcupchoice, "RightFar")))/`Total Instances`*100, digits = 4)) %>% 
+  rename(`Agent` = agent_type,
+         `Number of Cup` = numChoices)
 
 datatable(pctbgrid_choices_table)
 
-#rowSums(pctbgrid_choices_table[4:6]) # should be ~100 within rounding error.
 ```
-
+##### Object Permanence Tests
