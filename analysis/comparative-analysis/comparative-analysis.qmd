@@ -1073,6 +1073,6 @@ children_wide_data <- children_results %>%
               values_from = finalreward)
 
 children_tutorial_data <- children_wide_data %>%
-  select(c(agent_tag, starts_with("tutorial"))) #& ends_with("_1.yml")
+  select(c(agent_tag, starts_with("tutorial") & ends_with("_1.yml"))) 
 
 ```
