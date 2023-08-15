@@ -64,6 +64,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#basic-tasks" id="toc-basic-tasks" class="nav-link" data-scroll-target="#basic-tasks">Basic Tasks</a></li>
   <li><a href="#object-permanence-controls" id="toc-object-permanence-controls" class="nav-link" data-scroll-target="#object-permanence-controls">Object Permanence Controls</a></li>
+  <li><a href="#object-permanence-tests" id="toc-object-permanence-tests" class="nav-link" data-scroll-target="#object-permanence-tests">Object Permanence Tests</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -108,29 +109,29 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell">
 <div class="cell-output-display">
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-1c85f6fd1da1c731cf2d" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-1c85f6fd1da1c731cf2d">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8"],["F","F","F","F","M","M","M","M"],[4,5,6,7,4,5,6,7],[2,4,2,1,4,11,4,2]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Gender<\/th>\n      <th>Age<\/th>\n      <th>Count<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-91e89b59249e462d4c3b" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-91e89b59249e462d4c3b">{"x":{"filter":"none","vertical":false,"data":[["F","F","F","F","M","M","M","M"],[4,5,6,7,4,5,6,7],[2,4,2,1,4,11,4,2]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Gender<\/th>\n      <th>Age<\/th>\n      <th>Count<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
 <section id="overall-performances" class="level4">
 <h4 class="anchored" data-anchor-id="overall-performances">Overall Performances</h4>
-<p>Agents were tested on a total of 8402 instances, consisting of basic tasks, object permanence control tasks, and object permanence test tasks.</p>
+<p>Agents were tested on a total of 4201 instances, consisting of basic tasks, object permanence control tasks, and object permanence test tasks.</p>
 <p>Children were tested on a total of 37 instances, consisting of basic tasks, object permanence control tasks, and object permanence test tasks. They were able to play some of those tasks more than once, namely the Chiandetti &amp; Vallortigara (2011) object permanence tests. They could also play the basic tasks and the object permanence control tasks as many times as they wanted.</p>
 <p>For the 4 kinds of agents, the number of instances that they passed, as well as the proportion of total instances that they passed, is provided in the table below. The behaviour of the random walkers and random action agents serve as a baseline for chance performance.</p>
 <div class="cell">
 <div class="cell-output-display">
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-558d765e79eef63f027d" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-558d765e79eef63f027d">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4"],["Human Child","Simple Goal-Directed Agent","Random Action Agent","Random Walker"],[1034,8987,4832,4523],[1414,21005,42010,62908],[73.1259,42.7851,11.502,7.1899]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>agent_type<\/th>\n      <th>Total Passes<\/th>\n      <th>Total Instances<\/th>\n      <th>Percentage Instances Passed (4 d.p.)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-f72602bebf171ae03b65" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-f72602bebf171ae03b65">{"x":{"filter":"none","vertical":false,"data":[["Human Child","Simple Goal-Directed Agent","Random Action Agent","Random Walker"],[1034,8987,4832,4523],[1414,21005,42010,62908],[73.1259,42.7851,11.502,7.1899]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>agent_type<\/th>\n      <th>Total Passes<\/th>\n      <th>Total Instances<\/th>\n      <th>Percentage Instances Passed (4 d.p.)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>For the 4 kinds of agents, we computed how many points they obtained from those that were available. For instances with lava, the worst possible score is to wait until the penultimate step and then step into lava, returning a score of -2. In instances without lava, the worst score is -1, if they wait for the episode to time out. The maximum score is a theoretical score, if they obtained the reward(s) immediately with no time decrement. The agents were only tested on instances with a time limit, so this maximum is impossible to obtain as it takes at least some time to navigate towards a reward. The children had some tutorial tests that did not have a time limit, and so they were able to achieve this maximum in some instances. Another caveat is that the children often navigated into lava if they had made the wrong choice and wanted to move on quickly, resulting in a lower reward than they would have obtained had they waited for the episode to time out.</p>
 <div class="cell">
 <div class="cell-output-display">
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-78826afba40a344dac1b" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-78826afba40a344dac1b">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4"],["Human Child","Simple Goal-Directed Agent","Random Walker","Random Action Agent"],[0,0,0,0],[0.1286,0,0,0],[0.184,0,0,0],[0.8333,0.2,0,0],[0.912,0.25,0.06,0.08400000000000001],[0.9419999999999999,0.3333,0.1429,0.1375],[0.7344000000000001,0.4962,0.177,0.1997],[0.96,0.855,0.2,0.1825],[0.974,0.9467,0.2222,0.2222],[0.9908,0.968,0.26,0.2743],[1,0.98,0.3333,0.7133],[1,0.996,0.996,0.996],[0.3662,0.4061,0.2243,0.2579]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>agent_type<\/th>\n      <th>Min<\/th>\n      <th>10%<\/th>\n      <th>20%<\/th>\n      <th>30%<\/th>\n      <th>40%<\/th>\n      <th>Median<\/th>\n      <th>Arithmetic Mean<\/th>\n      <th>60%<\/th>\n      <th>70%<\/th>\n      <th>80%<\/th>\n      <th>90%<\/th>\n      <th>Max<\/th>\n      <th>Standard Deviation<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6,7,8,9,10,11,12,13,14]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-7db99666487f3a158d06" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-7db99666487f3a158d06">{"x":{"filter":"none","vertical":false,"data":[["Human Child","Simple Goal-Directed Agent","Random Walker","Random Action Agent"],[0,0,0,0],[0.1286,0,0,0],[0.184,0,0,0],[0.8333,0.2,0,0],[0.912,0.25,0.06,0.08400000000000001],[0.9419999999999999,0.3333,0.1429,0.1375],[0.7344000000000001,0.4962,0.177,0.1997],[0.96,0.855,0.2,0.1825],[0.974,0.9467,0.2222,0.2222],[0.9908,0.968,0.26,0.2743],[1,0.98,0.3333,0.7133],[1,0.996,0.996,0.996],[0.3662,0.4061,0.2243,0.2579]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>agent_type<\/th>\n      <th>Min<\/th>\n      <th>10%<\/th>\n      <th>20%<\/th>\n      <th>30%<\/th>\n      <th>40%<\/th>\n      <th>Median<\/th>\n      <th>Arithmetic Mean<\/th>\n      <th>60%<\/th>\n      <th>70%<\/th>\n      <th>80%<\/th>\n      <th>90%<\/th>\n      <th>Max<\/th>\n      <th>Standard Deviation<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11,12,13]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>We can present the distributions of these results in the following raincloud plot:</p>
@@ -150,16 +151,16 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell">
 <div class="cell-output-display">
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-f91536d691255dcd3655" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-f91536d691255dcd3655">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4"],["Human Child","Simple Goal-Directed Agent","Random Action Agent","Random Walker"],[256,1212,957,1161],[258,1230,2460,3690],[99.2248,98.53660000000001,38.9024,31.4634]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>agent_type<\/th>\n      <th>Total Passes<\/th>\n      <th>Total Instances<\/th>\n      <th>Percentage Instances Passed (4 d.p.)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-d8019b23a93da7ef1304" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-d8019b23a93da7ef1304">{"x":{"filter":"none","vertical":false,"data":[["Human Child","Simple Goal-Directed Agent","Random Action Agent","Random Walker"],[256,1212,957,1161],[258,1230,2460,3690],[99.2248,98.53660000000001,38.9024,31.4634]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>agent_type<\/th>\n      <th>Total Passes<\/th>\n      <th>Total Instances<\/th>\n      <th>Percentage Instances Passed (4 d.p.)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Here are the proportions of points obtained for these tests:</p>
 <div class="cell">
 <div class="cell-output-display">
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-c62067b21a3a03a26b68" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-c62067b21a3a03a26b68">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4"],["Human Child","Simple Goal-Directed Agent","Random Action Agent","Random Walker"],[0,0,0,0],[1,0.9365,0,0],[1,0.9533,0,0],[1,0.9573,0,0],[1,0.9667,0,0],[1,0.976,0,0],[0.9922,0.9597,0.3387,0.2917],[1,0.98,0.3267,0],[1,0.986,0.7738,0.5765],[1,0.99,0.884,0.9067],[1,0.9933,0.962,0.9867],[1,0.996,0.996,0.996],[0.08790000000000001,0.0804,0.4204,0.4191]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>agent_type<\/th>\n      <th>Min<\/th>\n      <th>10%<\/th>\n      <th>20%<\/th>\n      <th>30%<\/th>\n      <th>40%<\/th>\n      <th>Median<\/th>\n      <th>Arithmetic Mean<\/th>\n      <th>60%<\/th>\n      <th>70%<\/th>\n      <th>80%<\/th>\n      <th>90%<\/th>\n      <th>Max<\/th>\n      <th>Standard Deviation<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6,7,8,9,10,11,12,13,14]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-f0ff9d9fef80378fb744" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-f0ff9d9fef80378fb744">{"x":{"filter":"none","vertical":false,"data":[["Human Child","Simple Goal-Directed Agent","Random Action Agent","Random Walker"],[0,0,0,0],[1,0.9365,0,0],[1,0.9533,0,0],[1,0.9573,0,0],[1,0.9667,0,0],[1,0.976,0,0],[0.9922,0.9597,0.3387,0.2917],[1,0.98,0.3267,0],[1,0.986,0.7738,0.5765],[1,0.99,0.884,0.9067],[1,0.9933,0.962,0.9867],[1,0.996,0.996,0.996],[0.08790000000000001,0.0804,0.4204,0.4191]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>agent_type<\/th>\n      <th>Min<\/th>\n      <th>10%<\/th>\n      <th>20%<\/th>\n      <th>30%<\/th>\n      <th>40%<\/th>\n      <th>Median<\/th>\n      <th>Arithmetic Mean<\/th>\n      <th>60%<\/th>\n      <th>70%<\/th>\n      <th>80%<\/th>\n      <th>90%<\/th>\n      <th>Max<\/th>\n      <th>Standard Deviation<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11,12,13]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="cell">
@@ -171,28 +172,28 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell">
 <div class="cell-output-display">
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-f9ca8663a45f2fff4e54" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-f9ca8663a45f2fff4e54">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12"],["Human Child","Human Child","Human Child","Random Action Agent","Random Action Agent","Random Action Agent","Random Walker","Random Walker","Random Walker","Simple Goal-Directed Agent","Simple Goal-Directed Agent","Simple Goal-Directed Agent"],["No","No","Yes","No","No","Yes","No","No","Yes","No","No","Yes"],[1,2,1,1,2,1,1,2,1,1,2,1],[0,0,0,0,0,54.4444,0,0,77.03700000000001,0,0,0],[0,0,25,60.0847,50,30,67.3164,60,20,0.0847,0,37.7778],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,40,0,0,40,0,0,0,0],[100,100,75,39.9153,10,15.5556,32.6836,0,2.963,99.9153,100,62.2222],[214,36,8,2360,10,90,3540,15,135,1180,5,45]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Agent<\/th>\n      <th>Lava Present<\/th>\n      <th>Number of Goals<\/th>\n      <th>Lava Percentage<\/th>\n      <th>Time Percentage<\/th>\n      <th>Lava + 1 Goal Percentage<\/th>\n      <th>Time + 1 Goal Percentage<\/th>\n      <th>Passed Percentage<\/th>\n      <th>Total Instances<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":12,"columnDefs":[{"className":"dt-right","targets":[3,4,5,6,7,8,9]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,12,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-0b659d8d2094486cbee1" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-0b659d8d2094486cbee1">{"x":{"filter":"none","vertical":false,"data":[["Human Child","Human Child","Human Child","Random Action Agent","Random Action Agent","Random Action Agent","Random Walker","Random Walker","Random Walker","Simple Goal-Directed Agent","Simple Goal-Directed Agent","Simple Goal-Directed Agent"],["No","No","Yes","No","No","Yes","No","No","Yes","No","No","Yes"],[1,2,1,1,2,1,1,2,1,1,2,1],[0,0,0,0,0,54.4444,0,0,77.03700000000001,0,0,0],[0,0,25,60.0847,50,30,67.3164,60,20,0.0847,0,37.7778],[0,0,0,0,0,0,0,0,0,0,0,0],[0,0,0,0,40,0,0,40,0,0,0,0],[100,100,75,39.9153,10,15.5556,32.6836,0,2.963,99.9153,100,62.2222],[214,36,8,2360,10,90,3540,15,135,1180,5,45]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Agent<\/th>\n      <th>Lava Present<\/th>\n      <th>Number of Goals<\/th>\n      <th>Lava Percentage<\/th>\n      <th>Time Percentage<\/th>\n      <th>Lava + 1 Goal Percentage<\/th>\n      <th>Time + 1 Goal Percentage<\/th>\n      <th>Passed Percentage<\/th>\n      <th>Total Instances<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":12,"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6,7,8]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,12,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
 <section id="object-permanence-controls" class="level5">
 <h5 class="anchored" data-anchor-id="object-permanence-controls">Object Permanence Controls</h5>
-<p>Now we look at the object permanence control tasks for our two paradigms. N</p>
+<p>Now we look at the object permanence control tasks for our two paradigms.</p>
 <p>First, the success rates across this subset of tests is provided. Note that for the CVChick OP control tasks, the children did not have a time limit, while the artificial agents did. This was not the case for the agents, who had a time limit so that the episode eventually ended and didn’t delay training. However, we expect that the children will get very high scores on these tests. The tasks they failed are the ones involving lava.</p>
 <div class="cell">
 <div class="cell-output-display">
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-6d984472ded89d3673ad" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-6d984472ded89d3673ad">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8"],["Human Child","Human Child","Random Action Agent","Random Action Agent","Random Walker","Random Walker","Simple Goal-Directed Agent","Simple Goal-Directed Agent"],["CVChick","PCTB","CVChick","PCTB","CVChick","PCTB","CVChick","PCTB"],[26,68,1352,1013,1248,858,4968,1598],[36,108,14530,6720,21795,10066,7265,3360],[72.2222,62.963,9.3049,15.0744,5.7261,8.5237,68.3827,47.5595]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Agent<\/th>\n      <th>Paradigm<\/th>\n      <th>Total Passes<\/th>\n      <th>Total Instances<\/th>\n      <th>Percentage Instances Passed (4 d.p.)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[3,4,5]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-342ef1afaa96bc152685" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-342ef1afaa96bc152685">{"x":{"filter":"none","vertical":false,"data":[["Human Child","Human Child","Random Action Agent","Random Action Agent","Random Walker","Random Walker","Simple Goal-Directed Agent","Simple Goal-Directed Agent"],["CVChick","PCTB","CVChick","PCTB","CVChick","PCTB","CVChick","PCTB"],[26,68,1352,1013,1248,858,4968,1598],[36,108,14530,6720,21795,10066,7265,3360],[72.2222,62.963,9.3049,15.0744,5.7261,8.5237,68.3827,47.5595]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Agent<\/th>\n      <th>Paradigm<\/th>\n      <th>Total Passes<\/th>\n      <th>Total Instances<\/th>\n      <th>Percentage Instances Passed (4 d.p.)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Here are the proportions of points obtained for these tests:</p>
 <div class="cell">
 <div class="cell-output-display">
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-65e3018133fc4be22e01" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-65e3018133fc4be22e01">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4"],["Simple Goal-Directed Agent","Human Child","Random Walker","Random Action Agent"],[0,0,0,0],[0.0075,0,0,0],[0.2222,0,0,0],[0.2857,0.2077,0.0733,0.074],[0.8167,0.7747000000000001,0.155,0.1233],[0.9333,0.8524,0.2,0.1625],[0.6544,0.6122,0.2033,0.2161],[0.9543,0.8911,0.2222,0.2],[0.9675,0.9068000000000001,0.25,0.2223],[0.9771,0.947,0.2857,0.2733],[0.9825,1,0.3333,0.75],[0.9889,1,0.9913999999999999,0.9925],[0.3871,0.4089,0.2099,0.2517]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>agent_type<\/th>\n      <th>Min<\/th>\n      <th>10%<\/th>\n      <th>20%<\/th>\n      <th>30%<\/th>\n      <th>40%<\/th>\n      <th>Median<\/th>\n      <th>Arithmetic Mean<\/th>\n      <th>60%<\/th>\n      <th>70%<\/th>\n      <th>80%<\/th>\n      <th>90%<\/th>\n      <th>Max<\/th>\n      <th>Standard Deviation<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6,7,8,9,10,11,12,13,14]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-91d1380346f9ff0ba640" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-91d1380346f9ff0ba640">{"x":{"filter":"none","vertical":false,"data":[["Simple Goal-Directed Agent","Human Child","Random Walker","Random Action Agent"],[0,0,0,0],[0.0075,0,0,0],[0.2222,0,0,0],[0.2857,0.2077,0.0733,0.074],[0.8167,0.7747000000000001,0.155,0.1233],[0.9333,0.8524,0.2,0.1625],[0.6544,0.6122,0.2033,0.2161],[0.9543,0.8911,0.2222,0.2],[0.9675,0.9068000000000001,0.25,0.2223],[0.9771,0.947,0.2857,0.2733],[0.9825,1,0.3333,0.75],[0.9889,1,0.9913999999999999,0.9925],[0.3871,0.4089,0.2099,0.2517]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>agent_type<\/th>\n      <th>Min<\/th>\n      <th>10%<\/th>\n      <th>20%<\/th>\n      <th>30%<\/th>\n      <th>40%<\/th>\n      <th>Median<\/th>\n      <th>Arithmetic Mean<\/th>\n      <th>60%<\/th>\n      <th>70%<\/th>\n      <th>80%<\/th>\n      <th>90%<\/th>\n      <th>Max<\/th>\n      <th>Standard Deviation<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11,12,13]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="cell">
@@ -204,19 +205,19 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell">
 <div class="cell-output-display">
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-5421e0f5714aaa36f9bf" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-5421e0f5714aaa36f9bf">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12"],["Human Child","Human Child","Human Child","Random Action Agent","Random Action Agent","Random Action Agent","Random Walker","Random Walker","Random Walker","Simple Goal-Directed Agent","Simple Goal-Directed Agent","Simple Goal-Directed Agent"],["No","Yes","Yes","No","Yes","Yes","No","Yes","Yes","No","Yes","Yes"],["PCTB","CVChick","PCTB","PCTB","CVChick","PCTB","PCTB","CVChick","PCTB","PCTB","CVChick","PCTB"],[0,0,41.6667,0,65.2719,91.1724,0,40.2248,79.8621,0,12.691,0],[29.1667,27.7778,11.1111,81.8596,25.4233,4.8966,90.26739999999999,54.0491,16,39.5825,18.9264,99.1724],[70.83329999999999,72.2222,47.2222,18.1404,9.3049,3.931,9.7326,5.7261,4.1379,60.4175,68.3827,0.8276],[72,36,36,5270,14530,1450,7891,21795,2175,2635,7265,725]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Agent<\/th>\n      <th>Lava Present<\/th>\n      <th>Paradigm<\/th>\n      <th>Lava Percentage<\/th>\n      <th>Time Percentage<\/th>\n      <th>Passed Percentage<\/th>\n      <th>Total Instances<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":12,"columnDefs":[{"className":"dt-right","targets":[4,5,6,7]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,12,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-9247c6da71b31c828cb4" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-9247c6da71b31c828cb4">{"x":{"filter":"none","vertical":false,"data":[["Human Child","Human Child","Human Child","Random Action Agent","Random Action Agent","Random Action Agent","Random Walker","Random Walker","Random Walker","Simple Goal-Directed Agent","Simple Goal-Directed Agent","Simple Goal-Directed Agent"],["No","Yes","Yes","No","Yes","Yes","No","Yes","Yes","No","Yes","Yes"],["PCTB","CVChick","PCTB","PCTB","CVChick","PCTB","PCTB","CVChick","PCTB","PCTB","CVChick","PCTB"],[0,0,41.6667,0,65.2719,91.1724,0,40.2248,79.8621,0,12.691,0],[29.1667,27.7778,11.1111,81.8596,25.4233,4.8966,90.26739999999999,54.0491,16,39.5825,18.9264,99.1724],[70.83329999999999,72.2222,47.2222,18.1404,9.3049,3.931,9.7326,5.7261,4.1379,60.4175,68.3827,0.8276],[72,36,36,5270,14530,1450,7891,21795,2175,2635,7265,725]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Agent<\/th>\n      <th>Lava Present<\/th>\n      <th>Paradigm<\/th>\n      <th>Lava Percentage<\/th>\n      <th>Time Percentage<\/th>\n      <th>Passed Percentage<\/th>\n      <th>Total Instances<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":12,"columnDefs":[{"className":"dt-right","targets":[3,4,5,6]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,12,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Now we can look at the PCTB Grid, PCTB 3 Cup, and CVChick control tasks individually, and examine the which choices the agents made. Note that we do not have this data on the children, only the artificial agents.</p>
-<section id="chiandetti-vallortigara-chick-tasks" class="level6">
-<h6 class="anchored" data-anchor-id="chiandetti-vallortigara-chick-tasks">Chiandetti &amp; Vallortigara Chick Tasks</h6>
+<section id="chiandetti-vallortigara-chick-task" class="level6">
+<h6 class="anchored" data-anchor-id="chiandetti-vallortigara-chick-task">Chiandetti &amp; Vallortigara Chick Task</h6>
 <p>In this task, the agent needs to search for a reward, while avoiding lava. They might be bad at navigating or scared of lava, so the choice they make at the start is useful. The fundamental choice is whether to go left or right. The agents could also stay on the choice platform, making no choice at all. This covers a small proportion of the arena, so it is justified to assume that chance selection approaches 50:50.</p>
 <div class="cell">
 <div class="cell-output-display">
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-c53febd51b5fddf0256e" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-c53febd51b5fddf0256e">{"x":{"filter":"none","vertical":false,"data":[["1","2","3"],["Random Action Agent","Random Walker","Simple Goal-Directed Agent"],[14530,21795,7265],[9.3049,5.7261,68.3827],[49.9794,48.1762,68.6855],[49.6628,49.5435,29.7591],[0.3579,2.2803,1.5554]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>agent_type<\/th>\n      <th>Total Instances<\/th>\n      <th>Percentage Instances Passed (4 d.p.)<\/th>\n      <th>Percentage Correct Choice<\/th>\n      <th>Percentage Incorrect Choice<\/th>\n      <th>Percentage No Choice<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-3af1c85188e1d2c97e3c" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-3af1c85188e1d2c97e3c">{"x":{"filter":"none","vertical":false,"data":[["Random Action Agent","Random Walker","Simple Goal-Directed Agent"],[14530,21795,7265],[9.3049,5.7261,68.3827],[49.9794,48.1762,68.6855],[49.6628,49.5435,29.7591],[0.3579,2.2803,1.5554]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>agent_type<\/th>\n      <th>Total Instances<\/th>\n      <th>Percentage Instances Passed (4 d.p.)<\/th>\n      <th>Percentage Correct Choice<\/th>\n      <th>Percentage Incorrect Choice<\/th>\n      <th>Percentage No Choice<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>As can be seen, the random agents picked left over right at chance. The rule-based agents picked the correct side above chance, and when they did, they tended to go on to obtain the reward.</p>
@@ -227,8 +228,8 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell">
 <div class="cell-output-display">
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-88fc97e977894a8f6246" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-88fc97e977894a8f6246">{"x":{"filter":"none","vertical":false,"data":[["1","2","3"],["Random Action Agent","Random Walker","Simple Goal-Directed Agent"],[4320,6466,2160],[17.037,9.4649,41.7593],[28.7731,24.6211,42.9167],[43.0093,41.1228,20.8796],[28.2176,34.2561,36.2037],[32.5231,32.9106,18.7037]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>agent_type<\/th>\n      <th>Total Instances<\/th>\n      <th>Percentage Instances Passed (4 d.p.)<\/th>\n      <th>Percentage Correct Choice<\/th>\n      <th>Percentage Incorrect Choice<\/th>\n      <th>Percentage No Choice<\/th>\n      <th>Percentage Adjacent Choice<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6,7]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-3c5b810c1e50b2d86650" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-3c5b810c1e50b2d86650">{"x":{"filter":"none","vertical":false,"data":[["Random Action Agent","Random Walker","Simple Goal-Directed Agent"],[4320,6466,2160],[17.037,9.4649,41.7593],[28.7731,24.6211,42.9167],[43.0093,41.1228,20.8796],[28.2176,34.2561,36.2037],[32.5231,32.9106,18.7037]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>agent_type<\/th>\n      <th>Total Instances<\/th>\n      <th>Percentage Instances Passed (4 d.p.)<\/th>\n      <th>Percentage Correct Choice<\/th>\n      <th>Percentage Incorrect Choice<\/th>\n      <th>Percentage No Choice<\/th>\n      <th>Percentage Adjacent Choice<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <p>Note that some of these tasks are free choice, so the agent could visit multiple cups with no penalty (except time). We have calculated the percentage of instances where the agent picked an adjacent cup to the correct one, but not the correct one.</p>
@@ -239,8 +240,116 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell">
 <div class="cell-output-display">
 
-<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-3a648516e3f3163fe11b" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-3a648516e3f3163fe11b">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9"],["Random Action Agent","Random Action Agent","Random Action Agent","Random Walker","Random Walker","Random Walker","Simple Goal-Directed Agent","Simple Goal-Directed Agent","Simple Goal-Directed Agent"],[4,8,12,4,8,12,4,8,12],[600,1200,600,900,1800,900,300,600,300],[15.8333,11.1667,8,7,6.9444,6.4444,72,59.5,41],[15.8333,11.25,8,7.3333,6.9444,6.4444,72,59.5,41],[28.5,49.25,63.6667,15.2222,30.2222,35.8889,22,38.8333,56.3333],[55.6667,39.5,28.3333,77.4444,62.8333,57.6667,6,1.6667,2.6667],[25.3333,31.75,36.6667,11.5556,20.0556,23.1111,81.66670000000001,77.66670000000001,73.33329999999999],[15.8333,17.5,19.1667,7.3333,10.6667,13.5556,72,68.33329999999999,58.6667],[25.3333,17.8333,14.5,11.5556,11.9444,9.777799999999999,81.66670000000001,64.66670000000001,47]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Agent<\/th>\n      <th>Number of Cup<\/th>\n      <th>Total Instances<\/th>\n      <th>Percentage Instances Passed (4 d.p.)<\/th>\n      <th>Percentage Correct Choice<\/th>\n      <th>Percentage Incorrect Choice<\/th>\n      <th>Percentage No Choice<\/th>\n      <th>Percentage Correct Side Choice<\/th>\n      <th>Percentage Correct Column Choice<\/th>\n      <th>Percentage Correct Row Choice<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6,7,8,9,10]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-8f541f2dfd0058ef89d2" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-8f541f2dfd0058ef89d2">{"x":{"filter":"none","vertical":false,"data":[["Random Action Agent","Random Action Agent","Random Action Agent","Random Walker","Random Walker","Random Walker","Simple Goal-Directed Agent","Simple Goal-Directed Agent","Simple Goal-Directed Agent"],[4,8,12,4,8,12,4,8,12],[600,1200,600,900,1800,900,300,600,300],[15.8333,11.1667,8,7,6.9444,6.4444,72,59.5,41],[15.8333,11.25,8,7.3333,6.9444,6.4444,72,59.5,41],[28.5,49.25,63.6667,15.2222,30.2222,35.8889,22,38.8333,56.3333],[55.6667,39.5,28.3333,77.4444,62.8333,57.6667,6,1.6667,2.6667],[25.3333,31.75,36.6667,11.5556,20.0556,23.1111,81.66670000000001,77.66670000000001,73.33329999999999],[15.8333,17.5,19.1667,7.3333,10.6667,13.5556,72,68.33329999999999,58.6667],[25.3333,17.8333,14.5,11.5556,11.9444,9.777799999999999,81.66670000000001,64.66670000000001,47]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Agent<\/th>\n      <th>Number of Cups<\/th>\n      <th>Total Instances<\/th>\n      <th>Percentage Instances Passed (4 d.p.)<\/th>\n      <th>Percentage Correct Choice<\/th>\n      <th>Percentage Incorrect Choice<\/th>\n      <th>Percentage No Choice<\/th>\n      <th>Percentage Correct Side Choice<\/th>\n      <th>Percentage Correct Column Choice<\/th>\n      <th>Percentage Correct Row Choice<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+</section>
+<section id="object-permanence-tests" class="level5">
+<h5 class="anchored" data-anchor-id="object-permanence-tests">Object Permanence Tests</h5>
+<p>Next we turn to the descriptive statistics for the 3 types of object permanence tasks.</p>
+<section id="chiandetti-vallortigara-chick-task-1" class="level6">
+<h6 class="anchored" data-anchor-id="chiandetti-vallortigara-chick-task-1">Chiandetti &amp; Vallortigara Chick Task</h6>
+<p>First, the success rates across this subset of tests is provided. Note that the children played each instance twice for this paradigm. There were two orders of play to counterbalance the design.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-2ef1a646103847b0a8ee" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-2ef1a646103847b0a8ee">{"x":{"filter":"none","vertical":false,"data":[["Human Child","Simple Goal-Directed Agent","Random Action Agent","Random Walker"],[345,306,71,26],[506,630,1260,1890],[68.1818,48.5714,5.6349,1.3757]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Agent<\/th>\n      <th>Total Passes<\/th>\n      <th>Total Instances<\/th>\n      <th>Percentage Instances Passed (4 d.p.)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>Here are the proportions of points obtained for these tests:</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-d5b8d606b39a2fc9984f" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-d5b8d606b39a2fc9984f">{"x":{"filter":"none","vertical":false,"data":[["Human Child","Simple Goal-Directed Agent","Random Walker","Random Action Agent"],[0.03,0.006,0,0],[0.154,0.1758,0.05,0.048],[0.17,0.2,0.104,0.08],[0.19,0.2,0.16,0.11],[0.9340000000000001,0.482,0.2,0.134],[0.956,0.49,0.2,0.156],[0.7054,0.6026,0.1804,0.1945],[0.964,0.9360000000000001,0.2,0.178],[0.97,0.964,0.2,0.2],[0.978,0.972,0.2,0.2],[0.982,0.978,0.25,0.372],[0.992,0.984,0.952,0.978],[0.376,0.3605,0.1108,0.1923]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>agent_type<\/th>\n      <th>Min<\/th>\n      <th>10%<\/th>\n      <th>20%<\/th>\n      <th>30%<\/th>\n      <th>40%<\/th>\n      <th>Median<\/th>\n      <th>Arithmetic Mean<\/th>\n      <th>60%<\/th>\n      <th>70%<\/th>\n      <th>80%<\/th>\n      <th>90%<\/th>\n      <th>Max<\/th>\n      <th>Standard Deviation<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11,12,13]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="comparative-analysis_files/figure-html/proportion%20scores%20graph%20cvchick%20OP%20tasks-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>We can also examine the way that the agents failed these tasks. In the table, we provide the percentage of tasks that ended in certain ways for each agent:</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-823ce23a7f2732aef810" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-823ce23a7f2732aef810">{"x":{"filter":"none","vertical":false,"data":[["Human Child","Random Action Agent","Random Walker","Simple Goal-Directed Agent"],[30.4348,64.8413,40.7407,12.5397],[1.3834,24.4444,54.8677,24.4444],[68.1818,5.6349,1.3757,48.5714],[506,1260,1890,630]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Agent<\/th>\n      <th>Lava Percentage<\/th>\n      <th>Time Percentage<\/th>\n      <th>Passed Percentage<\/th>\n      <th>Total Instances<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":4,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[4,10,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>Now we can look at the choices the agents made.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-c0079c3417b2048a5eeb" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-c0079c3417b2048a5eeb">{"x":{"filter":"none","vertical":false,"data":[["Human Child","Random Action Agent","Random Walker","Simple Goal-Directed Agent"],[506,1260,1890,630],[68.1818,5.6349,1.3757,48.5714],[74.70359999999999,48.4127,48.3069,55.2381],[25.2964,51.3492,48.9418,42.8571],[0,0.2381,2.7513,1.9048]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>agent_type<\/th>\n      <th>Total Instances<\/th>\n      <th>Percentage Instances Passed (4 d.p.)<\/th>\n      <th>Percentage Correct Choice<\/th>\n      <th>Percentage Incorrect Choice<\/th>\n      <th>Percentage No Choice<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="pctb-3-cup-task-1" class="level6">
+<h6 class="anchored" data-anchor-id="pctb-3-cup-task-1">PCTB 3 Cup Task</h6>
+<p>First, the success rates across this subset of tests is provided. Note that the children played each instance once for this paradigm. There were two orders of play to counterbalance the design.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-7d01239b5405cb1b693b" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-7d01239b5405cb1b693b">{"x":{"filter":"none","vertical":false,"data":[["Human Child","Simple Goal-Directed Agent","Random Action Agent","Random Walker"],[172,866,1331,1181],[283,7560,15120,22587],[60.7774,11.455,8.802899999999999,5.2287]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Agent<\/th>\n      <th>Total Passes<\/th>\n      <th>Total Instances<\/th>\n      <th>Percentage Instances Passed (4 d.p.)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>Here are the proportions of points obtained for these tests:</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-5b116a7fb5c65b00582a" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-5b116a7fb5c65b00582a">{"x":{"filter":"none","vertical":false,"data":[["Human Child","Simple Goal-Directed Agent","Random Action Agent","Random Walker"],[0,0,0,0],[0.1487,0,0,0],[0.236,0,0,0],[0.3728,0,0,0],[0.7801,0.1667,0.0323,0],[0.896,0.2,0.1229,0.08799999999999999],[0.6584,0.2489,0.1747,0.1418],[0.9284,0.25,0.172,0.1433],[0.9436,0.2857,0.2133,0.1911],[0.9567,0.35,0.2723,0.2429],[0.9663,0.7737000000000001,0.3818,0.3306],[0.98,0.985,0.9867,0.9822],[0.3545,0.2702,0.2305,0.1985]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>agent_type<\/th>\n      <th>Min<\/th>\n      <th>10%<\/th>\n      <th>20%<\/th>\n      <th>30%<\/th>\n      <th>40%<\/th>\n      <th>Median<\/th>\n      <th>Arithmetic Mean<\/th>\n      <th>60%<\/th>\n      <th>70%<\/th>\n      <th>80%<\/th>\n      <th>90%<\/th>\n      <th>Max<\/th>\n      <th>Standard Deviation<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11,12,13]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="comparative-analysis_files/figure-html/proportion%20scores%20graph%203%20cup%20OP%20tasks-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Now we can look at the choices they made:</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-c7b555868bc71c749d63" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-c7b555868bc71c749d63">{"x":{"filter":"none","vertical":false,"data":[["Human Child","Random Action Agent","Random Walker","Simple Goal-Directed Agent"],[283,15120,22587,7560],[60.7774,8.802899999999999,5.2287,11.455],[62.5442,14.4907,13.4635,12.1825],[17.6678,36.5741,33.0898,29.4974],[12.3675,40.5291,43.5649,56.9444],[15.5477,29.2196,28.0383,26.8254]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>agent_type<\/th>\n      <th>Total Instances<\/th>\n      <th>Percentage Instances Passed (4 d.p.)<\/th>\n      <th>Percentage Correct Choice<\/th>\n      <th>Percentage Incorrect Choice<\/th>\n      <th>Percentage No Choice<\/th>\n      <th>Percentage Adjacent Choice<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="pctb-grid-task-1" class="level6">
+<h6 class="anchored" data-anchor-id="pctb-grid-task-1">PCTB Grid Task</h6>
+<p>First, the success rates across this subset of tests is provided. Note that the children played each instance once for this paradigm. There were two orders of play to counterbalance the design.</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-2d458fa1f24aaa05f6ab" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-2d458fa1f24aaa05f6ab">{"x":{"filter":"none","vertical":false,"data":[["Human Child","Random Action Agent","Simple Goal-Directed Agent","Random Walker"],[167,108,37,49],[223,1920,960,2880],[74.8879,5.625,3.8542,1.7014]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Agent<\/th>\n      <th>Total Passes<\/th>\n      <th>Total Instances<\/th>\n      <th>Percentage Instances Passed (4 d.p.)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p>Here are the proportions of points obtained for these tests:</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-2269ce529a325a8a4420" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-2269ce529a325a8a4420">{"x":{"filter":"none","vertical":false,"data":[["Human Child","Random Action Agent","Random Walker","Simple Goal-Directed Agent"],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0.8167,0,0,0],[0.8727,0,0,0],[0.8933,0,0,0],[0.6773,0.0393,0.0122,0.0288],[0.9133,0,0,0],[0.93,0,0,0],[0.9367,0,0,0],[0.95,0,0,0],[0.97,0.9133,0.896,0.9067],[0.3954,0.1641,0.0936,0.1463]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>agent_type<\/th>\n      <th>Min<\/th>\n      <th>10%<\/th>\n      <th>20%<\/th>\n      <th>30%<\/th>\n      <th>40%<\/th>\n      <th>Median<\/th>\n      <th>Arithmetic Mean<\/th>\n      <th>60%<\/th>\n      <th>70%<\/th>\n      <th>80%<\/th>\n      <th>90%<\/th>\n      <th>Max<\/th>\n      <th>Standard Deviation<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9,10,11,12,13]}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="comparative-analysis_files/figure-html/proportion%20scores%20graph%20Grid%20OP%20tasks-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Now we can look at the choices they made:</p>
+<div class="cell">
+<div class="cell-output-display">
+
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-7c69366759af3141e6f5" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-7c69366759af3141e6f5">{"x":{"filter":"none","vertical":false,"data":[["Human Child","Human Child","Random Action Agent","Random Action Agent","Random Action Agent","Random Walker","Random Walker","Random Walker","Simple Goal-Directed Agent","Simple Goal-Directed Agent","Simple Goal-Directed Agent"],[4,12,4,8,12,4,8,12,4,8,12],[141,82,480,960,480,720,1440,720,240,480,240],[79.43259999999999,67.0732,6.6667,6.1458,3.5417,1.9444,1.875,1.1111,6.25,4.1667,0.8333],[82.9787,69.51220000000001,10.4167,9.583299999999999,5.2083,5.8333,4.2361,3.0556,16.25,11.0417,6.25],[13.4752,29.2683,32.5,53.2292,60.625,15.9722,32.1528,36.1111,43.3333,72.91670000000001,87.91670000000001],[3.5461,1.2195,57.0833,37.1875,34.1667,78.1944,63.6111,60.8333,40.4167,16.0417,5.8333],[92.1986,92.6829,18.5417,32.9167,32.7083,10.5556,18.2639,17.0833,29.1667,39.375,41.25],[82.9787,89.0244,10.4167,17.9167,16.0417,5.8333,9.375,9.3056,16.25,21.25,17.9167],[92.1986,71.9512,18.5417,17.5,10.625,10.5556,8.333299999999999,5.1389,29.1667,20.8333,11.6667]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Agent<\/th>\n      <th>Number of Cups<\/th>\n      <th>Total Instances<\/th>\n      <th>Percentage Instances Passed (4 d.p.)<\/th>\n      <th>Percentage Correct Choice<\/th>\n      <th>Percentage Incorrect Choice<\/th>\n      <th>Percentage No Choice<\/th>\n      <th>Percentage Correct Side Choice<\/th>\n      <th>Percentage Correct Column Choice<\/th>\n      <th>Percentage Correct Row Choice<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":11,"columnDefs":[{"className":"dt-right","targets":[1,2,3,4,5,6,7,8,9]}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,11,25,50,100]}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
