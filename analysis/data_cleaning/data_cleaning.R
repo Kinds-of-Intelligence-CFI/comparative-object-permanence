@@ -368,7 +368,7 @@ pctb_grid_tasks_final$pctbgridcupchoice <- pctb_grid_cup_choices
 # for the room practice tasks, you can get the reward without entering the cup, because it fills the whole cup, so need to fix the cup chosen to be the right cup when they picked correctly.
 
 pctb_grid_tasks_final <- pctb_grid_tasks_final %>% 
-  mutate(pctbgridcupchoice = ifelse(success == 1, pctbgridcorrectchoice, pctbgridcupchoice))
+  mutate(pctbgridcupchoice = ifelse(success == 1 & agent_type != "child", pctbgridcorrectchoice, pctbgridcupchoice))
 
 
 ######################
