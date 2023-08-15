@@ -1065,7 +1065,7 @@ children_counterbalance <- children_results %>%
 
 In the study, `r children_counterbalance$Count[1]` played configuration A of the test set, and `r children_counterbalance$Count[2]` played the reversed configuration, configuration B.
 
-```{r children NAs and Dropouts and Tutorials}
+```{r children Tutorials summary}
 
 children_wide_data <- children_results %>%
   select(agent_tag, instancename_child, finalreward) %>%
@@ -1073,6 +1073,41 @@ children_wide_data <- children_results %>%
               values_from = finalreward)
 
 children_tutorial_data <- children_wide_data %>%
-  select(c(agent_tag, starts_with("tutorial") & ends_with("_1.yml"))) 
+  select(c(starts_with("tutorial"))) 
+
+children_tutorial_data$NumTutorials <- rowSums(!is.na(children_tutorial_data))
+
+childrentutorial_table <- table(children_tutorial_data$NumTutorials) %>% as.data.frame() %>% rename(`Number of Tutorial Instances Played` = Var1,
+                                                                               `Number of Children` = Freq) 
+
+```
+
+The children played the tutorials as many times as they wanted. The number of tutorial tasks that the children played is recorded in the table below, with the number of children that played that many tasks:
+
+```{r children tutorials table}
+
+datatable(childrentutorial_table, rownames = FALSE)
+
+```
+
+```{r children NAs tests}
+
+children_test_data <- children_wide_data %>%
+  select(c(!starts_with("tutorial") & !agent_tag))
+
+children_test_data$NumTests <- rowSums(!is.na(children_test_data))
+
+childrentest_table <- table(children_test_data$NumTests) %>% as.data.frame() %>% 
+  rename(`Number of Test Instances Played` = Var1,
+         `Number of Children` = Freq) 
+
+
+```
+
+The children then played the Object Permanence tasks. Some quit after a certain number of tests:
+
+```{r children NAs tests table}
+
+datatable(childrentest_table, rownames = FALSE)
 
 ```
