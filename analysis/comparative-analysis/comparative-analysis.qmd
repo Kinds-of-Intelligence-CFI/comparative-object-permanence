@@ -1,0 +1,1286 @@
+---
+title: "Comparative-Object-Permanence"
+author: "K. Voudouris"
+format: 
+  html:
+    page-layout: full
+    toc: true
+    toc-depth: 5
+    toc-expand: true
+editor: source
+execute: 
+  echo: false
+  warning: false
+  error: false
+---
+
+```{r preamble}
+
+library(tidyverse)
+library(DT)
+library(ggtext)
+library(ggdist)
+library(colorspace)
+library(ragg)
+library(extrafont) # may need to run font_import();loadfonts() to get the fonts used here.
+
+pal <- c("#FF8C00", "#A034F0", "#159090", "#FF007F") # color palette for plots
+
+rounding <- 4
+
+```
+
+This document presents the descriptive statistics and and comparative analytics for the agents studied in the `comparative-object-permanence` study. This document does not contain any psychometric analysis (measurement layouts). Below, '*agents*' refers to artificial agents like random walkers or deep reinforcement learners. '*children*' refers to human children (!). Note that all floats are reported to `r rounding` decimal places.
+
+```{r data import}
+
+final_results <- read.csv("../results_final_clean.csv") %>%
+  filter(problem_flag == "N") #remove the problematic data points.
+
+```
+
+## Overall Descriptives
+
+```{r descriptives}
+
+agent_data <- final_results %>% 
+  select(c(agent_tag, aai_seed, age, gender)) %>% distinct()
+
+random_walker_distinct <- agent_data %>% select(agent_tag) %>%
+  filter(str_detect(agent_tag, "Random Walker")) %>% distinct()
+
+random_action_distinct <- agent_data %>% select(agent_tag) %>%
+  filter(str_detect(agent_tag, "Random Action Agent")) %>% distinct()
+
+vanilla_braitenberg_distinct <- agent_data %>% select(agent_tag) %>%
+  filter(str_detect(agent_tag, "Vanilla")) %>% distinct()
+
+children_distinct <- agent_data %>% select(agent_tag) %>%
+  filter(str_detect(agent_tag, "_01")) %>% distinct()
+
+age_table <- agent_data %>% select(age) %>% group_by(age) %>%
+  summarise(count = n())
+
+gender_table <- agent_data %>% select(gender) %>% group_by(gender) %>%
+  summarise(count = n())
+
+gender_by_age_table <- agent_data %>% select(gender, age) %>% group_by(gender, age) %>%
+  summarise(Count = n()) %>% drop_na() %>% rename(Gender = gender, Age = age) %>% datatable(rownames = FALSE)
+
+seed_distinct <- agent_data %>% select(aai_seed) %>% distinct() %>% drop_na()
+  
+
+```
+
+#### Sample Sizes
+
+-   `r nrow(random_walker_distinct)` types of random walker, tested on `r nrow(seed_distinct)` RNG seeds. Total sample size: `r nrow(random_walker_distinct) * nrow(seed_distinct)`.
+-   `r nrow(random_action_distinct)` types of random action agent, tested on `r nrow(seed_distinct)` RNG seeds. Total sample size: `r nrow(random_action_distinct) * nrow(seed_distinct)`.
+-   `r nrow(vanilla_braitenberg_distinct)` type of simple goal-directed rule-based agent, tested on `r nrow(seed_distinct)` RNG seeds. Total sample size: `r nrow(vanilla_braitenberg_distinct) * nrow(seed_distinct)`.
+-   `r nrow(children_distinct)` children, aged between 4 and 7. We collected some data for `r age_table$count[1]` four year olds, `r age_table$count[2]` five year olds, `r age_table$count[3]` six year olds, `r age_table$count[4]` seven year-olds. Guardians identified participants' genders. `r gender_table$count[1]` were identified as *Female*, `r gender_table$count[2]` were identified as *Male*, 0 were identified as *Other*. Below is a table of gender by age.
+
+```{r gender by age table}
+
+gender_by_age_table
+
+```
+
+#### Overall Performances
+
+```{r instance counts}
+
+children_distinct_instances <- final_results %>% select(c(InstanceName, SubSuite, agent_type)) %>% filter(agent_type == "child") %>%
+  distinct() %>% drop_na()
+
+children_instance_type_counts <- children_distinct_instances %>% select(SubSuite) %>% group_by(SubSuite) %>% summarise(Count = n())
+
+
+agent_distinct_instances <- final_results %>% select(c(InstanceName, SubSuite, agent_type)) %>% filter(agent_type != "child") %>%
+  distinct(InstanceName, SubSuite) %>% drop_na()
+
+agent_instance_type_counts <- agent_distinct_instances %>% select(SubSuite) %>% group_by(SubSuite) %>% summarise(Count = n())
+
+
+```
+
+Agents were tested on a total of `r nrow(agent_distinct_instances)` instances, consisting of `r agent_instance_type_counts$count[2]` basic tasks, `r agent_instance_type_counts$count[3]` object permanence control tasks, and `r agent_instance_type_counts$count[1]` object permanence test tasks.
+
+Children were tested on a total of `r nrow(children_distinct_instances)` instances, consisting of `r children_instance_type_counts$count[2]` basic tasks, `r children_instance_type_counts$count[3]` object permanence control tasks, and `r children_instance_type_counts$count[1]` object permanence test tasks. They were able to play some of those tasks more than once, namely the Chiandetti & Vallortigara (2011) object permanence tests. They could also play the basic tasks and the object permanence control tasks as many times as they wanted.
+
+```{r overall success performances}
+
+performances_table <- final_results %>% 
+  select(c(agent_tag, agent_type, success)) %>%
+  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
+                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
+                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
+                                           ifelse(agent_type == "child", "Human Child", agent_type))))) %>%
+  group_by(agent_type) %>% 
+  summarise(`Total Passes` = sum(success),
+            `Total Instances` = n(),
+            `Percentage Instances Passed` = round(`Total Passes`/`Total Instances`*100, digits = rounding)) %>%
+  arrange(desc(`Percentage Instances Passed`)) %>%
+  rename(Agent = agent_type)
+
+```
+
+For the `r nrow(performances_table)` kinds of agents, the number of instances that they passed, as well as the proportion of total instances that they passed, is provided in the table below. The behaviour of the random walkers and random action agents serve as a baseline for chance performance.
+
+```{r overall success table}
+
+datatable(performances_table, rownames = FALSE)
+
+```
+
+```{r proportion scores}
+
+proportions <- final_results %>% 
+  select(c(agent_tag, agent_type, proportionSuccess)) %>%
+  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
+                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
+                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
+                                           ifelse(agent_type == "child", "Human Child", agent_type))))) %>%
+  group_by(agent_type) %>% 
+  summarise_at(vars(proportionSuccess),
+               list(Min=min, `10%`=~quantile(., probs = 0.1), `20%`=~quantile(., probs = 0.2), `30%`=~quantile(., probs = 0.3), `40%`=~quantile(., probs = 0.4), Median=median, `Arithmetic Mean`=mean, `60%`=~quantile(., probs = 0.6),  
+                    `70%`=~quantile(., probs = 0.7), `80%`=~quantile(., probs = 0.8), `90%`=~quantile(., probs = 0.9), Max=max, `Standard Deviation` = sd)) %>%
+  arrange(desc(Median)) %>%
+  mutate(across(Min:`Standard Deviation`, ~round(.x, digits = rounding))) %>%
+  rename(Agent = agent_type)
+
+```
+
+For the `r nrow(proportions)` kinds of agents, we computed how many points they obtained from those that were available. For instances with lava, the worst possible score is to wait until the penultimate step and then step into lava, returning a score of -2. In instances without lava, the worst score is -1, if they wait for the episode to time out. The maximum score is a theoretical score, if they obtained the reward(s) immediately with no time decrement. The agents were only tested on instances with a time limit, so this maximum is impossible to obtain as it takes at least some time to navigate towards a reward. The children had some tutorial tests that did not have a time limit, and so they were able to achieve this maximum in some instances. Another caveat is that the children often navigated into lava if they had made the wrong choice and wanted to move on quickly, resulting in a lower reward than they would have obtained had they waited for the episode to time out.
+
+```{r proportion scores table}
+
+datatable(proportions, rownames = FALSE)
+
+```
+
+We can present the distributions of these results in the following raincloud plot:
+
+```{r proportion scores cloud plot}
+
+raincloud_data <- final_results %>%
+  select(c(agent_tag, agent_type, proportionSuccess)) %>%
+  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
+                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
+                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
+                                           ifelse(agent_type == "child", "Human Child", agent_type))))) %>%
+  group_by(agent_type)
+
+raincloud_data %>% 
+  ggplot(aes(x = agent_type, y = proportionSuccess)) + 
+  ggdist::stat_halfeye(
+    aes(color = agent_type,
+        fill = after_scale(lighten(color, .5))),
+    adjust = 10, 
+    width = .6, 
+    .width = 0,
+    normalize = "all",
+    justification = -0.5, 
+    point_color = NA) + 
+  geom_boxplot(
+    aes(color = agent_type,
+        color = after_scale(darken(color, .1, space = "HLS")),
+        fill = after_scale(desaturate(lighten(color, .8), .4))),
+    width = .42, 
+    outlier.shape = 4
+  ) +
+  # geom_point(
+  #   aes(color = agent_type,
+  #       color = after_scale(darken(color, .1, space = "HLS")),
+  #       fill = agent_type),
+  #   # fill = "white",
+  #   shape = 21,
+  #   stroke = .4,
+  #   size = 2,
+  #   #position = position_jitter(seed = 1, width = .12)
+  #   position = position_dodgejust(width = 1, justification = 1.1)
+  # ) + 
+  # geom_point(
+  #   aes(fill = agent_type),
+  #   color = "transparent",
+  #   shape = 21,
+  #   stroke = .4,
+  #   size = 2,
+  #   alpha = .3,
+  #   position = position_jitter(seed = 1, width = .12)
+  # )  +
+  coord_flip(xlim = c(1.2, NA), clip = "off") +
+   scale_color_manual(values = pal, guide = "none") +
+   scale_fill_manual(values = pal, guide = "none") +
+  labs(
+    x = NULL,
+    y = "Proportion Points Obtained",
+    title = "Proportion of Points Obtained By Agent Type",
+  ) +
+  theme_minimal(base_family = "Arial", base_size = 10) +
+  theme(
+    panel.grid.minor = element_blank(),
+    panel.grid.major.y = element_blank(),
+    axis.ticks = element_blank(),
+    axis.text.y = element_text(
+      color = darken(pal, .1, space = "HLS"),
+      size = 10
+    ),
+    axis.title.x = element_text(margin = margin(t = 10),
+                                size = 10),
+    plot.title = element_markdown(face = "bold", size = 15),
+    plot.subtitle = element_text(
+      color = "grey40", hjust = 0,
+      margin = margin(0, 0, 20, 0)
+    ),
+    plot.title.position = "plot",
+    plot.caption = element_markdown(
+      color = "grey40", lineheight = 1.2,
+      margin = margin(20, 0, 0, 0)),
+    plot.margin = margin(15, 15, 10, 15)
+  )
+
+
+# adapted from: https://gist.github.com/z3tt/8b2a06d05e8fae308abbf027ce357f01
+```
+
+#### Task-Specific Performances
+
+Next, we look at the specific task types and compare performances there.
+
+##### Basic Tasks
+
+These are basic tasks that test fundamental capabilities required for interacting successfully with the Animal-AI Environment.
+
+```{r basic tasks overview}
+
+basic_tasks <- final_results %>% 
+  filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "Basic") %>%
+  select(c(agent_tag, agent_type, proportionSuccess, success, episodeEndType, lavaPresence, numGoalsAll)) %>%
+  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
+                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
+                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
+                                           ifelse(agent_type == "child", "Human Child", agent_type)))))
+
+```
+
+First, the success rates across this subset of tests is provided. It should be noted that children were given tests with no time limit, meaning they had as long as they needed to complete the tests. This was not the case for the agents, who had a time limit so that the episode eventually ended and didn't delay training. However, we expect that the children will get very high scores on these tests. The tasks they failed are the ones involving lava.
+
+```{r basic tasks success rates}
+
+basic_tasks %>%
+  group_by(agent_type) %>%
+  summarise(`Total Passes` = sum(success),
+            `Total Instances` = n(),
+            `Percentage Instances Passed` = round(`Total Passes`/`Total Instances`*100, digits = rounding)) %>%
+  arrange(desc(`Percentage Instances Passed`)) %>%
+  rename(Agent = agent_type) %>% datatable(rownames = FALSE)
+
+```
+
+Here are the proportions of points obtained for these tests:
+
+```{r proportion scores basic tasks}
+
+basic_tasks %>%
+  group_by(agent_type) %>% 
+  summarise_at(vars(proportionSuccess),
+               list(Min=min, `10%`=~quantile(., probs = 0.1), `20%`=~quantile(., probs = 0.2), `30%`=~quantile(., probs = 0.3), `40%`=~quantile(., probs = 0.4), Median=median, `Arithmetic Mean`=mean, `60%`=~quantile(., probs = 0.6),  
+                    `70%`=~quantile(., probs = 0.7), `80%`=~quantile(., probs = 0.8), `90%`=~quantile(., probs = 0.9), Max=max, `Standard Deviation` = sd)) %>%
+  arrange(desc(Median)) %>%
+  mutate(across(Min:`Standard Deviation`, ~round(.x, digits = rounding))) %>%
+  rename(Agent = agent_type) %>% datatable(rownames = FALSE)
+
+```
+
+```{r proportion scores graph basic tasks}
+
+basic_tasks %>% 
+  ggplot(aes(x = agent_type, y = proportionSuccess)) + 
+  ggdist::stat_halfeye(
+    aes(color = agent_type,
+        fill = after_scale(lighten(color, .5))),
+    adjust = 10, 
+    width = .6, 
+    .width = 0,
+    #normalize = "all",
+    justification = -0.5, 
+    point_color = NA) + 
+  geom_boxplot(
+    aes(color = agent_type,
+        color = after_scale(darken(color, .1, space = "HLS")),
+        fill = after_scale(desaturate(lighten(color, .8), .4))),
+    width = .42, 
+    outlier.shape = 4
+  ) +
+  # geom_point(
+  #   aes(color = agent_type,
+  #       color = after_scale(darken(color, .1, space = "HLS")),
+  #       fill = agent_type),
+  #   # fill = "white",
+  #   shape = 21,
+  #   stroke = .4,
+  #   size = 2,
+  #   #position = position_jitter(seed = 1, width = .12)
+  #   position = position_dodgejust(width = 1, justification = 1.1)
+  # ) + 
+  # geom_point(
+  #   aes(fill = agent_type),
+  #   color = "transparent",
+  #   shape = 21,
+  #   stroke = .4,
+  #   size = 2,
+  #   alpha = .3,
+  #   position = position_jitter(seed = 1, width = .12)
+  # )  +
+  coord_flip(xlim = c(1.2, NA), clip = "off") +
+   scale_color_manual(values = pal, guide = "none") +
+   scale_fill_manual(values = pal, guide = "none") +
+  labs(
+    x = NULL,
+    y = "Proportion Points Obtained",
+    title = "Proportion of Points Obtained By Agent Type",
+  ) +
+  theme_minimal(base_family = "Arial", base_size = 10) +
+  theme(
+    panel.grid.minor = element_blank(),
+    panel.grid.major.y = element_blank(),
+    axis.ticks = element_blank(),
+    axis.text.y = element_text(
+      color = darken(pal, .1, space = "HLS"),
+      size = 10
+    ),
+    axis.title.x = element_text(margin = margin(t = 10),
+                                size = 10),
+    plot.title = element_markdown(face = "bold", size = 15),
+    plot.subtitle = element_text(
+      color = "grey40", hjust = 0,
+      margin = margin(0, 0, 20, 0)
+    ),
+    plot.title.position = "plot",
+    plot.caption = element_markdown(
+      color = "grey40", lineheight = 1.2,
+      margin = margin(20, 0, 0, 0)),
+    plot.margin = margin(15, 15, 10, 15)
+  )
+
+
+# adapted from: https://gist.github.com/z3tt/8b2a06d05e8fae308abbf027ce357f01
+```
+
+We can also examine the way that the agents failed these tasks. In the table, we provide the percentage of tasks that ended in certain ways for each agent:
+
+```{r basic tasks episode end types}
+
+basic_tasks %>% group_by(agent_type, lavaPresence, numGoalsAll) %>%
+  summarise(`Total Instances` = n(),
+            `Lava` = round(sum(episodeEndType == "lava")/`Total Instances`*100, 4),
+            `Time` = round(sum(episodeEndType == "time")/`Total Instances`*100, 4),
+            `Lava + 1 Goal` = round(sum(episodeEndType == "lava, obtained 1/2 goals")/`Total Instances`*100, 4),
+            `Time + 1 Goal` = round(sum(episodeEndType == "time, obtained 1/2 goals")/`Total Instances`*100, 4),
+            `Passed` = round(sum(episodeEndType == "all goal(s) obtained")/`Total Instances`*100, 4)) %>%
+  ungroup() %>%
+  transmute(`Agent` = agent_type,
+            `Lava Present` = ifelse(lavaPresence == 1, "Yes", "No"),
+            `Number of Goals` = numGoalsAll,
+            `Lava Percentage` = Lava,
+            `Time Percentage` = Time,
+            `Lava + 1 Goal Percentage` = `Lava + 1 Goal`,
+            `Time + 1 Goal Percentage` = `Time + 1 Goal`,
+            `Passed Percentage` = Passed,
+            `Total Instances` = `Total Instances`) %>%
+  datatable(options = list(pageLength = nrow(.)), rownames = FALSE)
+
+```
+
+##### Object Permanence Controls
+
+Now we look at the object permanence control tasks for our two paradigms.
+
+
+```{r control tasks overview}
+
+control_tasks <- final_results %>% 
+  filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "OP Controls") %>%
+  select(c(agent_tag, agent_type, proportionSuccess, success, episodeEndType, lavaPresence, Paradigm, cvchickleftchoice, cvchickrightchoice, pctb3cupcorrectchoice, pctbgridcupchoice, pctbgridcorrectchoice, threecupleftchoice, threecupmidchoice, threecuprightchoice)) %>%
+  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
+                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
+                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
+                                           ifelse(agent_type == "child", "Human Child", agent_type)))))
+
+```
+
+First, the success rates across this subset of tests is provided. Note that for the CVChick OP control tasks, the children did not have a time limit, while the artificial agents did. This was not the case for the agents, who had a time limit so that the episode eventually ended and didn't delay training. However, we expect that the children will get very high scores on these tests. The tasks they failed are the ones involving lava.
+
+```{r control tasks success rates}
+
+control_tasks %>%
+  group_by(agent_type, Paradigm) %>%
+  summarise(`Total Passes` = sum(success),
+            `Total Instances` = n(),
+            `Percentage Instances Passed` = round(`Total Passes`/`Total Instances`*100, digits = rounding)) %>%
+  arrange(agent_type) %>% 
+  rename(Agent = agent_type) %>%
+  datatable(rownames = FALSE)
+
+```
+
+Here are the proportions of points obtained for these tests:
+
+```{r proportion scores control tasks}
+
+control_tasks %>%
+  group_by(agent_type) %>% 
+  summarise_at(vars(proportionSuccess),
+               list(Min=min, `10%`=~quantile(., probs = 0.1), `20%`=~quantile(., probs = 0.2), `30%`=~quantile(., probs = 0.3), `40%`=~quantile(., probs = 0.4), Median=median, `Arithmetic Mean`=mean, `60%`=~quantile(., probs = 0.6),  
+                    `70%`=~quantile(., probs = 0.7), `80%`=~quantile(., probs = 0.8), `90%`=~quantile(., probs = 0.9), Max=max, `Standard Deviation` = sd)) %>%
+  arrange(desc(Median)) %>%
+  mutate(across(Min:`Standard Deviation`, ~round(.x, digits = rounding))) %>%
+  rename(Agent = agent_type) %>% datatable(rownames = FALSE)
+
+```
+
+```{r proportion scores graph control tasks}
+
+control_tasks %>% 
+  ggplot(aes(x = agent_type, y = proportionSuccess)) + 
+  ggdist::stat_halfeye(
+    aes(color = agent_type,
+        fill = after_scale(lighten(color, .5))),
+    adjust = 10, 
+    width = .6, 
+    .width = 0,
+    #normalize = "all",
+    justification = -0.5, 
+    point_color = NA) + 
+  geom_boxplot(
+    aes(color = agent_type,
+        color = after_scale(darken(color, .1, space = "HLS")),
+        fill = after_scale(desaturate(lighten(color, .8), .4))),
+    width = .42, 
+    outlier.shape = 4
+  ) +
+  # geom_point(
+  #   aes(color = agent_type,
+  #       color = after_scale(darken(color, .1, space = "HLS")),
+  #       fill = agent_type),
+  #   # fill = "white",
+  #   shape = 21,
+  #   stroke = .4,
+  #   size = 2,
+  #   #position = position_jitter(seed = 1, width = .12)
+  #   position = position_dodgejust(width = 1, justification = 1.1)
+  # ) + 
+  # geom_point(
+  #   aes(fill = agent_type),
+  #   color = "transparent",
+  #   shape = 21,
+  #   stroke = .4,
+  #   size = 2,
+  #   alpha = .3,
+  #   position = position_jitter(seed = 1, width = .12)
+  # )  +
+  coord_flip(xlim = c(1.2, NA), clip = "off") +
+   scale_color_manual(values = pal, guide = "none") +
+   scale_fill_manual(values = pal, guide = "none") +
+  labs(
+    x = NULL,
+    y = "Proportion Points Obtained",
+    title = "Proportion of Points Obtained By Agent Type",
+  ) +
+  theme_minimal(base_family = "Arial", base_size = 10) +
+  theme(
+    panel.grid.minor = element_blank(),
+    panel.grid.major.y = element_blank(),
+    axis.ticks = element_blank(),
+    axis.text.y = element_text(
+      color = darken(pal, .1, space = "HLS"),
+      size = 10
+    ),
+    axis.title.x = element_text(margin = margin(t = 10),
+                                size = 10),
+    plot.title = element_markdown(face = "bold", size = 15),
+    plot.subtitle = element_text(
+      color = "grey40", hjust = 0,
+      margin = margin(0, 0, 20, 0)
+    ),
+    plot.title.position = "plot",
+    plot.caption = element_markdown(
+      color = "grey40", lineheight = 1.2,
+      margin = margin(20, 0, 0, 0)),
+    plot.margin = margin(15, 15, 10, 15)
+  )
+
+
+# adapted from: https://gist.github.com/z3tt/8b2a06d05e8fae308abbf027ce357f01
+```
+
+We can also examine the way that the agents failed these tasks. In the table, we provide the percentage of tasks that ended in certain ways for each agent:
+
+```{r control tasks episode end types}
+
+control_tasks %>% group_by(agent_type, lavaPresence, Paradigm) %>%
+  summarise(`Total Instances` = n(),
+            `Lava` = round(sum(episodeEndType == "lava")/`Total Instances`*100, 4),
+            `Time` = round(sum(episodeEndType == "time")/`Total Instances`*100, 4),
+            `Passed` = round(sum(episodeEndType == "all goal(s) obtained")/`Total Instances`*100, 4)) %>%
+  ungroup() %>%
+  transmute(`Agent` = agent_type,
+            `Lava Present` = ifelse(lavaPresence == 1, "Yes", "No"),
+            Paradigm = Paradigm,
+            `Lava Percentage` = Lava,
+            `Time Percentage` = Time,
+            `Passed Percentage` = Passed,
+            `Total Instances` = `Total Instances`) %>%
+  datatable(options = list(pageLength = nrow(.)), rownames = FALSE)
+
+```
+
+Now we can look at the PCTB Grid, PCTB 3 Cup, and CVChick control tasks individually, and examine the which choices the agents made. Note that we do not have this data on the children, only the artificial agents.
+
+###### Chiandetti & Vallortigara Chick Task
+
+In this task, the agent needs to search for a reward, while avoiding lava. They might be bad at navigating or scared of lava, so the choice they make at the start is useful. The fundamental choice is whether to go left or right. The agents could also stay on the choice platform, making no choice at all. This covers a small proportion of the arena, so it is justified to assume that chance selection approaches 50:50.
+
+```{r CVChick control tasks overview}
+
+cvchick_choices <- final_results %>%
+  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
+                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
+                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
+                                           ifelse(agent_type == "child", "Human Child", agent_type))))) %>% 
+  filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "OP Controls" & Paradigm == "CVChick") %>%
+  select(c(agent_type, cvchickcorrectchoice, cvchickleftchoice, cvchickrightchoice, success)) %>% drop_na()
+
+cvchick_choices_table <- cvchick_choices %>% group_by(agent_type) %>%
+  summarise(`Total Instances` = n(),
+            `Percentage Instances Passed` = round(sum(success)/`Total Instances`*100, digits = rounding),
+            `Percentage Correct Choice` = round(sum((cvchickleftchoice == TRUE & cvchickcorrectchoice == "L" & cvchickrightchoice == FALSE)|(cvchickrightchoice == TRUE & cvchickcorrectchoice == "R" & cvchickleftchoice == FALSE))/`Total Instances`*100, digits = rounding),
+            `Percentage Incorrect Choice` = round(sum((cvchickleftchoice == FALSE & cvchickcorrectchoice == "L" & cvchickrightchoice == TRUE)|(cvchickrightchoice == FALSE & cvchickcorrectchoice == "R" & cvchickleftchoice == TRUE))/`Total Instances`*100, digits = rounding),
+            `Percentage No Choice` = round(sum(cvchickleftchoice == FALSE & cvchickrightchoice == FALSE)/`Total Instances`*100, digits = rounding)) %>%
+  rename(Agent = agent_type)
+
+datatable(cvchick_choices_table, rownames = FALSE)
+
+#rowSums(cvchick_choices_table[4:6]) # should be ~100 within rounding error.
+```
+
+As can be seen, the random agents picked left over right at chance. The rule-based agents picked the correct side above chance, and when they did, they tended to go on to obtain the reward.
+
+###### PCTB 3 Cup Task
+
+In this task, the agent needs to search for a reward, while sometimes avoiding lava. They might be bad at navigating or scared of lava, so the choice they make at the start is useful. The fundamental choice is to choose the left, middle, or right cup. The agents could also make no choice at all. This covers more than half of the space, while the choice cups cover about 1/6 of the space each. This defines chance performance for the agents.
+
+
+```{r PCTB 3 Cup control tasks overview}
+
+pctb3cup_choices <- final_results %>%
+  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
+                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
+                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
+                                           ifelse(agent_type == "child", "Human Child", agent_type))))) %>% 
+  filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "OP Controls" & str_detect(Task, "3Cup")) %>%
+  select(c(agent_type, threecupleftchoice, threecupmidchoice, threecuprightchoice, pctb3cupcorrectchoice, success)) %>% drop_na()
+
+pctb3cup_choices_table <- pctb3cup_choices %>% group_by(agent_type) %>%
+  summarise(`Total Instances` = n(),
+            `Percentage Instances Passed` = round(sum(success)/`Total Instances`*100, digits = rounding),
+            `Percentage Correct Choice` = round(sum((threecupleftchoice == TRUE & pctb3cupcorrectchoice == "L")|(pctb3cupcorrectchoice == "M" & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "R" & threecuprightchoice == TRUE))/`Total Instances`*100, digits = rounding),
+            `Percentage Incorrect Choice` = round(sum((threecupleftchoice == FALSE & pctb3cupcorrectchoice == "L" & (threecuprightchoice == TRUE | threecupmidchoice == TRUE))|(threecupmidchoice == FALSE & pctb3cupcorrectchoice == "M" & (threecupleftchoice == TRUE | threecuprightchoice == TRUE))|(threecuprightchoice == FALSE & pctb3cupcorrectchoice == "R" & (threecupleftchoice == TRUE | threecupmidchoice == TRUE)))/`Total Instances`*100, digits = rounding),
+            `Percentage No Choice` = round(sum(threecupleftchoice == FALSE & threecupmidchoice == FALSE & threecuprightchoice == FALSE)/`Total Instances`*100, digits = rounding),
+            `Percentage Adjacent Choice` = round(sum((pctb3cupcorrectchoice == "L" & threecupleftchoice == FALSE & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "R" & threecuprightchoice == FALSE & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "M" & threecupmidchoice == FALSE & (threecupleftchoice == TRUE | threecuprightchoice == TRUE)))/`Total Instances`*100, digits = rounding))
+
+datatable(pctb3cup_choices_table, rownames = FALSE)
+
+#rowSums(pctb3cup_choices_table[4:6]) # should be ~100 within rounding error.
+```
+
+Note that some of these tasks are free choice, so the agent could visit multiple cups with no penalty (except time). We have calculated the percentage of instances where the agent picked an adjacent cup to the correct one, but not the correct one. 
+
+###### PCTB Grid Task
+
+In this task, the agent needs to search for a reward in a grid. They might be bad at navigating and so accidentally fall into another hole on their way. We can look at the pattern of choices to determine whether its navigation that is to blame for bad choices.
+
+```{r PCTB Grid Control tasks overview}
+
+pctbgrid_choices <- final_results %>%
+  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
+                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
+                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
+                                           ifelse(agent_type == "child", "Human Child", agent_type))))) %>% 
+  filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "OP Controls" & str_detect(Task, "Grid")) %>%
+  select(c(agent_type, InstanceName, pctbgridcorrectchoice, pctbgridcupchoice, success, numChoices)) %>% drop_na()
+
+pctbgrid_choices_table <- pctbgrid_choices %>% group_by(agent_type, numChoices) %>%
+  summarise(`Total Instances` = n(),
+            `Percentage Instances Passed` = round(sum(success)/`Total Instances`*100, digits = rounding),
+            `Percentage Correct Choice` = round(sum(pctbgridcorrectchoice == pctbgridcupchoice)/`Total Instances`*100, digits = rounding),
+            `Percentage Incorrect Choice` = round(sum(pctbgridcorrectchoice != pctbgridcupchoice & pctbgridcupchoice != "NoChoiceMade")/`Total Instances`*100, digits = rounding),
+            `Percentage No Choice` = round(sum(pctbgridcupchoice == "NoChoiceMade")/`Total Instances`*100, digits = rounding),
+            `Percentage Correct Side Choice` = round(sum((str_detect(pctbgridcorrectchoice, "Right") & str_detect(pctbgridcupchoice, "Right")) | (str_detect(pctbgridcorrectchoice, "Left") & str_detect(pctbgridcupchoice, "Left")))/`Total Instances`*100, digits = rounding),
+            `Percentage Correct Column Choice` = round(sum((str_detect(pctbgridcorrectchoice, "CloseRight") & str_detect(pctbgridcupchoice, "CloseRight")) | (str_detect(pctbgridcorrectchoice, "CloseLeft") & str_detect(pctbgridcupchoice, "CloseLeft")) | (str_detect(pctbgridcorrectchoice, "FarRight") & str_detect(pctbgridcupchoice, "FarRight")) | (str_detect(pctbgridcorrectchoice, "FarLeft") & str_detect(pctbgridcupchoice, "FarLeft")))/`Total Instances`*100, digits = rounding),
+            `Percentage Correct Row Choice` = round(sum((str_detect(pctbgridcorrectchoice, "RightClose") & str_detect(pctbgridcupchoice, "RightClose")) | (str_detect(pctbgridcorrectchoice, "LeftClose") & str_detect(pctbgridcupchoice, "LeftClose")) | (str_detect(pctbgridcorrectchoice, "LeftMid") & str_detect(pctbgridcupchoice, "LeftMid")) | (str_detect(pctbgridcorrectchoice, "RightMid") & str_detect(pctbgridcupchoice, "RightMid")) | (str_detect(pctbgridcorrectchoice, "LeftFar") & str_detect(pctbgridcupchoice, "LeftFar")) | (str_detect(pctbgridcorrectchoice, "RightFar") & str_detect(pctbgridcupchoice, "RightFar")))/`Total Instances`*100, digits = rounding)) %>% 
+  rename(`Agent` = agent_type,
+         `Number of Cups` = numChoices)
+
+datatable(pctbgrid_choices_table, rownames = FALSE)
+
+```
+##### Object Permanence Tests
+
+Next we turn to the descriptive statistics for the 3 types of object permanence tasks.
+
+###### Chiandetti & Vallortigara Chick Task
+
+```{r cvchick OP tasks overview}
+
+cv_tasks <- final_results %>% 
+  filter(SubSuite == "Allocentric OP" & Paradigm == "CVChick") %>%
+  select(c(agent_tag, agent_type, proportionSuccess, success, episodeEndType, lavaPresence, Paradigm, cvchickleftchoice, cvchickrightchoice, cvchickcorrectchoice)) %>%
+  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
+                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
+                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
+                                           ifelse(agent_type == "child", "Human Child", agent_type)))))
+
+```
+
+First, the success rates across this subset of tests is provided. Note that the children played each instance twice for this paradigm. There were two orders of play to counterbalance the design.
+
+```{r cvchick OP tasks success rates}
+
+cv_tasks %>%
+  group_by(agent_type) %>%
+  summarise(`Total Passes` = sum(success),
+            `Total Instances` = n(),
+            `Percentage Instances Passed` = round(`Total Passes`/`Total Instances`*100, digits = rounding)) %>%
+  arrange(desc(`Percentage Instances Passed`)) %>% 
+  rename(Agent = agent_type) %>%
+  datatable(rownames = FALSE)
+
+```
+
+Here are the proportions of points obtained for these tests:
+
+```{r proportion scores cvchick OP tasks}
+
+cv_tasks %>%
+  group_by(agent_type) %>% 
+  summarise_at(vars(proportionSuccess),
+               list(Min=min, `10%`=~quantile(., probs = 0.1), `20%`=~quantile(., probs = 0.2), `30%`=~quantile(., probs = 0.3), `40%`=~quantile(., probs = 0.4), Median=median, `Arithmetic Mean`=mean, `60%`=~quantile(., probs = 0.6),  
+                    `70%`=~quantile(., probs = 0.7), `80%`=~quantile(., probs = 0.8), `90%`=~quantile(., probs = 0.9), Max=max, `Standard Deviation` = sd)) %>%
+  arrange(desc(Median)) %>%
+  mutate(across(Min:`Standard Deviation`, ~round(.x, digits = rounding))) %>%
+  rename(Agent = agent_type) %>% datatable(rownames = FALSE)
+
+```
+
+```{r proportion scores graph cvchick OP tasks}
+
+cv_tasks %>% 
+  ggplot(aes(x = agent_type, y = proportionSuccess)) + 
+  ggdist::stat_halfeye(
+    aes(color = agent_type,
+        fill = after_scale(lighten(color, .5))),
+    adjust = 10, 
+    width = .6, 
+    .width = 0,
+    #normalize = "all",
+    justification = -0.5, 
+    point_color = NA) + 
+  geom_boxplot(
+    aes(color = agent_type,
+        color = after_scale(darken(color, .1, space = "HLS")),
+        fill = after_scale(desaturate(lighten(color, .8), .4))),
+    width = .42, 
+    outlier.shape = 4
+  ) +
+  # geom_point(
+  #   aes(color = agent_type,
+  #       color = after_scale(darken(color, .1, space = "HLS")),
+  #       fill = agent_type),
+  #   # fill = "white",
+  #   shape = 21,
+  #   stroke = .4,
+  #   size = 2,
+  #   #position = position_jitter(seed = 1, width = .12)
+  #   position = position_dodgejust(width = 1, justification = 1.1)
+  # ) + 
+  # geom_point(
+  #   aes(fill = agent_type),
+  #   color = "transparent",
+  #   shape = 21,
+  #   stroke = .4,
+  #   size = 2,
+  #   alpha = .3,
+  #   position = position_jitter(seed = 1, width = .12)
+  # )  +
+  coord_flip(xlim = c(1.2, NA), clip = "off") +
+   scale_color_manual(values = pal, guide = "none") +
+   scale_fill_manual(values = pal, guide = "none") +
+  labs(
+    x = NULL,
+    y = "Proportion Points Obtained",
+    title = "Proportion of Points Obtained By Agent Type",
+  ) +
+  theme_minimal(base_family = "Arial", base_size = 10) +
+  theme(
+    panel.grid.minor = element_blank(),
+    panel.grid.major.y = element_blank(),
+    axis.ticks = element_blank(),
+    axis.text.y = element_text(
+      color = darken(pal, .1, space = "HLS"),
+      size = 10
+    ),
+    axis.title.x = element_text(margin = margin(t = 10),
+                                size = 10),
+    plot.title = element_markdown(face = "bold", size = 15),
+    plot.subtitle = element_text(
+      color = "grey40", hjust = 0,
+      margin = margin(0, 0, 20, 0)
+    ),
+    plot.title.position = "plot",
+    plot.caption = element_markdown(
+      color = "grey40", lineheight = 1.2,
+      margin = margin(20, 0, 0, 0)),
+    plot.margin = margin(15, 15, 10, 15)
+  )
+
+
+# adapted from: https://gist.github.com/z3tt/8b2a06d05e8fae308abbf027ce357f01
+```
+
+We can also examine the way that the agents failed these tasks. In the table, we provide the percentage of tasks that ended in certain ways for each agent:
+
+```{r cvchick OP tasks episode end types}
+
+cv_tasks %>% group_by(agent_type) %>%
+  summarise(`Total Instances` = n(),
+            `Lava` = round(sum(episodeEndType == "lava")/`Total Instances`*100, 4),
+            `Time` = round(sum(episodeEndType == "time")/`Total Instances`*100, 4),
+            `Passed` = round(sum(episodeEndType == "all goal(s) obtained")/`Total Instances`*100, 4)) %>%
+  ungroup() %>%
+  transmute(`Agent` = agent_type,
+            `Lava Percentage` = Lava,
+            `Time Percentage` = Time,
+            `Passed Percentage` = Passed,
+            `Total Instances` = `Total Instances`) %>%
+  datatable(options = list(pageLength = nrow(.)), rownames = FALSE)
+
+```
+
+Now we can look at the choices the agents made. 
+
+```{r CVChick OP tasks overview}
+
+cvchick_choices_table <- cv_tasks %>% group_by(agent_type) %>%
+  summarise(`Total Instances` = n(),
+            `Percentage Instances Passed` = round(sum(success)/`Total Instances`*100, digits = rounding),
+            `Percentage Correct Choice` = round(sum((cvchickleftchoice == TRUE & cvchickcorrectchoice == "L" & cvchickrightchoice == FALSE)|(cvchickrightchoice == TRUE & cvchickcorrectchoice == "R" & cvchickleftchoice == FALSE))/`Total Instances`*100, digits = rounding),
+            `Percentage Incorrect Choice` = round(sum((cvchickleftchoice == FALSE & cvchickcorrectchoice == "L" & cvchickrightchoice == TRUE)|(cvchickrightchoice == FALSE & cvchickcorrectchoice == "R" & cvchickleftchoice == TRUE))/`Total Instances`*100, digits = rounding),
+            `Percentage No Choice` = round(sum(cvchickleftchoice == FALSE & cvchickrightchoice == FALSE)/`Total Instances`*100, digits = rounding)) %>%
+  rename(Agent = agent_type)
+
+datatable(cvchick_choices_table, rownames = FALSE)
+
+#rowSums(cvchick_choices_table[4:6]) # should be ~100 within rounding error.
+```
+
+###### PCTB 3 Cup Task
+
+```{r 3 cup OP tasks overview}
+
+threecup_tasks <- final_results %>% 
+  filter(SubSuite == "Allocentric OP" & str_detect(Task, "3Cup")) %>%
+  select(c(agent_tag, agent_type, proportionSuccess, success, episodeEndType, lavaPresence, Paradigm, threecupleftchoice, threecupmidchoice, threecuprightchoice, pctb3cupcorrectchoice)) %>%
+  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
+                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
+                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
+                                           ifelse(agent_type == "child", "Human Child", agent_type)))))
+
+```
+
+First, the success rates across this subset of tests is provided. Note that the children played each instance once for this paradigm. There were two orders of play to counterbalance the design.
+
+```{r 3 cup OP tasks success rates}
+
+threecup_tasks %>%
+  group_by(agent_type) %>%
+  summarise(`Total Passes` = sum(success),
+            `Total Instances` = n(),
+            `Percentage Instances Passed` = round(`Total Passes`/`Total Instances`*100, digits = rounding)) %>%
+  arrange(desc(`Percentage Instances Passed`)) %>% 
+  rename(Agent = agent_type) %>%
+  datatable(rownames = FALSE)
+
+```
+
+Here are the proportions of points obtained for these tests:
+
+```{r proportion scores 3 cup OP tasks}
+
+threecup_tasks %>%
+  group_by(agent_type) %>% 
+  summarise_at(vars(proportionSuccess),
+               list(Min=min, `10%`=~quantile(., probs = 0.1), `20%`=~quantile(., probs = 0.2), `30%`=~quantile(., probs = 0.3), `40%`=~quantile(., probs = 0.4), Median=median, `Arithmetic Mean`=mean, `60%`=~quantile(., probs = 0.6),  
+                    `70%`=~quantile(., probs = 0.7), `80%`=~quantile(., probs = 0.8), `90%`=~quantile(., probs = 0.9), Max=max, `Standard Deviation` = sd)) %>%
+  arrange(desc(Median)) %>%
+  mutate(across(Min:`Standard Deviation`, ~round(.x, digits = rounding))) %>%
+  rename(Agent = agent_type) %>% datatable(rownames = FALSE)
+
+```
+
+```{r proportion scores graph 3 cup OP tasks}
+
+threecup_tasks %>% 
+  ggplot(aes(x = agent_type, y = proportionSuccess)) + 
+  ggdist::stat_halfeye(
+    aes(color = agent_type,
+        fill = after_scale(lighten(color, .5))),
+    adjust = 10, 
+    width = .6, 
+    .width = 0,
+    #normalize = "all",
+    justification = -0.5, 
+    point_color = NA) + 
+  geom_boxplot(
+    aes(color = agent_type,
+        color = after_scale(darken(color, .1, space = "HLS")),
+        fill = after_scale(desaturate(lighten(color, .8), .4))),
+    width = .42, 
+    outlier.shape = 4
+  ) +
+  # geom_point(
+  #   aes(color = agent_type,
+  #       color = after_scale(darken(color, .1, space = "HLS")),
+  #       fill = agent_type),
+  #   # fill = "white",
+  #   shape = 21,
+  #   stroke = .4,
+  #   size = 2,
+  #   #position = position_jitter(seed = 1, width = .12)
+  #   position = position_dodgejust(width = 1, justification = 1.1)
+  # ) + 
+  # geom_point(
+  #   aes(fill = agent_type),
+  #   color = "transparent",
+  #   shape = 21,
+  #   stroke = .4,
+  #   size = 2,
+  #   alpha = .3,
+  #   position = position_jitter(seed = 1, width = .12)
+  # )  +
+  coord_flip(xlim = c(1.2, NA), clip = "off") +
+   scale_color_manual(values = pal, guide = "none") +
+   scale_fill_manual(values = pal, guide = "none") +
+  labs(
+    x = NULL,
+    y = "Proportion Points Obtained",
+    title = "Proportion of Points Obtained By Agent Type",
+  ) +
+  theme_minimal(base_family = "Arial", base_size = 10) +
+  theme(
+    panel.grid.minor = element_blank(),
+    panel.grid.major.y = element_blank(),
+    axis.ticks = element_blank(),
+    axis.text.y = element_text(
+      color = darken(pal, .1, space = "HLS"),
+      size = 10
+    ),
+    axis.title.x = element_text(margin = margin(t = 10),
+                                size = 10),
+    plot.title = element_markdown(face = "bold", size = 15),
+    plot.subtitle = element_text(
+      color = "grey40", hjust = 0,
+      margin = margin(0, 0, 20, 0)
+    ),
+    plot.title.position = "plot",
+    plot.caption = element_markdown(
+      color = "grey40", lineheight = 1.2,
+      margin = margin(20, 0, 0, 0)),
+    plot.margin = margin(15, 15, 10, 15)
+  )
+
+
+# adapted from: https://gist.github.com/z3tt/8b2a06d05e8fae308abbf027ce357f01
+```
+
+Now we can look at the choices they made:
+
+```{r 3 cup OP choices}
+pctb3cup_choices_table <- threecup_tasks %>% group_by(agent_type) %>%
+  summarise(`Total Instances` = n(),
+            `Percentage Instances Passed` = round(sum(success)/`Total Instances`*100, digits = rounding),
+            `Percentage Correct Choice` = round(sum((threecupleftchoice == TRUE & pctb3cupcorrectchoice == "L")|(pctb3cupcorrectchoice == "M" & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "R" & threecuprightchoice == TRUE)|(threecupleftchoice == TRUE & threecupmidchoice == TRUE & pctb3cupcorrectchoice == "LM") | (threecuprightchoice == TRUE & threecupmidchoice == TRUE & pctb3cupcorrectchoice == "MR")|(threecuprightchoice == TRUE & threecupleftchoice == TRUE & pctb3cupcorrectchoice == "LR"))/`Total Instances`*100, digits = rounding),
+            `Percentage Incorrect Choice` = round(sum((threecupleftchoice == FALSE & pctb3cupcorrectchoice == "L" & (threecuprightchoice == TRUE | threecupmidchoice == TRUE))|(threecupmidchoice == FALSE & pctb3cupcorrectchoice == "M" & (threecupleftchoice == TRUE | threecuprightchoice == TRUE))|(threecuprightchoice == FALSE & pctb3cupcorrectchoice == "R" & (threecupleftchoice == TRUE | threecupmidchoice == TRUE))|(threecupleftchoice == TRUE & pctb3cupcorrectchoice == "MR")|(threecuprightchoice == TRUE & pctb3cupcorrectchoice == "LM")|(threecupmidchoice == TRUE & pctb3cupcorrectchoice == "LR"))/`Total Instances`*100, digits = rounding),
+            `Percentage No Choice` = round(sum(threecupleftchoice == FALSE & threecupmidchoice == FALSE & threecuprightchoice == FALSE)/`Total Instances`*100, digits = rounding),
+            `Percentage Adjacent Choice` = round(sum((pctb3cupcorrectchoice == "L" & threecupleftchoice == FALSE & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "R" & threecuprightchoice == FALSE & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "M" & threecupmidchoice == FALSE & (threecupleftchoice == TRUE | threecuprightchoice == TRUE))|(pctb3cupcorrectchoice == "LM" & threecuprightchoice == TRUE)|(pctb3cupcorrectchoice == "LR" & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "MR" & threecupleftchoice == TRUE))/`Total Instances`*100, digits = rounding)) %>%
+  rename(Agent = agent_type)
+
+datatable(pctb3cup_choices_table, rownames = FALSE)
+
+#rowSums(pctb3cup_choices_table[4:6]) # should be ~100 within rounding error.
+```
+
+###### PCTB Grid Task
+
+```{r Grid OP tasks overview}
+
+grid_tasks <- final_results %>% 
+  filter(SubSuite == "Allocentric OP" & str_detect(Task, "Grid")) %>%
+  select(c(agent_tag, agent_type, proportionSuccess, success, episodeEndType, Paradigm, pctbgridcorrectchoice, pctbgridcupchoice, numChoices)) %>%
+  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
+                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
+                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
+                                           ifelse(agent_type == "child", "Human Child", agent_type)))))
+
+```
+
+First, the success rates across this subset of tests is provided. Note that the children played each instance once for this paradigm. There were two orders of play to counterbalance the design.
+
+```{r Grid OP tasks success rates}
+
+grid_tasks %>%
+  group_by(agent_type) %>%
+  summarise(`Total Passes` = sum(success),
+            `Total Instances` = n(),
+            `Percentage Instances Passed` = round(`Total Passes`/`Total Instances`*100, digits = rounding)) %>%
+  arrange(desc(`Percentage Instances Passed`)) %>% 
+  rename(Agent = agent_type) %>%
+  datatable(rownames = FALSE)
+
+```
+
+Here are the proportions of points obtained for these tests:
+
+```{r proportion scores Grid OP tasks}
+
+grid_tasks %>%
+  group_by(agent_type) %>% 
+  summarise_at(vars(proportionSuccess),
+               list(Min=min, `10%`=~quantile(., probs = 0.1), `20%`=~quantile(., probs = 0.2), `30%`=~quantile(., probs = 0.3), `40%`=~quantile(., probs = 0.4), Median=median, `Arithmetic Mean`=mean, `60%`=~quantile(., probs = 0.6),  
+                    `70%`=~quantile(., probs = 0.7), `80%`=~quantile(., probs = 0.8), `90%`=~quantile(., probs = 0.9), Max=max, `Standard Deviation` = sd)) %>%
+  arrange(desc(Median)) %>%
+  mutate(across(Min:`Standard Deviation`, ~round(.x, digits = rounding))) %>%
+  rename(Agent = agent_type) %>% datatable(rownames = FALSE)
+
+```
+
+```{r proportion scores graph Grid OP tasks}
+
+grid_tasks %>% 
+  ggplot(aes(x = agent_type, y = proportionSuccess)) + 
+  ggdist::stat_halfeye(
+    aes(color = agent_type,
+        fill = after_scale(lighten(color, .5))),
+    adjust = 10, 
+    width = .6, 
+    .width = 0,
+    #normalize = "all",
+    justification = -0.5, 
+    point_color = NA) + 
+  geom_boxplot(
+    aes(color = agent_type,
+        color = after_scale(darken(color, .1, space = "HLS")),
+        fill = after_scale(desaturate(lighten(color, .8), .4))),
+    width = .42, 
+    outlier.shape = 4
+  ) +
+  # geom_point(
+  #   aes(color = agent_type,
+  #       color = after_scale(darken(color, .1, space = "HLS")),
+  #       fill = agent_type),
+  #   # fill = "white",
+  #   shape = 21,
+  #   stroke = .4,
+  #   size = 2,
+  #   #position = position_jitter(seed = 1, width = .12)
+  #   position = position_dodgejust(width = 1, justification = 1.1)
+  # ) + 
+  # geom_point(
+  #   aes(fill = agent_type),
+  #   color = "transparent",
+  #   shape = 21,
+  #   stroke = .4,
+  #   size = 2,
+  #   alpha = .3,
+  #   position = position_jitter(seed = 1, width = .12)
+  # )  +
+  coord_flip(xlim = c(1.2, NA), clip = "off") +
+   scale_color_manual(values = pal, guide = "none") +
+   scale_fill_manual(values = pal, guide = "none") +
+  labs(
+    x = NULL,
+    y = "Proportion Points Obtained",
+    title = "Proportion of Points Obtained By Agent Type",
+  ) +
+  theme_minimal(base_family = "Arial", base_size = 10) +
+  theme(
+    panel.grid.minor = element_blank(),
+    panel.grid.major.y = element_blank(),
+    axis.ticks = element_blank(),
+    axis.text.y = element_text(
+      color = darken(pal, .1, space = "HLS"),
+      size = 10
+    ),
+    axis.title.x = element_text(margin = margin(t = 10),
+                                size = 10),
+    plot.title = element_markdown(face = "bold", size = 15),
+    plot.subtitle = element_text(
+      color = "grey40", hjust = 0,
+      margin = margin(0, 0, 20, 0)
+    ),
+    plot.title.position = "plot",
+    plot.caption = element_markdown(
+      color = "grey40", lineheight = 1.2,
+      margin = margin(20, 0, 0, 0)),
+    plot.margin = margin(15, 15, 10, 15)
+  )
+
+
+# adapted from: https://gist.github.com/z3tt/8b2a06d05e8fae308abbf027ce357f01
+```
+
+Now we can look at the choices they made:
+
+```{r PCTB Grid OP tasks overview}
+
+pctbgrid_choices_table <- grid_tasks %>% group_by(agent_type, numChoices) %>%
+  summarise(`Total Instances` = n(),
+            `Percentage Instances Passed` = round(sum(success)/`Total Instances`*100, digits = rounding),
+            `Percentage Correct Choice` = round(sum(pctbgridcorrectchoice == pctbgridcupchoice)/`Total Instances`*100, digits = rounding),
+            `Percentage Incorrect Choice` = round(sum(pctbgridcorrectchoice != pctbgridcupchoice & pctbgridcupchoice != "NoChoiceMade")/`Total Instances`*100, digits = rounding),
+            `Percentage No Choice` = round(sum(pctbgridcupchoice == "NoChoiceMade")/`Total Instances`*100, digits = rounding),
+            `Percentage Correct Side Choice` = round(sum((str_detect(pctbgridcorrectchoice, "Right") & str_detect(pctbgridcupchoice, "Right")) | (str_detect(pctbgridcorrectchoice, "Left") & str_detect(pctbgridcupchoice, "Left")))/`Total Instances`*100, digits = rounding),
+            `Percentage Correct Column Choice` = round(sum((str_detect(pctbgridcorrectchoice, "CloseRight") & str_detect(pctbgridcupchoice, "CloseRight")) | (str_detect(pctbgridcorrectchoice, "CloseLeft") & str_detect(pctbgridcupchoice, "CloseLeft")) | (str_detect(pctbgridcorrectchoice, "FarRight") & str_detect(pctbgridcupchoice, "FarRight")) | (str_detect(pctbgridcorrectchoice, "FarLeft") & str_detect(pctbgridcupchoice, "FarLeft")))/`Total Instances`*100, digits = rounding),
+            `Percentage Correct Row Choice` = round(sum((str_detect(pctbgridcorrectchoice, "RightClose") & str_detect(pctbgridcupchoice, "RightClose")) | (str_detect(pctbgridcorrectchoice, "LeftClose") & str_detect(pctbgridcupchoice, "LeftClose")) | (str_detect(pctbgridcorrectchoice, "LeftMid") & str_detect(pctbgridcupchoice, "LeftMid")) | (str_detect(pctbgridcorrectchoice, "RightMid") & str_detect(pctbgridcupchoice, "RightMid")) | (str_detect(pctbgridcorrectchoice, "LeftFar") & str_detect(pctbgridcupchoice, "LeftFar")) | (str_detect(pctbgridcorrectchoice, "RightFar") & str_detect(pctbgridcupchoice, "RightFar")))/`Total Instances`*100, digits = rounding)) %>% 
+  rename(`Agent` = agent_type,
+         `Number of Cups` = numChoices)
+
+datatable(pctbgrid_choices_table, options = list(pageLength = nrow(pctbgrid_choices_table)), rownames = FALSE)
+
+```
+
+## Children-Specific Descriptives
+
+The children played tutorial tasks with some minimal assistance from the experimenters while they learned the controls. They could play as many rounds of the tutorial tasks as they wished. Then they played 38 Object Permanence tests, without assistance, including 3 breaks. The order was reversed for half of the sample.
+
+### Counter Balancing
+
+```{r children counterbalance data}
+
+children_results <- final_results %>%
+  filter(agent_type == "child")
+
+children_counterbalance <- children_results %>%
+  select(task_order, agent_tag) %>%
+  distinct() %>%
+  group_by(task_order) %>%
+  summarise(Count = n())
+
+```
+
+In the study, `r children_counterbalance$Count[1]` played configuration A of the test set, and `r children_counterbalance$Count[2]` played the reversed configuration, configuration B.
+
+### Tutorial Performances
+
+```{r children Tutorials summary}
+
+children_wide_data <- children_results %>%
+  select(agent_tag, instancename_child, finalreward) %>%
+  pivot_wider(names_from = instancename_child,
+              values_from = finalreward)
+
+children_tutorial_data <- children_wide_data %>%
+  select(c(starts_with("tutorial"))) 
+
+children_tutorial_data$NumTutorials <- rowSums(!is.na(children_tutorial_data))
+
+childrentutorial_table <- table(children_tutorial_data$NumTutorials) %>% as.data.frame() %>% rename(`Number of Tutorial Instances Played` = Var1,
+                                                                               `Number of Children` = Freq) 
+
+```
+
+The children played the tutorials as many times as they wanted. The number of tutorial tasks that the children played is recorded in the table below, with the number of children that played that many tasks:
+
+```{r children tutorials table}
+
+datatable(childrentutorial_table, rownames = FALSE)
+
+```
+### Test Performances
+
+```{r children NAs tests}
+
+children_test_data <- children_wide_data %>%
+  select(c(!starts_with("tutorial") & !agent_tag))
+
+children_test_data$NumTests <- rowSums(!is.na(children_test_data))
+
+childrentest_table <- table(children_test_data$NumTests) %>% as.data.frame() %>% 
+  rename(`Number of Test Instances Played` = Var1,
+         `Number of Children` = Freq) 
+
+
+```
+
+The children then played the Object Permanence tasks. Some quit before completing all of the tests:
+
+```{r children NAs tests table}
+
+datatable(childrentest_table, rownames = FALSE)
+
+```
+
+### Game Playing Habits
+
+We also asked several demographic questions:
+
+```{r children demographic questions}
+
+child_demographic_questions <- read.csv("~/comparative-object-permanence/children/results_children.csv") %>%
+  select(c(participant_id, colour_blindness:game_controller_do_not_know))
+
+number_not_colour_blind <- sum(child_demographic_questions$colour_blindness == 0)
+number_colour_blind <- sum(child_demographic_questions$colour_blindness == 1)
+number_NA_colour_blind <- sum(child_demographic_questions$colour_blindness == 99)
+
+number_lessthan2perwk <- sum(child_demographic_questions$hours_computerised_video_games == 1)
+
+number_2_4perwk <- sum(child_demographic_questions$hours_computerised_video_games == 2)
+
+number_4_8perwk <- sum(child_demographic_questions$hours_computerised_video_games == 3)
+
+number_8_12perwk <- sum(child_demographic_questions$hours_computerised_video_games == 4)
+
+number_12plusperwk <- sum(child_demographic_questions$hours_computerised_video_games == 5)
+
+number_dontknowperwk <- sum(child_demographic_questions$hours_computerised_video_games == 99)
+```
+
+`r number_not_colour_blind` children were reported as not colour blind. `r number_colour_blind` child was reported as colour blind. `r number_NA_colour_blind` children's guardians did not know.
+
+`r number_lessthan2perwk` children were reported as playing less than 2 hours of video games per week. `r number_2_4perwk` were reported as playing between 2 and 4 hours. `r number_4_8perwk` were reported as playing between 4 and 8 hours per week. `r number_8_12perwk` was reported as playing between 8 and 12 hours per week. `r number_12plusperwk` were reported as playing over 12 hours per week. `r number_dontknowperwk` children's guardians did not know.
+
+We then asked about what kind of video games they play. The table below shows the number of children reported to play different kinds of games. Note that the total count is over the sample size, as parents/guardians could select as many options as they felt applied.
+
+```{r videogame demographics}
+
+child_game_type_questions <- child_demographic_questions %>%
+  select(first_third_person_games:game_type_do_not_know & !game_type_other) 
+
+counts_gametype <- tibble(`Game Type` = colnames(child_game_type_questions),
+                              `Number of Children` = colSums(child_game_type_questions)) %>%
+  mutate(`Game Type` = ifelse(`Game Type` == "first_third_person_games", "First-/Third-Person Perspective Games (e.g., Minecraft, Fortnite)",
+                              ifelse(`Game Type` == "strategy_puzzle_games", "Strategy/Puzzle Video Games (e.g., Chess, Civilization)",
+                                     ifelse(`Game Type` == "sports_based_games", "Sports-Based Games (e.g., FIFA, Wii Sports, etc.)",
+                                            ifelse(`Game Type` == "simulator_games", "Simulator Games (e.g., Flight Simulators, NASCAR)",
+                                                   ifelse(`Game Type` == "mobile_games", "Mobile Games (e.g., Angry Birds, Candy Crush Saga, Doodle Jump)",
+                                                          ifelse(`Game Type` == "game_type_child_does_not_play_games", "None of the above, my child does not play video games",
+                                                                 ifelse(`Game Type` == "game_type_do_not_know", "Guardian did not know", `Game Type`)))))))) %>% arrange(desc(`Number of Children`))
+
+datatable(counts_gametype, rownames = FALSE)
+
+```
+
+Some parents/guardians reported other types of games, shown in the table below:
+
+```{r other videogames}
+
+child_other_game_type_questions <- child_demographic_questions %>%
+  select(game_type_other) %>%
+  filter(game_type_other != 0) %>%
+  transmute(`Responses to *Other*` = ifelse(game_type_other == 1, "*Parent/Guardian checked *Other* but did not offer further specifics*", game_type_other)) %>% datatable(rownames = FALSE)
+
+child_other_game_type_questions
+
+```
+
+Finally, we asked about what controllers they tended to use for these games. Note that the total count is over the sample size, as parents/guardians could select as many options as they felt applied.
+
+```{r videogame controller outputs}
+
+child_game_controller_questions <- child_demographic_questions %>%
+  select(desktop_with_keyboard:game_controller_do_not_know) 
+
+counts_controllertype <- tibble(`Controller Type` = colnames(child_game_controller_questions),
+                              `Number of Children` = colSums(child_game_controller_questions)) %>%
+  mutate(`Controller Type` = ifelse(`Controller Type` == "desktop_with_keyboard", "Desktop PC/Laptop With Keyboard",
+                              ifelse(`Controller Type` == "desktop_with_joystick", "Desktop PC/Laptop With Joystick",
+                                     ifelse(`Controller Type` == "games_console_controller", "Games Console Controller (e.g., Xbox, PlayStation, Wii)",
+                                            ifelse(`Controller Type` == "handheld_non_mobile_non_tablet_device", "Handheld non-mobile non-tablet device (e.g., Nintendo, GameBoy)",
+                                                   ifelse(`Controller Type` == "tablet_smartphone_with_touchscreen", "Tablet/Smartphone With Touch Screen",
+                                                          ifelse(`Controller Type` == "game_controller_child_does_not_play_games", "None of the above, my child does not play video games",
+                                                                 ifelse(`Controller Type` == "game_controller_do_not_know", "Guardian did not know", ifelse(`Controller Type` == "game_controller_other", "Other (Did not specify)", `Controller Type`))))))))) %>% arrange(desc(`Number of Children`))
+
+datatable(counts_controllertype, rownames = FALSE)
+
+```
+
+Although parents/guardians were invited to offer other controller types if they checked *Other*, none did.
+
+### Age Groups
+
+```{r age group success rates}
+
+child_age_table <- final_results %>% 
+  select(c(age, agent_tag, success)) %>%
+  drop_na(age) %>%
+  group_by(age, agent_tag) %>% 
+  summarise(`Total Passes` = sum(success),
+            `Total Instances` = n()) %>% ungroup() %>%
+  group_by(age) %>%
+  summarise(`Total Passes` = sum(`Total Passes`),
+            `Total Instances` = sum(`Total Instances`),
+            `Percentage Instances Passed` = round(`Total Passes`/`Total Instances`*100, digits = rounding),
+            `Number in Age Group` = n()) %>%
+  arrange(desc(`Percentage Instances Passed`)) %>%
+  rename(Age = age)
+
+
+datatable(child_age_table, rownames = FALSE)
+
+```
+
+### Gender
+
+```{r gender success rates}
+
+child_gender_table <- final_results %>% 
+  select(c(gender, agent_tag, success)) %>%
+  drop_na(gender) %>%
+  group_by(gender, agent_tag) %>% 
+  summarise(`Total Passes` = sum(success),
+            `Total Instances` = n()) %>% ungroup() %>%
+  group_by(gender) %>%
+  summarise(`Total Passes` = sum(`Total Passes`),
+            `Total Instances` = sum(`Total Instances`),
+            `Percentage Instances Passed` = round(`Total Passes`/`Total Instances`*100, digits = rounding),
+            `Number in Gender Group` = n()) %>%
+  arrange(desc(`Percentage Instances Passed`))
+
+datatable(child_gender_table, rownames = FALSE)
+
+```
+
+
+### Gender by Age
+
+```{r gender by age success rates}
+
+child_genderage_table <- final_results %>% 
+  select(c(age, gender, agent_tag, success)) %>%
+  drop_na(age, gender) %>%
+  group_by(age, gender, agent_tag) %>% 
+  summarise(`Total Passes` = sum(success),
+            `Total Instances` = n()) %>% ungroup() %>%
+  group_by(age, gender) %>%
+  summarise(`Total Passes` = sum(`Total Passes`),
+            `Total Instances` = sum(`Total Instances`),
+            `Percentage Instances Passed` = round(`Total Passes`/`Total Instances`*100, digits = rounding),
+            `Number in Age-Gender Group` = n()) %>%
+  arrange(desc(`Percentage Instances Passed`))
+
+datatable(child_genderage_table, rownames = FALSE)
+
+```
+
+
