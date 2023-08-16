@@ -14,8 +14,6 @@ execute:
   error: false
 ---
 
-This document presents the descriptive statistics and and comparative analytics for the agents studied in the `comparative-object-permanence` study. This document does not contain any psychometric analysis (measurement layouts). Below, '*agents*' refers to artificial agents like random walkers or deep reinforcement learners. '*children*' refers to human children (!).
-
 ```{r preamble}
 
 library(tidyverse)
@@ -28,7 +26,11 @@ library(extrafont) # may need to run font_import();loadfonts() to get the fonts 
 
 pal <- c("#FF8C00", "#A034F0", "#159090", "#FF007F") # color palette for plots
 
+rounding <- 4
+
 ```
+
+This document presents the descriptive statistics and and comparative analytics for the agents studied in the `comparative-object-permanence` study. This document does not contain any psychometric analysis (measurement layouts). Below, '*agents*' refers to artificial agents like random walkers or deep reinforcement learners. '*children*' refers to human children (!). Note that all floats are reported to `r rounding` decimal places.
 
 ```{r data import}
 
@@ -116,8 +118,9 @@ performances_table <- final_results %>%
   group_by(agent_type) %>% 
   summarise(`Total Passes` = sum(success),
             `Total Instances` = n(),
-            `Percentage Instances Passed (4 d.p.)` = round(`Total Passes`/`Total Instances`*100, digits = 4)) %>%
-  arrange(desc(`Percentage Instances Passed (4 d.p.)`))
+            `Percentage Instances Passed` = round(`Total Passes`/`Total Instances`*100, digits = rounding)) %>%
+  arrange(desc(`Percentage Instances Passed`)) %>%
+  rename(Agent = agent_type)
 
 ```
 
@@ -142,7 +145,8 @@ proportions <- final_results %>%
                list(Min=min, `10%`=~quantile(., probs = 0.1), `20%`=~quantile(., probs = 0.2), `30%`=~quantile(., probs = 0.3), `40%`=~quantile(., probs = 0.4), Median=median, `Arithmetic Mean`=mean, `60%`=~quantile(., probs = 0.6),  
                     `70%`=~quantile(., probs = 0.7), `80%`=~quantile(., probs = 0.8), `90%`=~quantile(., probs = 0.9), Max=max, `Standard Deviation` = sd)) %>%
   arrange(desc(Median)) %>%
-  mutate(across(Min:`Standard Deviation`, ~round(.x, digits = 4)))
+  mutate(across(Min:`Standard Deviation`, ~round(.x, digits = rounding))) %>%
+  rename(Agent = agent_type)
 
 ```
 
@@ -267,8 +271,9 @@ basic_tasks %>%
   group_by(agent_type) %>%
   summarise(`Total Passes` = sum(success),
             `Total Instances` = n(),
-            `Percentage Instances Passed (4 d.p.)` = round(`Total Passes`/`Total Instances`*100, digits = 4)) %>%
-  arrange(desc(`Percentage Instances Passed (4 d.p.)`)) %>% datatable(rownames = FALSE)
+            `Percentage Instances Passed` = round(`Total Passes`/`Total Instances`*100, digits = rounding)) %>%
+  arrange(desc(`Percentage Instances Passed`)) %>%
+  rename(Agent = agent_type) %>% datatable(rownames = FALSE)
 
 ```
 
@@ -282,7 +287,8 @@ basic_tasks %>%
                list(Min=min, `10%`=~quantile(., probs = 0.1), `20%`=~quantile(., probs = 0.2), `30%`=~quantile(., probs = 0.3), `40%`=~quantile(., probs = 0.4), Median=median, `Arithmetic Mean`=mean, `60%`=~quantile(., probs = 0.6),  
                     `70%`=~quantile(., probs = 0.7), `80%`=~quantile(., probs = 0.8), `90%`=~quantile(., probs = 0.9), Max=max, `Standard Deviation` = sd)) %>%
   arrange(desc(Median)) %>%
-  mutate(across(Min:`Standard Deviation`, ~round(.x, digits = 4))) %>% datatable(rownames = FALSE)
+  mutate(across(Min:`Standard Deviation`, ~round(.x, digits = rounding))) %>%
+  rename(Agent = agent_type) %>% datatable(rownames = FALSE)
 
 ```
 
@@ -411,7 +417,7 @@ control_tasks %>%
   group_by(agent_type, Paradigm) %>%
   summarise(`Total Passes` = sum(success),
             `Total Instances` = n(),
-            `Percentage Instances Passed (4 d.p.)` = round(`Total Passes`/`Total Instances`*100, digits = 4)) %>%
+            `Percentage Instances Passed` = round(`Total Passes`/`Total Instances`*100, digits = rounding)) %>%
   arrange(agent_type) %>% 
   rename(Agent = agent_type) %>%
   datatable(rownames = FALSE)
@@ -428,7 +434,8 @@ control_tasks %>%
                list(Min=min, `10%`=~quantile(., probs = 0.1), `20%`=~quantile(., probs = 0.2), `30%`=~quantile(., probs = 0.3), `40%`=~quantile(., probs = 0.4), Median=median, `Arithmetic Mean`=mean, `60%`=~quantile(., probs = 0.6),  
                     `70%`=~quantile(., probs = 0.7), `80%`=~quantile(., probs = 0.8), `90%`=~quantile(., probs = 0.9), Max=max, `Standard Deviation` = sd)) %>%
   arrange(desc(Median)) %>%
-  mutate(across(Min:`Standard Deviation`, ~round(.x, digits = 4))) %>% datatable(rownames = FALSE)
+  mutate(across(Min:`Standard Deviation`, ~round(.x, digits = rounding))) %>%
+  rename(Agent = agent_type) %>% datatable(rownames = FALSE)
 
 ```
 
@@ -546,10 +553,11 @@ cvchick_choices <- final_results %>%
 
 cvchick_choices_table <- cvchick_choices %>% group_by(agent_type) %>%
   summarise(`Total Instances` = n(),
-            `Percentage Instances Passed (4 d.p.)` = round(sum(success)/`Total Instances`*100, digits = 4),
-            `Percentage Correct Choice` = round(sum((cvchickleftchoice == TRUE & cvchickcorrectchoice == "L" & cvchickrightchoice == FALSE)|(cvchickrightchoice == TRUE & cvchickcorrectchoice == "R" & cvchickleftchoice == FALSE))/`Total Instances`*100, digits = 4),
-            `Percentage Incorrect Choice` = round(sum((cvchickleftchoice == FALSE & cvchickcorrectchoice == "L" & cvchickrightchoice == TRUE)|(cvchickrightchoice == FALSE & cvchickcorrectchoice == "R" & cvchickleftchoice == TRUE))/`Total Instances`*100, digits = 4),
-            `Percentage No Choice` = round(sum(cvchickleftchoice == FALSE & cvchickrightchoice == FALSE)/`Total Instances`*100, digits = 4))
+            `Percentage Instances Passed` = round(sum(success)/`Total Instances`*100, digits = rounding),
+            `Percentage Correct Choice` = round(sum((cvchickleftchoice == TRUE & cvchickcorrectchoice == "L" & cvchickrightchoice == FALSE)|(cvchickrightchoice == TRUE & cvchickcorrectchoice == "R" & cvchickleftchoice == FALSE))/`Total Instances`*100, digits = rounding),
+            `Percentage Incorrect Choice` = round(sum((cvchickleftchoice == FALSE & cvchickcorrectchoice == "L" & cvchickrightchoice == TRUE)|(cvchickrightchoice == FALSE & cvchickcorrectchoice == "R" & cvchickleftchoice == TRUE))/`Total Instances`*100, digits = rounding),
+            `Percentage No Choice` = round(sum(cvchickleftchoice == FALSE & cvchickrightchoice == FALSE)/`Total Instances`*100, digits = rounding)) %>%
+  rename(Agent = agent_type)
 
 datatable(cvchick_choices_table, rownames = FALSE)
 
@@ -575,11 +583,11 @@ pctb3cup_choices <- final_results %>%
 
 pctb3cup_choices_table <- pctb3cup_choices %>% group_by(agent_type) %>%
   summarise(`Total Instances` = n(),
-            `Percentage Instances Passed (4 d.p.)` = round(sum(success)/`Total Instances`*100, digits = 4),
-            `Percentage Correct Choice` = round(sum((threecupleftchoice == TRUE & pctb3cupcorrectchoice == "L")|(pctb3cupcorrectchoice == "M" & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "R" & threecuprightchoice == TRUE))/`Total Instances`*100, digits = 4),
-            `Percentage Incorrect Choice` = round(sum((threecupleftchoice == FALSE & pctb3cupcorrectchoice == "L" & (threecuprightchoice == TRUE | threecupmidchoice == TRUE))|(threecupmidchoice == FALSE & pctb3cupcorrectchoice == "M" & (threecupleftchoice == TRUE | threecuprightchoice == TRUE))|(threecuprightchoice == FALSE & pctb3cupcorrectchoice == "R" & (threecupleftchoice == TRUE | threecupmidchoice == TRUE)))/`Total Instances`*100, digits = 4),
-            `Percentage No Choice` = round(sum(threecupleftchoice == FALSE & threecupmidchoice == FALSE & threecuprightchoice == FALSE)/`Total Instances`*100, digits = 4),
-            `Percentage Adjacent Choice` = round(sum((pctb3cupcorrectchoice == "L" & threecupleftchoice == FALSE & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "R" & threecuprightchoice == FALSE & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "M" & threecupmidchoice == FALSE & (threecupleftchoice == TRUE | threecuprightchoice == TRUE)))/`Total Instances`*100, digits = 4))
+            `Percentage Instances Passed` = round(sum(success)/`Total Instances`*100, digits = rounding),
+            `Percentage Correct Choice` = round(sum((threecupleftchoice == TRUE & pctb3cupcorrectchoice == "L")|(pctb3cupcorrectchoice == "M" & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "R" & threecuprightchoice == TRUE))/`Total Instances`*100, digits = rounding),
+            `Percentage Incorrect Choice` = round(sum((threecupleftchoice == FALSE & pctb3cupcorrectchoice == "L" & (threecuprightchoice == TRUE | threecupmidchoice == TRUE))|(threecupmidchoice == FALSE & pctb3cupcorrectchoice == "M" & (threecupleftchoice == TRUE | threecuprightchoice == TRUE))|(threecuprightchoice == FALSE & pctb3cupcorrectchoice == "R" & (threecupleftchoice == TRUE | threecupmidchoice == TRUE)))/`Total Instances`*100, digits = rounding),
+            `Percentage No Choice` = round(sum(threecupleftchoice == FALSE & threecupmidchoice == FALSE & threecuprightchoice == FALSE)/`Total Instances`*100, digits = rounding),
+            `Percentage Adjacent Choice` = round(sum((pctb3cupcorrectchoice == "L" & threecupleftchoice == FALSE & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "R" & threecuprightchoice == FALSE & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "M" & threecupmidchoice == FALSE & (threecupleftchoice == TRUE | threecuprightchoice == TRUE)))/`Total Instances`*100, digits = rounding))
 
 datatable(pctb3cup_choices_table, rownames = FALSE)
 
@@ -604,13 +612,13 @@ pctbgrid_choices <- final_results %>%
 
 pctbgrid_choices_table <- pctbgrid_choices %>% group_by(agent_type, numChoices) %>%
   summarise(`Total Instances` = n(),
-            `Percentage Instances Passed (4 d.p.)` = round(sum(success)/`Total Instances`*100, digits = 4),
-            `Percentage Correct Choice` = round(sum(pctbgridcorrectchoice == pctbgridcupchoice)/`Total Instances`*100, digits = 4),
-            `Percentage Incorrect Choice` = round(sum(pctbgridcorrectchoice != pctbgridcupchoice & pctbgridcupchoice != "NoChoiceMade")/`Total Instances`*100, digits = 4),
-            `Percentage No Choice` = round(sum(pctbgridcupchoice == "NoChoiceMade")/`Total Instances`*100, digits = 4),
-            `Percentage Correct Side Choice` = round(sum((str_detect(pctbgridcorrectchoice, "Right") & str_detect(pctbgridcupchoice, "Right")) | (str_detect(pctbgridcorrectchoice, "Left") & str_detect(pctbgridcupchoice, "Left")))/`Total Instances`*100, digits = 4),
-            `Percentage Correct Column Choice` = round(sum((str_detect(pctbgridcorrectchoice, "CloseRight") & str_detect(pctbgridcupchoice, "CloseRight")) | (str_detect(pctbgridcorrectchoice, "CloseLeft") & str_detect(pctbgridcupchoice, "CloseLeft")) | (str_detect(pctbgridcorrectchoice, "FarRight") & str_detect(pctbgridcupchoice, "FarRight")) | (str_detect(pctbgridcorrectchoice, "FarLeft") & str_detect(pctbgridcupchoice, "FarLeft")))/`Total Instances`*100, digits = 4),
-            `Percentage Correct Row Choice` = round(sum((str_detect(pctbgridcorrectchoice, "RightClose") & str_detect(pctbgridcupchoice, "RightClose")) | (str_detect(pctbgridcorrectchoice, "LeftClose") & str_detect(pctbgridcupchoice, "LeftClose")) | (str_detect(pctbgridcorrectchoice, "LeftMid") & str_detect(pctbgridcupchoice, "LeftMid")) | (str_detect(pctbgridcorrectchoice, "RightMid") & str_detect(pctbgridcupchoice, "RightMid")) | (str_detect(pctbgridcorrectchoice, "LeftFar") & str_detect(pctbgridcupchoice, "LeftFar")) | (str_detect(pctbgridcorrectchoice, "RightFar") & str_detect(pctbgridcupchoice, "RightFar")))/`Total Instances`*100, digits = 4)) %>% 
+            `Percentage Instances Passed` = round(sum(success)/`Total Instances`*100, digits = rounding),
+            `Percentage Correct Choice` = round(sum(pctbgridcorrectchoice == pctbgridcupchoice)/`Total Instances`*100, digits = rounding),
+            `Percentage Incorrect Choice` = round(sum(pctbgridcorrectchoice != pctbgridcupchoice & pctbgridcupchoice != "NoChoiceMade")/`Total Instances`*100, digits = rounding),
+            `Percentage No Choice` = round(sum(pctbgridcupchoice == "NoChoiceMade")/`Total Instances`*100, digits = rounding),
+            `Percentage Correct Side Choice` = round(sum((str_detect(pctbgridcorrectchoice, "Right") & str_detect(pctbgridcupchoice, "Right")) | (str_detect(pctbgridcorrectchoice, "Left") & str_detect(pctbgridcupchoice, "Left")))/`Total Instances`*100, digits = rounding),
+            `Percentage Correct Column Choice` = round(sum((str_detect(pctbgridcorrectchoice, "CloseRight") & str_detect(pctbgridcupchoice, "CloseRight")) | (str_detect(pctbgridcorrectchoice, "CloseLeft") & str_detect(pctbgridcupchoice, "CloseLeft")) | (str_detect(pctbgridcorrectchoice, "FarRight") & str_detect(pctbgridcupchoice, "FarRight")) | (str_detect(pctbgridcorrectchoice, "FarLeft") & str_detect(pctbgridcupchoice, "FarLeft")))/`Total Instances`*100, digits = rounding),
+            `Percentage Correct Row Choice` = round(sum((str_detect(pctbgridcorrectchoice, "RightClose") & str_detect(pctbgridcupchoice, "RightClose")) | (str_detect(pctbgridcorrectchoice, "LeftClose") & str_detect(pctbgridcupchoice, "LeftClose")) | (str_detect(pctbgridcorrectchoice, "LeftMid") & str_detect(pctbgridcupchoice, "LeftMid")) | (str_detect(pctbgridcorrectchoice, "RightMid") & str_detect(pctbgridcupchoice, "RightMid")) | (str_detect(pctbgridcorrectchoice, "LeftFar") & str_detect(pctbgridcupchoice, "LeftFar")) | (str_detect(pctbgridcorrectchoice, "RightFar") & str_detect(pctbgridcupchoice, "RightFar")))/`Total Instances`*100, digits = rounding)) %>% 
   rename(`Agent` = agent_type,
          `Number of Cups` = numChoices)
 
@@ -643,8 +651,8 @@ cv_tasks %>%
   group_by(agent_type) %>%
   summarise(`Total Passes` = sum(success),
             `Total Instances` = n(),
-            `Percentage Instances Passed (4 d.p.)` = round(`Total Passes`/`Total Instances`*100, digits = 4)) %>%
-  arrange(desc(`Percentage Instances Passed (4 d.p.)`)) %>% 
+            `Percentage Instances Passed` = round(`Total Passes`/`Total Instances`*100, digits = rounding)) %>%
+  arrange(desc(`Percentage Instances Passed`)) %>% 
   rename(Agent = agent_type) %>%
   datatable(rownames = FALSE)
 
@@ -660,7 +668,8 @@ cv_tasks %>%
                list(Min=min, `10%`=~quantile(., probs = 0.1), `20%`=~quantile(., probs = 0.2), `30%`=~quantile(., probs = 0.3), `40%`=~quantile(., probs = 0.4), Median=median, `Arithmetic Mean`=mean, `60%`=~quantile(., probs = 0.6),  
                     `70%`=~quantile(., probs = 0.7), `80%`=~quantile(., probs = 0.8), `90%`=~quantile(., probs = 0.9), Max=max, `Standard Deviation` = sd)) %>%
   arrange(desc(Median)) %>%
-  mutate(across(Min:`Standard Deviation`, ~round(.x, digits = 4))) %>% datatable(rownames = FALSE)
+  mutate(across(Min:`Standard Deviation`, ~round(.x, digits = rounding))) %>%
+  rename(Agent = agent_type) %>% datatable(rownames = FALSE)
 
 ```
 
@@ -764,10 +773,11 @@ Now we can look at the choices the agents made.
 
 cvchick_choices_table <- cv_tasks %>% group_by(agent_type) %>%
   summarise(`Total Instances` = n(),
-            `Percentage Instances Passed (4 d.p.)` = round(sum(success)/`Total Instances`*100, digits = 4),
-            `Percentage Correct Choice` = round(sum((cvchickleftchoice == TRUE & cvchickcorrectchoice == "L" & cvchickrightchoice == FALSE)|(cvchickrightchoice == TRUE & cvchickcorrectchoice == "R" & cvchickleftchoice == FALSE))/`Total Instances`*100, digits = 4),
-            `Percentage Incorrect Choice` = round(sum((cvchickleftchoice == FALSE & cvchickcorrectchoice == "L" & cvchickrightchoice == TRUE)|(cvchickrightchoice == FALSE & cvchickcorrectchoice == "R" & cvchickleftchoice == TRUE))/`Total Instances`*100, digits = 4),
-            `Percentage No Choice` = round(sum(cvchickleftchoice == FALSE & cvchickrightchoice == FALSE)/`Total Instances`*100, digits = 4))
+            `Percentage Instances Passed` = round(sum(success)/`Total Instances`*100, digits = rounding),
+            `Percentage Correct Choice` = round(sum((cvchickleftchoice == TRUE & cvchickcorrectchoice == "L" & cvchickrightchoice == FALSE)|(cvchickrightchoice == TRUE & cvchickcorrectchoice == "R" & cvchickleftchoice == FALSE))/`Total Instances`*100, digits = rounding),
+            `Percentage Incorrect Choice` = round(sum((cvchickleftchoice == FALSE & cvchickcorrectchoice == "L" & cvchickrightchoice == TRUE)|(cvchickrightchoice == FALSE & cvchickcorrectchoice == "R" & cvchickleftchoice == TRUE))/`Total Instances`*100, digits = rounding),
+            `Percentage No Choice` = round(sum(cvchickleftchoice == FALSE & cvchickrightchoice == FALSE)/`Total Instances`*100, digits = rounding)) %>%
+  rename(Agent = agent_type)
 
 datatable(cvchick_choices_table, rownames = FALSE)
 
@@ -796,8 +806,8 @@ threecup_tasks %>%
   group_by(agent_type) %>%
   summarise(`Total Passes` = sum(success),
             `Total Instances` = n(),
-            `Percentage Instances Passed (4 d.p.)` = round(`Total Passes`/`Total Instances`*100, digits = 4)) %>%
-  arrange(desc(`Percentage Instances Passed (4 d.p.)`)) %>% 
+            `Percentage Instances Passed` = round(`Total Passes`/`Total Instances`*100, digits = rounding)) %>%
+  arrange(desc(`Percentage Instances Passed`)) %>% 
   rename(Agent = agent_type) %>%
   datatable(rownames = FALSE)
 
@@ -813,7 +823,8 @@ threecup_tasks %>%
                list(Min=min, `10%`=~quantile(., probs = 0.1), `20%`=~quantile(., probs = 0.2), `30%`=~quantile(., probs = 0.3), `40%`=~quantile(., probs = 0.4), Median=median, `Arithmetic Mean`=mean, `60%`=~quantile(., probs = 0.6),  
                     `70%`=~quantile(., probs = 0.7), `80%`=~quantile(., probs = 0.8), `90%`=~quantile(., probs = 0.9), Max=max, `Standard Deviation` = sd)) %>%
   arrange(desc(Median)) %>%
-  mutate(across(Min:`Standard Deviation`, ~round(.x, digits = 4))) %>% datatable(rownames = FALSE)
+  mutate(across(Min:`Standard Deviation`, ~round(.x, digits = rounding))) %>%
+  rename(Agent = agent_type) %>% datatable(rownames = FALSE)
 
 ```
 
@@ -897,11 +908,12 @@ Now we can look at the choices they made:
 ```{r 3 cup OP choices}
 pctb3cup_choices_table <- threecup_tasks %>% group_by(agent_type) %>%
   summarise(`Total Instances` = n(),
-            `Percentage Instances Passed (4 d.p.)` = round(sum(success)/`Total Instances`*100, digits = 4),
-            `Percentage Correct Choice` = round(sum((threecupleftchoice == TRUE & pctb3cupcorrectchoice == "L")|(pctb3cupcorrectchoice == "M" & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "R" & threecuprightchoice == TRUE)|(threecupleftchoice == TRUE & threecupmidchoice == TRUE & pctb3cupcorrectchoice == "LM") | (threecuprightchoice == TRUE & threecupmidchoice == TRUE & pctb3cupcorrectchoice == "MR")|(threecuprightchoice == TRUE & threecupleftchoice == TRUE & pctb3cupcorrectchoice == "LR"))/`Total Instances`*100, digits = 4),
-            `Percentage Incorrect Choice` = round(sum((threecupleftchoice == FALSE & pctb3cupcorrectchoice == "L" & (threecuprightchoice == TRUE | threecupmidchoice == TRUE))|(threecupmidchoice == FALSE & pctb3cupcorrectchoice == "M" & (threecupleftchoice == TRUE | threecuprightchoice == TRUE))|(threecuprightchoice == FALSE & pctb3cupcorrectchoice == "R" & (threecupleftchoice == TRUE | threecupmidchoice == TRUE))|(threecupleftchoice == TRUE & pctb3cupcorrectchoice == "MR")|(threecuprightchoice == TRUE & pctb3cupcorrectchoice == "LM")|(threecupmidchoice == TRUE & pctb3cupcorrectchoice == "LR"))/`Total Instances`*100, digits = 4),
-            `Percentage No Choice` = round(sum(threecupleftchoice == FALSE & threecupmidchoice == FALSE & threecuprightchoice == FALSE)/`Total Instances`*100, digits = 4),
-            `Percentage Adjacent Choice` = round(sum((pctb3cupcorrectchoice == "L" & threecupleftchoice == FALSE & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "R" & threecuprightchoice == FALSE & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "M" & threecupmidchoice == FALSE & (threecupleftchoice == TRUE | threecuprightchoice == TRUE))|(pctb3cupcorrectchoice == "LM" & threecuprightchoice == TRUE)|(pctb3cupcorrectchoice == "LR" & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "MR" & threecupleftchoice == TRUE))/`Total Instances`*100, digits = 4))
+            `Percentage Instances Passed` = round(sum(success)/`Total Instances`*100, digits = rounding),
+            `Percentage Correct Choice` = round(sum((threecupleftchoice == TRUE & pctb3cupcorrectchoice == "L")|(pctb3cupcorrectchoice == "M" & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "R" & threecuprightchoice == TRUE)|(threecupleftchoice == TRUE & threecupmidchoice == TRUE & pctb3cupcorrectchoice == "LM") | (threecuprightchoice == TRUE & threecupmidchoice == TRUE & pctb3cupcorrectchoice == "MR")|(threecuprightchoice == TRUE & threecupleftchoice == TRUE & pctb3cupcorrectchoice == "LR"))/`Total Instances`*100, digits = rounding),
+            `Percentage Incorrect Choice` = round(sum((threecupleftchoice == FALSE & pctb3cupcorrectchoice == "L" & (threecuprightchoice == TRUE | threecupmidchoice == TRUE))|(threecupmidchoice == FALSE & pctb3cupcorrectchoice == "M" & (threecupleftchoice == TRUE | threecuprightchoice == TRUE))|(threecuprightchoice == FALSE & pctb3cupcorrectchoice == "R" & (threecupleftchoice == TRUE | threecupmidchoice == TRUE))|(threecupleftchoice == TRUE & pctb3cupcorrectchoice == "MR")|(threecuprightchoice == TRUE & pctb3cupcorrectchoice == "LM")|(threecupmidchoice == TRUE & pctb3cupcorrectchoice == "LR"))/`Total Instances`*100, digits = rounding),
+            `Percentage No Choice` = round(sum(threecupleftchoice == FALSE & threecupmidchoice == FALSE & threecuprightchoice == FALSE)/`Total Instances`*100, digits = rounding),
+            `Percentage Adjacent Choice` = round(sum((pctb3cupcorrectchoice == "L" & threecupleftchoice == FALSE & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "R" & threecuprightchoice == FALSE & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "M" & threecupmidchoice == FALSE & (threecupleftchoice == TRUE | threecuprightchoice == TRUE))|(pctb3cupcorrectchoice == "LM" & threecuprightchoice == TRUE)|(pctb3cupcorrectchoice == "LR" & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "MR" & threecupleftchoice == TRUE))/`Total Instances`*100, digits = rounding)) %>%
+  rename(Agent = agent_type)
 
 datatable(pctb3cup_choices_table, rownames = FALSE)
 
@@ -930,8 +942,8 @@ grid_tasks %>%
   group_by(agent_type) %>%
   summarise(`Total Passes` = sum(success),
             `Total Instances` = n(),
-            `Percentage Instances Passed (4 d.p.)` = round(`Total Passes`/`Total Instances`*100, digits = 4)) %>%
-  arrange(desc(`Percentage Instances Passed (4 d.p.)`)) %>% 
+            `Percentage Instances Passed` = round(`Total Passes`/`Total Instances`*100, digits = rounding)) %>%
+  arrange(desc(`Percentage Instances Passed`)) %>% 
   rename(Agent = agent_type) %>%
   datatable(rownames = FALSE)
 
@@ -947,7 +959,8 @@ grid_tasks %>%
                list(Min=min, `10%`=~quantile(., probs = 0.1), `20%`=~quantile(., probs = 0.2), `30%`=~quantile(., probs = 0.3), `40%`=~quantile(., probs = 0.4), Median=median, `Arithmetic Mean`=mean, `60%`=~quantile(., probs = 0.6),  
                     `70%`=~quantile(., probs = 0.7), `80%`=~quantile(., probs = 0.8), `90%`=~quantile(., probs = 0.9), Max=max, `Standard Deviation` = sd)) %>%
   arrange(desc(Median)) %>%
-  mutate(across(Min:`Standard Deviation`, ~round(.x, digits = 4))) %>% datatable(rownames = FALSE)
+  mutate(across(Min:`Standard Deviation`, ~round(.x, digits = rounding))) %>%
+  rename(Agent = agent_type) %>% datatable(rownames = FALSE)
 
 ```
 
@@ -1032,13 +1045,13 @@ Now we can look at the choices they made:
 
 pctbgrid_choices_table <- grid_tasks %>% group_by(agent_type, numChoices) %>%
   summarise(`Total Instances` = n(),
-            `Percentage Instances Passed (4 d.p.)` = round(sum(success)/`Total Instances`*100, digits = 4),
-            `Percentage Correct Choice` = round(sum(pctbgridcorrectchoice == pctbgridcupchoice)/`Total Instances`*100, digits = 4),
-            `Percentage Incorrect Choice` = round(sum(pctbgridcorrectchoice != pctbgridcupchoice & pctbgridcupchoice != "NoChoiceMade")/`Total Instances`*100, digits = 4),
-            `Percentage No Choice` = round(sum(pctbgridcupchoice == "NoChoiceMade")/`Total Instances`*100, digits = 4),
-            `Percentage Correct Side Choice` = round(sum((str_detect(pctbgridcorrectchoice, "Right") & str_detect(pctbgridcupchoice, "Right")) | (str_detect(pctbgridcorrectchoice, "Left") & str_detect(pctbgridcupchoice, "Left")))/`Total Instances`*100, digits = 4),
-            `Percentage Correct Column Choice` = round(sum((str_detect(pctbgridcorrectchoice, "CloseRight") & str_detect(pctbgridcupchoice, "CloseRight")) | (str_detect(pctbgridcorrectchoice, "CloseLeft") & str_detect(pctbgridcupchoice, "CloseLeft")) | (str_detect(pctbgridcorrectchoice, "FarRight") & str_detect(pctbgridcupchoice, "FarRight")) | (str_detect(pctbgridcorrectchoice, "FarLeft") & str_detect(pctbgridcupchoice, "FarLeft")))/`Total Instances`*100, digits = 4),
-            `Percentage Correct Row Choice` = round(sum((str_detect(pctbgridcorrectchoice, "RightClose") & str_detect(pctbgridcupchoice, "RightClose")) | (str_detect(pctbgridcorrectchoice, "LeftClose") & str_detect(pctbgridcupchoice, "LeftClose")) | (str_detect(pctbgridcorrectchoice, "LeftMid") & str_detect(pctbgridcupchoice, "LeftMid")) | (str_detect(pctbgridcorrectchoice, "RightMid") & str_detect(pctbgridcupchoice, "RightMid")) | (str_detect(pctbgridcorrectchoice, "LeftFar") & str_detect(pctbgridcupchoice, "LeftFar")) | (str_detect(pctbgridcorrectchoice, "RightFar") & str_detect(pctbgridcupchoice, "RightFar")))/`Total Instances`*100, digits = 4)) %>% 
+            `Percentage Instances Passed` = round(sum(success)/`Total Instances`*100, digits = rounding),
+            `Percentage Correct Choice` = round(sum(pctbgridcorrectchoice == pctbgridcupchoice)/`Total Instances`*100, digits = rounding),
+            `Percentage Incorrect Choice` = round(sum(pctbgridcorrectchoice != pctbgridcupchoice & pctbgridcupchoice != "NoChoiceMade")/`Total Instances`*100, digits = rounding),
+            `Percentage No Choice` = round(sum(pctbgridcupchoice == "NoChoiceMade")/`Total Instances`*100, digits = rounding),
+            `Percentage Correct Side Choice` = round(sum((str_detect(pctbgridcorrectchoice, "Right") & str_detect(pctbgridcupchoice, "Right")) | (str_detect(pctbgridcorrectchoice, "Left") & str_detect(pctbgridcupchoice, "Left")))/`Total Instances`*100, digits = rounding),
+            `Percentage Correct Column Choice` = round(sum((str_detect(pctbgridcorrectchoice, "CloseRight") & str_detect(pctbgridcupchoice, "CloseRight")) | (str_detect(pctbgridcorrectchoice, "CloseLeft") & str_detect(pctbgridcupchoice, "CloseLeft")) | (str_detect(pctbgridcorrectchoice, "FarRight") & str_detect(pctbgridcupchoice, "FarRight")) | (str_detect(pctbgridcorrectchoice, "FarLeft") & str_detect(pctbgridcupchoice, "FarLeft")))/`Total Instances`*100, digits = rounding),
+            `Percentage Correct Row Choice` = round(sum((str_detect(pctbgridcorrectchoice, "RightClose") & str_detect(pctbgridcupchoice, "RightClose")) | (str_detect(pctbgridcorrectchoice, "LeftClose") & str_detect(pctbgridcupchoice, "LeftClose")) | (str_detect(pctbgridcorrectchoice, "LeftMid") & str_detect(pctbgridcupchoice, "LeftMid")) | (str_detect(pctbgridcorrectchoice, "RightMid") & str_detect(pctbgridcupchoice, "RightMid")) | (str_detect(pctbgridcorrectchoice, "LeftFar") & str_detect(pctbgridcupchoice, "LeftFar")) | (str_detect(pctbgridcorrectchoice, "RightFar") & str_detect(pctbgridcupchoice, "RightFar")))/`Total Instances`*100, digits = rounding)) %>% 
   rename(`Agent` = agent_type,
          `Number of Cups` = numChoices)
 
@@ -1049,6 +1062,8 @@ datatable(pctbgrid_choices_table, options = list(pageLength = nrow(pctbgrid_choi
 ## Children-Specific Descriptives
 
 The children played tutorial tasks with some minimal assistance from the experimenters while they learned the controls. They could play as many rounds of the tutorial tasks as they wished. Then they played 38 Object Permanence tests, without assistance, including 3 breaks. The order was reversed for half of the sample.
+
+### Counter Balancing
 
 ```{r children counterbalance data}
 
@@ -1064,6 +1079,8 @@ children_counterbalance <- children_results %>%
 ```
 
 In the study, `r children_counterbalance$Count[1]` played configuration A of the test set, and `r children_counterbalance$Count[2]` played the reversed configuration, configuration B.
+
+### Tutorial Performances
 
 ```{r children Tutorials summary}
 
@@ -1089,6 +1106,7 @@ The children played the tutorials as many times as they wanted. The number of tu
 datatable(childrentutorial_table, rownames = FALSE)
 
 ```
+### Test Performances
 
 ```{r children NAs tests}
 
@@ -1111,6 +1129,8 @@ The children then played the Object Permanence tasks. Some quit before completin
 datatable(childrentest_table, rownames = FALSE)
 
 ```
+
+### Game Playing Habits
 
 We also asked several demographic questions:
 
@@ -1197,7 +1217,70 @@ datatable(counts_controllertype, rownames = FALSE)
 
 Although parents/guardians were invited to offer other controller types if they checked *Other*, none did.
 
+### Age Groups
 
-## Between-Group Comparisons
+```{r age group success rates}
 
-Next, we do some diagnostic checks to check the differences in performance between the agents. Namely, we look to see if there was a significant difference between males and females, between different age groups, and between random action and random walker agents.
+child_age_table <- final_results %>% 
+  select(c(age, agent_tag, success)) %>%
+  drop_na(age) %>%
+  group_by(age, agent_tag) %>% 
+  summarise(`Total Passes` = sum(success),
+            `Total Instances` = n()) %>% ungroup() %>%
+  group_by(age) %>%
+  summarise(`Total Passes` = sum(`Total Passes`),
+            `Total Instances` = sum(`Total Instances`),
+            `Percentage Instances Passed` = round(`Total Passes`/`Total Instances`*100, digits = rounding),
+            `Number in Age Group` = n()) %>%
+  arrange(desc(`Percentage Instances Passed`)) %>%
+  rename(Age = age)
+
+
+datatable(child_age_table, rownames = FALSE)
+
+```
+
+### Gender
+
+```{r gender success rates}
+
+child_gender_table <- final_results %>% 
+  select(c(gender, agent_tag, success)) %>%
+  drop_na(gender) %>%
+  group_by(gender, agent_tag) %>% 
+  summarise(`Total Passes` = sum(success),
+            `Total Instances` = n()) %>% ungroup() %>%
+  group_by(gender) %>%
+  summarise(`Total Passes` = sum(`Total Passes`),
+            `Total Instances` = sum(`Total Instances`),
+            `Percentage Instances Passed` = round(`Total Passes`/`Total Instances`*100, digits = rounding),
+            `Number in Gender Group` = n()) %>%
+  arrange(desc(`Percentage Instances Passed`))
+
+datatable(child_gender_table, rownames = FALSE)
+
+```
+
+
+### Gender by Age
+
+```{r gender by age success rates}
+
+child_genderage_table <- final_results %>% 
+  select(c(age, gender, agent_tag, success)) %>%
+  drop_na(age, gender) %>%
+  group_by(age, gender, agent_tag) %>% 
+  summarise(`Total Passes` = sum(success),
+            `Total Instances` = n()) %>% ungroup() %>%
+  group_by(age, gender) %>%
+  summarise(`Total Passes` = sum(`Total Passes`),
+            `Total Instances` = sum(`Total Instances`),
+            `Percentage Instances Passed` = round(`Total Passes`/`Total Instances`*100, digits = rounding),
+            `Number in Age-Gender Group` = n()) %>%
+  arrange(desc(`Percentage Instances Passed`))
+
+datatable(child_genderage_table, rownames = FALSE)
+
+```
+
+
