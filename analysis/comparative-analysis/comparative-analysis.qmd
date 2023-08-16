@@ -37,7 +37,7 @@ final_results <- read.csv("../results_final_clean.csv") %>%
 
 ```
 
-## Descriptives
+## Overall Descriptives
 
 ```{r descriptives}
 
@@ -1046,7 +1046,7 @@ datatable(pctbgrid_choices_table, options = list(pageLength = nrow(pctbgrid_choi
 
 ```
 
-## Children-Specific Descriptives & Analyses
+## Children-Specific Descriptives
 
 The children played tutorial tasks with some minimal assistance from the experimenters while they learned the controls. They could play as many rounds of the tutorial tasks as they wished. Then they played 38 Object Permanence tests, without assistance, including 3 breaks. The order was reversed for half of the sample.
 
@@ -1104,10 +1104,100 @@ childrentest_table <- table(children_test_data$NumTests) %>% as.data.frame() %>%
 
 ```
 
-The children then played the Object Permanence tasks. Some quit after a certain number of tests:
+The children then played the Object Permanence tasks. Some quit before completing all of the tests:
 
 ```{r children NAs tests table}
 
 datatable(childrentest_table, rownames = FALSE)
 
 ```
+
+We also asked several demographic questions:
+
+```{r children demographic questions}
+
+child_demographic_questions <- read.csv("~/comparative-object-permanence/children/results_children.csv") %>%
+  select(c(participant_id, colour_blindness:game_controller_do_not_know))
+
+number_not_colour_blind <- sum(child_demographic_questions$colour_blindness == 0)
+number_colour_blind <- sum(child_demographic_questions$colour_blindness == 1)
+number_NA_colour_blind <- sum(child_demographic_questions$colour_blindness == 99)
+
+number_lessthan2perwk <- sum(child_demographic_questions$hours_computerised_video_games == 1)
+
+number_2_4perwk <- sum(child_demographic_questions$hours_computerised_video_games == 2)
+
+number_4_8perwk <- sum(child_demographic_questions$hours_computerised_video_games == 3)
+
+number_8_12perwk <- sum(child_demographic_questions$hours_computerised_video_games == 4)
+
+number_12plusperwk <- sum(child_demographic_questions$hours_computerised_video_games == 5)
+
+number_dontknowperwk <- sum(child_demographic_questions$hours_computerised_video_games == 99)
+```
+
+`r number_not_colour_blind` children were reported as not colour blind. `r number_colour_blind` child was reported as colour blind. `r number_NA_colour_blind` children's guardians did not know.
+
+`r number_lessthan2perwk` children were reported as playing less than 2 hours of video games per week. `r number_2_4perwk` were reported as playing between 2 and 4 hours. `r number_4_8perwk` were reported as playing between 4 and 8 hours per week. `r number_8_12perwk` was reported as playing between 8 and 12 hours per week. `r number_12plusperwk` were reported as playing over 12 hours per week. `r number_dontknowperwk` children's guardians did not know.
+
+We then asked about what kind of video games they play. The table below shows the number of children reported to play different kinds of games. Note that the total count is over the sample size, as parents/guardians could select as many options as they felt applied.
+
+```{r videogame demographics}
+
+child_game_type_questions <- child_demographic_questions %>%
+  select(first_third_person_games:game_type_do_not_know & !game_type_other) 
+
+counts_gametype <- tibble(`Game Type` = colnames(child_game_type_questions),
+                              `Number of Children` = colSums(child_game_type_questions)) %>%
+  mutate(`Game Type` = ifelse(`Game Type` == "first_third_person_games", "First-/Third-Person Perspective Games (e.g., Minecraft, Fortnite)",
+                              ifelse(`Game Type` == "strategy_puzzle_games", "Strategy/Puzzle Video Games (e.g., Chess, Civilization)",
+                                     ifelse(`Game Type` == "sports_based_games", "Sports-Based Games (e.g., FIFA, Wii Sports, etc.)",
+                                            ifelse(`Game Type` == "simulator_games", "Simulator Games (e.g., Flight Simulators, NASCAR)",
+                                                   ifelse(`Game Type` == "mobile_games", "Mobile Games (e.g., Angry Birds, Candy Crush Saga, Doodle Jump)",
+                                                          ifelse(`Game Type` == "game_type_child_does_not_play_games", "None of the above, my child does not play video games",
+                                                                 ifelse(`Game Type` == "game_type_do_not_know", "Guardian did not know", `Game Type`)))))))) %>% arrange(desc(`Number of Children`))
+
+datatable(counts_gametype, rownames = FALSE)
+
+```
+
+Some parents/guardians reported other types of games, shown in the table below:
+
+```{r other videogames}
+
+child_other_game_type_questions <- child_demographic_questions %>%
+  select(game_type_other) %>%
+  filter(game_type_other != 0) %>%
+  transmute(`Responses to *Other*` = ifelse(game_type_other == 1, "*Parent/Guardian checked *Other* but did not offer further specifics*", game_type_other)) %>% datatable(rownames = FALSE)
+
+child_other_game_type_questions
+
+```
+
+Finally, we asked about what controllers they tended to use for these games. Note that the total count is over the sample size, as parents/guardians could select as many options as they felt applied.
+
+```{r videogame controller outputs}
+
+child_game_controller_questions <- child_demographic_questions %>%
+  select(desktop_with_keyboard:game_controller_do_not_know) 
+
+counts_controllertype <- tibble(`Controller Type` = colnames(child_game_controller_questions),
+                              `Number of Children` = colSums(child_game_controller_questions)) %>%
+  mutate(`Controller Type` = ifelse(`Controller Type` == "desktop_with_keyboard", "Desktop PC/Laptop With Keyboard",
+                              ifelse(`Controller Type` == "desktop_with_joystick", "Desktop PC/Laptop With Joystick",
+                                     ifelse(`Controller Type` == "games_console_controller", "Games Console Controller (e.g., Xbox, PlayStation, Wii)",
+                                            ifelse(`Controller Type` == "handheld_non_mobile_non_tablet_device", "Handheld non-mobile non-tablet device (e.g., Nintendo, GameBoy)",
+                                                   ifelse(`Controller Type` == "tablet_smartphone_with_touchscreen", "Tablet/Smartphone With Touch Screen",
+                                                          ifelse(`Controller Type` == "game_controller_child_does_not_play_games", "None of the above, my child does not play video games",
+                                                                 ifelse(`Controller Type` == "game_controller_do_not_know", "Guardian did not know", ifelse(`Controller Type` == "game_controller_other", "Other (Did not specify)", `Controller Type`))))))))) %>% arrange(desc(`Number of Children`))
+
+datatable(counts_controllertype, rownames = FALSE)
+
+```
+
+Although parents/guardians were invited to offer other controller types if they checked *Other*, none did.
+
+
+## Between-Group Comparisons
+
+Next, we do some diagnostic checks to check the differences in performance between the agents. Namely, we look to see if there was a significant difference between males and females, between different age groups, and between random action and random walker agents.
