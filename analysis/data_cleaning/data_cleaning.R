@@ -649,15 +649,140 @@ final_results <- final_results %>% mutate(problem_flag = ifelse(episodeEndType =
 final_results_distilled <- final_results_distilled %>% mutate(problem_flag = ifelse(episodeEndType == "unknown", "Y", "N"))
 
 ###############################################################################################################################
+###############################################       Make wide/long Versions     #############################################
+###############################################################################################################################
+
+
+measurement_layout_agent_data <- final_results %>%
+  filter(problem_flag == "N",
+         agent_type != "child") %>%
+  select(c("agent_tag",
+           "aai_seed",
+           "InstanceName",
+           "instancename_child",
+           "Suite", 
+           "SubSuite", 
+           "Paradigm", 
+           "Task", 
+           "Instance",
+           "ColorVariant", 
+           "OccluderVariant", 
+           "lavaPresence", 
+           "taskCriticalRampPresence", 
+           "greenGoalPresence", 
+           "yellowGoalPresence",
+           "stationaryGreenGoalPresence",
+           "stationaryYellowGoalPresence",
+           "movingGreenGoalPresence",
+           "movingYellowGoalPresence",
+           "numGreenGoals",
+           "numYellowGoals",
+           "numGoalsAll",
+           "mainGoalSize",
+           "multipleGoalSameSize",
+           "frozenAgentPresence",
+           "frozenAgentDelayLength",
+           "lightsOutPresence",
+           "lightsOutAlternatingPresence",
+           "lightsOutPeriod",
+           "goalBecomesAllocentricallyOccluded",
+           "opaqueWallNotPlatformPresence",
+           "transparentWallPresence",
+           "bluePlatformPresence",
+           "decoyPresence",
+           "decoySize",
+           "numDecoys",
+           "numDecoys",
+           "goalLeftRelToStart",
+           "goalCentreRelToStart",
+           "goalRightRelToStart",
+           "forcedChoice",
+           "opaqueWallRedValue",
+           "opaqueWallGreenValue",
+           "opaqueWallBlueValue",
+           "opaqueWallColourRandomisationPresence",
+           "cityBlockDistanceToGoal",
+           "minNumTurnsRequired",
+           "numChoices",
+           "success",
+           "problem_flag")) %>%
+  mutate(agent_id = ifelse(is.na(aai_seed), agent_tag, paste0(agent_tag, "_", aai_seed)),
+         agent_id = str_replace_all(agent_id, " ", "_"),
+         instance_id = ifelse(is.na(instancename_child), InstanceName, instancename_child)
+  ) %>%
+  select(!c(agent_tag, aai_seed, InstanceName, instancename_child)) %>%
+  pivot_wider(names_from = agent_id,
+              values_from = success) 
+
+
+measurement_layout_children_data <- final_results %>%
+  filter(problem_flag == "N",
+         agent_type == "child") %>%
+  select(c("agent_tag",
+           "InstanceName",
+           "instancename_child",
+           "Suite", 
+           "SubSuite", 
+           "Paradigm", 
+           "Task", 
+           "Instance",
+           "ColorVariant", 
+           "OccluderVariant", 
+           "lavaPresence", 
+           "taskCriticalRampPresence", 
+           "greenGoalPresence", 
+           "yellowGoalPresence",
+           "stationaryGreenGoalPresence",
+           "stationaryYellowGoalPresence",
+           "movingGreenGoalPresence",
+           "movingYellowGoalPresence",
+           "numGreenGoals",
+           "numYellowGoals",
+           "numGoalsAll",
+           "mainGoalSize",
+           "multipleGoalSameSize",
+           "frozenAgentPresence",
+           "frozenAgentDelayLength",
+           "lightsOutPresence",
+           "lightsOutAlternatingPresence",
+           "lightsOutPeriod",
+           "goalBecomesAllocentricallyOccluded",
+           "opaqueWallNotPlatformPresence",
+           "transparentWallPresence",
+           "bluePlatformPresence",
+           "decoyPresence",
+           "decoySize",
+           "numDecoys",
+           "numDecoys",
+           "goalLeftRelToStart",
+           "goalCentreRelToStart",
+           "goalRightRelToStart",
+           "forcedChoice",
+           "opaqueWallRedValue",
+           "opaqueWallGreenValue",
+           "opaqueWallBlueValue",
+           "opaqueWallColourRandomisationPresence",
+           "cityBlockDistanceToGoal",
+           "minNumTurnsRequired",
+           "numChoices",
+           "success",
+           "problem_flag")) %>%
+  mutate(instance_id = ifelse(is.na(instancename_child), InstanceName, instancename_child)
+  ) %>%
+  select(!InstanceName & !instancename_child) 
+
+###############################################################################################################################
 ###############################################          Final Data Save          #############################################
 ###############################################################################################################################
 
 
-write.csv(final_results, "analysis/results_final_clean.csv", row.names = FALSE)
+write.csv(final_results, "analysis/results_final_clean_long.csv", row.names = FALSE)
 
 write.csv(final_results_distilled, "analysis/results_final_clean_distilled.csv", row.names = FALSE)
 
+write.csv(measurement_layout_agent_data, "analysis/measurement-layouts/results_final_clean_agents_wide.csv", row.names = FALSE)
 
+write.csv(measurement_layout_children_data, "analysis/measurement-layouts/results_final_clean_children_wide.csv", row.names = FALSE)
 
 
 
