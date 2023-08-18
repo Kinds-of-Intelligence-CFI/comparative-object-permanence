@@ -48,4 +48,4 @@ metadata_synthetic_examples <- metadata %>%
 ###############################################          Final Data Save          #############################################
 ###############################################################################################################################
 
-write.csv(metadata_synthetic_examples, "analysis/results_synthetic_agents_wide.csv", row.names = FALSE)
+write.csv(metadata_synthetic_examples, "analysis/measurement-layouts/results_synthetic_agents_wide.csv", row.names = FALSE)
