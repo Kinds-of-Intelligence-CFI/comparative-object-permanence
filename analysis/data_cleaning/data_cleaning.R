@@ -122,6 +122,47 @@ metadata_results <- metadata_results %>% mutate(episodeEndTypeSimple = ifelse(ep
                                                                               ifelse(episodeEndType == "all goal(s) obtained", "pass",
                                                                                      ifelse(episodeEndType == "unknown", "unknown", "incomplete"))))
 
+### Let's add the number of instances the agent had experienced before performing the test. This is 0 for the agents, who did not learn during the test, and more than 0 for the children as they proceed with the test.
+
+children_task_names <- read.csv("children/results_children.csv") %>%
+  colnames() %>%
+  str_replace_all("\\.","-") %>%
+  str_replace_all("2-5", "2.5") %>%
+  str_replace_all("1-5", "1.5")
+
+tutorial_names <- children_task_names[24:46] 
+task_names_A <- c(tutorial_names, children_task_names[47:88]) %>%
+  paste0(., ".yml")
+task_names_B <- c(tutorial_names, children_task_names[47], rev(children_task_names[48:88])) %>%
+  paste0(., ".yml")
+
+order_in_task_sequence <- c()
+#V inefficient but oh well.
+for (row in 1:nrow(metadata_results)){
+  if (is.na(metadata_results$task_order[row])){
+    order_in_task_sequence <- c(order_in_task_sequence, 0)
+  } else if (metadata_results$task_order[row] == "A"){
+    for (name in 1:length(task_names_A)){
+      if (task_names_A[name] == metadata_results$instancename_child[row]){
+        order_in_task_sequence <- c(order_in_task_sequence, (name - 1))
+        break
+        }
+      }
+    } else if (metadata_results$task_order[row] == "B"){
+      for (name in 1:length(task_names_B)){
+        if (task_names_B[name] == metadata_results$instancename_child[row]){
+          order_in_task_sequence <- c(order_in_task_sequence, (name - 1))
+          break
+        }
+      }
+    
+  }
+  
+}
+
+metadata_results$numberPreviousInstances <- order_in_task_sequence
+
+
 ###############################################################################################################################
 ########################################     Reward Independent Choice Metrics    #############################################
 ###############################################################################################################################
@@ -345,9 +386,14 @@ for (row in 1:nrow(pctb_grid_tasks_ids)){
       }
       
       for (row in 1:nrow(ref_df)){ #for each of the possible positions in the dataframe
-        
-        # filter the dataframe for the appropriate coordinates
-        check_df <- filter(filtered_df, x > ref_df$min_x_coord[row] & x < ref_df$max_x_coord[row] & z > ref_df$min_z_coord[row] & z < ref_df$max_z_coord[row] & y > ref_df$min_y_coord[row] & y < ref_df$max_y_coord_OP[row]) #we know that there are no RP tasks with trajectory data
+        if (subsuitename == "OP Controls"){
+          # filter the dataframe for the appropriate coordinates
+          check_df <- filter(filtered_df, x > ref_df$min_x_coord[row] & x < ref_df$max_x_coord[row] & z > ref_df$min_z_coord[row] & z < ref_df$max_z_coord[row] & y > ref_df$min_y_coord[row] & y < ref_df$max_y_coord_RP[row]) 
+        } else if (subsuitename == "Allocentric OP"){
+          check_df <- filter(filtered_df, x > ref_df$min_x_coord[row] & x < ref_df$max_x_coord[row] & z > ref_df$min_z_coord[row] & z < ref_df$max_z_coord[row] & y > ref_df$min_y_coord[row] & y < ref_df$max_y_coord_OP[row])
+        } else {
+          stop("Control type not recognised.")
+        }
         if (nrow(check_df > 0)){ #if there are recorded steps within the qualifying coordinates
           pctb_grid_cup_choices <- c(pctb_grid_cup_choices, ref_df$label[row]) #record the label of those coordinates, corresponding to the cup explored
           break #break the loop
@@ -370,7 +416,7 @@ pctb_grid_tasks_final$pctbgridcupchoice <- pctb_grid_cup_choices
 # for the room practice tasks, you can get the reward without entering the cup, because it fills the whole cup, so need to fix the cup chosen to be the right cup when they picked correctly.
 
 pctb_grid_tasks_final <- pctb_grid_tasks_final %>% 
-  mutate(pctbgridcupchoice = ifelse(success == 1 & agent_type != "child", pctbgridcorrectchoice, pctbgridcupchoice))
+  mutate(pctbgridcupchoice = ifelse(success == 1 , pctbgridcorrectchoice, pctbgridcupchoice))
 
 
 ######################
@@ -622,11 +668,6 @@ dbDisconnect(myDB)
 ###############################################      Run Data Quality Checks      #############################################
 ###############################################################################################################################
 
-## Create dataframe of just results and key information, for easy inspection, and store as CSV
-
-final_results_distilled <- final_results %>%
-  select(c(InstanceName, instancename_child, agent_tag, aai_seed, finalreward, agent_type:threecuprightchoice))
-
 ## Now some post hoc sanity checks to make sure that the results make sense
 
 checking_dataframe <- final_results_distilled %>%
@@ -644,9 +685,18 @@ checking_episode_end_annotation <- final_results_distilled %>%
 ## Remaining unknowns are three children, and it corresponds to the episodes before they decided to stop playing. These results are likely mid-game rewards recorded while the environment shut down.
 ### Adding a flag to drop them from analysis.
 
-final_results <- final_results %>% mutate(problem_flag = ifelse(episodeEndType == "unknown", "Y", "N"))
+final_results <- final_results %>% mutate(correctChoice = ifelse((is.na(cvchickcorrectchoice) & is.na(pctbgridcorrectchoice) & is.na(pctb3cupcorrectchoice)), success,
+                                                                 ifelse((is.na(pctbgridcorrectchoice) & is.na(pctb3cupcorrectchoice) & cvchickcorrectchoice == "R" & cvchickrightchoice == TRUE & cvchickleftchoice == FALSE)|
+                                                                          (is.na(pctbgridcorrectchoice) & is.na(pctb3cupcorrectchoice) & cvchickcorrectchoice == "L" & cvchickleftchoice == TRUE & cvchickrightchoice == FALSE) | 
+                                                                          (is.na(cvchickcorrectchoice) & is.na(pctb3cupcorrectchoice) & (pctbgridcupchoice == pctbgridcorrectchoice | success == 1)) | 
+                                                                          (is.na(cvchickcorrectchoice) & is.na(pctbgridcorrectchoice) & pctb3cupcorrectchoice == "L" & threecupleftchoice == TRUE) | 
+                                                                          (is.na(cvchickcorrectchoice) & is.na(pctbgridcorrectchoice) & pctb3cupcorrectchoice == "M" & threecupmidchoice == TRUE) | 
+                                                                          (is.na(cvchickcorrectchoice) & is.na(pctbgridcorrectchoice) & pctb3cupcorrectchoice == "R" & threecuprightchoice == TRUE) | 
+                                                                          (is.na(cvchickcorrectchoice) & is.na(pctbgridcorrectchoice) & pctb3cupcorrectchoice == "LM" & threecupleftchoice == TRUE & threecupmidchoice == TRUE) | 
+                                                                          (is.na(cvchickcorrectchoice) & is.na(pctbgridcorrectchoice) & pctb3cupcorrectchoice == "LR" & threecupleftchoice == TRUE & threecuprightchoice == TRUE) | 
+                                                                          (is.na(cvchickcorrectchoice) & is.na(pctbgridcorrectchoice) & pctb3cupcorrectchoice == "MR" & threecupmidchoice == TRUE & threecuprightchoice == TRUE), 1, 0)),
+                                          problem_flag = ifelse(episodeEndType == "unknown", "Y", "N"))
 
-final_results_distilled <- final_results_distilled %>% mutate(problem_flag = ifelse(episodeEndType == "unknown", "Y", "N"))
 
 ###############################################################################################################################
 ###############################################       Make wide/long Versions     #############################################
@@ -795,8 +845,6 @@ check
 
 
 write.csv(final_results, "analysis/results_final_clean_long.csv", row.names = FALSE)
-
-write.csv(final_results_distilled, "analysis/results_final_clean_distilled.csv", row.names = FALSE)
 
 write.csv(measurement_layout_agent_data, "analysis/measurement-layouts/results_final_clean_agents_wide.csv", row.names = FALSE)
 
