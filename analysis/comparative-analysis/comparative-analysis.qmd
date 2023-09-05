@@ -16,6 +16,8 @@ execute:
 
 ```{r preamble}
 
+library(lme4)
+library(multcomp)
 library(tidyverse)
 library(DT)
 library(ggtext)
@@ -23,10 +25,33 @@ library(ggdist)
 library(colorspace)
 library(ragg)
 library(extrafont) # may need to run font_import();loadfonts() to get the fonts used here.
+library(irr)
 
 pal <- c("#FF8C00", "#A034F0", "#159090", "#FF007F") # color palette for plots
 
 rounding <- 4
+
+options(scipen = 999) #turn of scientific notation
+
+## write a function for writing logistic output nicely
+
+prettyPrintLogisticOutput <- function(fitted.model){
+  coefficients <- summary(fitted.model)$coefficients
+  
+  coefficient_table <- coefficients %>%
+    data.frame() %>%
+    transmute(`Odds Ratio` = round(exp(Estimate), digits = rounding),
+              `Lower CI (95%)` = round(exp(Estimate - Std..Error * 1.96), digits = rounding),
+              `Upper CI (95%)` = round(exp(Estimate + Std..Error * 1.96), digits = rounding),
+              `Pr |z|` = round(Pr...z.., digits = rounding))
+  
+  posthoc_tests <- summary(glht(fitted.model, mcp(agent_type_age="Tukey")), test = adjusted("none"))
+  
+  output = list(Coefficients_OR = coefficient_table,
+                posthoc_tests = posthoc_tests)
+  
+  return(output)
+}
 
 ```
 
@@ -34,7 +59,7 @@ This document presents the descriptive statistics and and comparative analytics 
 
 ```{r data import}
 
-final_results <- read.csv("../results_final_clean.csv") %>%
+final_results <- read.csv("../results_final_clean_long.csv") %>%
   filter(problem_flag == "N") #remove the problematic data points.
 
 ```
@@ -44,30 +69,30 @@ final_results <- read.csv("../results_final_clean.csv") %>%
 ```{r descriptives}
 
 agent_data <- final_results %>% 
-  select(c(agent_tag, aai_seed, age, gender)) %>% distinct()
+  dplyr::select(c(agent_tag, aai_seed, age, gender)) %>% distinct()
 
-random_walker_distinct <- agent_data %>% select(agent_tag) %>%
+random_walker_distinct <- agent_data %>% dplyr::select(agent_tag) %>%
   filter(str_detect(agent_tag, "Random Walker")) %>% distinct()
 
-random_action_distinct <- agent_data %>% select(agent_tag) %>%
+random_action_distinct <- agent_data %>% dplyr::select(agent_tag) %>%
   filter(str_detect(agent_tag, "Random Action Agent")) %>% distinct()
 
-vanilla_braitenberg_distinct <- agent_data %>% select(agent_tag) %>%
+vanilla_braitenberg_distinct <- agent_data %>% dplyr::select(agent_tag) %>%
   filter(str_detect(agent_tag, "Vanilla")) %>% distinct()
 
-children_distinct <- agent_data %>% select(agent_tag) %>%
+children_distinct <- agent_data %>% dplyr::select(agent_tag) %>%
   filter(str_detect(agent_tag, "_01")) %>% distinct()
 
-age_table <- agent_data %>% select(age) %>% group_by(age) %>%
+age_table <- agent_data %>% dplyr::select(age) %>% group_by(age) %>%
   summarise(count = n())
 
-gender_table <- agent_data %>% select(gender) %>% group_by(gender) %>%
+gender_table <- agent_data %>% dplyr::select(gender) %>% group_by(gender) %>%
   summarise(count = n())
 
-gender_by_age_table <- agent_data %>% select(gender, age) %>% group_by(gender, age) %>%
+gender_by_age_table <- agent_data %>% dplyr::select(gender, age) %>% group_by(gender, age) %>%
   summarise(Count = n()) %>% drop_na() %>% rename(Gender = gender, Age = age) %>% datatable(rownames = FALSE)
 
-seed_distinct <- agent_data %>% select(aai_seed) %>% distinct() %>% drop_na()
+seed_distinct <- agent_data %>% dplyr::select(aai_seed) %>% distinct() %>% drop_na()
   
 
 ```
@@ -89,16 +114,16 @@ gender_by_age_table
 
 ```{r instance counts}
 
-children_distinct_instances <- final_results %>% select(c(InstanceName, SubSuite, agent_type)) %>% filter(agent_type == "child") %>%
+children_distinct_instances <- final_results %>% dplyr::select(c(InstanceName, SubSuite, agent_type)) %>% filter(agent_type == "child") %>%
   distinct() %>% drop_na()
 
-children_instance_type_counts <- children_distinct_instances %>% select(SubSuite) %>% group_by(SubSuite) %>% summarise(Count = n())
+children_instance_type_counts <- children_distinct_instances %>% dplyr::select(SubSuite) %>% group_by(SubSuite) %>% summarise(Count = n())
 
 
-agent_distinct_instances <- final_results %>% select(c(InstanceName, SubSuite, agent_type)) %>% filter(agent_type != "child") %>%
+agent_distinct_instances <- final_results %>% dplyr::select(c(InstanceName, SubSuite, agent_type)) %>% filter(agent_type != "child") %>%
   distinct(InstanceName, SubSuite) %>% drop_na()
 
-agent_instance_type_counts <- agent_distinct_instances %>% select(SubSuite) %>% group_by(SubSuite) %>% summarise(Count = n())
+agent_instance_type_counts <- agent_distinct_instances %>% dplyr::select(SubSuite) %>% group_by(SubSuite) %>% summarise(Count = n())
 
 
 ```
@@ -110,7 +135,7 @@ Children were tested on a total of `r nrow(children_distinct_instances)` instanc
 ```{r overall success performances}
 
 performances_table <- final_results %>% 
-  select(c(agent_tag, agent_type, success)) %>%
+  dplyr::select(c(agent_tag, agent_type, success)) %>%
   mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
                              ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
                                     ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
@@ -135,7 +160,7 @@ datatable(performances_table, rownames = FALSE)
 ```{r proportion scores}
 
 proportions <- final_results %>% 
-  select(c(agent_tag, agent_type, proportionSuccess)) %>%
+  dplyr::select(c(agent_tag, agent_type, proportionSuccess)) %>%
   mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
                              ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
                                     ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
@@ -163,7 +188,7 @@ We can present the distributions of these results in the following raincloud plo
 ```{r proportion scores cloud plot}
 
 raincloud_data <- final_results %>%
-  select(c(agent_tag, agent_type, proportionSuccess)) %>%
+  dplyr::select(c(agent_tag, agent_type, proportionSuccess)) %>%
   mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
                              ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
                                     ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
@@ -255,7 +280,7 @@ These are basic tasks that test fundamental capabilities required for interactin
 
 basic_tasks <- final_results %>% 
   filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "Basic") %>%
-  select(c(agent_tag, agent_type, proportionSuccess, success, episodeEndType, lavaPresence, numGoalsAll)) %>%
+  dplyr::select(c(agent_tag, agent_type, proportionSuccess, success, episodeEndType, lavaPresence, numGoalsAll)) %>%
   mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
                              ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
                                     ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
@@ -401,7 +426,7 @@ Now we look at the object permanence control tasks for our two paradigms.
 
 control_tasks <- final_results %>% 
   filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "OP Controls") %>%
-  select(c(agent_tag, agent_type, proportionSuccess, success, episodeEndType, lavaPresence, Paradigm, cvchickleftchoice, cvchickrightchoice, pctb3cupcorrectchoice, pctbgridcupchoice, pctbgridcorrectchoice, threecupleftchoice, threecupmidchoice, threecuprightchoice)) %>%
+  dplyr::select(c(agent_tag, agent_type, proportionSuccess, success, episodeEndType, lavaPresence, Paradigm, cvchickleftchoice, cvchickrightchoice, pctb3cupcorrectchoice, pctbgridcupchoice, pctbgridcorrectchoice, threecupleftchoice, threecupmidchoice, threecuprightchoice)) %>%
   mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
                              ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
                                     ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
@@ -535,7 +560,7 @@ control_tasks %>% group_by(agent_type, lavaPresence, Paradigm) %>%
 
 ```
 
-Now we can look at the PCTB Grid, PCTB 3 Cup, and CVChick control tasks individually, and examine the which choices the agents made. Note that we do not have this data on the children, only the artificial agents.
+Now we can look at the PCTB Grid, PCTB 3 Cup, and CVChick control tasks individually, and examine the which choices the agents made.
 
 ###### Chiandetti & Vallortigara Chick Task
 
@@ -549,7 +574,7 @@ cvchick_choices <- final_results %>%
                                     ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
                                            ifelse(agent_type == "child", "Human Child", agent_type))))) %>% 
   filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "OP Controls" & Paradigm == "CVChick") %>%
-  select(c(agent_type, cvchickcorrectchoice, cvchickleftchoice, cvchickrightchoice, success)) %>% drop_na()
+  dplyr::select(c(agent_type, cvchickcorrectchoice, cvchickleftchoice, cvchickrightchoice, success)) %>% drop_na()
 
 cvchick_choices_table <- cvchick_choices %>% group_by(agent_type) %>%
   summarise(`Total Instances` = n(),
@@ -579,7 +604,7 @@ pctb3cup_choices <- final_results %>%
                                     ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
                                            ifelse(agent_type == "child", "Human Child", agent_type))))) %>% 
   filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "OP Controls" & str_detect(Task, "3Cup")) %>%
-  select(c(agent_type, threecupleftchoice, threecupmidchoice, threecuprightchoice, pctb3cupcorrectchoice, success)) %>% drop_na()
+  dplyr::select(c(agent_type, threecupleftchoice, threecupmidchoice, threecuprightchoice, pctb3cupcorrectchoice, success)) %>% drop_na()
 
 pctb3cup_choices_table <- pctb3cup_choices %>% group_by(agent_type) %>%
   summarise(`Total Instances` = n(),
@@ -608,7 +633,7 @@ pctbgrid_choices <- final_results %>%
                                     ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
                                            ifelse(agent_type == "child", "Human Child", agent_type))))) %>% 
   filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "OP Controls" & str_detect(Task, "Grid")) %>%
-  select(c(agent_type, InstanceName, pctbgridcorrectchoice, pctbgridcupchoice, success, numChoices)) %>% drop_na()
+  dplyr::select(c(agent_type, InstanceName, pctbgridcorrectchoice, pctbgridcupchoice, success, numChoices)) %>% drop_na()
 
 pctbgrid_choices_table <- pctbgrid_choices %>% group_by(agent_type, numChoices) %>%
   summarise(`Total Instances` = n(),
@@ -635,7 +660,7 @@ Next we turn to the descriptive statistics for the 3 types of object permanence 
 
 cv_tasks <- final_results %>% 
   filter(SubSuite == "Allocentric OP" & Paradigm == "CVChick") %>%
-  select(c(agent_tag, agent_type, proportionSuccess, success, episodeEndType, lavaPresence, Paradigm, cvchickleftchoice, cvchickrightchoice, cvchickcorrectchoice)) %>%
+  dplyr::select(c(agent_tag, agent_type, proportionSuccess, success, episodeEndType, lavaPresence, Paradigm, cvchickleftchoice, cvchickrightchoice, cvchickcorrectchoice)) %>%
   mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
                              ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
                                     ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
@@ -790,7 +815,7 @@ datatable(cvchick_choices_table, rownames = FALSE)
 
 threecup_tasks <- final_results %>% 
   filter(SubSuite == "Allocentric OP" & str_detect(Task, "3Cup")) %>%
-  select(c(agent_tag, agent_type, proportionSuccess, success, episodeEndType, lavaPresence, Paradigm, threecupleftchoice, threecupmidchoice, threecuprightchoice, pctb3cupcorrectchoice)) %>%
+  dplyr::select(c(agent_tag, agent_type, proportionSuccess, success, episodeEndType, lavaPresence, Paradigm, threecupleftchoice, threecupmidchoice, threecuprightchoice, pctb3cupcorrectchoice)) %>%
   mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
                              ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
                                     ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
@@ -926,7 +951,7 @@ datatable(pctb3cup_choices_table, rownames = FALSE)
 
 grid_tasks <- final_results %>% 
   filter(SubSuite == "Allocentric OP" & str_detect(Task, "Grid")) %>%
-  select(c(agent_tag, agent_type, proportionSuccess, success, episodeEndType, Paradigm, pctbgridcorrectchoice, pctbgridcupchoice, numChoices)) %>%
+  dplyr::select(c(agent_tag, agent_type, proportionSuccess, success, episodeEndType, Paradigm, pctbgridcorrectchoice, pctbgridcupchoice, numChoices)) %>%
   mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
                              ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
                                     ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
@@ -1059,6 +1084,151 @@ datatable(pctbgrid_choices_table, options = list(pageLength = nrow(pctbgrid_choi
 
 ```
 
+### Overall Plots
+
+Here is a plot of success by agent and task:
+
+```{r overall bar chart success}
+
+
+barchart_success_data <- final_results %>%
+  dplyr::select(c(agent_tag, agent_type, basicTask, opControlTask, cvchickTask, pctb3CupTask, pctbGridTask, success)) %>%
+  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
+                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action\nAgent",
+                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-\nDirected Agent",
+                                           ifelse(agent_type == "child", "Human Child", agent_type))))) %>%
+  group_by(agent_type, basicTask, opControlTask, cvchickTask, pctb3CupTask, pctbGridTask) %>%
+  summarise(`Percentage Instances Passed` = (sum(success)/n())) %>%
+  mutate(`Task Type` = ifelse(basicTask == 1, "Basic",
+                              ifelse(basicTask == 0 & opControlTask == 1 & cvchickTask == 1, "CV Chick Control",
+                                     ifelse(basicTask == 0 & opControlTask == 1 & pctb3CupTask == 1, "PCTB 3 Cup Control",
+                                            ifelse(basicTask == 0 & opControlTask == 1 & pctbGridTask == 1, "PCTB Grid Control",
+                                                   ifelse(basicTask == 0 & opControlTask == 0 & cvchickTask == 1, "CV Chick OP",
+                                                          ifelse(basicTask == 0 & opControlTask == 0 & pctb3CupTask == 1, "PCTB 3 Cup OP",
+                                                                 ifelse(basicTask == 0 & opControlTask == 0 & pctbGridTask == 1, "PCTB Grid OP", stop("Missing error")))))))),
+         `Task Type` = as_factor(`Task Type`),
+         `Task Type` = fct_relevel(`Task Type`, c("Basic", "CV Chick Control", "PCTB 3 Cup Control", "PCTB Grid Control", "CV Chick OP", "PCTB 3 Cup OP", "PCTB Grid OP"))) %>%
+  rename(`Agent` = agent_type)
+
+(barchart_success <- barchart_success_data %>%
+  ggplot(aes(x = Agent, y = `Percentage Instances Passed`, fill = `Task Type`)) + geom_col(position = "dodge")+
+    ylim(0,1) +
+  theme_minimal(base_family = "Arial", base_size = 15) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)
+  ))
+
+```
+
+And here is a plot where it is deconstructed by age:
+
+```{r overall bar chart success age}
+
+
+barchart_success_age_data <- final_results %>%
+  dplyr::select(c(agent_tag, age, agent_type, basicTask, opControlTask, cvchickTask, pctb3CupTask, pctbGridTask, success)) %>%
+  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
+                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action\nAgent",
+                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-\nDirected Agent",
+                                           ifelse(agent_type == "child" & age == 4, "4 Year Old",
+                                                  ifelse(agent_type == "child" & age == 5, "5 Year Old",
+                                                         ifelse(agent_type == "child" & age == 6, "6 Year Old",
+                                                                ifelse(agent_type == "child" & age == 7, "7 Year Old", agent_type)))))))) %>%
+  group_by(agent_type, basicTask, opControlTask, cvchickTask, pctb3CupTask, pctbGridTask) %>%
+  summarise(`Percentage Instances Passed` = (sum(success)/n())) %>%
+  mutate(`Task Type` = ifelse(basicTask == 1, "Basic",
+                              ifelse(basicTask == 0 & opControlTask == 1 & cvchickTask == 1, "CV Chick Control",
+                                     ifelse(basicTask == 0 & opControlTask == 1 & pctb3CupTask == 1, "PCTB 3 Cup Control",
+                                            ifelse(basicTask == 0 & opControlTask == 1 & pctbGridTask == 1, "PCTB Grid Control",
+                                                   ifelse(basicTask == 0 & opControlTask == 0 & cvchickTask == 1, "CV Chick OP",
+                                                          ifelse(basicTask == 0 & opControlTask == 0 & pctb3CupTask == 1, "PCTB 3 Cup OP",
+                                                                 ifelse(basicTask == 0 & opControlTask == 0 & pctbGridTask == 1, "PCTB Grid OP", stop("Missing error")))))))),
+         `Task Type` = as_factor(`Task Type`),
+         `Task Type` = fct_relevel(`Task Type`, c("Basic", "CV Chick Control", "PCTB 3 Cup Control", "PCTB Grid Control", "CV Chick OP", "PCTB 3 Cup OP", "PCTB Grid OP"))) %>%
+  rename(`Agent` = agent_type)
+
+(barchart_success_age <- barchart_success_age_data %>%
+  ggplot(aes(x = Agent, y = `Percentage Instances Passed`, fill = `Task Type`)) + geom_col(position = "dodge") +
+    ylim(0,1) + 
+  theme_minimal(base_family = "Arial", base_size = 15) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)
+  ))
+
+```
+
+Now we can look at whether or not the agent made the correct choice, a more permissive metric.We exclude any tasks that did not involve a forced choice here, therefore excluding all the basic tasks and some of the PCTB 3 Cup Controls.
+
+```{r overall bar chart choice}
+
+barchart_palette <- c("#C49A00", "#53B400", "#00C094", "#00B6EB", "#A58AFF", "#FB61D7") #to keep the same colours as the previous plot
+
+barchart_choice_data <- final_results %>%
+  filter(forcedChoice == 1 & basicTask == 0) %>%
+  dplyr::select(c(agent_tag, agent_type, basicTask, opControlTask, cvchickTask, pctb3CupTask, pctbGridTask, correctChoice)) %>%
+  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
+                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action\nAgent",
+                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-\nDirected Agent",
+                                           ifelse(agent_type == "child", "Human Child", agent_type))))) %>%
+  group_by(agent_type, basicTask, opControlTask, cvchickTask, pctb3CupTask, pctbGridTask) %>%
+  summarise(`Percentage Correct Choice` = (sum(correctChoice)/n())) %>%
+  mutate(`Task Type` = ifelse(basicTask == 0 & opControlTask == 1 & cvchickTask == 1, "CV Chick Control",
+                                     ifelse(basicTask == 0 & opControlTask == 1 & pctb3CupTask == 1, "PCTB 3 Cup Control",
+                                            ifelse(basicTask == 0 & opControlTask == 1 & pctbGridTask == 1, "PCTB Grid Control",
+                                                   ifelse(basicTask == 0 & opControlTask == 0 & cvchickTask == 1, "CV Chick OP",
+                                                          ifelse(basicTask == 0 & opControlTask == 0 & pctb3CupTask == 1, "PCTB 3 Cup OP",
+                                                                 ifelse(basicTask == 0 & opControlTask == 0 & pctbGridTask == 1, "PCTB Grid OP", stop("Missing error"))))))),
+         `Task Type` = as_factor(`Task Type`),
+         `Task Type` = fct_relevel(`Task Type`, c("CV Chick Control", "PCTB 3 Cup Control", "PCTB Grid Control", "CV Chick OP", "PCTB 3 Cup OP", "PCTB Grid OP"))) %>%
+  rename(`Agent` = agent_type)
+
+(barchart_choice <- barchart_choice_data %>%
+  ggplot(aes(x = Agent, y = `Percentage Correct Choice`, fill = `Task Type`)) + geom_col(position = "dodge") +
+    ylim(0,1)  +
+    scale_fill_manual(values = barchart_palette) + 
+  theme_minimal(base_family = "Arial", base_size = 15) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)
+  ))
+
+```
+
+And now by age:
+
+```{r overall bar chart choice age}
+
+
+barchart_choice_age_data <- final_results %>%
+  filter(forcedChoice == 1 & basicTask == 0) %>%
+  dplyr::select(c(agent_tag, agent_type, age, basicTask, opControlTask, cvchickTask, pctb3CupTask, pctbGridTask, correctChoice)) %>%
+  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
+                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action\nAgent",
+                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-\nDirected Agent",
+                                           ifelse(agent_type == "child" & age == 4, "4 Year Old",
+                                                  ifelse(agent_type == "child" & age == 5, "5 Year Old",
+                                                         ifelse(agent_type == "child" & age == 6, "6 Year Old",
+                                                                ifelse(agent_type == "child" & age == 7, "7 Year Old", agent_type)))))))) %>%
+  group_by(agent_type, basicTask, opControlTask, cvchickTask, pctb3CupTask, pctbGridTask) %>%
+  summarise(`Percentage Correct Choice` = (sum(correctChoice)/n())) %>%
+  mutate(`Task Type` = ifelse(basicTask == 1, "Basic",
+                              ifelse(basicTask == 0 & opControlTask == 1 & cvchickTask == 1, "CV Chick Control",
+                                     ifelse(basicTask == 0 & opControlTask == 1 & pctb3CupTask == 1, "PCTB 3 Cup Control",
+                                            ifelse(basicTask == 0 & opControlTask == 1 & pctbGridTask == 1, "PCTB Grid Control",
+                                                   ifelse(basicTask == 0 & opControlTask == 0 & cvchickTask == 1, "CV Chick OP",
+                                                          ifelse(basicTask == 0 & opControlTask == 0 & pctb3CupTask == 1, "PCTB 3 Cup OP",
+                                                                 ifelse(basicTask == 0 & opControlTask == 0 & pctbGridTask == 1, "PCTB Grid OP", stop("Missing error")))))))),
+         `Task Type` = as_factor(`Task Type`),
+         `Task Type` = fct_relevel(`Task Type`, c("CV Chick Control", "PCTB 3 Cup Control", "PCTB Grid Control", "CV Chick OP", "PCTB 3 Cup OP", "PCTB Grid OP"))) %>%
+  rename(`Agent` = agent_type)
+
+(barchart_choice_age <- barchart_choice_age_data %>%
+  ggplot(aes(x = Agent, y = `Percentage Correct Choice`, fill = `Task Type`)) + geom_col(position = "dodge") +
+    ylim(0,1) +
+    scale_fill_manual(values = barchart_palette) + 
+  theme_minimal(base_family = "Arial", base_size = 15) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)
+  ))
+
+```
+
+
 ## Children-Specific Descriptives
 
 The children played tutorial tasks with some minimal assistance from the experimenters while they learned the controls. They could play as many rounds of the tutorial tasks as they wished. Then they played 38 Object Permanence tests, without assistance, including 3 breaks. The order was reversed for half of the sample.
@@ -1071,7 +1241,7 @@ children_results <- final_results %>%
   filter(agent_type == "child")
 
 children_counterbalance <- children_results %>%
-  select(task_order, agent_tag) %>%
+  dplyr::select(task_order, agent_tag) %>%
   distinct() %>%
   group_by(task_order) %>%
   summarise(Count = n())
@@ -1085,12 +1255,12 @@ In the study, `r children_counterbalance$Count[1]` played configuration A of the
 ```{r children Tutorials summary}
 
 children_wide_data <- children_results %>%
-  select(agent_tag, instancename_child, finalreward) %>%
+  dplyr::select(agent_tag, instancename_child, finalreward) %>%
   pivot_wider(names_from = instancename_child,
               values_from = finalreward)
 
 children_tutorial_data <- children_wide_data %>%
-  select(c(starts_with("tutorial"))) 
+  dplyr::select(c(starts_with("tutorial"))) 
 
 children_tutorial_data$NumTutorials <- rowSums(!is.na(children_tutorial_data))
 
@@ -1111,7 +1281,7 @@ datatable(childrentutorial_table, rownames = FALSE)
 ```{r children NAs tests}
 
 children_test_data <- children_wide_data %>%
-  select(c(!starts_with("tutorial") & !agent_tag))
+  dplyr::select(c(!starts_with("tutorial") & !agent_tag))
 
 children_test_data$NumTests <- rowSums(!is.na(children_test_data))
 
@@ -1137,7 +1307,7 @@ We also asked several demographic questions:
 ```{r children demographic questions}
 
 child_demographic_questions <- read.csv("~/comparative-object-permanence/children/results_children.csv") %>%
-  select(c(participant_id, colour_blindness:game_controller_do_not_know))
+  dplyr::select(c(participant_id, colour_blindness:game_controller_do_not_know))
 
 number_not_colour_blind <- sum(child_demographic_questions$colour_blindness == 0)
 number_colour_blind <- sum(child_demographic_questions$colour_blindness == 1)
@@ -1165,7 +1335,7 @@ We then asked about what kind of video games they play. The table below shows th
 ```{r videogame demographics}
 
 child_game_type_questions <- child_demographic_questions %>%
-  select(first_third_person_games:game_type_do_not_know & !game_type_other) 
+  dplyr::select(first_third_person_games:game_type_do_not_know & !game_type_other) 
 
 counts_gametype <- tibble(`Game Type` = colnames(child_game_type_questions),
                               `Number of Children` = colSums(child_game_type_questions)) %>%
@@ -1186,7 +1356,7 @@ Some parents/guardians reported other types of games, shown in the table below:
 ```{r other videogames}
 
 child_other_game_type_questions <- child_demographic_questions %>%
-  select(game_type_other) %>%
+  dplyr::select(game_type_other) %>%
   filter(game_type_other != 0) %>%
   transmute(`Responses to *Other*` = ifelse(game_type_other == 1, "*Parent/Guardian checked *Other* but did not offer further specifics*", game_type_other)) %>% datatable(rownames = FALSE)
 
@@ -1199,7 +1369,7 @@ Finally, we asked about what controllers they tended to use for these games. Not
 ```{r videogame controller outputs}
 
 child_game_controller_questions <- child_demographic_questions %>%
-  select(desktop_with_keyboard:game_controller_do_not_know) 
+  dplyr::select(desktop_with_keyboard:game_controller_do_not_know) 
 
 counts_controllertype <- tibble(`Controller Type` = colnames(child_game_controller_questions),
                               `Number of Children` = colSums(child_game_controller_questions)) %>%
@@ -1222,7 +1392,7 @@ Although parents/guardians were invited to offer other controller types if they 
 ```{r age group success rates}
 
 child_age_table <- final_results %>% 
-  select(c(age, agent_tag, success)) %>%
+  dplyr::select(c(age, agent_tag, success)) %>%
   drop_na(age) %>%
   group_by(age, agent_tag) %>% 
   summarise(`Total Passes` = sum(success),
@@ -1245,7 +1415,7 @@ datatable(child_age_table, rownames = FALSE)
 ```{r gender success rates}
 
 child_gender_table <- final_results %>% 
-  select(c(gender, agent_tag, success)) %>%
+  dplyr::select(c(gender, agent_tag, success)) %>%
   drop_na(gender) %>%
   group_by(gender, agent_tag) %>% 
   summarise(`Total Passes` = sum(success),
@@ -1267,7 +1437,7 @@ datatable(child_gender_table, rownames = FALSE)
 ```{r gender by age success rates}
 
 child_genderage_table <- final_results %>% 
-  select(c(age, gender, agent_tag, success)) %>%
+  dplyr::select(c(age, gender, agent_tag, success)) %>%
   drop_na(age, gender) %>%
   group_by(age, gender, agent_tag) %>% 
   summarise(`Total Passes` = sum(success),
@@ -1283,4 +1453,141 @@ datatable(child_genderage_table, rownames = FALSE)
 
 ```
 
+## Measures of Between-Group Differences
 
+Next, for each type of task, we ran a logistic regression with `agent_type`, including age, as a predictor and the agent ID as a random effect, to handle the repeated measures design. We ran the following models:
+
+`success ~ agent_type + (1|agent_ID)`
+
+for the basic, the pooled control tasks, and the three kinds of object permanence tasks.
+
+And
+
+`choice ~ agent_type + (1|agent_ID)`
+
+for the pooled control tasks, and the three kinds of object permanence tasks.
+
+Note that the reference class in all cases is the random walker.
+
+```{r logistic regression}
+
+data_for_logistic <- final_results %>%
+  dplyr::select(c(agent_tag, age, InstanceName, basicTask, opControlTask, cvchickTask, pctbGridTask, pctb3CupTask, task_order, numberPreviousInstances, success, correctChoice, agent_type)) %>%
+  transmute(agent_tag = agent_tag,
+            InstanceName = InstanceName,
+            agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "RandomWalker",
+                             ifelse(str_detect(agent_tag, "Random Action"), "RandomActionAgent",
+                                    ifelse(str_detect(agent_tag, "Vanilla"), "SimpleGoalDirectedAgent", 
+                                           "Child"))),
+            agent_type_age = ifelse(!is.na(age), paste0("Child", "_", age), agent_type),
+            agent_type_agegroup = ifelse(is.na(age), agent_type,
+                                         ifelse(age <=5, "Child_4_5",
+                                                ifelse(age >= 6, "Child_6_7", NA))),
+            agent_type= as_factor(agent_type),
+            agent_type_age = as_factor(agent_type_age),
+            agent_type_agegroup = as_factor(agent_type_agegroup),
+            task_type = ifelse(basicTask == 1, "Basic",
+                               ifelse(opControlTask == 1 & cvchickTask == 1, "CVChickControl",
+                                      ifelse(pctbGridTask == 1 & opControlTask == 1, "PCTBGridControl",
+                                             ifelse(pctb3CupTask == 1 & opControlTask == 1, "PCTB3CupControl",
+                                                    ifelse(opControlTask == 0 & cvchickTask == 1, "CVChickOP",
+                                                           ifelse(opControlTask == 0 & pctbGridTask == 1, "PCTBGridOP",
+                                                                  ifelse(opControlTask == 0 & pctb3CupTask == 1, "PCTB3CupOP", NA))))))),
+            task_type = as_factor(task_type),
+            task_order = ifelse(is.na(task_order), "Agent", task_order),
+            numberPreviousInstances = numberPreviousInstances,
+            age = age,
+            basicTask = basicTask,
+            opControlTask = opControlTask,
+            cvchickTask = cvchickTask,
+            pctbGridTask = pctbGridTask,
+            pctb3CupTask = pctb3CupTask,
+            isRandomWalker = ifelse(agent_type == "Random Walker", 1, 0),
+            isRandomAction = ifelse(agent_type == "Random Action Agent", 1, 0),
+            isVBB = ifelse(agent_type == "Simple Goal-Directed Agent", 1, 0),
+            isChild = ifelse(agent_type == "Child", 1, 0),
+            isFour = ifelse(is.na(age), 0,
+                            ifelse(age == 4, 1, 0)),
+            isFive = ifelse(is.na(age), 0,
+                            ifelse(age == 5, 1, 0)),
+            isSix = ifelse(is.na(age), 0,
+                            ifelse(age == 6, 1, 0)),
+            isSeven = ifelse(is.na(age), 0,
+                            ifelse(age == 7, 1, 0)),
+            success = success,
+            correctChoice = correctChoice)
+
+data_for_logistic_basic <- filter(data_for_logistic, basicTask == 1)
+data_for_logistic_opControlTask <- filter(data_for_logistic, opControlTask == 1)
+data_for_logistic_CVChickOP <- filter(data_for_logistic, opControlTask == 0 & basicTask == 0 & cvchickTask == 1)
+data_for_logistic_PCTB3OP <- filter(data_for_logistic, opControlTask == 0 & basicTask == 0 & pctb3CupTask == 1)
+data_for_logistic_PCTBGridOP <- filter(data_for_logistic, opControlTask == 0 & basicTask == 0 & pctbGridTask == 1)
+
+```
+
+For the basic tasks, we got the following results: 
+
+```{r basic task success logistic}
+random_effects_model_basic_success <- glmer(success ~ agent_type_age + (1|agent_tag), data=data_for_logistic_basic, family="binomial", verbose = FALSE, control = glmerControl(optimizer="Nelder_Mead"), nAGQ = 1)
+
+basic_success_results <- prettyPrintLogisticOutput(random_effects_model_basic_success)
+
+DT::datatable(basic_success_results$Coefficients_OR)
+
+print(basic_success_results$posthoc_tests)
+
+```
+
+For all the control tasks, pooled together because of low sample sizes, we got the following results:
+
+```{r control task success logistic}
+random_effects_model_control_success <- glmer(success ~ agent_type_age + (1|agent_tag), data=data_for_logistic_opControlTask, family="binomial", verbose = FALSE, control = glmerControl(optimizer="Nelder_Mead"), nAGQ = 1)
+
+control_success_results <- prettyPrintLogisticOutput(random_effects_model_control_success)
+
+DT::datatable(control_success_results$Coefficients_OR)
+
+print(control_success_results$posthoc_tests)
+
+```
+
+For all the CV Chick tasks, we got the following results:
+
+```{r cv chick task success logistic}
+random_effects_model_cvchick_success <- glmer(success ~ agent_type_age + (1|agent_tag), data=data_for_logistic_CVChickOP, family="binomial", verbose = FALSE, control = glmerControl(optimizer="Nelder_Mead"), nAGQ = 1)
+
+cvchick_success_results <- prettyPrintLogisticOutput(random_effects_model_cvchick_success)
+
+DT::datatable(cvchick_success_results$Coefficients_OR)
+
+print(cvchick_success_results$posthoc_tests)
+
+```
+
+For all the 3 cup tasks, we got the following results:
+
+```{r 3 cup task success logistic}
+random_effects_model_pctb3_success <- glmer(success ~ agent_type_age + (1|agent_tag), data=data_for_logistic_PCTB3OP, family="binomial", verbose = FALSE, control = glmerControl(optimizer="Nelder_Mead"), nAGQ = 1)
+
+pctb3_success_results <- prettyPrintLogisticOutput(random_effects_model_pctb3_success)
+
+DT::datatable(pctb3_success_results$Coefficients_OR)
+
+print(pctb3_success_results$posthoc_tests)
+
+```
+
+For all the grid tasks, we got the following results:
+
+```{r grid task success logistic}
+random_effects_model_pctbGrid_success <- glmer(success ~ agent_type_age + (1|agent_tag), data=data_for_logistic_PCTBGridOP, family="binomial", verbose = FALSE, control = glmerControl(optimizer="Nelder_Mead"), nAGQ = 1)
+
+pctbGrid_success_results <- prettyPrintLogisticOutput(random_effects_model_pctbGrid_success)
+
+DT::datatable(pctbGrid_success_results$Coefficients_OR)
+
+print(pctbGrid_success_results$posthoc_tests)
+
+```
+
+It should be noted that there was a singular fit with this model, suggesting overfitting and multicollinearity. However, looking at the descriptive statistics, it might be that the results are almost perfectly separable between children and the other agents.

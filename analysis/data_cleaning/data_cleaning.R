@@ -759,21 +759,23 @@ measurement_layout_agent_data <- final_results %>%
            "minNumTurnsRequired",
            "numChoices",
            "success",
+           "correctChoice",
+           "numberPreviousInstances",
            "problem_flag")) %>%
   mutate(agent_id = ifelse(is.na(aai_seed), agent_tag, paste0(agent_tag, "_", aai_seed)),
          agent_id = str_replace_all(agent_id, " ", "_")
          ) %>%
   select(!c(agent_tag, aai_seed)) %>%
   pivot_wider(names_from = agent_id,
-              values_from = success) 
+              values_from = c(success, correctChoice))
 
 na_func <- function(x) {
   is.na(x)
 }
 
 check <- measurement_layout_agent_data %>%
-  select(c(InstanceName, Random_Walker_Fixed_Forwards_Saccade_15_Angle_10_356:Vanilla_Braitenberg_15_rays_over_60_degs_356)) %>%
-  filter(if_any(Random_Walker_Fixed_Forwards_Saccade_15_Angle_10_356:Vanilla_Braitenberg_15_rays_over_60_degs_356, na_func))
+  select(c(InstanceName, success_Random_Walker_Fixed_Forwards_Saccade_15_Angle_10_356:correctChoice_Vanilla_Braitenberg_15_rays_over_60_degs_356)) %>%
+  filter(if_any(success_Random_Walker_Fixed_Forwards_Saccade_15_Angle_10_356:correctChoice_Vanilla_Braitenberg_15_rays_over_60_degs_356, na_func))
 
 
 measurement_layout_children_data <- final_results %>%
@@ -832,12 +834,14 @@ measurement_layout_children_data <- final_results %>%
            "minNumTurnsRequired",
            "numChoices",
            "success",
+           "correctChoice",
+           "numberPreviousInstances",
            "problem_flag")) %>%
   mutate(instance_id = ifelse(is.na(instancename_child), InstanceName, instancename_child)
   ) %>%
   select(!InstanceName & !instancename_child) 
 
-check
+
 
 ###############################################################################################################################
 ###############################################          Final Data Save          #############################################
