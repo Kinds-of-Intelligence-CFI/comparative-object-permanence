@@ -45,3 +45,11 @@ def yaml_combinor(file_list: list, temp_file_location: str, stored_file_name = "
     except IOError as e:
         print(e)
         print("An error occurred while combining files.")
+
+if __name__ == "__main__":
+    import sys
+    from pathlib import Path
+    # Parse arg, first one being the config dir, second one being the temp file
+    dir, temp_file = sys.argv[1], Path(sys.argv[2])
+    yaml_files, task_names = find_yaml_files(dir)
+    yaml_combinor(yaml_files, str(temp_file.parent), temp_file.name)

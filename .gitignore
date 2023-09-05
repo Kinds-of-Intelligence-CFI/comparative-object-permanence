@@ -1,3 +1,10 @@
+# Dreamer stuff
+# Add log files, except checkpoints, replay info, and tf logs
+agents/dreamerv3/logdir/**/replay
+agents/dreamerv3/logdir/**/checkpoint.ckpt*
+agents/dreamerv3/logdir/**/events.out.tfevents.*
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
