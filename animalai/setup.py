@@ -17,6 +17,6 @@ setup(
     ],
     packages=find_packages(exclude=["*.tests", "*.tests.*", "tests.*", "tests"]),
     zip_safe=False,
-    install_requires=["mlagents==0.30.0"],
+    install_requires=["mlagents==0.28.0"],
     python_requires=">=3.6",
 )
