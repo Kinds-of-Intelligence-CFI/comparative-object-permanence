@@ -26,6 +26,7 @@ library(colorspace)
 library(ragg)
 library(extrafont) # may need to run font_import();loadfonts() to get the fonts used here.
 library(irr)
+library(FSA)
 
 pal <- c("#FF8C00", "#A034F0", "#159090", "#FF007F") # color palette for plots
 
@@ -1455,139 +1456,194 @@ datatable(child_genderage_table, rownames = FALSE)
 
 ## Measures of Between-Group Differences
 
-Next, for each type of task, we ran a logistic regression with `agent_type`, including age, as a predictor and the agent ID as a random effect, to handle the repeated measures design. We ran the following models:
+Next, we present some simple frequentist statistics, to explore the data before doing the more complex measurement layouts. We ran Kruskall-Wallis tests on each type of task, to see investigate the magnitude of the difference between the groups.
 
-`success ~ agent_type + (1|agent_ID)`
+```{r kruskall-wallis tests success}
 
-for the basic, the pooled control tasks, and the three kinds of object permanence tasks.
+basic_tasks_KW_test <- final_results %>%
+  filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "Basic") %>%
+  select(agent_tag, agent_type, age, aai_seed, success) %>%
+  mutate(agent_tag_seed = haven::as_factor(paste0(agent_tag, "_", aai_seed)),
+         agent_type = ifelse(is.na(age), agent_type, age)) %>%
+  group_by(agent_tag_seed, agent_type) %>%
+  summarise(proportion_success = sum(success)/n())
 
-And
+basic_kruskal <- kruskal.test(proportion_success ~ agent_type, data = basic_tasks_KW_test)
 
-`choice ~ agent_type + (1|agent_ID)`
+basic_dunn <- dunnTest(proportion_success ~ agent_type, data = basic_tasks_KW_test,
+                method="holm")
 
-for the pooled control tasks, and the three kinds of object permanence tasks.
+cvchickcontrol_tasks_KW_test <- final_results %>%
+  filter((Suite == "Controls" | Suite == "Tutorial") & Paradigm == "CVChick") %>%
+  select(agent_tag, agent_type, age, aai_seed, success) %>%
+  mutate(agent_tag_seed = haven::as_factor(paste0(agent_tag, "_", aai_seed)),
+         agent_type = ifelse(is.na(age), agent_type, age)) %>%
+  group_by(agent_tag_seed, agent_type) %>%
+  summarise(proportion_success = sum(success)/n())
 
-Note that the reference class in all cases is the random walker.
+cvchickcontrol_kruskal <- kruskal.test(proportion_success ~ agent_type, data = cvchickcontrol_tasks_KW_test)
 
-```{r logistic regression}
+cvchickcontrol_dunn <- dunnTest(proportion_success ~ agent_type, data = cvchickcontrol_tasks_KW_test,
+                method="holm")
 
-data_for_logistic <- final_results %>%
-  dplyr::select(c(agent_tag, age, InstanceName, basicTask, opControlTask, cvchickTask, pctbGridTask, pctb3CupTask, task_order, numberPreviousInstances, success, correctChoice, agent_type)) %>%
-  transmute(agent_tag = agent_tag,
-            InstanceName = InstanceName,
-            agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "RandomWalker",
-                             ifelse(str_detect(agent_tag, "Random Action"), "RandomActionAgent",
-                                    ifelse(str_detect(agent_tag, "Vanilla"), "SimpleGoalDirectedAgent", 
-                                           "Child"))),
-            agent_type_age = ifelse(!is.na(age), paste0("Child", "_", age), agent_type),
-            agent_type_agegroup = ifelse(is.na(age), agent_type,
-                                         ifelse(age <=5, "Child_4_5",
-                                                ifelse(age >= 6, "Child_6_7", NA))),
-            agent_type= as_factor(agent_type),
-            agent_type_age = as_factor(agent_type_age),
-            agent_type_agegroup = as_factor(agent_type_agegroup),
-            task_type = ifelse(basicTask == 1, "Basic",
-                               ifelse(opControlTask == 1 & cvchickTask == 1, "CVChickControl",
-                                      ifelse(pctbGridTask == 1 & opControlTask == 1, "PCTBGridControl",
-                                             ifelse(pctb3CupTask == 1 & opControlTask == 1, "PCTB3CupControl",
-                                                    ifelse(opControlTask == 0 & cvchickTask == 1, "CVChickOP",
-                                                           ifelse(opControlTask == 0 & pctbGridTask == 1, "PCTBGridOP",
-                                                                  ifelse(opControlTask == 0 & pctb3CupTask == 1, "PCTB3CupOP", NA))))))),
-            task_type = as_factor(task_type),
-            task_order = ifelse(is.na(task_order), "Agent", task_order),
-            numberPreviousInstances = numberPreviousInstances,
-            age = age,
-            basicTask = basicTask,
-            opControlTask = opControlTask,
-            cvchickTask = cvchickTask,
-            pctbGridTask = pctbGridTask,
-            pctb3CupTask = pctb3CupTask,
-            isRandomWalker = ifelse(agent_type == "Random Walker", 1, 0),
-            isRandomAction = ifelse(agent_type == "Random Action Agent", 1, 0),
-            isVBB = ifelse(agent_type == "Simple Goal-Directed Agent", 1, 0),
-            isChild = ifelse(agent_type == "Child", 1, 0),
-            isFour = ifelse(is.na(age), 0,
-                            ifelse(age == 4, 1, 0)),
-            isFive = ifelse(is.na(age), 0,
-                            ifelse(age == 5, 1, 0)),
-            isSix = ifelse(is.na(age), 0,
-                            ifelse(age == 6, 1, 0)),
-            isSeven = ifelse(is.na(age), 0,
-                            ifelse(age == 7, 1, 0)),
-            success = success,
-            correctChoice = correctChoice)
+pctbgridcontrol_tasks_KW_test <- final_results %>%
+  filter((Suite == "Controls" | Suite == "Tutorial") & Paradigm == "PCTB" & str_detect(Task, "Grid")) %>%
+  select(agent_tag, agent_type, age, aai_seed, success) %>%
+  mutate(agent_tag_seed = haven::as_factor(paste0(agent_tag, "_", aai_seed)),
+         agent_type = ifelse(is.na(age), agent_type, age)) %>%
+  group_by(agent_tag_seed, agent_type) %>%
+  summarise(proportion_success = sum(success)/n())
 
-data_for_logistic_basic <- filter(data_for_logistic, basicTask == 1)
-data_for_logistic_opControlTask <- filter(data_for_logistic, opControlTask == 1)
-data_for_logistic_CVChickOP <- filter(data_for_logistic, opControlTask == 0 & basicTask == 0 & cvchickTask == 1)
-data_for_logistic_PCTB3OP <- filter(data_for_logistic, opControlTask == 0 & basicTask == 0 & pctb3CupTask == 1)
-data_for_logistic_PCTBGridOP <- filter(data_for_logistic, opControlTask == 0 & basicTask == 0 & pctbGridTask == 1)
+pctbgridcontrol_kruskal <- kruskal.test(proportion_success ~ agent_type, data = pctbgridcontrol_tasks_KW_test)
 
-```
+pctbgridcontrol_dunn <- dunnTest(proportion_success ~ agent_type, data = pctbgridcontrol_tasks_KW_test,
+                method="holm")
 
-For the basic tasks, we got the following results: 
+pctb3cupcontrol_tasks_KW_test <- final_results %>%
+  filter((Suite == "Controls" | Suite == "Tutorial") & Paradigm == "PCTB" & str_detect(Task, "Cup")) %>%
+  select(agent_tag, agent_type, age, aai_seed, success) %>%
+  mutate(agent_tag_seed = haven::as_factor(paste0(agent_tag, "_", aai_seed)),
+         agent_type = ifelse(is.na(age), agent_type, age)) %>%
+  group_by(agent_tag_seed, agent_type) %>%
+  summarise(proportion_success = sum(success)/n())
 
-```{r basic task success logistic}
-random_effects_model_basic_success <- glmer(success ~ agent_type_age + (1|agent_tag), data=data_for_logistic_basic, family="binomial", verbose = FALSE, control = glmerControl(optimizer="Nelder_Mead"), nAGQ = 1)
+pctb3cupcontrol_kruskal <- kruskal.test(proportion_success ~ agent_type, data = pctb3cupcontrol_tasks_KW_test)
 
-basic_success_results <- prettyPrintLogisticOutput(random_effects_model_basic_success)
+pctb3cupcontrol_dunn <- dunnTest(proportion_success ~ agent_type, data = pctb3cupcontrol_tasks_KW_test,
+                method="holm")
 
-DT::datatable(basic_success_results$Coefficients_OR)
+cvchicktest_tasks_KW_test <- final_results %>%
+  filter(goalBecomesAllocentricallyOccluded == 1 & Paradigm == "CVChick") %>%
+  select(agent_tag, agent_type, age, aai_seed, success) %>%
+  mutate(agent_tag_seed = haven::as_factor(paste0(agent_tag, "_", aai_seed)),
+         agent_type = ifelse(is.na(age), agent_type, age)) %>%
+  group_by(agent_tag_seed, agent_type) %>%
+  summarise(proportion_success = sum(success)/n())
 
-print(basic_success_results$posthoc_tests)
+cvchicktest_kruskal <- kruskal.test(proportion_success ~ agent_type, data = cvchicktest_tasks_KW_test)
 
-```
+cvchicktest_dunn <- dunnTest(proportion_success ~ agent_type, data = cvchicktest_tasks_KW_test,
+                method="holm")
 
-For all the control tasks, pooled together because of low sample sizes, we got the following results:
+pctbgridtests_tasks_KW_test <- final_results %>%
+  filter(goalBecomesAllocentricallyOccluded == 1 & Paradigm == "PCTB" & str_detect(Task, "Grid")) %>%
+  select(agent_tag, agent_type, age, aai_seed, success) %>%
+  mutate(agent_tag_seed = haven::as_factor(paste0(agent_tag, "_", aai_seed)),
+         agent_type = ifelse(is.na(age), agent_type, age)) %>%
+  group_by(agent_tag_seed, agent_type) %>%
+  summarise(proportion_success = sum(success)/n())
 
-```{r control task success logistic}
-random_effects_model_control_success <- glmer(success ~ agent_type_age + (1|agent_tag), data=data_for_logistic_opControlTask, family="binomial", verbose = FALSE, control = glmerControl(optimizer="Nelder_Mead"), nAGQ = 1)
+pctbgridtests_kruskal <- kruskal.test(proportion_success ~ agent_type, data = pctbgridtests_tasks_KW_test)
 
-control_success_results <- prettyPrintLogisticOutput(random_effects_model_control_success)
+pctbgridtests_dunn <- dunnTest(proportion_success ~ agent_type, data = pctbgridtests_tasks_KW_test,
+                method="holm")
 
-DT::datatable(control_success_results$Coefficients_OR)
+pctb3cuptests_tasks_KW_test <- final_results %>%
+  filter(goalBecomesAllocentricallyOccluded == 1 & Paradigm == "PCTB" & str_detect(Task, "Cup")) %>%
+  select(agent_tag, agent_type, age, aai_seed, success) %>%
+  mutate(agent_tag_seed = haven::as_factor(paste0(agent_tag, "_", aai_seed)),
+         agent_type = ifelse(is.na(age), agent_type, age)) %>%
+  group_by(agent_tag_seed, agent_type) %>%
+  summarise(proportion_success = sum(success)/n())
 
-print(control_success_results$posthoc_tests)
+pctb3cuptests_kruskal <- kruskal.test(proportion_success ~ agent_type, data = pctb3cuptests_tasks_KW_test)
 
-```
-
-For all the CV Chick tasks, we got the following results:
-
-```{r cv chick task success logistic}
-random_effects_model_cvchick_success <- glmer(success ~ agent_type_age + (1|agent_tag), data=data_for_logistic_CVChickOP, family="binomial", verbose = FALSE, control = glmerControl(optimizer="Nelder_Mead"), nAGQ = 1)
-
-cvchick_success_results <- prettyPrintLogisticOutput(random_effects_model_cvchick_success)
-
-DT::datatable(cvchick_success_results$Coefficients_OR)
-
-print(cvchick_success_results$posthoc_tests)
+pctb3cuptests_dunn <- dunnTest(proportion_success ~ agent_type, data = pctb3cuptests_tasks_KW_test,
+                method="holm")
 
 ```
 
-For all the 3 cup tasks, we got the following results:
+```{r kruskall-wallis tests correctChoice}
 
-```{r 3 cup task success logistic}
-random_effects_model_pctb3_success <- glmer(success ~ agent_type_age + (1|agent_tag), data=data_for_logistic_PCTB3OP, family="binomial", verbose = FALSE, control = glmerControl(optimizer="Nelder_Mead"), nAGQ = 1)
+basic_tasks_KW_test <- final_results %>%
+  filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "Basic") %>%
+  select(agent_tag, agent_type, age, aai_seed, correctChoice) %>%
+  mutate(agent_tag_seed = haven::as_factor(paste0(agent_tag, "_", aai_seed)),
+         agent_type = ifelse(is.na(age), agent_type, age)) %>%
+  group_by(agent_tag_seed, agent_type) %>%
+  summarise(proportion_correctChoice = sum(correctChoice)/n())
 
-pctb3_success_results <- prettyPrintLogisticOutput(random_effects_model_pctb3_success)
+basic_kruskal <- kruskal.test(proportion_correctChoice ~ agent_type, data = basic_tasks_KW_test)
 
-DT::datatable(pctb3_success_results$Coefficients_OR)
+basic_dunn <- dunnTest(proportion_correctChoice ~ agent_type, data = basic_tasks_KW_test,
+                method="holm")
 
-print(pctb3_success_results$posthoc_tests)
+cvchickcontrol_tasks_KW_test <- final_results %>%
+  filter((Suite == "Controls" | Suite == "Tutorial") & Paradigm == "CVChick") %>%
+  select(agent_tag, agent_type, age, aai_seed, correctChoice) %>%
+  mutate(agent_tag_seed = haven::as_factor(paste0(agent_tag, "_", aai_seed)),
+         agent_type = ifelse(is.na(age), agent_type, age)) %>%
+  group_by(agent_tag_seed, agent_type) %>%
+  summarise(proportion_correctChoice = sum(correctChoice)/n())
+
+cvchickcontrol_kruskal <- kruskal.test(proportion_correctChoice ~ agent_type, data = cvchickcontrol_tasks_KW_test)
+
+cvchickcontrol_dunn <- dunnTest(proportion_correctChoice ~ agent_type, data = cvchickcontrol_tasks_KW_test,
+                method="holm")
+
+pctbgridcontrol_tasks_KW_test <- final_results %>%
+  filter((Suite == "Controls" | Suite == "Tutorial") & Paradigm == "PCTB" & str_detect(Task, "Grid")) %>%
+  select(agent_tag, agent_type, age, aai_seed, correctChoice) %>%
+  mutate(agent_tag_seed = haven::as_factor(paste0(agent_tag, "_", aai_seed)),
+         agent_type = ifelse(is.na(age), agent_type, age)) %>%
+  group_by(agent_tag_seed, agent_type) %>%
+  summarise(proportion_correctChoice = sum(correctChoice)/n())
+
+pctbgridcontrol_kruskal <- kruskal.test(proportion_correctChoice ~ agent_type, data = pctbgridcontrol_tasks_KW_test)
+
+pctbgridcontrol_dunn <- dunnTest(proportion_correctChoice ~ agent_type, data = pctbgridcontrol_tasks_KW_test,
+                method="holm")
+
+pctb3cupcontrol_tasks_KW_test <- final_results %>%
+  filter((Suite == "Controls" | Suite == "Tutorial") & Paradigm == "PCTB" & str_detect(Task, "Cup")) %>%
+  select(agent_tag, agent_type, age, aai_seed, correctChoice) %>%
+  mutate(agent_tag_seed = haven::as_factor(paste0(agent_tag, "_", aai_seed)),
+         agent_type = ifelse(is.na(age), agent_type, age)) %>%
+  group_by(agent_tag_seed, agent_type) %>%
+  summarise(proportion_correctChoice = sum(correctChoice)/n())
+
+pctb3cupcontrol_kruskal <- kruskal.test(proportion_correctChoice ~ agent_type, data = pctb3cupcontrol_tasks_KW_test)
+
+pctb3cupcontrol_dunn <- dunnTest(proportion_correctChoice ~ agent_type, data = pctb3cupcontrol_tasks_KW_test,
+                method="holm")
+
+cvchicktest_tasks_KW_test <- final_results %>%
+  filter(goalBecomesAllocentricallyOccluded == 1 & Paradigm == "CVChick") %>%
+  select(agent_tag, agent_type, age, aai_seed, correctChoice) %>%
+  mutate(agent_tag_seed = haven::as_factor(paste0(agent_tag, "_", aai_seed)),
+         agent_type = ifelse(is.na(age), agent_type, age)) %>%
+  group_by(agent_tag_seed, agent_type) %>%
+  summarise(proportion_correctChoice = sum(correctChoice)/n())
+
+cvchicktest_kruskal <- kruskal.test(proportion_correctChoice ~ agent_type, data = cvchicktest_tasks_KW_test)
+
+cvchicktest_dunn <- dunnTest(proportion_correctChoice ~ agent_type, data = cvchicktest_tasks_KW_test,
+                method="holm")
+
+pctbgridtests_tasks_KW_test <- final_results %>%
+  filter(goalBecomesAllocentricallyOccluded == 1 & Paradigm == "PCTB" & str_detect(Task, "Grid")) %>%
+  select(agent_tag, agent_type, age, aai_seed, correctChoice) %>%
+  mutate(agent_tag_seed = haven::as_factor(paste0(agent_tag, "_", aai_seed)),
+         agent_type = ifelse(is.na(age), agent_type, age)) %>%
+  group_by(agent_tag_seed, agent_type) %>%
+  summarise(proportion_correctChoice = sum(correctChoice)/n())
+
+pctbgridtests_kruskal <- kruskal.test(proportion_correctChoice ~ agent_type, data = pctbgridtests_tasks_KW_test)
+
+pctbgridtests_dunn <- dunnTest(proportion_correctChoice ~ agent_type, data = pctbgridtests_tasks_KW_test,
+                method="holm")
+
+pctb3cuptests_tasks_KW_test <- final_results %>%
+  filter(goalBecomesAllocentricallyOccluded == 1 & Paradigm == "PCTB" & str_detect(Task, "Cup")) %>%
+  select(agent_tag, agent_type, age, aai_seed, correctChoice) %>%
+  mutate(agent_tag_seed = haven::as_factor(paste0(agent_tag, "_", aai_seed)),
+         agent_type = ifelse(is.na(age), agent_type, age)) %>%
+  group_by(agent_tag_seed, agent_type) %>%
+  summarise(proportion_correctChoice = sum(correctChoice)/n())
+
+pctb3cuptests_kruskal <- kruskal.test(proportion_correctChoice ~ agent_type, data = pctb3cuptests_tasks_KW_test)
+
+pctb3cuptests_dunn <- dunnTest(proportion_correctChoice ~ agent_type, data = pctb3cuptests_tasks_KW_test,
+                method="holm")
 
 ```
-
-For all the grid tasks, we got the following results:
-
-```{r grid task success logistic}
-random_effects_model_pctbGrid_success <- glmer(success ~ agent_type_age + (1|agent_tag), data=data_for_logistic_PCTBGridOP, family="binomial", verbose = FALSE, control = glmerControl(optimizer="Nelder_Mead"), nAGQ = 1)
-
-pctbGrid_success_results <- prettyPrintLogisticOutput(random_effects_model_pctbGrid_success)
-
-DT::datatable(pctbGrid_success_results$Coefficients_OR)
-
-print(pctbGrid_success_results$posthoc_tests)
-
-```
-
-It should be noted that there was a singular fit with this model, suggesting overfitting and multicollinearity. However, looking at the descriptive statistics, it might be that the results are almost perfectly separable between children and the other agents.
