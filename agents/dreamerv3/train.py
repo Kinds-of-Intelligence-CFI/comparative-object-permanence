@@ -27,7 +27,7 @@ from animalai.envs.environment import AnimalAIEnvironment
 @dataclass
 class Args:
     task: Path
-    aai: Path
+    env: Path
     from_checkpoint: Optional[Path]
     eval_mode: bool
     eval_eps: int
@@ -39,7 +39,7 @@ def run(args: Args):
     assert args.from_checkpoint.exists() if  args.from_checkpoint is not None else True, f"Checkpoint not found: {args.from_checkpoint}."
     assert args.from_checkpoint.is_file() if  args.from_checkpoint is not None else True, f"Checkpoint must be a file but is not: {args.from_checkpoint}."
     assert args.task.exists(), f"Task file not found: {args.task}."
-    assert args.aai.exists(), f"AAI executable file not found: {args.aai}."
+    assert args.env.exists(), f"AAI executable file not found: {args.env}."
 
     task_path = args.task
     task_name = Path(args.task).stem
@@ -66,7 +66,7 @@ def run(args: Args):
     dreamer_config.save(logdir / 'dreamer_config.yaml')
 
     logging.info(f"Creating AAI Dreamer Environment")
-    env = get_aai_env(task_path, args.aai, dreamer_config)
+    env = get_aai_env(task_path, args.env, dreamer_config)
 
     logging.info("Creating DreamerV3 Agent")
     agent = dreamerv3.Agent(env.obs_space, env.act_space, step, dreamer_config)
@@ -111,14 +111,18 @@ def get_dreamer_config(logdir: Path, dreamer_args: str = '', from_checkpoint: Op
         embodied.logger.TerminalOutput(),
         embodied.logger.JSONLOutput(logdir, 'metrics.jsonl'),
         embodied.logger.TensorBoardOutput(logdir),
-        # embodied.logger.WandBOutput(logdir.name, config),
+        embodied.logger.WandBOutput(wandb_init_kwargs={
+          'project': 'comparative-object-permanence',
+          'name': logdir.name,
+          'config': dict(config),
+        }),
         # embodied.logger.MLFlowOutput(logdir.name),
     ])
 
     return config, step, logger
 
 
-def get_aai_env(task_path, env_path, dreamer_config):
+def get_aai_env(task_path: Union[Path, str], env_path: Union[Path, str], dreamer_config):
     # Use a random port to avoid problems if a previous version exits slowly
     port = 5005 + random.randint(0, 1000)
 
@@ -126,8 +130,7 @@ def get_aai_env(task_path, env_path, dreamer_config):
     aai_env = AnimalAIEnvironment(
         file_name=str(env_path),
         base_port=port,
-        arenas_configurations=task_path,
-        # inference=True, # Among other things, set the timescale to 1 i.e. realtime, as we can't match the 300 timescale of the training environment.
+        arenas_configurations=str(task_path),
         # Set pixels to 64x64 cause it has to be power of 2 for dreamerv3
         resolution=64, # same size as Minecraft in DreamerV3
     )
@@ -152,8 +155,8 @@ class MonkeyPatchLen(embodied.core.base.Wrapper):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--task', type=Path, required=True)
-    parser.add_argument('--aai', type=Path, default=Path('./aai/env/AnimalAI.x86_64'))
+    parser.add_argument('--task', type=Path, required=True, help='Path to the task file.')
+    parser.add_argument('--env', type=Path, required=True, help='Path to the AnimalAI executable.')
     parser.add_argument('--dreamer-args', type=str, default='', help='Extra args to pass to dreamerv3.')
     parser.add_argument('--eval-mode', action='store_true', help='Run in evaluation mode. Make sure to also load a checkpoint.')
     parser.add_argument('--eval-eps', type=int, default=100, help='Number of episodes to run in evaluation mode.')

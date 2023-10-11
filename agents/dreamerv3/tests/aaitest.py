@@ -1,28 +1,31 @@
 import sys
 import random
 import os
+import dataclasses
+from pathlib import Path
+from typing import *
 
 os.environ["PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION"] = "python"  # noqa
 
 from animalai.envs.environment import AnimalAIEnvironment
 
-
-def load_config_and_play(configuration_file: str) -> None:
+def load_config_and_play(
+        configuration_file: str,
+        env_path: str
+) -> None:
     """
     Loads a configuration file for a single arena and lets you play manually
     :param configuration_file: str path to the yaml configuration
     :return: None
     """
-    env_path = "./aai/env3.0.2/AAI3Linux.x86_64"
-    # env_path = "./aai/env3.0.1/AAI_v3.0.1_build_linux_090422.x86_64"
     # use a random port to avoid problems if a previous version exits slowly
     port = 5005 + random.randint(0, 1000)
 
-    print("Initializaing AAI environment")
+    print("Initializing AAI environment")
     environment = AnimalAIEnvironment(
         file_name=env_path,
         base_port=port,
-        arenas_configurations=configuration_file,  # type: ignore
+        arenas_configurations=configuration_file,
         # no_graphics=True,
         play=True,
     )
@@ -36,17 +39,54 @@ def load_config_and_play(configuration_file: str) -> None:
     finally:
         environment.close()
 
+@dataclasses.dataclass
+class Args:
+    config: Optional[Path]
+    env: Optional[Path]
 
 # If an argument is provided then assume it is path to a configuration and use that
 # Otherwise load a random competition config.
 if __name__ == "__main__":
-    if len(sys.argv) > 1:
-        config = sys.argv[1]
-    else:
-        config_folder = "./aai/configs/" # TODO: Does not work with folders
-        config_files = os.listdir(config_folder)
-        rand_idx = random.randint(0, len(config_files) - 1)
-        config = config_folder + config_files[rand_idx]
-        print(F"Using configuration file {config}")
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("config", nargs='?', type=Path, default=None)
+    parser.add_argument("--env", type=Path, default=None)
+    args_raw = parser.parse_args()
+    args = Args(**vars(args_raw))
 
-    load_config_and_play(configuration_file=config)
+    if args.config is not None:
+        config = args.config
+    else:
+        import glob
+        config_files = list(glob.glob("./aai/configs/**/*.yml", recursive=True))
+        config = Path(random.choice(config_files))
+    
+    if args.env is not None:
+        env_path = args.env
+    else:
+        # Look for latest version of AAI
+        error_msg = "This script will look for the latest version of AAI in the ./aai folder " \
+                    "by matching ./aai/env*/ where the folder with the " \
+                    "lexically last value for * is used." \
+                    "In that folder it will look for {AAI,AnimalAI}.{x86_64,exe,app}." \
+                    "You also specify the path with the --env argument."
+        env_folders = sorted(Path("./aai/").glob("env*"))
+        assert len(env_folders) > 0, f"Could not find any AAI environments matching ./aai/env*/. \n{error_msg}"
+
+        # We brace expand manually because glob does not support it.
+        env_bins = [
+            bin
+            for bin_name in ["AAI", "AnimalAI"]
+            for ext in ["x86_64", "exe", "app"]
+            for bin in env_folders[-1].glob(f"{bin_name}.{ext}")
+        ]
+        assert len(env_bins) > 0, f"Could not find any AAI binaries in {env_folders[-1]}. \n{error_msg}"
+        env_path = env_bins[0]
+
+    print(f"Using environment {env_path}.")
+    print(f"Using configuration file {config}.")
+    load_config_and_play(
+        configuration_file=str(config),
+        env_path=str(env_path),
+    )
+
