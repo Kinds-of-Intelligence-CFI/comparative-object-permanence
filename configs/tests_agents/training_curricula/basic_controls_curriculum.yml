@@ -1,0 +1,5375 @@
+!ArenaConfig
+arenas:
+  0: !Arena
+    pass_mark: 2.9 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 30, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+
+    blackouts: [-15]
+  1: !Arena
+    pass_mark: 3
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 37.5}
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+    blackouts: [-15]
+  2: !Arena
+    pass_mark: -0.5
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 30, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: .5, y: .5, z: .5}
+
+
+  3: !Arena
+    pass_mark: -0.1 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 30}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+
+  4: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: DeathZone
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 15} # Lava Position
+      rotations: [0] # Lava Rotation
+      sizes:
+      - !Vector3 {x: 7, y: 0.1, z: 1} # Lava Size
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1} #GoodGoal Size
+
+  5: !Arena
+    pass_mark: 3 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 20}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+  6: !Arena
+    pass_mark: 0
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 10, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+    blackouts: [-15]
+  7: !Arena
+    pass_mark: -0.1 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 10, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+
+    blackouts: [-15]
+  8: !Arena
+    pass_mark: -0.6 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 10, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: .5, y: .5, z: .5}
+
+
+
+    blackouts: [-15]
+  9: !Arena
+    pass_mark: 1
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 10}
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+    blackouts: [-15]
+  10: !Arena
+    pass_mark: 0 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 10}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+
+    blackouts: [-15]
+  11: !Arena
+    pass_mark: -0.5
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 20}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+  12: !Arena
+    pass_mark: 2.9 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 20}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+
+    blackouts: [-15]
+  13: !Arena
+    pass_mark: 3.9 #total score to pass
+    t: 750
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 17, y: 0, z: 35}
+      - !Vector3 {x: 13, y: 0, z: 4}
+      - !Vector3 {x: 23, y: 0, z: 16}
+      - !Vector3 {x: 10, y: 0, z: 25}
+      - !Vector3 {x: 30, y: 0, z: 17}
+      rotations: [0,0,0,0,0]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+      - !Vector3 {x: 1, y: 1, z: 1}
+      - !Vector3 {x: 1, y: 1, z: 1}
+      - !Vector3 {x: 1, y: 1, z: 1}
+      - !Vector3 {x: 1, y: 1, z: 1}
+    blackouts: [-15]
+  14: !Arena
+    pass_mark: 0 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 20}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+  15: !Arena
+    pass_mark: 0 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 10}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+
+  16: !Arena
+    pass_mark: -0.5
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 37.5}
+      sizes:
+      - !Vector3 {x: .5, y: .5, z: .5}
+    blackouts: [-15]
+  17: !Arena
+    pass_mark: -0.1 #End.9 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+  18: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 1.5, z: 20}
+      rotations: [180] #Agent rotation
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 25} # Platform Position
+      rotations: [0] # Platform Rotation
+      sizes:
+      - !Vector3 {x: 40, y: 1.5, z: 30} # Platform Size
+      colors:
+      - !RGB {r: 0, g: 0, b: 256} #Platform Color
+    - !Item
+      name: Ramp
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 7.5} # Ramp Position
+      rotations: [180] # Ramp Rotation
+      sizes:
+      - !Vector3 {x: 20, y: 1.5, z: 5} # Ramp Size
+      colors:
+      - !RGB {r: 256, g: 0, b: 256} #Ramp Color
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 1.5, z: 3} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 5, y: 5, z: 5} #GoodGoal Size
+
+  19: !Arena
+    pass_mark: -0.5
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 30}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+
+  20: !Arena
+    pass_mark: 3 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 30}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+  21: !Arena
+    pass_mark: 0
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+    blackouts: [-15]
+  22: !Arena
+    pass_mark: 1
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 10, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+    blackouts: [-15]
+  23: !Arena
+    pass_mark: -0.6 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: .5, y: .5, z: .5}
+
+
+  24: !Arena
+    pass_mark: -0.1 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 30}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+
+
+    blackouts: [-15]
+  25: !Arena
+    pass_mark: 2.9 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 20}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+    blackouts: [-15]
+  26: !Arena
+    pass_mark: 2.9 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 30, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+
+  27: !Arena
+    pass_mark: -0.1 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 20}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+    blackouts: [-15]
+  28: !Arena
+    pass_mark: -0.1 #End.9 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 10, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+
+  29: !Arena
+    pass_mark: -0.1 #End.9 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 10}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+
+  30: !Arena
+    pass_mark: 0
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 2}
+      rotations: [0]
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 39.5} # back wall
+      - !Vector3 {x: 3.23, y: 4, z: 38.75} # R Mid
+      - !Vector3 {x: 2.08, y: 0, z: 38.75} # R Left buttress lower
+      - !Vector3 {x: 4.58, y: 0, z: 38.75} # R Right buttress lower
+      - !Vector3 {x: 2.08, y: 4.5, z: 38.75} # R Left buttress upper
+      - !Vector3 {x: 4.58, y: 4.5, z: 38.75} # R Right buttress upper
+      - !Vector3 {x: 3.33, y: 6.5, z: 38.75} # R Upper
+      - !Vector3 {x: 10, y: 0, z: 38.75} # E lower
+      - !Vector3 {x: 8.75, y: 0.5, z: 38.75} # E Left buttress lower
+      - !Vector3 {x: 11.25, y: 0.5, z: 38.75} # E right buttress
+      - !Vector3 {x: 9, y: 4.5, z: 38.75} # E mid
+      - !Vector3 {x: 8.75, y: 5, z: 38.75} # E Left buttress upper
+      - !Vector3 {x: 10, y: 7, z: 38.75} # E upper
+      rotations: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+      sizes:
+      - !Vector3 {x: 40, y: 20, z: 1}
+      - !Vector3 {x: 2.8, y: 0.5, z: 0.5} # R Mid
+      - !Vector3 {x: 0.5, y: 4, z: 0.5} # R Left buttress lower
+      - !Vector3 {x: 0.5, y: 4, z: 0.5} # R Right buttress lower
+      - !Vector3 {x: 0.5, y: 2, z: 0.5} # R Left buttress upper
+      - !Vector3 {x: 0.5, y: 2, z: 0.5} # R Right buttress upper
+      - !Vector3 {x: 3, y: 0.5, z: 0.5} # R Upper
+      - !Vector3 {x: 3, y: 0.5, z: 0.5} # E lower
+      - !Vector3 {x: 0.5, y: 3.5, z: 0.5} # E Left buttress lower
+      - !Vector3 {x: 0.5, y: 6, z: 0.5} # E Right buttress
+      - !Vector3 {x: 1, y: 0.5, z: 0.5} # E mid
+      - !Vector3 {x: 0.5, y: 2, z: 0.5} # E Left buttress upper
+      - !Vector3 {x: 3, y: 0.5, z: 0.5} # E upper
+      colors:
+      - !RGB {r: 0, g: 0, b: 0}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 0, g: 0, b: 0}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 16.66, y: 4, z: 38.75} # A Mid
+      - !Vector3 {x: 15.41, y: 0, z: 38.75} # A Left buttress lower
+      - !Vector3 {x: 17.91, y: 0, z: 38.75} # A Right buttress lower
+      - !Vector3 {x: 15.41, y: 4.5, z: 38.75} # A Left buttress upper
+      - !Vector3 {x: 17.91, y: 4.5, z: 38.75} # A Right buttress upper
+      - !Vector3 {x: 16.66, y: 6.5, z: 38.75} # A Upper
+      sizes:
+      - !Vector3 {x: 3, y: 0.5, z: 0.5} # A Mid
+      - !Vector3 {x: 0.5, y: 4, z: 0.5} # A Left buttress lower
+      - !Vector3 {x: 0.5, y: 4, z: 0.5} # A Right buttress lower
+      - !Vector3 {x: 0.5, y: 2, z: 0.5} # A Left buttress upper
+      - !Vector3 {x: 0.5, y: 2, z: 0.5} # A Right buttress upper
+      - !Vector3 {x: 3, y: 0.5, z: 0.5} # A Upper
+      rotations: [0, 0, 0, 0, 0, 0]
+      colors:
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 23.33, y: 0, z: 38.75} # D bottom
+      - !Vector3 {x: 22.08, y: 0.5, z: 38.75} # D Left buttress
+      - !Vector3 {x: 24.58, y: 0.5, z: 38.75} # D Right buttress
+      - !Vector3 {x: 23.33, y: 7, z: 38.75} # D top
+      sizes:
+      - !Vector3 {x: 3, y: 0.5, z: 0.5} # D bottom
+      - !Vector3 {x: 0.5, y: 6, z: 0.5} # D Left buttress
+      - !Vector3 {x: 0.5, y: 6, z: 0.5} # D Right buttress
+      - !Vector3 {x: 3, y: 0.5, z: 0.5} # D top
+      rotations: [0, 0, 0, 0]
+      colors:
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 30, y: 0, z: 38.75} # Y base
+      - !Vector3 {x: 30, y: 3, z: 38.75} # Y mid
+      - !Vector3 {x: 28.75, y: 3.5, z: 38.75} # Y upper left
+      - !Vector3 {x: 31.25, y: 3.5, z: 38.75} # Y upper right
+      sizes:
+      - !Vector3 {x: 0.5, y: 3, z: 0.5} # Y base
+      - !Vector3 {x: 3, y: 0.5, z: 0.5} # Y mid
+      - !Vector3 {x: 0.5, y: 3.5, z: 0.5} # Y upper left
+      - !Vector3 {x: 0.5, y: 3.5, z: 0.5} # Y upper right
+      rotations: [0, 0, 0, 0]
+      colors:
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 35.41, y: 0, z: 38.75} # ? dark base
+      - !Vector3 {x: 35.41, y: 0.5, z: 38.75} # ? dot
+      - !Vector3 {x: 35.41, y: 1.5, z: 38.75} # ? dot gap
+      - !Vector3 {x: 35.41, y: 2, z: 38.75} # ? stick
+      - !Vector3 {x: 36.66, y: 4, z: 38.75} # ? mid
+      - !Vector3 {x: 35.41, y: 4.5, z: 38.75} # ? left buttress dark
+      - !Vector3 {x: 37.91, y: 0, z: 38.75} # ? right buttress lower dark
+      - !Vector3 {x: 37.91, y: 4.5, z: 38.75} # ? right buttress upper
+      - !Vector3 {x: 36.66, y: 6.5, z: 38.75} # ? top
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5} # ? dark base
+      - !Vector3 {x: 0.5, y: 1, z: 0.5} # ? dot
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5} # ? dot gap
+      - !Vector3 {x: 0.5, y: 2, z: 0.5} # ? stick
+      - !Vector3 {x: 3, y: 0.5, z: 0.5} # ? mid
+      - !Vector3 {x: 0.5, y: 2, z: 0.5} # left buttress dark
+      - !Vector3 {x: 0.5, y: 4, z: 0.5} # right buttress lower dark
+      - !Vector3 {x: 0.5, y: 2, z: 0.5} # right buttress upper
+      - !Vector3 {x: 3, y: 0.5, z: 0.5} # ? top
+      rotations: [0, 0, 0, 0, 0, 0, 0, 0, 0]
+      colors:
+      - !RGB {r: 0, g: 0, b: 0}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 0, g: 0, b: 0}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 0, g: 0, b: 0}
+      - !RGB {r: 0, g: 0, b: 0}
+      - !RGB {r: 255, g: 255, b: 255}
+      - !RGB {r: 255, g: 255, b: 255}
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 30}
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+      rotations: [0]
+  31: !Arena
+    pass_mark: -0.1 #End.9 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 20}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+
+  32: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 10} #Wall Position
+      rotations: [0] #Wall Rotation
+      sizes:
+      - !Vector3 {x: 7, y: 0.5, z: 1} #Wall Size
+      colors:
+      - !RGB {r: 153, g: 153, b: 153} #Wall Color
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 30} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2} #GoodGoal Size
+
+
+    blackouts: [-15]
+  33: !Arena
+    pass_mark: 0
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 1, z: 1}
+      rotations: [0]
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      rotations: [0]
+      colors: 
+      - !RGB {r: 0, g: 0, b: 255}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 40}
+    - !Item
+      name: DeathZone
+      rotations: [0]
+      positions:
+      - !Vector3 {x: 10, y: 0, z: 30}
+      sizes:
+      - !Vector3 {x: 10, y: 0, z: 10}
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 30, y: 0, z: 30}
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+  34: !Arena
+    pass_mark: -0.6 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 10}
+      sizes:
+      - !Vector3 {x: .5, y: .5, z: .5}
+
+
+    blackouts: [-15]
+  35: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: DeathZone
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 15} # Lava Position
+      rotations: [0] # Lava Rotation
+      sizes:
+      - !Vector3 {x: 7, y: 0.1, z: 1} # Lava Size
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4} #GoodGoal Size
+
+
+  36: !Arena
+    pass_mark: -0.5
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 30}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+
+    blackouts: [-15]
+  37: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: DeathZone
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 15} # Lava Position
+      rotations: [0] # Lava Rotation
+      sizes:
+      - !Vector3 {x: 7, y: 0.1, z: 1} # Lava Size
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5} #GoodGoal Size
+
+
+    blackouts: [-15]
+  38: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 1.5, z: 20}
+      rotations: [180] #Agent rotation
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 25} # Platform Position
+      rotations: [0] # Platform Rotation
+      sizes:
+      - !Vector3 {x: 40, y: 1.5, z: 30} # Platform Size
+      colors:
+      - !RGB {r: 0, g: 0, b: 256} #Platform Color
+    - !Item
+      name: Ramp
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 7.5} # Ramp Position
+      rotations: [180] # Ramp Rotation
+      sizes:
+      - !Vector3 {x: 20, y: 1.5, z: 5} # Ramp Size
+      colors:
+      - !RGB {r: 256, g: 0, b: 256} #Ramp Color
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 1.5, z: 3} #GoodGoalMulti Position
+      sizes:
+      - !Vector3 {x: 5, y: 5, z: 5} #GoodGoalMulti Size
+
+  39: !Arena
+    pass_mark: -0.5
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 30}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+
+
+  40: !Arena
+    pass_mark: -0.1 #End.9 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 20}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+
+    blackouts: [-15]
+  41: !Arena
+    pass_mark: 1 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 10}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+    blackouts: [-15]
+  42: !Arena
+    pass_mark: 2.9 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 10, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+
+  43: !Arena
+    pass_mark: 0 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 30}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+
+  44: !Arena
+    pass_mark: -0.1 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 30}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+
+    blackouts: [-15]
+  45: !Arena
+    pass_mark: -0.6 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 10}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+
+
+
+    blackouts: [-15]
+  46: !Arena
+    pass_mark: 1 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 20}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+  47: !Arena
+    pass_mark: 3 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 30}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+    blackouts: [-15]
+  48: !Arena
+    pass_mark: -0.5
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 10}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+
+
+    blackouts: [-15]
+  49: !Arena
+    pass_mark: 3 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 20}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+  50: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 25} # Platform Position
+      rotations: [0] # Platform Rotation
+      sizes:
+      - !Vector3 {x: 40, y: 1.5, z: 30} # Platform Size
+      colors:
+      - !RGB {r: 0, g: 0, b: 256} #Platform Color
+    - !Item
+      name: Ramp
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 7.5} # Ramp Position
+      rotations: [180] # Ramp Rotation
+      sizes:
+      - !Vector3 {x: 20, y: 1.5, z: 5} # Ramp Size
+      colors:
+      - !RGB {r: 256, g: 0, b: 256} #Ramp Color
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 1.5, z: 20} #GoodGoalMulti Position
+      sizes:
+      - !Vector3 {x: 5, y: 5, z: 5} #GoodGoalMulti Size
+  51: !Arena
+    pass_mark: 1 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 30}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+
+    blackouts: [-15]
+  52: !Arena
+    pass_mark: -0.1 #End.9 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+    blackouts: [-15]
+  53: !Arena
+    pass_mark: -0.1 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [180]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+
+    blackouts: [-15]
+  54: !Arena
+    pass_mark: 0
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+  55: !Arena
+    pass_mark: 3
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [180]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+    blackouts: [-15]
+  56: !Arena
+    pass_mark: -0.5
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 30, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: .5, y: .5, z: .5}
+
+
+    blackouts: [-15]
+  57: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 25} # Platform Position
+      rotations: [0] # Platform Rotation
+      sizes:
+      - !Vector3 {x: 40, y: 1.5, z: 30} # Platform Size
+      colors:
+      - !RGB {r: 0, g: 0, b: 256} #Platform Color
+    - !Item
+      name: Ramp
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 7.5} # Ramp Position
+      rotations: [180] # Ramp Rotation
+      sizes:
+      - !Vector3 {x: 20, y: 1.5, z: 5} # Ramp Size
+      colors:
+      - !RGB {r: 256, g: 0, b: 256} #Ramp Color
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 25, y: 1.5, z: 20} #GoodGoalMulti Position
+      sizes:
+      - !Vector3 {x: 5, y: 5, z: 5} #GoodGoalMulti Size
+  58: !Arena
+    pass_mark: 2.9 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+    blackouts: [-15]
+  59: !Arena
+    pass_mark: 2.9 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 30}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+
+
+    blackouts: [-15]
+  60: !Arena
+    pass_mark: 2.9 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 10}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+
+
+  61: !Arena
+    pass_mark: -0.6 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 10, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: .5, y: .5, z: .5}
+
+
+
+  62: !Arena
+    pass_mark: 3 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 20}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+    blackouts: [-15]
+  63: !Arena
+    pass_mark: -0.1 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+    blackouts: [-15]
+  64: !Arena
+    pass_mark: 2.9 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [180]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+
+    blackouts: [-15]
+  65: !Arena
+    pass_mark: 1 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 30}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+    blackouts: [-15]
+  66: !Arena
+    pass_mark: 1 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 30}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+
+  67: !Arena
+    pass_mark: 0
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1.1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 36, y: 0, z: 36}
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+  68: !Arena
+    pass_mark: -0.1 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 37.5}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+  69: !Arena
+    pass_mark: -0.6 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 10}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+
+
+  70: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 10} #Wall Position
+      rotations: [0] #Wall Rotation
+      sizes:
+      - !Vector3 {x: 7, y: 0.5, z: 1} #Wall Size
+      colors:
+      - !RGB {r: 153, g: 153, b: 153} #Wall Color
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 30} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1} #GoodGoal Size
+
+    blackouts: [-15]
+  71: !Arena
+    pass_mark: -0.1 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 30, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+
+  72: !Arena
+    pass_mark: -0.6 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 20}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+
+
+    blackouts: [-15]
+  73: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: WallTransparent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 17.5} #Transparent Wall Position
+      rotations: [0] #Transparent Wall Rotation
+      sizes:
+      - !Vector3 {x: 7, y: 5, z: 1} #Transparent Wall Size
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 27.5} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5} #GoodGoal Size
+
+
+  74: !Arena
+    pass_mark: -0.1 #End.9 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 30}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+
+
+  75: !Arena
+    pass_mark: 0 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 10}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+  76: !Arena
+    pass_mark: 3 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 30}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+
+  77: !Arena
+    pass_mark: 1 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 10}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+
+    blackouts: [-15]
+  78: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: DeathZone
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 15} # Lava Position
+      rotations: [0] # Lava Rotation
+      sizes:
+      - !Vector3 {x: 7, y: 0.1, z: 1} # Lava Size
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4} #GoodGoal Size
+
+
+    blackouts: [-15]
+  79: !Arena
+    pass_mark: -0.1 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 30}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+
+
+  80: !Arena
+    pass_mark: -0.1 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 30, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+
+    blackouts: [-15]
+  81: !Arena
+    pass_mark: 1
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+    blackouts: [-15]
+  82: !Arena
+    pass_mark: 18.9 #total score to pass
+    t: 750
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 17, y: 0, z: 35}
+      - !Vector3 {x: 13, y: 0, z: 4}
+      - !Vector3 {x: 23, y: 0, z: 16}
+      - !Vector3 {x: 10, y: 0, z: 25}
+      - !Vector3 {x: 30, y: 0, z: 17}
+      rotations: [0,0,0,0,0]
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+      - !Vector3 {x: 4, y: 4, z: 4}
+      - !Vector3 {x: 4, y: 4, z: 4}
+      - !Vector3 {x: 4, y: 4, z: 4}
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+  83: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 1.5, z: 20}
+      rotations: [180] #Agent rotation
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 25} # Platform Position
+      rotations: [0] # Platform Rotation
+      sizes:
+      - !Vector3 {x: 40, y: 1.5, z: 30} # Platform Size
+      colors:
+      - !RGB {r: 0, g: 0, b: 256} #Platform Color
+    - !Item
+      name: Ramp
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 7.5} # Ramp Position
+      rotations: [180] # Ramp Rotation
+      sizes:
+      - !Vector3 {x: 20, y: 1.5, z: 5} # Ramp Size
+      colors:
+      - !RGB {r: 256, g: 0, b: 256} #Ramp Color
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 1.5, z: 3} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 5, y: 5, z: 5} #GoodGoal Size
+
+    blackouts: [-15]
+  84: !Arena
+    pass_mark: 1 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 30}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+  85: !Arena
+    pass_mark: -0.1 #End.9 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [180]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+
+    blackouts: [-15]
+  86: !Arena
+    pass_mark: -0.6 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 30}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+
+
+  87: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 25} # Platform Position
+      rotations: [0] # Platform Rotation
+      sizes:
+      - !Vector3 {x: 40, y: 1.5, z: 30} # Platform Size
+      colors:
+      - !RGB {r: 0, g: 0, b: 256} #Platform Color
+    - !Item
+      name: Ramp
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 7.5} # Ramp Position
+      rotations: [180] # Ramp Rotation
+      sizes:
+      - !Vector3 {x: 20, y: 1.5, z: 5} # Ramp Size
+      colors:
+      - !RGB {r: 256, g: 0, b: 256} #Ramp Color
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 15, y: 1.5, z: 20} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 5, y: 5, z: 5} #GoodGoal Size
+    blackouts: [-15]
+  88: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 25} # Platform Position
+      rotations: [0] # Platform Rotation
+      sizes:
+      - !Vector3 {x: 40, y: 1.5, z: 30} # Platform Size
+      colors:
+      - !RGB {r: 0, g: 0, b: 256} #Platform Color
+    - !Item
+      name: Ramp
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 7.5} # Ramp Position
+      rotations: [180] # Ramp Rotation
+      sizes:
+      - !Vector3 {x: 20, y: 1.5, z: 5} # Ramp Size
+      colors:
+      - !RGB {r: 256, g: 0, b: 256} #Ramp Color
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 1.5, z: 20} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 5, y: 5, z: 5} #GoodGoal Size
+    blackouts: [-15]
+  89: !Arena
+    pass_mark: 1
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+  90: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 25} # Platform Position
+      rotations: [0] # Platform Rotation
+      sizes:
+      - !Vector3 {x: 40, y: 1.5, z: 30} # Platform Size
+      colors:
+      - !RGB {r: 0, g: 0, b: 256} #Platform Color
+    - !Item
+      name: Ramp
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 7.5} # Ramp Position
+      rotations: [180] # Ramp Rotation
+      sizes:
+      - !Vector3 {x: 20, y: 1.5, z: 5} # Ramp Size
+      colors:
+      - !RGB {r: 256, g: 0, b: 256} #Ramp Color
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 25, y: 1.5, z: 20} #GoodGoalMulti Position
+      sizes:
+      - !Vector3 {x: 5, y: 5, z: 5} #GoodGoalMulti Size
+    blackouts: [-15]
+  91: !Arena
+    pass_mark: 1 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 20}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+  92: !Arena
+    pass_mark: -0.1 #End.9 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [180]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+
+  93: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 25} # Platform Position
+      rotations: [0] # Platform Rotation
+      sizes:
+      - !Vector3 {x: 40, y: 1.5, z: 30} # Platform Size
+      colors:
+      - !RGB {r: 0, g: 0, b: 256} #Platform Color
+    - !Item
+      name: Ramp
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 7.5} # Ramp Position
+      rotations: [180] # Ramp Rotation
+      sizes:
+      - !Vector3 {x: 20, y: 1.5, z: 5} # Ramp Size
+      colors:
+      - !RGB {r: 256, g: 0, b: 256} #Ramp Color
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 15, y: 1.5, z: 20} #GoodGoalMulti Position
+      sizes:
+      - !Vector3 {x: 5, y: 5, z: 5} #GoodGoalMulti Size
+  94: !Arena
+    pass_mark: -0.1 #End.9 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 10}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+
+    blackouts: [-15]
+  95: !Arena
+    pass_mark: -0.1 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 20}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+
+  96: !Arena
+    pass_mark: 3
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+    blackouts: [-15]
+  97: !Arena
+    pass_mark: 2.9 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 10}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+
+  98: !Arena
+    pass_mark: -0.5
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: .5, y: .5, z: .5}
+
+  99: !Arena
+    pass_mark: -0.6 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 20}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+
+    blackouts: [-15]
+  100: !Arena
+    pass_mark: 0
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [180]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+    blackouts: [-15]
+  101: !Arena
+    pass_mark: -0.6 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [180]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: .5, y: .5, z: .5}
+
+
+
+    blackouts: [-15]
+  102: !Arena
+    pass_mark: -0.5
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 20}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+
+    blackouts: [-15]
+  103: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: WallTransparent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 17.5} #Transparent Wall Position
+      rotations: [0] #Transparent Wall Rotation
+      sizes:
+      - !Vector3 {x: 7, y: 5, z: 1} #Transparent Wall Size
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 27.5} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2} #GoodGoal Size
+
+
+  104: !Arena
+    pass_mark: -0.1 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+  105: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: DeathZone
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 15} # Lava Position
+      rotations: [0] # Lava Rotation
+      sizes:
+      - !Vector3 {x: 7, y: 0.1, z: 1} # Lava Size
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2} #GoodGoal Size
+
+
+    blackouts: [-15]
+  106: !Arena
+    pass_mark: 2.9 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 37.5}
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+  107: !Arena
+    pass_mark: 2.9 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 37.5}
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+    blackouts: [-15]
+  108: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: WallTransparent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 17.5} #Transparent Wall Position
+      rotations: [0] #Transparent Wall Rotation
+      sizes:
+      - !Vector3 {x: 7, y: 5, z: 1} #Transparent Wall Size
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 27.5} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1} #GoodGoal Size
+
+    blackouts: [-15]
+  109: !Arena
+    pass_mark: -0.5
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 10}
+      sizes:
+      - !Vector3 {x: .5, y: .5, z: .5}
+
+    blackouts: [-15]
+  110: !Arena
+    pass_mark: -0.6 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 30, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: .5, y: .5, z: .5}
+
+
+
+  111: !Arena
+    pass_mark: 2.9 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 30}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+
+
+  112: !Arena
+    t: 500
+    pass_mark: 0.5
+    items:
+      - !Item
+        name: Agent
+        positions:
+        - !Vector3 {x: 20, y: 0, z: 15}
+        rotations: [0] #Agent Rotation Parameter
+      - !Item
+        name: CylinderTunnel
+        positions:
+        - !Vector3 {x: 20, y: 0, z: 25}
+        - !Vector3 {x: 27.5, y: 0, z: 22.99}
+        - !Vector3 {x: 12.5, y: 0, z: 22.99}
+        sizes:
+        - !Vector3 {x: 5, y: 10, z: 4}
+        - !Vector3 {x: 5, y: 10, z: 4}
+        - !Vector3 {x: 5, y: 10, z: 4}
+        colors:
+        - !RGB {r: 153, g: 153, b: 153} #color parameter
+        - !RGB {r: 153, g: 153, b: 153} #color parameter
+        - !RGB {r: 153, g: 153, b: 153} #color parameter
+        rotations: [0, 60, 300]
+      - !Item
+        name: GoodGoal
+        positions:
+        - !Vector3 {x: 12.5, y: 0, z: 23.5}
+        sizes:
+        - !Vector3 {x: 1.5, y: 1.5, z: 1.5} #Goal Size
+  113: !Arena
+    pass_mark: -0.5
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 20}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+    blackouts: [-15]
+  114: !Arena
+    pass_mark: 0 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 30}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+
+    blackouts: [-15]
+  115: !Arena
+    pass_mark: 3
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 37.5}
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+  116: !Arena
+    pass_mark: -0.6 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 10}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+
+
+    blackouts: [-15]
+  117: !Arena
+    pass_mark: 2.9 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 30}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+
+  118: !Arena
+    pass_mark: 2.9 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 20}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+
+  119: !Arena
+    pass_mark: -0.1 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 10}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+
+    blackouts: [-15]
+  120: !Arena
+    pass_mark: 3
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 10, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+  121: !Arena
+    pass_mark: -0.1 #End.9 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 30}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+
+  122: !Arena
+    pass_mark: 1 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 10}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+
+  123: !Arena
+    pass_mark: 2.9 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 10}
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+    blackouts: [-15]
+  124: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 10} #Wall Position
+      rotations: [0] #Wall Rotation
+      sizes:
+      - !Vector3 {x: 7, y: 0.5, z: 1} #Wall Size
+      colors:
+      - !RGB {r: 153, g: 153, b: 153} #Wall Color
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 30} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5} #GoodGoal Size
+
+
+    blackouts: [-15]
+  125: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 1.5, z: 20}
+      rotations: [180] #Agent rotation
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 25} # Platform Position
+      rotations: [0] # Platform Rotation
+      sizes:
+      - !Vector3 {x: 40, y: 1.5, z: 30} # Platform Size
+      colors:
+      - !RGB {r: 0, g: 0, b: 256} #Platform Color
+    - !Item
+      name: Ramp
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 7.5} # Ramp Position
+      rotations: [180] # Ramp Rotation
+      sizes:
+      - !Vector3 {x: 20, y: 1.5, z: 5} # Ramp Size
+      colors:
+      - !RGB {r: 256, g: 0, b: 256} #Ramp Color
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 25, y: 1.5, z: 3} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 5, y: 5, z: 5} #GoodGoal Size
+
+  126: !Arena
+    pass_mark: -0.1 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 10}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+
+
+  127: !Arena
+    pass_mark: -0.6 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 20}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+
+
+  128: !Arena
+    pass_mark: 8.9 #total score to pass
+    t: 750
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 17, y: 0, z: 35}
+      - !Vector3 {x: 13, y: 0, z: 4}
+      - !Vector3 {x: 23, y: 0, z: 16}
+      - !Vector3 {x: 10, y: 0, z: 25}
+      - !Vector3 {x: 30, y: 0, z: 17}
+      rotations: [0,0,0,0,0]
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+      - !Vector3 {x: 2, y: 2, z: 2}
+      - !Vector3 {x: 2, y: 2, z: 2}
+      - !Vector3 {x: 2, y: 2, z: 2}
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+    blackouts: [-15]
+  129: !Arena
+    pass_mark: 2.9 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 10, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+
+    blackouts: [-15]
+  130: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 1.5, z: 20}
+      rotations: [180] #Agent rotation
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 25} # Platform Position
+      rotations: [0] # Platform Rotation
+      sizes:
+      - !Vector3 {x: 40, y: 1.5, z: 30} # Platform Size
+      colors:
+      - !RGB {r: 0, g: 0, b: 256} #Platform Color
+    - !Item
+      name: Ramp
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 7.5} # Ramp Position
+      rotations: [180] # Ramp Rotation
+      sizes:
+      - !Vector3 {x: 20, y: 1.5, z: 5} # Ramp Size
+      colors:
+      - !RGB {r: 256, g: 0, b: 256} #Ramp Color
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 15, y: 1.5, z: 3} #GoodGoalMulti Position
+      sizes:
+      - !Vector3 {x: 5, y: 5, z: 5} #GoodGoalMulti Size
+
+    blackouts: [-15]
+  131: !Arena
+    pass_mark: 3
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [180]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+  132: !Arena
+    pass_mark: -0.5
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 20}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+
+  133: !Arena
+    pass_mark: 1
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 37.5}
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+  134: !Arena
+    pass_mark: 2.9 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 10}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+
+    blackouts: [-15]
+  135: !Arena
+    pass_mark: -0.1 #End.9 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 20}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+  136: !Arena
+    pass_mark: -0.1 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 10}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+
+
+    blackouts: [-15]
+  137: !Arena
+    pass_mark: -0.5
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 10, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: .5, y: .5, z: .5}
+
+
+  138: !Arena
+    pass_mark: 2.9 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [180]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+
+  139: !Arena
+    pass_mark: -0.6 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 10}
+      sizes:
+      - !Vector3 {x: .5, y: .5, z: .5}
+
+
+  140: !Arena
+    pass_mark: -0.1 #End.9 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 10}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+
+
+    blackouts: [-15]
+  141: !Arena
+    pass_mark: 0
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [180]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+  142: !Arena
+    pass_mark: -0.5
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [180]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: .5, y: .5, z: .5}
+
+
+  143: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 10} #Wall Position
+      rotations: [0] #Wall Rotation
+      sizes:
+      - !Vector3 {x: 7, y: 0.5, z: 1} #Wall Size
+      colors:
+      - !RGB {r: 153, g: 153, b: 153} #Wall Color
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 30} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1} #GoodGoal Size
+
+  144: !Arena
+    pass_mark: 1
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 30, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+  145: !Arena
+    pass_mark: 0 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 20}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+  146: !Arena
+    pass_mark: -0.6 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 30}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+
+
+    blackouts: [-15]
+  147: !Arena
+    pass_mark: -0.1 #End.9 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 10}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+
+
+  148: !Arena
+    pass_mark: 3 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 10}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+
+  149: !Arena
+    pass_mark: -0.1 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 20}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+
+    blackouts: [-15]
+  150: !Arena
+    pass_mark: -0.5
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: .5, y: .5, z: .5}
+
+    blackouts: [-15]
+  151: !Arena
+    pass_mark: 1
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [180]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+  152: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 1.5, z: 20}
+      rotations: [180] #Agent rotation
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 25} # Platform Position
+      rotations: [0] # Platform Rotation
+      sizes:
+      - !Vector3 {x: 40, y: 1.5, z: 30} # Platform Size
+      colors:
+      - !RGB {r: 0, g: 0, b: 256} #Platform Color
+    - !Item
+      name: Ramp
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 7.5} # Ramp Position
+      rotations: [180] # Ramp Rotation
+      sizes:
+      - !Vector3 {x: 20, y: 1.5, z: 5} # Ramp Size
+      colors:
+      - !RGB {r: 256, g: 0, b: 256} #Ramp Color
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 25, y: 1.5, z: 3} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 5, y: 5, z: 5} #GoodGoal Size
+
+    blackouts: [-15]
+  153: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 25} # Platform Position
+      rotations: [0] # Platform Rotation
+      sizes:
+      - !Vector3 {x: 40, y: 1.5, z: 30} # Platform Size
+      colors:
+      - !RGB {r: 0, g: 0, b: 256} #Platform Color
+    - !Item
+      name: Ramp
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 7.5} # Ramp Position
+      rotations: [180] # Ramp Rotation
+      sizes:
+      - !Vector3 {x: 20, y: 1.5, z: 5} # Ramp Size
+      colors:
+      - !RGB {r: 256, g: 0, b: 256} #Ramp Color
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 15, y: 1.5, z: 20} #GoodGoalMulti Position
+      sizes:
+      - !Vector3 {x: 5, y: 5, z: 5} #GoodGoalMulti Size
+    blackouts: [-15]
+  154: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 1.5, z: 20}
+      rotations: [180] #Agent rotation
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 25} # Platform Position
+      rotations: [0] # Platform Rotation
+      sizes:
+      - !Vector3 {x: 40, y: 1.5, z: 30} # Platform Size
+      colors:
+      - !RGB {r: 0, g: 0, b: 256} #Platform Color
+    - !Item
+      name: Ramp
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 7.5} # Ramp Position
+      rotations: [180] # Ramp Rotation
+      sizes:
+      - !Vector3 {x: 20, y: 1.5, z: 5} # Ramp Size
+      colors:
+      - !RGB {r: 256, g: 0, b: 256} #Ramp Color
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 15, y: 1.5, z: 3} #GoodGoalMulti Position
+      sizes:
+      - !Vector3 {x: 5, y: 5, z: 5} #GoodGoalMulti Size
+
+  155: !Arena
+    pass_mark: 3 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 10}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+
+    blackouts: [-15]
+  156: !Arena
+    pass_mark: 1
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 37.5}
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+    blackouts: [-15]
+  157: !Arena
+    pass_mark: -0.6 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 30}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+
+
+
+  158: !Arena
+    pass_mark: -0.1 #End.9 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 30}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+
+    blackouts: [-15]
+  159: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 10} #Wall Position
+      rotations: [0] #Wall Rotation
+      sizes:
+      - !Vector3 {x: 7, y: 0.5, z: 1} #Wall Size
+      colors:
+      - !RGB {r: 153, g: 153, b: 153} #Wall Color
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 30} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2} #GoodGoal Size
+
+
+  160: !Arena
+    pass_mark: -0.1 #End.9 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 10, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+
+    blackouts: [-15]
+  161: !Arena
+    pass_mark: 3 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 30}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+
+    blackouts: [-15]
+  162: !Arena
+    pass_mark: -0.6 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 20}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+
+  163: !Arena
+    pass_mark: 1 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 20}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+    blackouts: [-15]
+  164: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 10} #Wall Position
+      rotations: [0] #Wall Rotation
+      sizes:
+      - !Vector3 {x: 7, y: 0.5, z: 1} #Wall Size
+      colors:
+      - !RGB {r: 153, g: 153, b: 153} #Wall Color
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 30} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4} #GoodGoal Size
+
+
+    blackouts: [-15]
+  165: !Arena
+    pass_mark: 8.9 #total score to pass
+    t: 750
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 17, y: 0, z: 35}
+      - !Vector3 {x: 13, y: 0, z: 4}
+      - !Vector3 {x: 23, y: 0, z: 16}
+      - !Vector3 {x: 10, y: 0, z: 25}
+      - !Vector3 {x: 30, y: 0, z: 17}
+      rotations: [0,0,0,0,0]
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+      - !Vector3 {x: 2, y: 2, z: 2}
+      - !Vector3 {x: 2, y: 2, z: 2}
+      - !Vector3 {x: 2, y: 2, z: 2}
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+  166: !Arena
+    pass_mark: 1
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 30, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+    blackouts: [-15]
+  167: !Arena
+    pass_mark: -0.5
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 10}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+
+  168: !Arena
+    pass_mark: 1 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 20}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+    blackouts: [-15]
+  169: !Arena
+    pass_mark: -0.5
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 10}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+
+
+  170: !Arena
+    pass_mark: -0.1 #End.9 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 10}
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+  171: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: WallTransparent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 17.5} #Transparent Wall Position
+      rotations: [0] #Transparent Wall Rotation
+      sizes:
+      - !Vector3 {x: 7, y: 5, z: 1} #Transparent Wall Size
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 27.5} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4} #GoodGoal Size
+
+
+  172: !Arena
+    pass_mark: -0.5
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 30}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+
+
+    blackouts: [-15]
+  173: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: WallTransparent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 17.5} #Transparent Wall Position
+      rotations: [0] #Transparent Wall Rotation
+      sizes:
+      - !Vector3 {x: 7, y: 5, z: 1} #Transparent Wall Size
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 27.5} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2} #GoodGoal Size
+
+
+    blackouts: [-15]
+  174: !Arena
+    pass_mark: -0.6 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 30, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: .5, y: .5, z: .5}
+
+
+
+    blackouts: [-15]
+  175: !Arena
+    pass_mark: -0.1 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 10}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+    blackouts: [-15]
+  176: !Arena
+    pass_mark: 3.9 #total score to pass
+    t: 750
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 17, y: 0, z: 35}
+      - !Vector3 {x: 13, y: 0, z: 4}
+      - !Vector3 {x: 23, y: 0, z: 16}
+      - !Vector3 {x: 10, y: 0, z: 25}
+      - !Vector3 {x: 30, y: 0, z: 17}
+      rotations: [0,0,0,0,0]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+      - !Vector3 {x: 1, y: 1, z: 1}
+      - !Vector3 {x: 1, y: 1, z: 1}
+      - !Vector3 {x: 1, y: 1, z: 1}
+      - !Vector3 {x: 1, y: 1, z: 1}
+  177: !Arena
+    pass_mark: 3
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 10}
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+    blackouts: [-15]
+  178: !Arena
+    pass_mark: 0
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 10, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+  179: !Arena
+    pass_mark: 3
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+  180: !Arena
+    pass_mark: -0.5
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [180]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: .5, y: .5, z: .5}
+
+
+    blackouts: [-15]
+  181: !Arena
+    pass_mark: 0
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1.1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 10, y: 0, z: 10}
+      - !Vector3 {x: 15, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+      - !Vector3 {x: 2, y: 2, z: 2}
+  182: !Arena
+    pass_mark: -0.1 #End.9 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 20}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+    blackouts: [-15]
+  183: !Arena
+    pass_mark: 0
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 30, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+    blackouts: [-15]
+  184: !Arena
+    pass_mark: -0.1 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 10, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+
+  185: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 25} # Platform Position
+      rotations: [0] # Platform Rotation
+      sizes:
+      - !Vector3 {x: 40, y: 1.5, z: 30} # Platform Size
+      colors:
+      - !RGB {r: 0, g: 0, b: 256} #Platform Color
+    - !Item
+      name: Ramp
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 7.5} # Ramp Position
+      rotations: [180] # Ramp Rotation
+      sizes:
+      - !Vector3 {x: 20, y: 1.5, z: 5} # Ramp Size
+      colors:
+      - !RGB {r: 256, g: 0, b: 256} #Ramp Color
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 25, y: 1.5, z: 20} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 5, y: 5, z: 5} #GoodGoal Size
+    blackouts: [-15]
+  186: !Arena
+    pass_mark: 3
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 10, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+    blackouts: [-15]
+  187: !Arena
+    pass_mark: 18.9 #total score to pass
+    t: 750
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 17, y: 0, z: 35}
+      - !Vector3 {x: 13, y: 0, z: 4}
+      - !Vector3 {x: 23, y: 0, z: 16}
+      - !Vector3 {x: 10, y: 0, z: 25}
+      - !Vector3 {x: 30, y: 0, z: 17}
+      rotations: [0,0,0,0,0]
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+      - !Vector3 {x: 4, y: 4, z: 4}
+      - !Vector3 {x: 4, y: 4, z: 4}
+      - !Vector3 {x: 4, y: 4, z: 4}
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+    blackouts: [-15]
+  188: !Arena
+    pass_mark: -0.1 #End.9 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 37.5}
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+    blackouts: [-15]
+  189: !Arena
+    pass_mark: -0.5
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 10, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: .5, y: .5, z: .5}
+
+
+    blackouts: [-15]
+  190: !Arena
+    pass_mark: -0.6 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [180]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: .5, y: .5, z: .5}
+
+
+
+  191: !Arena
+    pass_mark: 2.9 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 10}
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+  192: !Arena
+    pass_mark: 3
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 30, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+  193: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 10} #Wall Position
+      rotations: [0] #Wall Rotation
+      sizes:
+      - !Vector3 {x: 7, y: 0.5, z: 1} #Wall Size
+      colors:
+      - !RGB {r: 153, g: 153, b: 153} #Wall Color
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 30} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4} #GoodGoal Size
+
+
+  194: !Arena
+    pass_mark: 0
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 37.5}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+    blackouts: [-15]
+  195: !Arena
+    t: 500
+    pass_mark: 0.5
+    items:
+      - !Item
+        name: Agent
+        positions:
+        - !Vector3 {x: 20, y: 0, z: 15}
+        rotations: [0] #Agent Rotation Parameter
+      - !Item
+        name: CylinderTunnel
+        positions:
+        - !Vector3 {x: 20, y: 0, z: 25}
+        - !Vector3 {x: 27.5, y: 0, z: 22.99}
+        - !Vector3 {x: 12.5, y: 0, z: 22.99}
+        sizes:
+        - !Vector3 {x: 5, y: 10, z: 4}
+        - !Vector3 {x: 5, y: 10, z: 4}
+        - !Vector3 {x: 5, y: 10, z: 4}
+        colors:
+        - !RGB {r: 236, g: 195, b: 153} #color parameter
+        - !RGB {r: 236, g: 195, b: 153} #color parameter
+        - !RGB {r: 236, g: 195, b: 153} #color parameter
+        rotations: [0, 60, 300]
+      - !Item
+        name: GoodGoal
+        positions:
+        - !Vector3 {x: 27.5, y: 0, z: 22.5}
+        sizes:
+        - !Vector3 {x: 1.5, y: 1.5, z: 1.5} #Goal Size
+  196: !Arena
+    pass_mark: -0.1 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 37.5}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+    blackouts: [-15]
+  197: !Arena
+    pass_mark: 3 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 10}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+    blackouts: [-15]
+  198: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 25} # Platform Position
+      rotations: [0] # Platform Rotation
+      sizes:
+      - !Vector3 {x: 40, y: 1.5, z: 30} # Platform Size
+      colors:
+      - !RGB {r: 0, g: 0, b: 256} #Platform Color
+    - !Item
+      name: Ramp
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 7.5} # Ramp Position
+      rotations: [180] # Ramp Rotation
+      sizes:
+      - !Vector3 {x: 20, y: 1.5, z: 5} # Ramp Size
+      colors:
+      - !RGB {r: 256, g: 0, b: 256} #Ramp Color
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 25, y: 1.5, z: 20} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 5, y: 5, z: 5} #GoodGoal Size
+  199: !Arena
+    pass_mark: 0 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 20}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+    blackouts: [-15]
+  200: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 1.5, z: 20}
+      rotations: [180] #Agent rotation
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 25} # Platform Position
+      rotations: [0] # Platform Rotation
+      sizes:
+      - !Vector3 {x: 40, y: 1.5, z: 30} # Platform Size
+      colors:
+      - !RGB {r: 0, g: 0, b: 256} #Platform Color
+    - !Item
+      name: Ramp
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 7.5} # Ramp Position
+      rotations: [180] # Ramp Rotation
+      sizes:
+      - !Vector3 {x: 20, y: 1.5, z: 5} # Ramp Size
+      colors:
+      - !RGB {r: 256, g: 0, b: 256} #Ramp Color
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 15, y: 1.5, z: 3} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 5, y: 5, z: 5} #GoodGoal Size
+
+  201: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: DeathZone
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 15} # Lava Position
+      rotations: [0] # Lava Rotation
+      sizes:
+      - !Vector3 {x: 7, y: 0.1, z: 1} # Lava Size
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5} #GoodGoal Size
+
+
+  202: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 25} # Platform Position
+      rotations: [0] # Platform Rotation
+      sizes:
+      - !Vector3 {x: 40, y: 1.5, z: 30} # Platform Size
+      colors:
+      - !RGB {r: 0, g: 0, b: 256} #Platform Color
+    - !Item
+      name: Ramp
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 7.5} # Ramp Position
+      rotations: [180] # Ramp Rotation
+      sizes:
+      - !Vector3 {x: 20, y: 1.5, z: 5} # Ramp Size
+      colors:
+      - !RGB {r: 256, g: 0, b: 256} #Ramp Color
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 1.5, z: 20} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 5, y: 5, z: 5} #GoodGoal Size
+  203: !Arena
+    pass_mark: -0.6 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 37.5}
+      sizes:
+      - !Vector3 {x: .5, y: .5, z: .5}
+
+    blackouts: [-15]
+  204: !Arena
+    pass_mark: -0.1 #End.9 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 10}
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+    blackouts: [-15]
+  205: !Arena
+    pass_mark: 0 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 30}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+    blackouts: [-15]
+  206: !Arena
+    pass_mark: 0 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 30}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+  207: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 25} # Platform Position
+      rotations: [0] # Platform Rotation
+      sizes:
+      - !Vector3 {x: 40, y: 1.5, z: 30} # Platform Size
+      colors:
+      - !RGB {r: 0, g: 0, b: 256} #Platform Color
+    - !Item
+      name: Ramp
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 7.5} # Ramp Position
+      rotations: [180] # Ramp Rotation
+      sizes:
+      - !Vector3 {x: 20, y: 1.5, z: 5} # Ramp Size
+      colors:
+      - !RGB {r: 256, g: 0, b: 256} #Ramp Color
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 15, y: 1.5, z: 20} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 5, y: 5, z: 5} #GoodGoal Size
+  208: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: DeathZone
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 15} # Lava Position
+      rotations: [0] # Lava Rotation
+      sizes:
+      - !Vector3 {x: 7, y: 0.1, z: 1} # Lava Size
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1} #GoodGoal Size
+
+    blackouts: [-15]
+  209: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: DeathZone
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 15} # Lava Position
+      rotations: [0] # Lava Rotation
+      sizes:
+      - !Vector3 {x: 7, y: 0.1, z: 1} # Lava Size
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2} #GoodGoal Size
+
+
+  210: !Arena
+    pass_mark: -0.1 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [180]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+
+  211: !Arena
+    pass_mark: 3 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 20}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+    blackouts: [-15]
+  212: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: WallTransparent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 17.5} #Transparent Wall Position
+      rotations: [0] #Transparent Wall Rotation
+      sizes:
+      - !Vector3 {x: 7, y: 5, z: 1} #Transparent Wall Size
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 27.5} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1} #GoodGoal Size
+
+  213: !Arena
+    pass_mark: -0.1 #End.9 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 30, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+
+    blackouts: [-15]
+  214: !Arena
+    pass_mark: -0.6 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 37.5}
+      sizes:
+      - !Vector3 {x: .5, y: .5, z: .5}
+
+  215: !Arena
+    pass_mark: -0.6 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 30}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+
+
+
+    blackouts: [-15]
+  216: !Arena
+    pass_mark: 1
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 10, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+  217: !Arena
+    pass_mark: 1
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [180]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+    blackouts: [-15]
+  218: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 1.5, z: 20}
+      rotations: [180] #Agent rotation
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 25} # Platform Position
+      rotations: [0] # Platform Rotation
+      sizes:
+      - !Vector3 {x: 40, y: 1.5, z: 30} # Platform Size
+      colors:
+      - !RGB {r: 0, g: 0, b: 256} #Platform Color
+    - !Item
+      name: Ramp
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 7.5} # Ramp Position
+      rotations: [180] # Ramp Rotation
+      sizes:
+      - !Vector3 {x: 20, y: 1.5, z: 5} # Ramp Size
+      colors:
+      - !RGB {r: 256, g: 0, b: 256} #Ramp Color
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 15, y: 1.5, z: 3} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 5, y: 5, z: 5} #GoodGoal Size
+
+    blackouts: [-15]
+  219: !Arena
+    pass_mark: 0
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 30, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+  220: !Arena
+    pass_mark: -0.5
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 10}
+      sizes:
+      - !Vector3 {x: .5, y: .5, z: .5}
+
+  221: !Arena
+    pass_mark: -0.1 #End.9 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 30}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+
+
+    blackouts: [-15]
+  222: !Arena
+    pass_mark: 1
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 10}
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+  223: !Arena
+    pass_mark: -0.1 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 10}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+  224: !Arena
+    pass_mark: -0.6 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 10}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+
+
+
+  225: !Arena
+    pass_mark: -0.1 #End.9 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 37.5}
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+  226: !Arena
+    pass_mark: 2.9 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 20}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+  227: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 1.5, z: 20}
+      rotations: [180] #Agent rotation
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 25} # Platform Position
+      rotations: [0] # Platform Rotation
+      sizes:
+      - !Vector3 {x: 40, y: 1.5, z: 30} # Platform Size
+      colors:
+      - !RGB {r: 0, g: 0, b: 256} #Platform Color
+    - !Item
+      name: Ramp
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 7.5} # Ramp Position
+      rotations: [180] # Ramp Rotation
+      sizes:
+      - !Vector3 {x: 20, y: 1.5, z: 5} # Ramp Size
+      colors:
+      - !RGB {r: 256, g: 0, b: 256} #Ramp Color
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 1.5, z: 3} #GoodGoalMulti Position
+      sizes:
+      - !Vector3 {x: 5, y: 5, z: 5} #GoodGoalMulti Size
+
+    blackouts: [-15]
+  228: !Arena
+    pass_mark: 0
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 10}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+  229: !Arena
+    pass_mark: -0.5
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 10}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+
+    blackouts: [-15]
+  230: !Arena
+    pass_mark: 2.9 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 37, y: 0, z: 10}
+      rotations: [270]
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+
+
+    blackouts: [-15]
+  231: !Arena
+    pass_mark: 2.9 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 30}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+
+    blackouts: [-15]
+  232: !Arena
+    pass_mark: 0 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 20}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+    blackouts: [-15]
+  233: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 25} # Platform Position
+      rotations: [0] # Platform Rotation
+      sizes:
+      - !Vector3 {x: 40, y: 1.5, z: 30} # Platform Size
+      colors:
+      - !RGB {r: 0, g: 0, b: 256} #Platform Color
+    - !Item
+      name: Ramp
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 7.5} # Ramp Position
+      rotations: [180] # Ramp Rotation
+      sizes:
+      - !Vector3 {x: 20, y: 1.5, z: 5} # Ramp Size
+      colors:
+      - !RGB {r: 256, g: 0, b: 256} #Ramp Color
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 1.5, z: 20} #GoodGoalMulti Position
+      sizes:
+      - !Vector3 {x: 5, y: 5, z: 5} #GoodGoalMulti Size
+    blackouts: [-15]
+  234: !Arena
+    pass_mark: 0 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 10}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+    blackouts: [-15]
+  235: !Arena
+    pass_mark: -0.1 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 20}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+  236: !Arena
+    pass_mark: 3
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 30, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+    blackouts: [-15]
+  237: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 1.5, z: 20}
+      rotations: [180] #Agent rotation
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 25} # Platform Position
+      rotations: [0] # Platform Rotation
+      sizes:
+      - !Vector3 {x: 40, y: 1.5, z: 30} # Platform Size
+      colors:
+      - !RGB {r: 0, g: 0, b: 256} #Platform Color
+    - !Item
+      name: Ramp
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 7.5} # Ramp Position
+      rotations: [180] # Ramp Rotation
+      sizes:
+      - !Vector3 {x: 20, y: 1.5, z: 5} # Ramp Size
+      colors:
+      - !RGB {r: 256, g: 0, b: 256} #Ramp Color
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 25, y: 1.5, z: 3} #GoodGoalMulti Position
+      sizes:
+      - !Vector3 {x: 5, y: 5, z: 5} #GoodGoalMulti Size
+
+    blackouts: [-15]
+  238: !Arena
+    pass_mark: 1.5 #total score to pass
+    t: 750
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 17, y: 0, z: 35}
+      - !Vector3 {x: 13, y: 0, z: 4}
+      - !Vector3 {x: 23, y: 0, z: 16}
+      - !Vector3 {x: 10, y: 0, z: 25}
+      - !Vector3 {x: 30, y: 0, z: 17}
+      rotations: [0,0,0,0,0]
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+
+    blackouts: [-15]
+  239: !Arena
+    pass_mark: 1 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 10}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+  240: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: WallTransparent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 17.5} #Transparent Wall Position
+      rotations: [0] #Transparent Wall Rotation
+      sizes:
+      - !Vector3 {x: 7, y: 5, z: 1} #Transparent Wall Size
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 27.5} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5} #GoodGoal Size
+
+
+    blackouts: [-15]
+  241: !Arena
+    pass_mark: -0.5
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 37.5}
+      sizes:
+      - !Vector3 {x: .5, y: .5, z: .5}
+  242: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: WallTransparent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 17.5} #Transparent Wall Position
+      rotations: [0] #Transparent Wall Rotation
+      sizes:
+      - !Vector3 {x: 7, y: 5, z: 1} #Transparent Wall Size
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 27.5} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4} #GoodGoal Size
+
+
+    blackouts: [-15]
+  243: !Arena
+    pass_mark: 0
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 37.5}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+  244: !Arena
+    pass_mark: 0
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 10}
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+    blackouts: [-15]
+  245: !Arena
+    pass_mark: -0.1 #End.9 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 30, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 2, y: 2, z: 2}
+
+
+
+  246: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0] #Agent rotation
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 10} #Wall Position
+      rotations: [0] #Wall Rotation
+      sizes:
+      - !Vector3 {x: 7, y: 0.5, z: 1} #Wall Size
+      colors:
+      - !RGB {r: 153, g: 153, b: 153} #Wall Color
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 30} #GoodGoal Position
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5} #GoodGoal Size
+
+
+  247: !Arena
+    pass_mark: 1.5 #total score to pass
+    t: 750
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 17, y: 0, z: 35}
+      - !Vector3 {x: 13, y: 0, z: 4}
+      - !Vector3 {x: 23, y: 0, z: 16}
+      - !Vector3 {x: 10, y: 0, z: 25}
+      - !Vector3 {x: 30, y: 0, z: 17}
+      rotations: [0,0,0,0,0]
+      sizes:
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+      - !Vector3 {x: 0.5, y: 0.5, z: 0.5}
+
+  248: !Arena
+    pass_mark: -0.1 #End #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMultiBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 10}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 1, y: 1, z: 1}
+
+
+
+  249: !Arena
+    pass_mark: 3 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalBounce
+      positions:
+      - !Vector3 {x: 3, y: 0, z: 10}
+      rotations: [90]
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
+  250: !Arena
+    pass_mark: 3
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 10}
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+  251: !Arena
+    pass_mark: 0 #total score to pass
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 1.5, z: 20}
+      rotations: [180] #Agent rotation
+    - !Item
+      name: Wall
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 25} # Platform Position
+      rotations: [0] # Platform Rotation
+      sizes:
+      - !Vector3 {x: 40, y: 1.5, z: 30} # Platform Size
+      colors:
+      - !RGB {r: 0, g: 0, b: 256} #Platform Color
+    - !Item
+      name: Ramp
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 7.5} # Ramp Position
+      rotations: [180] # Ramp Rotation
+      sizes:
+      - !Vector3 {x: 20, y: 1.5, z: 5} # Ramp Size
+      colors:
+      - !RGB {r: 256, g: 0, b: 256} #Ramp Color
+    - !Item
+      name: GoodGoal
+      positions:
+      - !Vector3 {x: 25, y: 1.5, z: 3} #GoodGoalMulti Position
+      sizes:
+      - !Vector3 {x: 5, y: 5, z: 5} #GoodGoalMulti Size
+
+  252: !Arena
+    pass_mark: -0.6 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: .5, y: .5, z: .5}
+
+
+    blackouts: [-15]
+  253: !Arena
+    pass_mark: 2.9 #End
+    t: 500
+    items:
+    - !Item
+      name: Agent
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 1}
+      rotations: [0]
+    - !Item
+      name: GoodGoalMulti
+      positions:
+      - !Vector3 {x: 20, y: 0, z: 20}
+      sizes:
+      - !Vector3 {x: 4, y: 4, z: 4}
+
+
