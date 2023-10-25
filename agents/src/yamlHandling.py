@@ -78,7 +78,7 @@ def find_yaml_files_stratify(directory: Path, stratify = False, num_files: int =
             curriculum_overview.to_csv(curriculum_overview_path)
         return yaml_files, task_names
 
-def yaml_combinor(file_list: list, tmp_file_path: Path, shuffle = True):
+def yaml_combinor_shuffle(file_list: list, tmp_file_path: Path, shuffle = True):
     """
     Provide a list of paths to instances and the place you want to store the temporary file. You can change the name of the temporary file.
     """
@@ -94,6 +94,29 @@ def yaml_combinor(file_list: list, tmp_file_path: Path, shuffle = True):
                     output_file.writelines(lines)
         print(f"Yaml files combined. Saved to {tmp_file_path}")
         return tmp_file_path
+    except IOError as e:
+        print(e)
+        print("An error occurred while combining files.")
+
+def yaml_combinor(file_list: list, temp_file_location: str, stored_file_name = "TempConfig_0.yml"):
+    """
+    Provide a list of paths to instances and the place you want to store the temporary file. You can change the name of the temporary file.
+    """
+    temp_file_path = os.path.join(temp_file_location, stored_file_name)
+    
+    try:
+        with open(temp_file_path, 'w') as output_file:
+            for i, file in enumerate(file_list):
+                with open(file, 'r') as input_file:
+                    if i > 0:
+                        lines = input_file.readlines()[2:] #skip the first two lines that contain `!ArenaConfig\narenas:\n`
+                        lines[0] = lines[0].replace('0: !Arena', str(i) + ": !Arena").replace('-1: !Arena', str(i) + ": !Arena") #make sure to enumerate the arena objects properly
+                    else:
+                        lines = input_file.readlines()
+                        lines[2] = lines[2].replace('0: !Arena', str(i) + ": !Arena").replace('-1: !Arena', str(i) + ": !Arena") #make sure to enumerate the arena objects properly
+                    output_file.writelines(lines)
+        print(f"Yaml files combined. Saved to {temp_file_path}")
+        return temp_file_path
     except IOError as e:
         print(e)
         print("An error occurred while combining files.")
