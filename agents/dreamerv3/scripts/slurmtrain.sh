@@ -10,6 +10,3 @@ singularity run \
   ../../../dreamerv3-animalai/dreamerv3-animalai.sif \
   ./train.sh
 EOT
-# This is not necessary, as singularity will be default mount the current directory.
-# -v $(pwd):/dreamerv3-animalai/mnt/ \
-# --workdir /dreamerv3-animalai/mnt/ \
