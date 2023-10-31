@@ -1,3 +1,9 @@
+# Ignore Slurm files
+X*.out
+
+# Ignore Singularity builds
+*.sif
+
 # Add log files, except checkpoints, replay info, and tf logs
 logdir/**/replay
 logdir/**/checkpoint.ckpt*
