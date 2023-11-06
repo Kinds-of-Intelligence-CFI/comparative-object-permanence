@@ -90,7 +90,7 @@ def yaml_combinor_shuffle(file_list: list, tmp_file_path: Path, shuffle = True):
             for i, file in enumerate(file_list):
                 with open(file, 'r') as input_file:
                     lines = input_file.readlines()[2:] #skip the first two lines that contain `!ArenaConfig\narenas:\n`
-                    lines[0] = lines[0].replace('0: !Arena', str(i) + ": !Arena").replace('-1: !Arena', str(i) + ": !Arena") #make sure to enumerate the arena objects properly
+                    lines[0] = lines[0].replace('0: !Arena', '\n' + str(i) + ": !Arena").replace('-1: !Arena', '\n' + str(i) + ": !Arena") #make sure to enumerate the arena objects properly
                     output_file.writelines(lines)
         print(f"Yaml files combined. Saved to {tmp_file_path}")
         return tmp_file_path
@@ -110,10 +110,10 @@ def yaml_combinor(file_list: list, temp_file_location: str, stored_file_name = "
                 with open(file, 'r') as input_file:
                     if i > 0:
                         lines = input_file.readlines()[2:] #skip the first two lines that contain `!ArenaConfig\narenas:\n`
-                        lines[0] = lines[0].replace('0: !Arena', str(i) + ": !Arena").replace('-1: !Arena', str(i) + ": !Arena") #make sure to enumerate the arena objects properly
+                        lines[0] = lines[0].replace('0: !Arena', '\n' + str(i) + ": !Arena").replace('-1: !Arena', '\n' + str(i) + ": !Arena") #make sure to enumerate the arena objects properly
                     else:
                         lines = input_file.readlines()
-                        lines[2] = lines[2].replace('0: !Arena', str(i) + ": !Arena").replace('-1: !Arena', str(i) + ": !Arena") #make sure to enumerate the arena objects properly
+                        lines[2] = lines[2].replace('0: !Arena', '\n' + str(i) + ": !Arena").replace('-1: !Arena', '\n' + str(i) + ": !Arena") #make sure to enumerate the arena objects properly
                     output_file.writelines(lines)
         print(f"Yaml files combined. Saved to {temp_file_path}")
         return temp_file_path
