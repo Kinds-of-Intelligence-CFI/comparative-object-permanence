@@ -9,8 +9,10 @@ Animal-AI Version: 3.0.2
 """
 
 import fnmatch
+import math
 import os
 import random
+import pandas as pd
 from pathlib import Path
 
 def find_yaml_files(directory):
