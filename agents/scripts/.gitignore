@@ -3,3 +3,6 @@
 *.RHistory
 *.RData
 *.vscode
+
+# build specific runs
+ppoEvaluation_*.ipynb
