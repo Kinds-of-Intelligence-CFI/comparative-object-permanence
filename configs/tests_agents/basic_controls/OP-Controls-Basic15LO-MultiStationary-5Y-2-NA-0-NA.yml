@@ -1,6 +1,6 @@
 !ArenaConfig
 arenas:
-  -1: !Arena
+  0: !Arena
     pass_mark: 8.9 #total score to pass
     t: 750
     items:
