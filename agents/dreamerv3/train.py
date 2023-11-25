@@ -1,3 +1,4 @@
+import os
 import logging
 import random
 import shutil
@@ -172,13 +173,14 @@ def run(args: Args):
         env_path = args.env
     logging.info(f"Using AAI executable file: {env_path}")
 
-    # Log some specific stuff for reference
-    logging.info(f"CLI Args: {args}")
-    if task_path:
-        shutil.copy(task_path, logdir / task_path.name)
-    else:
+    # Copy task file to logdir for reference
+    if task_path is None:
         (logdir / "empty_task.yaml").touch()
-
+    elif task_path.is_dir():
+        shutil.copytree(task_path, logdir / task_path.name)
+    else:
+        shutil.copy(task_path, logdir / task_path.name)
+        
     # Dreamer and AAI setup
     logging.info("Creating DreamerV3 and AAI Environment")
     agent_config = Glue.get_config(
@@ -193,7 +195,10 @@ def run(args: Args):
     )
     agent_config.save(logdir / "dreamer_config.yaml")
     logger, step = Glue.get_loggers(logdir, agent_config, args.wandb)
-    env = Glue.get_env(task_path, env_path, agent_config)
+    if task_path is not None and task_path.is_dir():
+        env = Glue.get_multi_env(task_path, env_path, agent_config)
+    else:
+        env = Glue.get_env(task_path, env_path, agent_config)
     agent, replay, run_args = Glue.get_agent(env, step, agent_config, logdir)
     env = utils.StepwiseCSVLogger(env, logdir)
 
@@ -250,7 +255,10 @@ class Glue:
                 "decoder.cnn_keys": "image" if observe_camera else "$^",
         })  # fmt: skip
 
-        config.update({"run.from_checkpoint": from_checkpoint or ""})
+        if from_checkpoint is not None:
+            logging.info(f"Loading checkpoint from {from_checkpoint}")
+            config = config.update({"run.from_checkpoint": from_checkpoint})
+
         config.update(dreamerv3.configs["debug"] if debug else {})
         config = embodied.Flags(config).parse(shlex.split(dreamer_args))
         return config
@@ -309,8 +317,8 @@ class Glue:
         logging.debug("Initializing AAI environment")
         aai_env = AnimalAIEnvironment(
             file_name=str(env_path),
-            base_port=port,
             arenas_configurations=str(task_path) if task_path is not None else "",
+            base_port=port,
             # Set pixels to 64x64 cause it has to be power of 2 for dreamerv3
             resolution=64,  # same size as Minecraft in DreamerV3
             useCamera=True,
@@ -325,48 +333,31 @@ class Glue:
             flatten_branched=True,  # Necessary. Dreamerv3 doesn't support MultiDiscrete action space.
         )
         env = EnvCompatibility(env, render_mode="rgb_array")  # type: ignore
-        env = AAItoDreamerObservationWrapper(env)
+        env = utils.AAItoDreamerObservationWrapper(env)
         env = from_gym.FromGym(env)
         logging.info(f"Using observation space {env.obs_space}")
         logging.info(f"Using action space {env.act_space}")
         env = dreamerv3.wrap_env(env, agent_config)
         env = embodied.BatchEnv([env], parallel=False)
-
         return env
 
-
-class AAItoDreamerObservationWrapper(gym.ObservationWrapper):  # type: ignore
-    """
-    Go from a tuple to dict observation space,
-    and split the raycast and extra (health, velocity, position) observations.
-
-    <https://www.gymlibrary.dev/api/wrappers/#observationwrapper>
-    """
-
-    def __init__(self, env: Env):
-        super().__init__(env)
-        tuple_obs_space: gym.spaces.Tuple = self.observation_space  # type: ignore
-
-        # RGB image (dimensions might vary)
-        image = tuple_obs_space[0]
-
-        # Raycasts in a 1D array of 20 entries.
-        mixed: gym.spaces.Box = tuple_obs_space[1]  # type: ignore # Raycast + extra together
-        raycast_size = mixed.shape[0] - 7
-        raycast = gym.spaces.Box(float("-inf"), float("+inf"), shape=(raycast_size,), dtype=float)  # fmt: skip
-
-        # Health, velocity (x, y, z), and global position (x, y, z) in a 1D array of 7 entries.
-        extra = gym.spaces.Box(float("-inf"), float("+inf"), shape=(7,), dtype=float)
-
-        self.observation_space = gym.spaces.Dict(
-            {"image": image, "raycast": raycast, "extra": extra}
-        )
-
-    def observation(self, observation):
-        image, mix = observation
-        extra = mix[-7:]
-        raycast = mix[:-7]
-        return {"image": image, "extra": extra, "raycast": raycast}
+    @staticmethod
+    def get_multi_env(
+        task_path: Union[Path, str],
+        env_path: Union[Path, str],
+        agent_config: embodied.Config,
+    ):
+        tasks = sorted(task_path / f for f in os.listdir(task_path))
+        env = utils.MultiAAIEnv(tasks, env_path)
+        logging.debug("Wrapping Observation Space")
+        env = utils.AAItoDreamerObservationWrapper(env)
+        logging.debug("Wrapping with Dreamer FromGym Environment")
+        env = from_gym.FromGym(env)
+        logging.info(f"Using observation space {env.obs_space}")
+        logging.info(f"Using action space {env.act_space}")
+        env = dreamerv3.wrap_env(env, agent_config)
+        env = embodied.BatchEnv([env], parallel=False)
+        return env
 
 
 def find_env_path(base: Path) -> Path:
