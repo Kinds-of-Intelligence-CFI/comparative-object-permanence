@@ -12,6 +12,7 @@ COMMAND=${@:2}
 
 chmod u+x $COMMAND
 
+#SBATCH --nodelist=vrhpc2.dsic.upv.es
 sbatch <<EOT
 #!/bin/bash
 #SBATCH --gpus=1

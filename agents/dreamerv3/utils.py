@@ -50,13 +50,13 @@ class StepwiseCSVLogger(embodied.BatchEnv):
     """
 
     def __init__(
-        self, env: embodied.BatchEnv, logdir: Path
+        self, env: embodied.BatchEnv, logdir: Path, episode: int = 1,
     ):
         self.__env = env
         self.__logdir = logdir / "episodes"
         self.__logdir.mkdir(parents=True, exist_ok=False)
 
-        self.__episode = 1
+        self.__episode = episode
         self.__stepnum = 1
         self.__cum_reward = 0
 
@@ -102,11 +102,11 @@ class StepwiseCSVLogger(embodied.BatchEnv):
         return self.__env.close()
 
 class MultiAAIEnv(gym.Env):
-    def __init__(self, tasks: list[Path], env_path: Path) -> None:
+    def __init__(self, tasks: list[Path], env_path: Path, start_from: int  = 1) -> None:
         self.env_path = env_path
         self.tasks = tasks
         self.port = 5005 + random.randint(0, 1000)
-        self.current_task_idx = 0
+        self.current_task_idx = start_from - 1
         self.current_env = self.__initialize(self.current_task_idx)
         super().__init__()
 
@@ -131,7 +131,7 @@ class MultiAAIEnv(gym.Env):
     def __initialize(self, task_idx: int) -> gym.Env:
         task_path = self.tasks[task_idx]
         assert task_path.exists(), f"Task file not found: {task_path}."
-        logging.info(f"Initializing AAI environment for task {task_path}")
+        logging.info(f"Initializing AAI environment for task {task_idx}: {task_path}")
         logging.info(f"Using port {self.port}")
         aai_env = AnimalAIEnvironment(
             file_name=str(self.env_path),

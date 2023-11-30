@@ -37,6 +37,7 @@ class Args:
     observe_raycast: bool
     observe_extra: bool
     eval_mode: bool
+    start_from: int
     wandb: bool
     from_checkpoint: Optional[Path]
     logdir: Optional[Path]
@@ -90,6 +91,12 @@ def main():
         "--eval-mode",
         action="store_true",
         help="Run in evaluation mode. Make sure to also load a checkpoint.",
+    )
+    parser.add_argument(
+        "--start-from",
+        type=int,
+        default=0,
+        help="If task is a folder, the task_id to start from (1 indexed). Will also set episode number.",
     )
     parser.add_argument(
         "--wandb",
@@ -196,11 +203,11 @@ def run(args: Args):
     agent_config.save(logdir / "dreamer_config.yaml")
     logger, step = Glue.get_loggers(logdir, agent_config, args.wandb)
     if task_path is not None and task_path.is_dir():
-        env = Glue.get_multi_env(task_path, env_path, agent_config)
+        env = Glue.get_multi_env(task_path, env_path, agent_config, start_from=args.start_from)
     else:
         env = Glue.get_env(task_path, env_path, agent_config)
     agent, replay, run_args = Glue.get_agent(env, step, agent_config, logdir)
-    env = utils.StepwiseCSVLogger(env, logdir)
+    env = utils.StepwiseCSVLogger(env, logdir, episode=args.start_from)
 
     # Run the agent
     if args.eval_mode:
@@ -346,9 +353,10 @@ class Glue:
         task_path: Union[Path, str],
         env_path: Union[Path, str],
         agent_config: embodied.Config,
+        start_from: int = 1,
     ):
         tasks = sorted(task_path / f for f in os.listdir(task_path))
-        env = utils.MultiAAIEnv(tasks, env_path)
+        env = utils.MultiAAIEnv(tasks, env_path, start_from=start_from)
         logging.debug("Wrapping Observation Space")
         env = utils.AAItoDreamerObservationWrapper(env)
         logging.debug("Wrapping with Dreamer FromGym Environment")
