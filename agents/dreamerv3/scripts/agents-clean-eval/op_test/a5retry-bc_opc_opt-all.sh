@@ -23,5 +23,6 @@ xvfb-run -a python train.py \
   --task ../../configs/tests_agents/op_tests \
   --env ../../env/env3.1.3/AAI.x86_64 \
   --from-checkpoint ./logdir/retry-a5-bc_opc_opt-all/checkpoint.ckpt \
-  --logdir ./logdir/a5retry-bc_opc_opt-all_op_tests \
-  --dreamer-args "--run.steps 2e6"
+  --logdir ./logdir/a5retry-bc_opc_opt-all_op_testsp2 \
+  --start-from 980 \
+  --dreamer-args "--run.steps 1.1e6"

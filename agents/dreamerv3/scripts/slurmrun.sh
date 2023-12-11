@@ -16,6 +16,7 @@ chmod u+x $COMMAND
 sbatch <<EOT
 #!/bin/bash
 #SBATCH --gpus=1
+#SBATCH --cpus-per-task=4
 #SBATCH --job-name="$NAME"
 #SBATCH --output=X%j-%x.out
 singularity run \
