@@ -720,6 +720,9 @@ final_results <- final_results %>% mutate(correctChoice = ifelse((is.na(cvchickc
                                                                           (is.na(cvchickcorrectchoice) & is.na(pctbgridcorrectchoice) & pctb3cupcorrectchoice == "MR" & threecupmidchoice == TRUE & threecuprightchoice == TRUE), 1, 0)),
                                           problem_flag = ifelse(episodeEndType == "unknown", "Y", "N"))
 
+final_results <- final_results %>% 
+  mutate(agent_tag_seed = paste0(agent_tag, ifelse(is.na(aai_seed) | aai_seed == 9999, "", paste0("_", aai_seed))))
+
 
 ###############################################################################################################################
 ###############################################       Make wide/long Versions     #############################################
