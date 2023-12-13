@@ -55,6 +55,10 @@ metadata <- read.csv("analysis/meta-data-full.csv") %>% mutate(minPossReward = i
 randomwalkers <- dbGetQuery(myDB, "SELECT instances.instancename, randomwalkers.agent_tag, randomwalkers.aai_seed, randomwalkerinstanceresults.finalreward FROM randomwalkerinstanceresults INNER JOIN randomwalkers ON randomwalkerinstanceresults.agentid = randomwalkers.agentid INNER JOIN instances ON randomwalkerinstanceresults.instanceid = instances.instanceid;")
 randomactionagents <- dbGetQuery(myDB, "SELECT instances.instancename, randomactionagents.agent_tag, randomactionagents.aai_seed, randomactionagentinstanceresults.finalreward FROM randomactionagentinstanceresults INNER JOIN randomactionagents ON randomactionagentinstanceresults.agentid = randomactionagents.agentid INNER JOIN instances ON randomactionagentinstanceresults.instanceid = instances.instanceid WHERE randomactionagents.aai_seed = 356 OR randomactionagents.aai_seed = 1997 OR randomactionagents.aai_seed = 2023 OR randomactionagents.aai_seed = 1815 OR randomactionagents.aai_seed = 3761;")
 vanillabraitenbergs <- dbGetQuery(myDB, "SELECT instances.instancename, vbraitenbergvehicles.agent_tag, vbraitenbergvehicles.aai_seed, vbraitenbergvehicleinstanceresults.finalreward FROM vbraitenbergvehicleinstanceresults INNER JOIN vbraitenbergvehicles ON vbraitenbergvehicles.agentid = vbraitenbergvehicleinstanceresults.agentid INNER JOIN instances ON vbraitenbergvehicleinstanceresults.instanceid = instances.instanceid;")
+ppoagents <- dbGetQuery(myDB, "SELECT instances.instancename, ppoagents.agent_tag, ppoagents.aai_seed, ppoagentinstanceresults.finalreward FROM ppoagentinstanceresults INNER JOIN ppoagents ON ppoagentinstanceresults.agentid = ppoagents.agentid INNER JOIN instances ON ppoagentinstanceresults.instanceid = instances.instanceid;")
+dreameragents <- dbGetQuery(myDB, "SELECT instances.instancename, dreameragents.agent_tag, dreameragentinstanceresults.finalreward FROM dreameragentinstanceresults INNER JOIN dreameragents ON dreameragentinstanceresults.agentid = dreameragents.agentid INNER JOIN instances ON dreameragentinstanceresults.instanceid = instances.instanceid;") %>%
+  mutate(aai_seed = 9999)
+
 
 children <- read.csv("children/results_children.csv") %>%
   pivot_longer(cols = c(tutorial_0_ready.G2.sanity_1:OP.STC.Allo.CVChick.1Occluder.Right.RND.0.OPQ.1),
@@ -87,11 +91,11 @@ children_trajectory_data <- read.csv("children/trajectory_data_children.csv") %>
 
 ## Create a dataframe with all results, tagged by the kind of agent
 
-combined_results <- bind_rows(randomwalkers, randomactionagents, vanillabraitenbergs, children) %>%
+combined_results <- bind_rows(randomwalkers, randomactionagents, vanillabraitenbergs, children, dreameragents, ppoagents) %>%
   mutate(agent_type = ifelse(str_detect(agent_tag, "Random"), "random", 
                              ifelse(str_detect(agent_tag, "Vanilla") | str_detect(agent_tag, "vision Braitenberg"), "Braitenberg",
-                                    ifelse(str_detect(agent_tag, "PPO"), "PPO", ifelse
-                                           (str_detect(agent_tag, "Dreamer"), "Dreamer", "child")))))
+                                    ifelse(str_detect(agent_tag, "ppo"), "PPO", ifelse
+                                           (str_detect(agent_tag, "dreamer"), "Dreamer", "child")))))
 
 ## Add metadata information
 metadata_results_raw <- inner_join(metadata, combined_results, by = c("InstanceName" = "instancename"))
@@ -187,6 +191,12 @@ trajectory_query_builder <- function(reference_df, agentname, seed, instanceidst
   } else if (str_detect(agentname, "Vanilla Braitenberg")){
     agent_table_name <- "vbraitenbergvehicles"
     agent_intraresults_table_name <- "vbraitenbergvehicleintrainstanceresults"
+  } else if (str_detect(agentname, "dreamer")){
+    agent_table_name <- "dreameragents"
+    agent_intraresults_table_name <- "dreameragentintrainstanceresults"
+  } else if (str_detect(agentname, "ppo")){
+    agent_table_name <- "ppoagents"
+    agent_intraresults_table_name <- "ppoagentintrainstanceresults"
   } else {
     stop("Agent not recognised.")
   }
@@ -586,6 +596,12 @@ for (row in 1:nrow(final_results)){
       } else if (str_detect(agentname, "Vanilla Braitenberg")){
         agent_table_name <- "vbraitenbergvehicles"
         agent_intraresults_table_name <- "vbraitenbergvehicleintrainstanceresults"
+      } else if (str_detect(agentname, "ppo")){
+        agent_table_name <- "ppoagents"
+        agent_intraresults_table_name <- "ppoagentintrainstanceresults"
+      } else if (str_detect(agentname, "dreamer")){
+        agent_table_name <- "dreameragents"
+        agent_intraresults_table_name <- "dreameragentintrainstanceresults"
       } else {
         stop("Agent not recognised.")
       }
@@ -629,6 +645,12 @@ for (row in 1:nrow(final_results)){
       } else if (str_detect(agentname, "Vanilla Braitenberg")){
         agent_table_name <- "vbraitenbergvehicles"
         agent_intraresults_table_name <- "vbraitenbergvehicleintrainstanceresults"
+      } else if (str_detect(agentname, "ppo")){
+        agent_table_name <- "ppoagents"
+        agent_intraresults_table_name <- "ppoagentintrainstanceresults"
+      } else if (str_detect(agentname, "dreamer")){
+        agent_table_name <- "dreameragents"
+        agent_intraresults_table_name <- "dreameragentintrainstanceresults"
       } else {
         stop("Agent not recognised.")
       }
@@ -670,17 +692,18 @@ dbDisconnect(myDB)
 
 ## Now some post hoc sanity checks to make sure that the results make sense
 
-checking_dataframe <- final_results_distilled %>%
+checking_dataframe <- final_results %>%
   filter((threecupleftchoice == threecupmidchoice & threecupmidchoice == threecuprightchoice & threecuprightchoice == TRUE & str_detect(InstanceName, "FC") & success == 1) | #should be impossible to have visited all 3 cups and still pass
            (cvchickleftchoice == cvchickrightchoice & cvchickleftchoice == TRUE) |  #should be impossible to go both left and right (unless they stick to the wall, which is possible but rare)
             (pctbgridcupchoice != pctbgridcorrectchoice & success == 1) | # this should be impossible - and there aren't any cases of it.
            (pctbgridcupchoice == pctbgridcorrectchoice & success == 0) | # all these cases are conceivably cases where the agent entered the cup but managed to avoid the goal. The RP versions, the goal is the smallest possible (2x2x2) in a hole of size 4x4x4. So there is room around the edge for the agent to walk. Looking at the coordinates, this looks feasible. # On the grid tasks, it is possible to enter the hole but not succeed (by sticking to the walls). And we have already set that if they succeeded but didn't enter the hole, then that was because it was a room practice task. These were the only tasks where that was the case.
            (episodeEndType == "time, obtained 1/2 goals" & threecupleftchoice == threecupmidchoice & threecupmidchoice == threecuprightchoice & threecuprightchoice == FALSE) | #should be impossible to have a score that suggests they entered at least 1 cup, but then coordinates disagre
-           success == 1 & ((cvchickcorrectchoice == "L" & cvchickrightchoice == TRUE)|(cvchickcorrectchoice == "R" & cvchickleftchoice == TRUE))) #shouldn't be able to have gone the wrong way and still passed.
+           success == 1 & ((cvchickcorrectchoice == "L" & cvchickrightchoice == TRUE)|(cvchickcorrectchoice == "R" & cvchickleftchoice == TRUE))) %>% #shouldn't be able to have gone the wrong way and still passed.
+dplyr::select(c(agent_type, InstanceName, success))
 
 
-checking_episode_end_annotation <- final_results_distilled %>%
-  select(c(InstanceName, finalreward, episodeEndType)) %>% distinct()
+checking_episode_end_annotation <- final_results %>%
+  select(c(InstanceName, finalreward, episodeEndType, agent_type)) %>% distinct()
 
 ## Remaining unknowns are three children, and it corresponds to the episodes before they decided to stop playing. These results are likely mid-game rewards recorded while the environment shut down.
 ### Adding a flag to drop them from analysis.
@@ -763,7 +786,7 @@ measurement_layout_agent_data <- final_results %>%
            "numberPreviousInstances",
            "problem_flag")) %>%
   mutate(agent_id = ifelse(is.na(aai_seed), agent_tag, paste0(agent_tag, "_", aai_seed)),
-         agent_id = str_replace_all(agent_id, " ", "_")
+         agent_id = str_replace_all(agent_id, " |-", "_")
          ) %>%
   select(!c(agent_tag, aai_seed)) %>%
   pivot_wider(names_from = agent_id,
@@ -774,8 +797,8 @@ na_func <- function(x) {
 }
 
 check <- measurement_layout_agent_data %>%
-  select(c(InstanceName, success_Random_Walker_Fixed_Forwards_Saccade_15_Angle_10_356:correctChoice_Vanilla_Braitenberg_15_rays_over_60_degs_356)) %>%
-  filter(if_any(success_Random_Walker_Fixed_Forwards_Saccade_15_Angle_10_356:correctChoice_Vanilla_Braitenberg_15_rays_over_60_degs_356, na_func))
+  select(c(InstanceName, success_Random_Walker_Fixed_Forwards_Saccade_15_Angle_10_356:correctChoice_ppo_bc_all_2023)) %>%
+  filter(if_any(success_Random_Walker_Fixed_Forwards_Saccade_15_Angle_10_356:correctChoice_ppo_bc_all_2023, na_func))
 
 
 measurement_layout_children_data <- final_results %>%
