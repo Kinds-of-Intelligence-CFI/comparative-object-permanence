@@ -26,8 +26,9 @@ library(colorspace)
 library(ragg)
 library(extrafont) # may need to run font_import();loadfonts() to get the fonts used here.
 library(irr)
+library(FSA)
 
-pal <- c("#FF8C00", "#A034F0", "#159090", "#FF007F") # color palette for plots
+pal <- c("#1b9e77", "#d95f02", "#7570b3", "#4b7b16", "#59901a", "#66a61e", "#73bc22", "#81d126", "#c71670", "#de197d", "#e7298a", "#ea4097", "#ec57a3", "#e6ab02") # color palette for plots
 
 rounding <- 4
 
@@ -80,6 +81,12 @@ random_action_distinct <- agent_data %>% dplyr::select(agent_tag) %>%
 vanilla_braitenberg_distinct <- agent_data %>% dplyr::select(agent_tag) %>%
   filter(str_detect(agent_tag, "Vanilla")) %>% distinct()
 
+ppo_distinct <- agent_data %>% dplyr::select(agent_tag) %>%
+  filter(str_detect(agent_tag, "ppo")) %>% distinct()
+
+dreamer_distinct <- agent_data %>% dplyr::select(agent_tag) %>%
+  filter(str_detect(agent_tag, "dreamer")) %>% distinct()
+
 children_distinct <- agent_data %>% dplyr::select(agent_tag) %>%
   filter(str_detect(agent_tag, "_01")) %>% distinct()
 
@@ -102,6 +109,8 @@ seed_distinct <- agent_data %>% dplyr::select(aai_seed) %>% distinct() %>% drop_
 -   `r nrow(random_walker_distinct)` types of random walker, tested on `r nrow(seed_distinct)` RNG seeds. Total sample size: `r nrow(random_walker_distinct) * nrow(seed_distinct)`.
 -   `r nrow(random_action_distinct)` types of random action agent, tested on `r nrow(seed_distinct)` RNG seeds. Total sample size: `r nrow(random_action_distinct) * nrow(seed_distinct)`.
 -   `r nrow(vanilla_braitenberg_distinct)` type of simple goal-directed rule-based agent, tested on `r nrow(seed_distinct)` RNG seeds. Total sample size: `r nrow(vanilla_braitenberg_distinct) * nrow(seed_distinct)`.
+-   `r nrow(ppo_distinct)` types of PPO agent, tested on 1 RNG seed.
+-   `r nrow(dreamer_distinct)` types of dreamer agent, tested on 1 RNG seed.
 -   `r nrow(children_distinct)` children, aged between 4 and 7. We collected some data for `r age_table$count[1]` four year olds, `r age_table$count[2]` five year olds, `r age_table$count[3]` six year olds, `r age_table$count[4]` seven year-olds. Guardians identified participants' genders. `r gender_table$count[1]` were identified as *Female*, `r gender_table$count[2]` were identified as *Male*, 0 were identified as *Other*. Below is a table of gender by age.
 
 ```{r gender by age table}
@@ -139,7 +148,7 @@ performances_table <- final_results %>%
   mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
                              ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
                                     ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
-                                           ifelse(agent_type == "child", "Human Child", agent_type))))) %>%
+                                           ifelse(agent_type == "child", "Human Child", agent_tag))))) %>%
   group_by(agent_type) %>% 
   summarise(`Total Passes` = sum(success),
             `Total Instances` = n(),
@@ -164,7 +173,7 @@ proportions <- final_results %>%
   mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
                              ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
                                     ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
-                                           ifelse(agent_type == "child", "Human Child", agent_type))))) %>%
+                                           ifelse(agent_type == "child", "Human Child", agent_tag))))) %>%
   group_by(agent_type) %>% 
   summarise_at(vars(proportionSuccess),
                list(Min=min, `10%`=~quantile(., probs = 0.1), `20%`=~quantile(., probs = 0.2), `30%`=~quantile(., probs = 0.3), `40%`=~quantile(., probs = 0.4), Median=median, `Arithmetic Mean`=mean, `60%`=~quantile(., probs = 0.6),  
@@ -192,8 +201,11 @@ raincloud_data <- final_results %>%
   mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
                              ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
                                     ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
-                                           ifelse(agent_type == "child", "Human Child", agent_type))))) %>%
+                                           ifelse(agent_type == "child", "Human Child", agent_tag)))),
+         agent_type = haven::as_factor(agent_type)) %>%
   group_by(agent_type)
+
+#rainc
 
 raincloud_data %>% 
   ggplot(aes(x = agent_type, y = proportionSuccess)) + 
@@ -284,7 +296,8 @@ basic_tasks <- final_results %>%
   mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
                              ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
                                     ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
-                                           ifelse(agent_type == "child", "Human Child", agent_type)))))
+                                           ifelse(agent_type == "child", "Human Child", agent_tag)))),
+         agent_type = haven::as_factor(agent_type))
 
 ```
 
@@ -430,7 +443,8 @@ control_tasks <- final_results %>%
   mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
                              ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
                                     ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
-                                           ifelse(agent_type == "child", "Human Child", agent_type)))))
+                                           ifelse(agent_type == "child", "Human Child", agent_tag)))),
+         agent_type = haven::as_factor(agent_type))
 
 ```
 
@@ -443,7 +457,7 @@ control_tasks %>%
   summarise(`Total Passes` = sum(success),
             `Total Instances` = n(),
             `Percentage Instances Passed` = round(`Total Passes`/`Total Instances`*100, digits = rounding)) %>%
-  arrange(agent_type) %>% 
+  arrange(desc(`Percentage Instances Passed`)) %>% 
   rename(Agent = agent_type) %>%
   datatable(rownames = FALSE)
 
@@ -572,7 +586,7 @@ cvchick_choices <- final_results %>%
   mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
                              ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
                                     ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
-                                           ifelse(agent_type == "child", "Human Child", agent_type))))) %>% 
+                                           ifelse(agent_type == "child", "Human Child", agent_tag))))) %>% 
   filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "OP Controls" & Paradigm == "CVChick") %>%
   dplyr::select(c(agent_type, cvchickcorrectchoice, cvchickleftchoice, cvchickrightchoice, success)) %>% drop_na()
 
@@ -602,7 +616,7 @@ pctb3cup_choices <- final_results %>%
   mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
                              ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
                                     ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
-                                           ifelse(agent_type == "child", "Human Child", agent_type))))) %>% 
+                                           ifelse(agent_type == "child", "Human Child", agent_tag))))) %>% 
   filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "OP Controls" & str_detect(Task, "3Cup")) %>%
   dplyr::select(c(agent_type, threecupleftchoice, threecupmidchoice, threecuprightchoice, pctb3cupcorrectchoice, success)) %>% drop_na()
 
@@ -631,7 +645,7 @@ pctbgrid_choices <- final_results %>%
   mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
                              ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
                                     ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
-                                           ifelse(agent_type == "child", "Human Child", agent_type))))) %>% 
+                                           ifelse(agent_type == "child", "Human Child", agent_tag))))) %>% 
   filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "OP Controls" & str_detect(Task, "Grid")) %>%
   dplyr::select(c(agent_type, InstanceName, pctbgridcorrectchoice, pctbgridcupchoice, success, numChoices)) %>% drop_na()
 
@@ -664,7 +678,8 @@ cv_tasks <- final_results %>%
   mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
                              ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
                                     ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
-                                           ifelse(agent_type == "child", "Human Child", agent_type)))))
+                                           ifelse(agent_type == "child", "Human Child", agent_tag)))),
+         agent_type = haven::as_factor(agent_type))
 
 ```
 
@@ -819,7 +834,8 @@ threecup_tasks <- final_results %>%
   mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
                              ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
                                     ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
-                                           ifelse(agent_type == "child", "Human Child", agent_type)))))
+                                           ifelse(agent_type == "child", "Human Child", agent_tag)))),
+         agent_type = haven::as_factor(agent_type))
 
 ```
 
@@ -955,7 +971,8 @@ grid_tasks <- final_results %>%
   mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
                              ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
                                     ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
-                                           ifelse(agent_type == "child", "Human Child", agent_type)))))
+                                           ifelse(agent_type == "child", "Human Child", agent_tag)))),
+         agent_type = haven::as_factor(agent_type))
 
 ```
 
@@ -1096,7 +1113,8 @@ barchart_success_data <- final_results %>%
   mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
                              ifelse(str_detect(agent_tag, "Random Action"), "Random Action\nAgent",
                                     ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-\nDirected Agent",
-                                           ifelse(agent_type == "child", "Human Child", agent_type))))) %>%
+                                           ifelse(agent_type == "child", "Human Child", agent_tag)))),
+         agent_type = haven::as_factor(agent_type)) %>%
   group_by(agent_type, basicTask, opControlTask, cvchickTask, pctb3CupTask, pctbGridTask) %>%
   summarise(`Percentage Instances Passed` = (sum(success)/n())) %>%
   mutate(`Task Type` = ifelse(basicTask == 1, "Basic",
@@ -1132,7 +1150,8 @@ barchart_success_age_data <- final_results %>%
                                            ifelse(agent_type == "child" & age == 4, "4 Year Old",
                                                   ifelse(agent_type == "child" & age == 5, "5 Year Old",
                                                          ifelse(agent_type == "child" & age == 6, "6 Year Old",
-                                                                ifelse(agent_type == "child" & age == 7, "7 Year Old", agent_type)))))))) %>%
+                                                                ifelse(agent_type == "child" & age == 7, "7 Year Old", agent_tag))))))),
+         agent_type = haven::as_factor(agent_type)) %>%
   group_by(agent_type, basicTask, opControlTask, cvchickTask, pctb3CupTask, pctbGridTask) %>%
   summarise(`Percentage Instances Passed` = (sum(success)/n())) %>%
   mutate(`Task Type` = ifelse(basicTask == 1, "Basic",
@@ -1167,7 +1186,8 @@ barchart_choice_data <- final_results %>%
   mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
                              ifelse(str_detect(agent_tag, "Random Action"), "Random Action\nAgent",
                                     ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-\nDirected Agent",
-                                           ifelse(agent_type == "child", "Human Child", agent_type))))) %>%
+                                           ifelse(agent_type == "child", "Human Child", agent_tag)))),
+         agent_type = haven::as_factor(agent_type)) %>%
   group_by(agent_type, basicTask, opControlTask, cvchickTask, pctb3CupTask, pctbGridTask) %>%
   summarise(`Percentage Correct Choice` = (sum(correctChoice)/n())) %>%
   mutate(`Task Type` = ifelse(basicTask == 0 & opControlTask == 1 & cvchickTask == 1, "CV Chick Control",
@@ -1204,7 +1224,8 @@ barchart_choice_age_data <- final_results %>%
                                            ifelse(agent_type == "child" & age == 4, "4 Year Old",
                                                   ifelse(agent_type == "child" & age == 5, "5 Year Old",
                                                          ifelse(agent_type == "child" & age == 6, "6 Year Old",
-                                                                ifelse(agent_type == "child" & age == 7, "7 Year Old", agent_type)))))))) %>%
+                                                                ifelse(agent_type == "child" & age == 7, "7 Year Old", agent_tag))))))),
+         agent_type = haven::as_factor(agent_type)) %>%
   group_by(agent_type, basicTask, opControlTask, cvchickTask, pctb3CupTask, pctbGridTask) %>%
   summarise(`Percentage Correct Choice` = (sum(correctChoice)/n())) %>%
   mutate(`Task Type` = ifelse(basicTask == 1, "Basic",
@@ -1455,139 +1476,453 @@ datatable(child_genderage_table, rownames = FALSE)
 
 ## Measures of Between-Group Differences
 
-Next, for each type of task, we ran a logistic regression with `agent_type`, including age, as a predictor and the agent ID as a random effect, to handle the repeated measures design. We ran the following models:
+Next, we present some simple frequentist statistics, to explore the data before doing the more complex measurement layouts. We run Kruskall-Wallis tests on each type of task, to investigate the magnitude of the difference between the groups. Please excuse the unformatted outputs.
 
-`success ~ agent_type + (1|agent_ID)`
+### Basic Tasks
 
-for the basic, the pooled control tasks, and the three kinds of object permanence tasks.
+Differences based on success:
 
-And
+```{r KW basic success}
 
-`choice ~ agent_type + (1|agent_ID)`
+basic_tasks_KW_test <- final_results %>%
+  filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "Basic") %>%
+  dplyr::select(agent_tag, agent_type, age, aai_seed, success) %>%
+  mutate(agent_tag_seed = haven::as_factor(paste0(agent_tag, "_", aai_seed)),
+         agent_type = ifelse(is.na(age) & !str_detect(agent_tag, "dreamer|ppo|Random"), agent_type,
+                             ifelse(is.na(age) & str_detect(agent_tag, "dreamer|ppo"), agent_tag, 
+                                    ifelse(is.na(age) & str_detect(agent_tag, "Random Action"), "Random Action", 
+                                           ifelse(is.na(age) & str_detect(agent_tag, "Random Walker"), "Random Walker", age)))),
+         agent_type = haven::as_factor(agent_type)) %>%
+  group_by(agent_tag_seed, agent_type) %>%
+  summarise(proportion_success = sum(success)/n())
 
-for the pooled control tasks, and the three kinds of object permanence tasks.
+basic_kruskal <- kruskal.test(proportion_success ~ agent_type, data = basic_tasks_KW_test)
 
-Note that the reference class in all cases is the random walker.
+basic_dunn <- dunnTest(proportion_success ~ agent_type, data = basic_tasks_KW_test,
+                method="holm")
 
-```{r logistic regression}
+print(basic_kruskal)
 
-data_for_logistic <- final_results %>%
-  dplyr::select(c(agent_tag, age, InstanceName, basicTask, opControlTask, cvchickTask, pctbGridTask, pctb3CupTask, task_order, numberPreviousInstances, success, correctChoice, agent_type)) %>%
-  transmute(agent_tag = agent_tag,
-            InstanceName = InstanceName,
-            agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "RandomWalker",
-                             ifelse(str_detect(agent_tag, "Random Action"), "RandomActionAgent",
-                                    ifelse(str_detect(agent_tag, "Vanilla"), "SimpleGoalDirectedAgent", 
-                                           "Child"))),
-            agent_type_age = ifelse(!is.na(age), paste0("Child", "_", age), agent_type),
-            agent_type_agegroup = ifelse(is.na(age), agent_type,
-                                         ifelse(age <=5, "Child_4_5",
-                                                ifelse(age >= 6, "Child_6_7", NA))),
-            agent_type= as_factor(agent_type),
-            agent_type_age = as_factor(agent_type_age),
-            agent_type_agegroup = as_factor(agent_type_agegroup),
-            task_type = ifelse(basicTask == 1, "Basic",
-                               ifelse(opControlTask == 1 & cvchickTask == 1, "CVChickControl",
-                                      ifelse(pctbGridTask == 1 & opControlTask == 1, "PCTBGridControl",
-                                             ifelse(pctb3CupTask == 1 & opControlTask == 1, "PCTB3CupControl",
-                                                    ifelse(opControlTask == 0 & cvchickTask == 1, "CVChickOP",
-                                                           ifelse(opControlTask == 0 & pctbGridTask == 1, "PCTBGridOP",
-                                                                  ifelse(opControlTask == 0 & pctb3CupTask == 1, "PCTB3CupOP", NA))))))),
-            task_type = as_factor(task_type),
-            task_order = ifelse(is.na(task_order), "Agent", task_order),
-            numberPreviousInstances = numberPreviousInstances,
-            age = age,
-            basicTask = basicTask,
-            opControlTask = opControlTask,
-            cvchickTask = cvchickTask,
-            pctbGridTask = pctbGridTask,
-            pctb3CupTask = pctb3CupTask,
-            isRandomWalker = ifelse(agent_type == "Random Walker", 1, 0),
-            isRandomAction = ifelse(agent_type == "Random Action Agent", 1, 0),
-            isVBB = ifelse(agent_type == "Simple Goal-Directed Agent", 1, 0),
-            isChild = ifelse(agent_type == "Child", 1, 0),
-            isFour = ifelse(is.na(age), 0,
-                            ifelse(age == 4, 1, 0)),
-            isFive = ifelse(is.na(age), 0,
-                            ifelse(age == 5, 1, 0)),
-            isSix = ifelse(is.na(age), 0,
-                            ifelse(age == 6, 1, 0)),
-            isSeven = ifelse(is.na(age), 0,
-                            ifelse(age == 7, 1, 0)),
-            success = success,
-            correctChoice = correctChoice)
-
-data_for_logistic_basic <- filter(data_for_logistic, basicTask == 1)
-data_for_logistic_opControlTask <- filter(data_for_logistic, opControlTask == 1)
-data_for_logistic_CVChickOP <- filter(data_for_logistic, opControlTask == 0 & basicTask == 0 & cvchickTask == 1)
-data_for_logistic_PCTB3OP <- filter(data_for_logistic, opControlTask == 0 & basicTask == 0 & pctb3CupTask == 1)
-data_for_logistic_PCTBGridOP <- filter(data_for_logistic, opControlTask == 0 & basicTask == 0 & pctbGridTask == 1)
+print(basic_dunn)
 
 ```
 
-For the basic tasks, we got the following results: 
+Differences based on correct choice:
 
-```{r basic task success logistic}
-random_effects_model_basic_success <- glmer(success ~ agent_type_age + (1|agent_tag), data=data_for_logistic_basic, family="binomial", verbose = FALSE, control = glmerControl(optimizer="Nelder_Mead"), nAGQ = 1)
+```{r KW basic choice}
 
-basic_success_results <- prettyPrintLogisticOutput(random_effects_model_basic_success)
+basic_tasks_KW_test <- final_results %>%
+  filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "Basic") %>%
+  dplyr::select(agent_tag, agent_type, age, aai_seed, correctChoice) %>%
+  mutate(agent_tag_seed = haven::as_factor(paste0(agent_tag, "_", aai_seed)),
+         agent_type = ifelse(is.na(age) & !str_detect(agent_tag, "dreamer|ppo|Random"), agent_type,
+                             ifelse(is.na(age) & str_detect(agent_tag, "dreamer|ppo"), agent_tag, 
+                                    ifelse(is.na(age) & str_detect(agent_tag, "Random Action"), "Random Action", 
+                                           ifelse(is.na(age) & str_detect(agent_tag, "Random Walker"), "Random Walker", age)))),
+         agent_type = haven::as_factor(agent_type)) %>%
+  group_by(agent_tag_seed, agent_type) %>%
+  summarise(proportion_correctChoice = sum(correctChoice)/n())
 
-DT::datatable(basic_success_results$Coefficients_OR)
+basic_kruskal <- kruskal.test(proportion_correctChoice ~ agent_type, data = basic_tasks_KW_test)
 
-print(basic_success_results$posthoc_tests)
+basic_dunn <- dunnTest(proportion_correctChoice ~ agent_type, data = basic_tasks_KW_test,
+                method="holm")
 
-```
+print(basic_kruskal)
 
-For all the control tasks, pooled together because of low sample sizes, we got the following results:
-
-```{r control task success logistic}
-random_effects_model_control_success <- glmer(success ~ agent_type_age + (1|agent_tag), data=data_for_logistic_opControlTask, family="binomial", verbose = FALSE, control = glmerControl(optimizer="Nelder_Mead"), nAGQ = 1)
-
-control_success_results <- prettyPrintLogisticOutput(random_effects_model_control_success)
-
-DT::datatable(control_success_results$Coefficients_OR)
-
-print(control_success_results$posthoc_tests)
-
-```
-
-For all the CV Chick tasks, we got the following results:
-
-```{r cv chick task success logistic}
-random_effects_model_cvchick_success <- glmer(success ~ agent_type_age + (1|agent_tag), data=data_for_logistic_CVChickOP, family="binomial", verbose = FALSE, control = glmerControl(optimizer="Nelder_Mead"), nAGQ = 1)
-
-cvchick_success_results <- prettyPrintLogisticOutput(random_effects_model_cvchick_success)
-
-DT::datatable(cvchick_success_results$Coefficients_OR)
-
-print(cvchick_success_results$posthoc_tests)
+print(basic_dunn)
 
 ```
 
-For all the 3 cup tasks, we got the following results:
+### Object Permanence Controls
 
-```{r 3 cup task success logistic}
-random_effects_model_pctb3_success <- glmer(success ~ agent_type_age + (1|agent_tag), data=data_for_logistic_PCTB3OP, family="binomial", verbose = FALSE, control = glmerControl(optimizer="Nelder_Mead"), nAGQ = 1)
+#### Chiandetti & Vallortigara Chick Task
 
-pctb3_success_results <- prettyPrintLogisticOutput(random_effects_model_pctb3_success)
+Differences based on success:
 
-DT::datatable(pctb3_success_results$Coefficients_OR)
+```{KW CV Control Success}
 
-print(pctb3_success_results$posthoc_tests)
+cvchickcontrol_tasks_KW_test <- final_results %>%
+  filter((Suite == "Controls" | Suite == "Tutorial") & Paradigm == "CVChick") %>%
+  dplyr::select(agent_tag, agent_type, age, aai_seed, success) %>%
+  mutate(agent_tag_seed = haven::as_factor(paste0(agent_tag, "_", aai_seed)),
+         agent_type = ifelse(is.na(age) & !str_detect(agent_tag, "dreamer|ppo|Random"), agent_type,
+                             ifelse(is.na(age) & str_detect(agent_tag, "dreamer|ppo"), agent_tag, 
+                                    ifelse(is.na(age) & str_detect(agent_tag, "Random Action"), "Random Action", 
+                                           ifelse(is.na(age) & str_detect(agent_tag, "Random Walker"), "Random Walker", age)))),
+         agent_type = haven::as_factor(agent_type)) %>%
+  group_by(agent_tag_seed, agent_type) %>%
+  summarise(proportion_success = sum(success)/n())
+
+cvchickcontrol_kruskal <- kruskal.test(proportion_success ~ agent_type, data = cvchickcontrol_tasks_KW_test)
+
+cvchickcontrol_dunn <- dunnTest(proportion_success ~ agent_type, data = cvchickcontrol_tasks_KW_test,
+                method="holm")
+
+print(cvchickcontrol_kruskal)
+
+print(cvchickcontrol_dunn)
 
 ```
 
-For all the grid tasks, we got the following results:
+Differences based on correct choice:
 
-```{r grid task success logistic}
-random_effects_model_pctbGrid_success <- glmer(success ~ agent_type_age + (1|agent_tag), data=data_for_logistic_PCTBGridOP, family="binomial", verbose = FALSE, control = glmerControl(optimizer="Nelder_Mead"), nAGQ = 1)
+```{KW CV Control Choice}
 
-pctbGrid_success_results <- prettyPrintLogisticOutput(random_effects_model_pctbGrid_success)
+cvchickcontrol_tasks_KW_test <- final_results %>%
+  filter((Suite == "Controls" | Suite == "Tutorial") & Paradigm == "CVChick") %>%
+  dplyr::select(agent_tag, agent_type, age, aai_seed, correctChoice) %>%
+  mutate(agent_tag_seed = haven::as_factor(paste0(agent_tag, "_", aai_seed)),
+         agent_type = ifelse(is.na(age) & !str_detect(agent_tag, "dreamer|ppo|Random"), agent_type,
+                             ifelse(is.na(age) & str_detect(agent_tag, "dreamer|ppo"), agent_tag, 
+                                    ifelse(is.na(age) & str_detect(agent_tag, "Random Action"), "Random Action", 
+                                           ifelse(is.na(age) & str_detect(agent_tag, "Random Walker"), "Random Walker", age)))),
+         agent_type = haven::as_factor(agent_type)) %>%
+  group_by(agent_tag_seed, agent_type) %>%
+  summarise(proportion_correctChoice = sum(correctChoice)/n())
 
-DT::datatable(pctbGrid_success_results$Coefficients_OR)
+cvchickcontrol_kruskal <- kruskal.test(proportion_correctChoice ~ agent_type, data = cvchickcontrol_tasks_KW_test)
 
-print(pctbGrid_success_results$posthoc_tests)
+cvchickcontrol_dunn <- dunnTest(proportion_correctChoice ~ agent_type, data = cvchickcontrol_tasks_KW_test,
+                method="holm")
+
+print(cvchickcontrol_kruskal)
+
+print(cvchickcontrol_dunn)
 
 ```
 
-It should be noted that there was a singular fit with this model, suggesting overfitting and multicollinearity. However, looking at the descriptive statistics, it might be that the results are almost perfectly separable between children and the other agents.
+#### PCTB 3 Cup Task
+
+Differences based on success:
+
+```{r KW PCTB 3 Cup Control Success}
+
+pctb3cupcontrol_tasks_KW_test <- final_results %>%
+  filter((Suite == "Controls" | Suite == "Tutorial") & Paradigm == "PCTB" & str_detect(Task, "Cup")) %>%
+  dplyr::select(agent_tag, agent_type, age, aai_seed, success) %>%
+  mutate(agent_tag_seed = haven::as_factor(paste0(agent_tag, "_", aai_seed)),
+         agent_type = ifelse(is.na(age) & !str_detect(agent_tag, "dreamer|ppo|Random"), agent_type,
+                             ifelse(is.na(age) & str_detect(agent_tag, "dreamer|ppo"), agent_tag, 
+                                    ifelse(is.na(age) & str_detect(agent_tag, "Random Action"), "Random Action", 
+                                           ifelse(is.na(age) & str_detect(agent_tag, "Random Walker"), "Random Walker", age)))),
+         agent_type = haven::as_factor(agent_type)) %>%
+  group_by(agent_tag_seed, agent_type) %>%
+  summarise(proportion_success = sum(success)/n())
+
+pctb3cupcontrol_kruskal <- kruskal.test(proportion_success ~ agent_type, data = pctb3cupcontrol_tasks_KW_test)
+
+pctb3cupcontrol_dunn <- dunnTest(proportion_success ~ agent_type, data = pctb3cupcontrol_tasks_KW_test,
+                method="holm")
+
+print(pctb3cupcontrol_kruskal)
+
+print(pctb3cupcontrol_dunn)
+
+```
+
+Differences based on choice:
+
+```{r KW PCTB 3 Cup Control Choice}
+
+pctb3cupcontrol_tasks_KW_test <- final_results %>%
+  filter((Suite == "Controls" | Suite == "Tutorial") & Paradigm == "PCTB" & str_detect(Task, "Cup")) %>%
+  dplyr::select(agent_tag, agent_type, age, aai_seed, correctChoice) %>%
+  mutate(agent_tag_seed = haven::as_factor(paste0(agent_tag, "_", aai_seed)),
+         agent_type = ifelse(is.na(age) & !str_detect(agent_tag, "dreamer|ppo|Random"), agent_type,
+                             ifelse(is.na(age) & str_detect(agent_tag, "dreamer|ppo"), agent_tag, 
+                                    ifelse(is.na(age) & str_detect(agent_tag, "Random Action"), "Random Action", 
+                                           ifelse(is.na(age) & str_detect(agent_tag, "Random Walker"), "Random Walker", age)))),
+         agent_type = haven::as_factor(agent_type)) %>%
+  group_by(agent_tag_seed, agent_type) %>%
+  summarise(proportion_correctChoice = sum(correctChoice)/n())
+
+pctb3cupcontrol_kruskal <- kruskal.test(proportion_correctChoice ~ agent_type, data = pctb3cupcontrol_tasks_KW_test)
+
+pctb3cupcontrol_dunn <- dunnTest(proportion_correctChoice ~ agent_type, data = pctb3cupcontrol_tasks_KW_test,
+                method="holm")
+
+print(pctb3cupcontrol_kruskal)
+
+print(pctb3cupcontrol_dunn)
+
+```
+
+#### PCTB Grid Task
+
+Differences based on success:
+
+```{r KW Grid Control Success}
+
+pctbgridcontrol_tasks_KW_test <- final_results %>%
+  filter((Suite == "Controls" | Suite == "Tutorial") & Paradigm == "PCTB" & str_detect(Task, "Grid")) %>%
+  dplyr::select(agent_tag, agent_type, age, aai_seed, success) %>%
+  mutate(agent_tag_seed = haven::as_factor(paste0(agent_tag, "_", aai_seed)),
+         agent_type = ifelse(is.na(age) & !str_detect(agent_tag, "dreamer|ppo|Random"), agent_type,
+                             ifelse(is.na(age) & str_detect(agent_tag, "dreamer|ppo"), agent_tag, 
+                                    ifelse(is.na(age) & str_detect(agent_tag, "Random Action"), "Random Action", 
+                                           ifelse(is.na(age) & str_detect(agent_tag, "Random Walker"), "Random Walker", age)))),
+         agent_type = haven::as_factor(agent_type)) %>%
+  group_by(agent_tag_seed, agent_type) %>%
+  summarise(proportion_success = sum(success)/n())
+
+pctbgridcontrol_kruskal <- kruskal.test(proportion_success ~ agent_type, data = pctbgridcontrol_tasks_KW_test)
+
+pctbgridcontrol_dunn <- dunnTest(proportion_success ~ agent_type, data = pctbgridcontrol_tasks_KW_test,
+                method="holm")
+
+print(pctbgridcontrol_kruskal)
+
+print(pctbgridcontrol_dunn)
+
+```
+
+Differences based on choice:
+
+```{r KW Grid Control Choice}
+
+pctbgridcontrol_tasks_KW_test <- final_results %>%
+  filter((Suite == "Controls" | Suite == "Tutorial") & Paradigm == "PCTB" & str_detect(Task, "Grid")) %>%
+  dplyr::select(agent_tag, agent_type, age, aai_seed, correctChoice) %>%
+  mutate(agent_tag_seed = haven::as_factor(paste0(agent_tag, "_", aai_seed)),
+         agent_type = ifelse(is.na(age) & !str_detect(agent_tag, "dreamer|ppo|Random"), agent_type,
+                             ifelse(is.na(age) & str_detect(agent_tag, "dreamer|ppo"), agent_tag, 
+                                    ifelse(is.na(age) & str_detect(agent_tag, "Random Action"), "Random Action", 
+                                           ifelse(is.na(age) & str_detect(agent_tag, "Random Walker"), "Random Walker", age)))),
+         agent_type = haven::as_factor(agent_type)) %>%
+  group_by(agent_tag_seed, agent_type) %>%
+  summarise(proportion_correctChoice = sum(correctChoice)/n())
+
+pctbgridcontrol_kruskal <- kruskal.test(proportion_correctChoice ~ agent_type, data = pctbgridcontrol_tasks_KW_test)
+
+pctbgridcontrol_dunn <- dunnTest(proportion_correctChoice ~ agent_type, data = pctbgridcontrol_tasks_KW_test,
+                method="holm")
+
+print(pctbgridcontrol_kruskal)
+
+print(pctbgridcontrol_dunn)
+
+```
+
+### Object Permanence Tests
+
+#### Chiandetti & Vallortigara Chick Task
+
+```{r KW CV Tests Success}
+
+cvchicktest_tasks_KW_test <- final_results %>%
+  filter(goalBecomesAllocentricallyOccluded == 1 & Paradigm == "CVChick") %>%
+  dplyr::select(agent_tag, agent_type, age, aai_seed, success) %>%
+  mutate(agent_tag_seed = haven::as_factor(paste0(agent_tag, "_", aai_seed)),
+         agent_type = ifelse(is.na(age) & !str_detect(agent_tag, "dreamer|ppo|Random"), agent_type,
+                             ifelse(is.na(age) & str_detect(agent_tag, "dreamer|ppo"), agent_tag, 
+                                    ifelse(is.na(age) & str_detect(agent_tag, "Random Action"), "Random Action", 
+                                           ifelse(is.na(age) & str_detect(agent_tag, "Random Walker"), "Random Walker", age)))),
+         agent_type = haven::as_factor(agent_type)) %>%
+  group_by(agent_tag_seed, agent_type) %>%
+  summarise(proportion_success = sum(success)/n())
+
+cvchicktest_kruskal <- kruskal.test(proportion_success ~ agent_type, data = cvchicktest_tasks_KW_test)
+
+cvchicktest_dunn <- dunnTest(proportion_success ~ agent_type, data = cvchicktest_tasks_KW_test,
+                method="holm")
+
+print(cvchicktest_kruskal)
+
+print(cvchicktest_dunn)
+
+```
+
+
+Differences based on choice:
+
+```{r KW CV Test Choice}
+
+cvchicktest_tasks_KW_test <- final_results %>%
+  filter(goalBecomesAllocentricallyOccluded == 1 & Paradigm == "CVChick") %>%
+  dplyr::select(agent_tag, agent_type, age, aai_seed, correctChoice) %>%
+  mutate(agent_tag_seed = haven::as_factor(paste0(agent_tag, "_", aai_seed)),
+         agent_type = ifelse(is.na(age) & !str_detect(agent_tag, "dreamer|ppo|Random"), agent_type,
+                             ifelse(is.na(age) & str_detect(agent_tag, "dreamer|ppo"), agent_tag, 
+                                    ifelse(is.na(age) & str_detect(agent_tag, "Random Action"), "Random Action", 
+                                           ifelse(is.na(age) & str_detect(agent_tag, "Random Walker"), "Random Walker", age)))),
+         agent_type = haven::as_factor(agent_type)) %>%
+  group_by(agent_tag_seed, agent_type) %>%
+  summarise(proportion_correctChoice = sum(correctChoice)/n())
+
+cvchicktest_kruskal <- kruskal.test(proportion_correctChoice ~ agent_type, data = cvchicktest_tasks_KW_test)
+
+cvchicktest_dunn <- dunnTest(proportion_correctChoice ~ agent_type, data = cvchicktest_tasks_KW_test,
+                method="holm")
+
+print(cvchicktest_kruskal)
+
+print(cvchicktest_dunn)
+
+```
+
+#### PCTB 3 Cup Task
+
+Differences based on success:
+
+```{r KW PCTB 3 Cup Test Success}
+
+pctb3cuptests_tasks_KW_test <- final_results %>%
+  filter(goalBecomesAllocentricallyOccluded == 1 & Paradigm == "PCTB" & str_detect(Task, "Cup")) %>%
+  dplyr::select(agent_tag, agent_type, age, aai_seed, success) %>%
+  mutate(agent_tag_seed = haven::as_factor(paste0(agent_tag, "_", aai_seed)),
+         agent_type = ifelse(is.na(age) & !str_detect(agent_tag, "dreamer|ppo|Random"), agent_type,
+                             ifelse(is.na(age) & str_detect(agent_tag, "dreamer|ppo"), agent_tag, 
+                                    ifelse(is.na(age) & str_detect(agent_tag, "Random Action"), "Random Action", 
+                                           ifelse(is.na(age) & str_detect(agent_tag, "Random Walker"), "Random Walker", age)))),
+         agent_type = haven::as_factor(agent_type)) %>%
+  group_by(agent_tag_seed, agent_type) %>%
+  summarise(proportion_success = sum(success)/n())
+
+pctb3cuptests_kruskal <- kruskal.test(proportion_success ~ agent_type, data = pctb3cuptests_tasks_KW_test)
+
+pctb3cuptests_dunn <- dunnTest(proportion_success ~ agent_type, data = pctb3cuptests_tasks_KW_test,
+                method="holm")
+
+print(pctb3cuptests_kruskal)
+
+print(pctb3cuptests_dunn)
+
+```
+
+Differences based on choice:
+
+```{r KW PCTB 3 Cup Test Choice}
+
+pctb3cuptests_tasks_KW_test <- final_results %>%
+  filter(goalBecomesAllocentricallyOccluded == 1 & Paradigm == "PCTB" & str_detect(Task, "Cup")) %>%
+  dplyr::select(agent_tag, agent_type, age, aai_seed, correctChoice) %>%
+  mutate(agent_tag_seed = haven::as_factor(paste0(agent_tag, "_", aai_seed)),
+         agent_type = ifelse(is.na(age) & !str_detect(agent_tag, "dreamer|ppo|Random"), agent_type,
+                             ifelse(is.na(age) & str_detect(agent_tag, "dreamer|ppo"), agent_tag, 
+                                    ifelse(is.na(age) & str_detect(agent_tag, "Random Action"), "Random Action", 
+                                           ifelse(is.na(age) & str_detect(agent_tag, "Random Walker"), "Random Walker", age)))),
+         agent_type = haven::as_factor(agent_type)) %>%
+  group_by(agent_tag_seed, agent_type) %>%
+  summarise(proportion_correctChoice = sum(correctChoice)/n())
+
+pctb3cuptests_kruskal <- kruskal.test(proportion_correctChoice ~ agent_type, data = pctb3cuptests_tasks_KW_test)
+
+pctb3cuptests_dunn <- dunnTest(proportion_correctChoice ~ agent_type, data = pctb3cuptests_tasks_KW_test,
+                method="holm")
+
+print(pctb3cuptests_kruskal)
+
+print(pctb3cuptests_dunn)
+
+```
+
+#### PCTB Grid Task
+
+Differences based on success:
+
+```{r KW PCTB Grid Test Success}
+
+pctbgridtests_tasks_KW_test <- final_results %>%
+  filter(goalBecomesAllocentricallyOccluded == 1 & Paradigm == "PCTB" & str_detect(Task, "Grid")) %>%
+  dplyr::select(agent_tag, agent_type, age, aai_seed, success) %>%
+  mutate(agent_tag_seed = haven::as_factor(paste0(agent_tag, "_", aai_seed)),
+         agent_type = ifelse(is.na(age) & !str_detect(agent_tag, "dreamer|ppo|Random"), agent_type,
+                             ifelse(is.na(age) & str_detect(agent_tag, "dreamer|ppo"), agent_tag, 
+                                    ifelse(is.na(age) & str_detect(agent_tag, "Random Action"), "Random Action", 
+                                           ifelse(is.na(age) & str_detect(agent_tag, "Random Walker"), "Random Walker", age)))),
+         agent_type = haven::as_factor(agent_type)) %>%
+  group_by(agent_tag_seed, agent_type) %>%
+  summarise(proportion_success = sum(success)/n())
+
+pctbgridtests_kruskal <- kruskal.test(proportion_success ~ agent_type, data = pctbgridtests_tasks_KW_test)
+
+pctbgridtests_dunn <- dunnTest(proportion_success ~ agent_type, data = pctbgridtests_tasks_KW_test,
+                method="holm")
+
+print(pctbgridtests_kruskal)
+
+print(pctbgridtests_dunn)
+
+```
+
+Differences based on choice:
+
+```{r KW PCTB Grid Test Choice}
+
+pctbgridtests_tasks_KW_test <- final_results %>%
+  filter(goalBecomesAllocentricallyOccluded == 1 & Paradigm == "PCTB" & str_detect(Task, "Grid")) %>%
+  dplyr::select(agent_tag, agent_type, age, aai_seed, correctChoice) %>%
+  mutate(agent_tag_seed = haven::as_factor(paste0(agent_tag, "_", aai_seed)),
+         agent_type = ifelse(is.na(age) & !str_detect(agent_tag, "dreamer|ppo|Random"), agent_type,
+                             ifelse(is.na(age) & str_detect(agent_tag, "dreamer|ppo"), agent_tag, 
+                                    ifelse(is.na(age) & str_detect(agent_tag, "Random Action"), "Random Action", 
+                                           ifelse(is.na(age) & str_detect(agent_tag, "Random Walker"), "Random Walker", age)))),
+         agent_type = haven::as_factor(agent_type)) %>%
+  group_by(agent_tag_seed, agent_type) %>%
+  summarise(proportion_correctChoice = sum(correctChoice)/n())
+
+pctbgridtests_kruskal <- kruskal.test(proportion_correctChoice ~ agent_type, data = pctbgridtests_tasks_KW_test)
+
+pctbgridtests_dunn <- dunnTest(proportion_correctChoice ~ agent_type, data = pctbgridtests_tasks_KW_test,
+                method="holm")
+
+print(pctbgridtests_kruskal)
+
+print(pctbgridtests_dunn)
+
+```
+
+### Overall
+
+Differences based on success:
+
+```{r KW Overall Success}
+
+overall_tasks_KW_test <- final_results %>%
+  dplyr::select(agent_tag, agent_type, age, aai_seed, success) %>%
+  mutate(agent_tag_seed = haven::as_factor(paste0(agent_tag, "_", aai_seed)),
+         agent_type = ifelse(is.na(age) & !str_detect(agent_tag, "dreamer|ppo|Random"), agent_type,
+                             ifelse(is.na(age) & str_detect(agent_tag, "dreamer|ppo"), agent_tag, 
+                                    ifelse(is.na(age) & str_detect(agent_tag, "Random Action"), "Random Action", 
+                                           ifelse(is.na(age) & str_detect(agent_tag, "Random Walker"), "Random Walker", age)))),
+         agent_type = haven::as_factor(agent_type)) %>%
+  group_by(agent_tag_seed, agent_type) %>%
+  summarise(proportion_success = sum(success)/n())
+
+overall_kruskal <- kruskal.test(proportion_success ~ agent_type, data = overall_tasks_KW_test)
+
+overall_dunn <- dunnTest(proportion_success ~ agent_type, data = overall_tasks_KW_test,
+                method="holm")
+
+print(overall_kruskal)
+
+print(overall_kruskal)
+
+```
+
+Differences based on choice:
+
+```{r KW Overall Choice}
+
+overall_tasks_KW_test <- final_results %>%
+  dplyr::select(agent_tag, agent_type, age, aai_seed, correctChoice) %>%
+  mutate(agent_tag_seed = haven::as_factor(paste0(agent_tag, "_", aai_seed)),
+         agent_type = ifelse(is.na(age) & !str_detect(agent_tag, "dreamer|ppo|Random"), agent_type,
+                             ifelse(is.na(age) & str_detect(agent_tag, "dreamer|ppo"), agent_tag, 
+                                    ifelse(is.na(age) & str_detect(agent_tag, "Random Action"), "Random Action", 
+                                           ifelse(is.na(age) & str_detect(agent_tag, "Random Walker"), "Random Walker", age)))),
+         agent_type = haven::as_factor(agent_type)) %>%
+  group_by(agent_tag_seed, agent_type) %>%
+  summarise(proportion_correctChoice = sum(correctChoice)/n())
+
+overall_kruskal <- kruskal.test(proportion_correctChoice ~ agent_type, data = overall_tasks_KW_test)
+
+overall_dunn <- dunnTest(proportion_correctChoice ~ agent_type, data = overall_tasks_KW_test,
+                method="holm")
+
+print(overall_kruskal)
+
+print(overall_dunn)
+
+```

@@ -1,0 +1,29 @@
+# Ignore Slurm files
+X*.out
+
+# Ignore Singularity builds
+*.sif
+
+# Ignore replay buffers, checkpoints, and TF logs (but log the rest)
+logdir/**/replay
+logdir/**/checkpoint.ckpt*
+logdir/**/events.out.tfevents.*
+
+# Ignore integration test and debug logs
+logdir/**/integration-test-*/
+logdir/**/debug-*/
+
+# Ignore private configs
+aai/configs-private/*
+!aai/configs-private/.gitkeep
+
+# Ignore environments
+aai/env*/*
+
+# Wandb
+wandb/
+.env
+
+# Python stuff
+.venv
+__pycache__/
