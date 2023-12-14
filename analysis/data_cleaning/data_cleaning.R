@@ -723,6 +723,24 @@ final_results <- final_results %>% mutate(correctChoice = ifelse((is.na(cvchickc
 final_results <- final_results %>% 
   mutate(agent_tag_seed = paste0(agent_tag, ifelse(is.na(aai_seed) | aai_seed == 9999, "", paste0("_", aai_seed))))
 
+final_results <- final_results %>%
+  mutate(agent_type_mem = ifelse(is.na(age) & !str_detect(agent_tag, "dreamer|ppo|Random"), agent_type,
+                             ifelse(is.na(age) & str_detect(agent_tag, "dreamer|ppo"), agent_tag, 
+                                    ifelse(is.na(age) & str_detect(agent_tag, "Random Action"), "Random Action", 
+                                           ifelse(is.na(age) & str_detect(agent_tag, "Random Walker"), "Random Walker", age)))),
+         agent_type_mem = haven::as_factor(agent_type_mem),
+         agent_type = haven::as_factor(agent_type))
+
+final_results <- final_results %>%
+  mutate(agent_order_mem = ifelse(agent_type_mem == "Random Walker", 0,
+                                  ifelse(agent_type_mem == "Random Action", 1,
+                                         ifelse(agent_type_mem == "Braitenberg", 2, 
+                                                ifelse(agent_type == "PPO", 3, 
+                                                       ifelse(agent_type == "Dreamer", 4,
+                                                              ifelse(agent_type_mem == "4", 5, 
+                                                                     ifelse(agent_type_mem == "5", 6,
+                                                                            ifelse(agent_type_mem == "6", 7, 8)))))))))
+
 
 ###############################################################################################################################
 ###############################################       Make wide/long Versions     #############################################
