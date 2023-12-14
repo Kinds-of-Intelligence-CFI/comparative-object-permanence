@@ -1,0 +1,522 @@
+Basic Tasks:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  correctChoice ~ 1 + agent_type_mem + (1 + agent_type_mem | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+ -5103.9621 10207.9241 10547.9241 10553.7213 11777.0484
+
+Variance components:
+                                Column                  Variance Std.Dev.   Corr.
+agent_tag_seed (Intercept)                               0.103787 0.322160
+               agent_type_mem: Random Action             0.089754 0.299590 -0.95
+               agent_type_mem: Braitenberg               0.104188 0.322782 -1.00 +0.95
+               agent_type_mem: ppo-bc-all                0.104289 0.322938 -1.00 +0.95 +1.00
+               agent_type_mem: ppo-bc_opc-all            0.103468 0.321665 -1.00 +0.95 +1.00 +1.00
+               agent_type_mem: ppo-bc_opc-strat          0.103296 0.321397 -1.00 +0.95 +1.00 +1.00 +1.00
+               agent_type_mem: ppo-bc_opc_opt-all        0.103428 0.321602 -1.00 +0.95 +1.00 +1.00 +1.00 +1.00
+               agent_type_mem: ppo-bc_opc_opt-strat      0.102953 0.320863 -1.00 +0.95 +1.00 +1.00 +1.00 +1.00 +1.00
+               agent_type_mem: dreamer-bc-all            0.103818 0.322207 -1.00 +0.95 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+               agent_type_mem: dreamer-bc_opc-all        0.104073 0.322604 -1.00 +0.95 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+               agent_type_mem: dreamer-bc_opc-strat      0.103748 0.322100 -1.00 +0.95 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+               agent_type_mem: dreamer-bc_opc_opt-all    0.104986 0.324016 -1.00 +0.95 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+               agent_type_mem: dreamer-bc_opc_opt-strat  0.102948 0.320855 -1.00 +0.95 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+               agent_type_mem: 4                         9.061805 3.010283 +0.20 -0.28 -0.20 -0.20 -0.20 -0.20 -0.20 -0.20 -0.20 -0.20 -0.20 -0.20 -0.20
+               agent_type_mem: 5                         0.232326 0.482003 -0.39 +0.42 +0.39 +0.39 +0.39 +0.39 +0.38 +0.39 +0.39 +0.38 +0.39 +0.39 +0.39 -0.13
+               agent_type_mem: 6                         0.133411 0.365255 -0.93 +0.94 +0.93 +0.93 +0.93 +0.93 +0.93 +0.93 +0.93 +0.93 +0.93 +0.93 +0.93 -0.23 +0.39
+               agent_type_mem: 7                         0.232059 0.481725 -0.66 +0.73 +0.66 +0.66 +0.66 +0.65 +0.65 +0.66 +0.66 +0.65 +0.66 +0.66 +0.65 -0.20 +0.47 +0.73
+
+ Number of obs: 10200; levels of grouping factors: 70
+
+Fixed-effects parameters:
+─────────────────────────────────────────────────────────────────────────────────
+                                              Coef.   Std. Error      z  Pr(>|z|)
+─────────────────────────────────────────────────────────────────────────────────
+(Intercept)                               -0.800732    0.0906199  -8.84    <1e-18
+agent_type_mem: Random Action              0.348154    0.104488    3.33    0.0009
+agent_type_mem: Braitenberg                5.01081     0.254212   19.71    <1e-85
+agent_type_mem: ppo-bc-all                 1.90971     0.173226   11.02    <1e-27
+agent_type_mem: ppo-bc_opc-all             0.289773    0.159866    1.81    0.0699
+agent_type_mem: ppo-bc_opc-strat           0.165355    0.161775    1.02    0.3067
+agent_type_mem: ppo-bc_opc_opt-all        -2.08427     0.298956   -6.97    <1e-11
+agent_type_mem: ppo-bc_opc_opt-strat      -1.33616     0.226434   -5.90    <1e-08
+agent_type_mem: dreamer-bc-all             2.21876     0.184697   12.01    <1e-32
+agent_type_mem: dreamer-bc_opc-all        -0.694068    0.188116   -3.69    0.0002
+agent_type_mem: dreamer-bc_opc-strat      -1.47044     0.237021   -6.20    <1e-09
+agent_type_mem: dreamer-bc_opc_opt-all    -1.42366     0.233228   -6.10    <1e-08
+agent_type_mem: dreamer-bc_opc_opt-strat  -1.29126     0.223159   -5.79    <1e-08
+agent_type_mem: 4                         17.799     599.912       0.03    0.9763
+agent_type_mem: 5                          5.38175     0.761156    7.07    <1e-11
+agent_type_mem: 6                          4.45079     0.728688    6.11    <1e-08
+agent_type_mem: 7                          4.43201     1.06379     4.17    <1e-04
+─────────────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds Ratios)
+0.4489999738483029
+1.4164507590088302
+150.02593138311988
+6.751140558225649
+1.3361237197750513
+1.1798118178376487
+0.12439754253720799
+0.2628530453173607
+9.195923305515763
+0.49953975257941446
+0.22982418876826416
+0.24083103674380604
+0.2749253352781413
+5.37031984698375e7
+217.40178142611904
+85.69447086198525
+84.10011415916637
+─────────────────────────────────────────────────────────────────────────────────
+
+─────────────────────────────────────────────────────────────────────────────────
+CV Controls:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  correctChoice ~ 1 + agent_type_mem + (1 + agent_type_mem | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik     deviance      AIC         AICc        BIC     
+ -38390.4453  76780.8907  77120.8907  77121.8920  78646.1630
+
+Variance components:
+                                Column                   Variance  Std.Dev.   Corr.
+agent_tag_seed (Intercept)                               0.0013526 0.0367774
+               agent_type_mem: Random Action             0.0013420 0.0366336 -1.00
+               agent_type_mem: Braitenberg               0.0013341 0.0365259 -1.00 +1.00
+               agent_type_mem: ppo-bc-all                0.0013282 0.0364445 -1.00 +1.00 +1.00
+               agent_type_mem: ppo-bc_opc-all            0.0013373 0.0365687 -1.00 +1.00 +1.00 +1.00
+               agent_type_mem: ppo-bc_opc-strat          1.9283985 1.3886679 +0.06 -0.06 -0.06 -0.06 -0.06
+               agent_type_mem: ppo-bc_opc_opt-all        0.0014058 0.0374937 -1.00 +1.00 +1.00 +1.00 +1.00 -0.06
+               agent_type_mem: ppo-bc_opc_opt-strat      0.0013297 0.0364653 -1.00 +1.00 +1.00 +1.00 +1.00 -0.06 +1.00
+               agent_type_mem: dreamer-bc-all            0.0013331 0.0365121 -1.00 +1.00 +1.00 +1.00 +1.00 -0.07 +1.00 +1.00
+               agent_type_mem: dreamer-bc_opc-all        0.0013100 0.0361940 -1.00 +1.00 +1.00 +1.00 +1.00 -0.07 +1.00 +1.00 +1.00
+               agent_type_mem: dreamer-bc_opc-strat      0.0013281 0.0364436 -1.00 +1.00 +1.00 +1.00 +1.00 -0.05 +1.00 +1.00 +1.00 +1.00
+               agent_type_mem: dreamer-bc_opc_opt-all    0.0013566 0.0368327 -1.00 +1.00 +1.00 +1.00 +1.00 -0.07 +1.00 +1.00 +1.00 +1.00 +1.00
+               agent_type_mem: dreamer-bc_opc_opt-strat  0.0013544 0.0368015 -1.00 +1.00 +1.00 +1.00 +1.00 -0.08 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+               agent_type_mem: 4                         0.1489393 0.3859266 -0.11 +0.11 +0.11 +0.11 +0.11 -0.15 +0.11 +0.11 +0.11 +0.13 +0.11 +0.11 +0.13
+               agent_type_mem: 5                         0.0347709 0.1864696 -0.10 +0.10 +0.10 +0.10 +0.10 -0.21 +0.10 +0.10 +0.10 +0.10 +0.11 +0.10 +0.11 -0.01
+               agent_type_mem: 6                         0.6789157 0.8239634 -0.24 +0.24 +0.24 +0.24 +0.23 +0.17 +0.23 +0.24 +0.23 +0.24 +0.24 +0.23 +0.23 +0.20 +0.13
+               agent_type_mem: 7                         9.4016676 3.0662139 -0.05 +0.05 +0.05 +0.05 +0.05 +0.29 +0.05 +0.05 +0.05 +0.05 +0.06 +0.05 +0.07 +0.31 -0.27 +0.04
+
+ Number of obs: 58232; levels of grouping factors: 70
+
+Fixed-effects parameters:
+───────────────────────────────────────────────────────────────────────────────────
+                                                Coef.  Std. Error       z  Pr(>|z|)
+───────────────────────────────────────────────────────────────────────────────────
+(Intercept)                                -0.0748017   0.0165483   -4.52    <1e-05
+agent_type_mem: Random Action               0.0744821   0.0234297    3.18    0.0015
+agent_type_mem: Braitenberg                 0.859997    0.0302214   28.46    <1e-99
+agent_type_mem: ppo-bc-all                 -0.4607      0.0568069   -8.11    <1e-15
+agent_type_mem: ppo-bc_opc-all             -0.708408    0.058898   -12.03    <1e-32
+agent_type_mem: ppo-bc_opc-strat          -15.3045     57.3514      -0.27    0.7896
+agent_type_mem: ppo-bc_opc_opt-all         -0.513708    0.0571911   -8.98    <1e-18
+agent_type_mem: ppo-bc_opc_opt-strat       -0.606019    0.0579409  -10.46    <1e-24
+agent_type_mem: dreamer-bc-all             -0.28293     0.0558106   -5.07    <1e-06
+agent_type_mem: dreamer-bc_opc-all          0.0700242   0.0550127    1.27    0.2031
+agent_type_mem: dreamer-bc_opc-strat       -0.583783    0.0577596  -10.11    <1e-23
+agent_type_mem: dreamer-bc_opc_opt-all      0.0755073   0.0550034    1.37    0.1698
+agent_type_mem: dreamer-bc_opc_opt-strat   -0.265206    0.0557556   -4.76    <1e-05
+agent_type_mem: 4                           0.344006    0.564299     0.61    0.5421
+agent_type_mem: 5                           1.43942     0.428907     3.36    0.0008
+agent_type_mem: 6                           2.27338     0.890505     2.55    0.0107
+agent_type_mem: 7                           9.23298    34.5508       0.27    0.7893
+───────────────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds Ratios)
+0.9279275153168741
+1.0773261035600508
+2.3631525999313565
+0.6308419556019801
+0.4924276947874868
+2.2560350686083045e-7
+0.5982732988653082
+0.5455182016305503
+0.75357260720932
+1.0725341106655755
+0.5577844585415362
+1.0784311180195607
+0.7670479313266951
+1.4105864476818297
+4.21825642436848
+9.712207884405458
+10229.00237592844
+─────────────────────────────────────────────────────────────────────────────────
+
+─────────────────────────────────────────────────────────────────────────────────
+Cup Controls:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  correctChoice ~ 1 + agent_type_mem + (1 + agent_type_mem | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+ -8679.7385 17359.4770 17699.4770 17702.8681 19018.5727
+
+Variance components:
+                                Column                   Variance   Std.Dev.   Corr.
+agent_tag_seed (Intercept)                                0.0595144 0.2439557
+               agent_type_mem: Random Action              0.0008188 0.0286139 -0.38
+               agent_type_mem: Braitenberg                0.0595079 0.2439425 -1.00 +0.38
+               agent_type_mem: ppo-bc-all                 0.0594844 0.2438942 -1.00 +0.38 +1.00
+               agent_type_mem: ppo-bc_opc-all             0.0594127 0.2437473 -1.00 +0.38 +1.00 +1.00
+               agent_type_mem: ppo-bc_opc-strat           0.0594711 0.2438670 -1.00 +0.38 +1.00 +1.00 +1.00
+               agent_type_mem: ppo-bc_opc_opt-all         0.0594717 0.2438683 -1.00 +0.39 +1.00 +1.00 +1.00 +1.00
+               agent_type_mem: ppo-bc_opc_opt-strat       0.0594438 0.2438111 -1.00 +0.38 +1.00 +1.00 +1.00 +1.00 +1.00
+               agent_type_mem: dreamer-bc-all             0.0595612 0.2440516 -1.00 +0.38 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+               agent_type_mem: dreamer-bc_opc-all         0.0589095 0.2427129 -1.00 +0.38 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+               agent_type_mem: dreamer-bc_opc-strat       0.0594964 0.2439189 -1.00 +0.38 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+               agent_type_mem: dreamer-bc_opc_opt-all     8.1717498 2.8586273 -0.22 +0.07 +0.22 +0.22 +0.22 +0.22 +0.22 +0.23 +0.22 +0.23 +0.22
+               agent_type_mem: dreamer-bc_opc_opt-strat   0.0594949 0.2439158 -1.00 +0.38 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +0.22
+               agent_type_mem: 4                          5.5997726 2.3663839 +0.49 +0.27 -0.49 -0.49 -0.49 -0.49 -0.48 -0.49 -0.49 -0.49 -0.50 -0.21 -0.49
+               agent_type_mem: 5                          0.0747286 0.2733653 -0.96 +0.39 +0.96 +0.96 +0.96 +0.96 +0.96 +0.96 +0.96 +0.96 +0.96 +0.27 +0.96 -0.53
+               agent_type_mem: 6                          6.1414688 2.4781987 +0.26 +0.15 -0.26 -0.26 -0.26 -0.26 -0.26 -0.26 -0.26 -0.25 -0.26 -0.13 -0.26 +0.47 -0.30
+               agent_type_mem: 7                         15.2636330 3.9068700 +0.03 -0.34 -0.03 -0.03 -0.03 -0.03 -0.03 -0.03 -0.03 -0.03 -0.03 +0.04 -0.03 -0.04 -0.09 +0.33
+
+ Number of obs: 17316; levels of grouping factors: 70
+
+Fixed-effects parameters:
+───────────────────────────────────────────────────────────────────────────────────
+                                               Coef.   Std. Error       z  Pr(>|z|)
+───────────────────────────────────────────────────────────────────────────────────
+(Intercept)                                -1.13205     0.0693888  -16.31    <1e-59
+agent_type_mem: Random Action               0.213361    0.107087     1.99    0.0463
+agent_type_mem: Braitenberg                 0.84678     0.0818815   10.34    <1e-24
+agent_type_mem: ppo-bc-all                 -0.396325    0.143595    -2.76    0.0058
+agent_type_mem: ppo-bc_opc-all             -1.07015     0.175037    -6.11    <1e-09
+agent_type_mem: ppo-bc_opc-strat           -1.17808     0.181653    -6.49    <1e-10
+agent_type_mem: ppo-bc_opc_opt-all         -3.83073     0.583524    -6.56    <1e-10
+agent_type_mem: ppo-bc_opc_opt-strat       -2.34098     0.29006     -8.07    <1e-15
+agent_type_mem: dreamer-bc-all             -2.00368     0.250598    -8.00    <1e-14
+agent_type_mem: dreamer-bc_opc-all         -3.31539     0.455197    -7.28    <1e-12
+agent_type_mem: dreamer-bc_opc-strat       -0.995303    0.170728    -5.83    <1e-08
+agent_type_mem: dreamer-bc_opc_opt-all    -13.8196     85.0036      -0.16    0.8709
+agent_type_mem: dreamer-bc_opc_opt-strat   -0.260184    0.139048    -1.87    0.0613
+agent_type_mem: 4                           0.91805     1.4074       0.65    0.5142
+agent_type_mem: 5                           0.257316    0.537098     0.48    0.6319
+agent_type_mem: 6                           4.91502     2.21815      2.22    0.0267
+agent_type_mem: 7                          13.3506    225.034        0.06    0.9527
+───────────────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds Ratios)
+0.3223703076075021
+1.2378314112755153
+2.3321246857567726
+0.6727882945968938
+0.3429566987148952
+0.307869892752705
+0.021693685356443494
+0.09623366323076864
+0.13483819906206881
+0.03631994487792791
+0.36961145779632254
+9.959544120012827e-7
+0.7709095367329178
+2.5044012407340084
+1.2934537564411837
+136.321587923769
+628200.351687398
+─────────────────────────────────────────────────────────────────────────────────
+
+─────────────────────────────────────────────────────────────────────────────────
+Grid Controls:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  correctChoice ~ 1 + agent_type_mem + (1 + agent_type_mem | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+ -3661.8930  7323.7860  7663.7860  7669.9053  8883.8743
+
+Variance components:
+                                Column                   Variance Std.Dev.   Corr.
+agent_tag_seed (Intercept)                                0.184937 0.430042
+               agent_type_mem: Random Action              0.200882 0.448198 -0.98
+               agent_type_mem: Braitenberg                0.184956 0.430065 -1.00 +0.98
+               agent_type_mem: ppo-bc-all                 0.185159 0.430301 -1.00 +0.98 +1.00
+               agent_type_mem: ppo-bc_opc-all             0.185094 0.430226 -1.00 +0.98 +1.00 +1.00
+               agent_type_mem: ppo-bc_opc-strat           1.339372 1.157313 -0.25 +0.22 +0.25 +0.25 +0.25
+               agent_type_mem: ppo-bc_opc_opt-all         0.183517 0.428389 -1.00 +0.98 +1.00 +1.00 +1.00 +0.26
+               agent_type_mem: ppo-bc_opc_opt-strat       0.184542 0.429584 -1.00 +0.98 +1.00 +1.00 +1.00 +0.25 +1.00
+               agent_type_mem: dreamer-bc-all             0.184564 0.429609 -1.00 +0.98 +1.00 +1.00 +1.00 +0.25 +1.00 +1.00
+               agent_type_mem: dreamer-bc_opc-all         0.184782 0.429862 -1.00 +0.98 +1.00 +1.00 +1.00 +0.25 +1.00 +1.00 +1.00
+               agent_type_mem: dreamer-bc_opc-strat       0.185410 0.430593 -1.00 +0.98 +1.00 +1.00 +1.00 +0.25 +1.00 +1.00 +1.00 +1.00
+               agent_type_mem: dreamer-bc_opc_opt-all     0.184546 0.429588 -1.00 +0.98 +1.00 +1.00 +1.00 +0.25 +1.00 +1.00 +1.00 +1.00 +1.00
+               agent_type_mem: dreamer-bc_opc_opt-strat   0.185107 0.430240 -1.00 +0.98 +1.00 +1.00 +1.00 +0.25 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+               agent_type_mem: 4                          9.373367 3.061595 -0.07 +0.11 +0.07 +0.07 +0.07 +0.00 +0.07 +0.07 +0.07 +0.07 +0.07 +0.07 +0.07
+               agent_type_mem: 5                         16.067727 4.008457 +0.05 -0.09 -0.05 -0.05 -0.05 +0.33 -0.06 -0.06 -0.06 -0.06 -0.05 -0.05 -0.05 +0.29
+               agent_type_mem: 6                          0.219667 0.468686 -0.94 +0.92 +0.94 +0.94 +0.94 +0.21 +0.94 +0.94 +0.94 +0.94 +0.94 +0.94 +0.94 +0.01 -0.08
+               agent_type_mem: 7                          9.293051 3.048451 +0.29 -0.38 -0.29 -0.28 -0.29 -0.04 -0.29 -0.29 -0.29 -0.29 -0.29 -0.29 -0.29 -0.05 +0.34 -0.21
+
+ Number of obs: 9672; levels of grouping factors: 70
+
+Fixed-effects parameters:
+─────────────────────────────────────────────────────────────────────────────────────
+                                               Coef.     Std. Error       z  Pr(>|z|)
+─────────────────────────────────────────────────────────────────────────────────────
+(Intercept)                                -2.67477        0.130378  -20.52    <1e-92
+agent_type_mem: Random Action               0.638975       0.148171    4.31    <1e-04
+agent_type_mem: Braitenberg                 2.99768        0.142896   20.98    <1e-96
+agent_type_mem: ppo-bc-all                  1.7468         0.193696    9.02    <1e-18
+agent_type_mem: ppo-bc_opc-all              2.12836        0.186924   11.39    <1e-29
+agent_type_mem: ppo-bc_opc-strat          -14.0122       271.292      -0.05    0.9588
+agent_type_mem: ppo-bc_opc_opt-all         -0.359317       0.334876   -1.07    0.2833
+agent_type_mem: ppo-bc_opc_opt-strat       -0.56905        0.363732   -1.56    0.1177
+agent_type_mem: dreamer-bc-all              2.44045        0.184113   13.26    <1e-39
+agent_type_mem: dreamer-bc_opc-all          3.54203        0.192359   18.41    <1e-74
+agent_type_mem: dreamer-bc_opc-strat        2.42331        0.184204   13.16    <1e-38
+agent_type_mem: dreamer-bc_opc_opt-all      0.429864       0.255161    1.68    0.0921
+agent_type_mem: dreamer-bc_opc_opt-strat    1.33936        0.205595    6.51    <1e-10
+agent_type_mem: 4                           3.9123         1.53292     2.55    0.0107
+agent_type_mem: 5                           5.51933        1.35454     4.07    <1e-04
+agent_type_mem: 6                           4.14584        0.658518    6.30    <1e-09
+agent_type_mem: 7                          31.2362    562982.0         0.00    1.0000
+─────────────────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds Ratios)
+0.06892295863418012
+1.8945379008838688
+20.039078923187272
+5.736245996854362
+8.401063500681904
+8.214189768476889e-7
+0.6981526693192966
+0.5660630901047276
+11.478155205394879
+34.53695286447204
+11.283147946430365
+1.5370490863224415
+3.8165906679059773
+50.01367515206291
+249.46659978718847
+63.17045070893482
+3.6788750746519445e13
+─────────────────────────────────────────────────────────────────────────────────
+
+─────────────────────────────────────────────────────────────────────────────────
+CV Tests:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  correctChoice ~ 1 + agent_type_mem + (1 + agent_type_mem | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+ -3600.0615  7200.1230  7540.1230  7550.9397  8665.6645
+
+Variance components:
+                                Column                    Variance    Std.Dev.    Corr.
+agent_tag_seed (Intercept)                               0.000000000 0.000000000
+               agent_type_mem: Random Action             0.000000006 0.000077734  +NaN
+               agent_type_mem: Braitenberg               0.016990746 0.130348558  +NaN -0.99
+               agent_type_mem: ppo-bc-all                0.000000066 0.000257162  +NaN +0.89 -0.95
+               agent_type_mem: ppo-bc_opc-all            0.000000009 0.000097000  +NaN -0.51 +0.52 -0.48
+               agent_type_mem: ppo-bc_opc-strat          2.059617262 1.435136670  +NaN -0.08 +0.09 -0.08 +0.19
+               agent_type_mem: ppo-bc_opc_opt-all        0.000000138 0.000371763  +NaN +0.69 -0.71 +0.70 -0.70 +0.38
+               agent_type_mem: ppo-bc_opc_opt-strat      0.000000080 0.000283607  +NaN +0.37 -0.33 +0.27 -0.22 +0.01 +0.32
+               agent_type_mem: dreamer-bc-all            0.000000201 0.000448736  +NaN +0.22 -0.25 +0.32 -0.26 +0.37 +0.41 -0.00
+               agent_type_mem: dreamer-bc_opc-all        0.000000052 0.000228466  +NaN -0.05 +0.02 +0.06 -0.10 +0.54 +0.32 -0.17 +0.47
+               agent_type_mem: dreamer-bc_opc-strat      0.000000646 0.000803784  +NaN -0.59 +0.58 -0.51 +0.33 -0.39 -0.69 -0.35 +0.02 -0.37
+               agent_type_mem: dreamer-bc_opc_opt-all    0.000000110 0.000331858  +NaN -0.13 +0.20 -0.32 +0.16 -0.35 -0.51 +0.22 -0.29 -0.25 -0.03
+               agent_type_mem: dreamer-bc_opc_opt-strat  0.000000152 0.000389289  +NaN +0.15 -0.14 +0.12 +0.42 +0.03 -0.22 -0.26 -0.16 +0.32 -0.28 +0.24
+               agent_type_mem: 4                         0.245008776 0.494983612  +NaN -0.80 +0.76 -0.60 +0.50 +0.20 -0.47 -0.24 +0.02 +0.40 +0.34 +0.06 +0.01
+               agent_type_mem: 5                         0.341582367 0.584450483  +NaN -0.53 +0.52 -0.45 +0.43 +0.10 -0.39 -0.27 -0.23 +0.22 +0.22 -0.02 -0.02 +0.67
+               agent_type_mem: 6                         0.491542563 0.701100965  +NaN -0.61 +0.61 -0.54 +0.32 +0.21 -0.35 -0.15 -0.07 +0.22 +0.23 +0.07 +0.00 +0.52 +0.42
+               agent_type_mem: 7                         0.130412749 0.361127053  +NaN -0.05 +0.08 -0.13 +0.26 +0.17 -0.12 +0.03 +0.04 +0.16 -0.26 +0.36 +0.42 +0.03 -0.06 +0.49
+
+ Number of obs: 5546; levels of grouping factors: 70
+
+Fixed-effects parameters:
+─────────────────────────────────────────────────────────────────────────────────────
+                                                 Coef.    Std. Error      z  Pr(>|z|)
+─────────────────────────────────────────────────────────────────────────────────────
+(Intercept)                                -0.0677413      0.0460308  -1.47    0.1411
+agent_type_mem: Random Action               0.00410754     0.0727781   0.06    0.9550
+agent_type_mem: Braitenberg                 0.278954       0.109299    2.55    0.0107
+agent_type_mem: ppo-bc-all                  0.355423       0.185813    1.91    0.0558
+agent_type_mem: ppo-bc_opc-all             -0.417492       0.189131   -2.21    0.0273
+agent_type_mem: ppo-bc_opc-strat          -19.6119      1671.87       -0.01    0.9906
+agent_type_mem: ppo-bc_opc_opt-all         -0.927648       0.205912   -4.51    <1e-05
+agent_type_mem: ppo-bc_opc_opt-strat       -0.554175       0.192444   -2.88    0.0040
+agent_type_mem: dreamer-bc-all              0.76075        0.194504    3.91    <1e-04
+agent_type_mem: dreamer-bc_opc-all          0.0673196      0.184024    0.37    0.7145
+agent_type_mem: dreamer-bc_opc-strat       -1.72411        0.258725   -6.66    <1e-10
+agent_type_mem: dreamer-bc_opc_opt-all      0.0652819      0.184025    0.35    0.7228
+agent_type_mem: dreamer-bc_opc_opt-strat    0.907555       0.199498    4.55    <1e-05
+agent_type_mem: 4                           0.992589       0.323131    3.07    0.0021
+agent_type_mem: 5                           1.37713        0.222082    6.20    <1e-09
+agent_type_mem: 6                           0.841038       0.36007     2.34    0.0195
+agent_type_mem: 7                           1.86287        0.443032    4.20    <1e-04
+─────────────────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds Ratios)
+0.9345022212215909
+1.0041159864693323
+1.3217471906142408
+1.426784335180758
+0.6586968982237164
+3.03839063244937e-9
+0.395482840806955
+0.5745460179432978
+2.1398795408301607
+1.0696372796375169
+0.17833162393599228
+1.0674599385533499
+2.478256056199664
+2.69821002893249
+3.9635096822100877
+2.318772833266304
+6.44223116143639
+─────────────────────────────────────────────────────────────────────────────────
+
+─────────────────────────────────────────────────────────────────────────────────
+Cup Tests:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  correctChoice ~ 1 + agent_type_mem + (1 + agent_type_mem | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik     deviance      AIC         AICc        BIC     
+ -19424.3666  38848.7331  39188.7331  39189.6927  40721.2383
+
+Variance components:
+                                Column                  Variance Std.Dev.   Corr.
+agent_tag_seed (Intercept)                               0.027607 0.166154
+               agent_type_mem: Random Action             0.099629 0.315641 -0.97
+               agent_type_mem: Braitenberg               0.042988 0.207335 -0.98 +0.98
+               agent_type_mem: ppo-bc-all                0.024432 0.156309 -0.94 +0.89 +0.88
+               agent_type_mem: ppo-bc_opc-all            0.027466 0.165729 -1.00 +0.97 +0.98 +0.95
+               agent_type_mem: ppo-bc_opc-strat          0.027461 0.165714 -1.00 +0.97 +0.98 +0.94 +1.00
+               agent_type_mem: ppo-bc_opc_opt-all        1.226130 1.107308 -0.22 +0.19 +0.17 +0.24 +0.22 +0.22
+               agent_type_mem: ppo-bc_opc_opt-strat      0.027704 0.166445 -1.00 +0.97 +0.98 +0.95 +1.00 +1.00 +0.22
+               agent_type_mem: dreamer-bc-all            0.027669 0.166340 -1.00 +0.97 +0.98 +0.95 +1.00 +1.00 +0.22 +1.00
+               agent_type_mem: dreamer-bc_opc-all        0.026902 0.164017 -1.00 +0.97 +0.98 +0.95 +1.00 +1.00 +0.23 +1.00 +1.00
+               agent_type_mem: dreamer-bc_opc-strat      1.044475 1.021995 -0.25 +0.27 +0.31 +0.21 +0.25 +0.25 -0.26 +0.25 +0.25 +0.24
+               agent_type_mem: dreamer-bc_opc_opt-all    2.894609 1.701355 -0.07 +0.14 +0.16 -0.15 +0.06 +0.07 +0.09 +0.06 +0.07 +0.06 -0.00
+               agent_type_mem: dreamer-bc_opc_opt-strat  0.027666 0.166332 -1.00 +0.98 +0.98 +0.94 +1.00 +1.00 +0.22 +1.00 +1.00 +1.00 +0.25 +0.07
+               agent_type_mem: 4                         0.027872 0.166948 -1.00 +0.98 +0.98 +0.94 +1.00 +1.00 +0.24 +1.00 +1.00 +1.00 +0.26 +0.10 +1.00
+               agent_type_mem: 5                         0.435945 0.660261 -0.05 +0.05 +0.03 +0.15 +0.06 +0.05 +0.31 +0.06 +0.05 +0.06 +0.00 -0.12 +0.05 +0.08
+               agent_type_mem: 6                         0.284395 0.533287 -0.06 +0.02 +0.05 +0.14 +0.07 +0.06 -0.23 +0.06 +0.06 +0.06 +0.23 -0.27 +0.06 +0.05 -0.44
+               agent_type_mem: 7                         0.892885 0.944926 -0.65 +0.58 +0.57 +0.67 +0.66 +0.65 +0.14 +0.65 +0.65 +0.66 +0.22 -0.24 +0.65 +0.65 +0.28 -0.16
+
+ Number of obs: 60763; levels of grouping factors: 70
+
+Fixed-effects parameters:
+────────────────────────────────────────────────────────────────────────────────────
+                                                Coef.   Std. Error       z  Pr(>|z|)
+────────────────────────────────────────────────────────────────────────────────────
+(Intercept)                                -1.87623      0.0471724  -39.77    <1e-99
+agent_type_mem: Random Action               0.0929762    0.072549     1.28    0.2000
+agent_type_mem: Braitenberg                -0.0999441    0.0640963   -1.56    0.1189
+agent_type_mem: ppo-bc-all                 -5.44636      1.00395     -5.42    <1e-07
+agent_type_mem: ppo-bc_opc-all             -2.48734      0.23559    -10.56    <1e-25
+agent_type_mem: ppo-bc_opc-strat           -1.0909       0.128208    -8.51    <1e-16
+agent_type_mem: ppo-bc_opc_opt-all        -18.241      600.667       -0.03    0.9758
+agent_type_mem: ppo-bc_opc_opt-strat       -3.03985      0.306297    -9.92    <1e-22
+agent_type_mem: dreamer-bc-all             -1.3631       0.143005    -9.53    <1e-20
+agent_type_mem: dreamer-bc_opc-all         -2.20834      0.207046   -10.67    <1e-25
+agent_type_mem: dreamer-bc_opc-strat      -11.9353      25.7049      -0.46    0.6424
+agent_type_mem: dreamer-bc_opc_opt-all    -13.1244      46.5735      -0.28    0.7781
+agent_type_mem: dreamer-bc_opc_opt-strat   -0.479249     0.10288     -4.66    <1e-05
+agent_type_mem: 4                           1.91501      0.278826     6.87    <1e-11
+agent_type_mem: 5                           2.52866      0.257085     9.84    <1e-22
+agent_type_mem: 6                           2.5398       0.358175     7.09    <1e-11
+agent_type_mem: 7                           2.85286      0.64826      4.40    <1e-04
+────────────────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds Ratios)
+0.15316621347222975
+1.0974356316885934
+0.9048879795129052
+0.004311956317373685
+0.08313065874210977
+0.33591277151211085
+1.1967962543828161e-8
+0.0478422900349035
+0.2558664334183284
+0.10988320536826403
+6.554734846080991e-6
+1.996016733787942e-6
+0.6192481783576399
+6.786983349884472
+12.536691547439437
+12.677089041232955
+17.33728163881193
+─────────────────────────────────────────────────────────────────────────────────
+
+─────────────────────────────────────────────────────────────────────────────────
+Grid Tests:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  correctChoice ~ 1 + agent_type_mem + (1 + agent_type_mem | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+ -1839.4824  3678.9649  4018.9649  4026.4302  5205.9149
+
+Variance components:
+                                Column                  Variance Std.Dev.   Corr.
+agent_tag_seed (Intercept)                               0.050463 0.224640
+               agent_type_mem: Random Action             0.094546 0.307484 -0.90
+               agent_type_mem: Braitenberg               0.050629 0.225008 -1.00 +0.90
+               agent_type_mem: ppo-bc-all                5.435876 2.331497 -0.27 +0.29 +0.27
+               agent_type_mem: ppo-bc_opc-all            0.836377 0.914536 -0.70 +0.61 +0.70 +0.37
+               agent_type_mem: ppo-bc_opc-strat          2.678250 1.636536 -0.53 +0.40 +0.53 -0.38 +0.59
+               agent_type_mem: ppo-bc_opc_opt-all        0.050225 0.224110 -1.00 +0.90 +1.00 +0.27 +0.70 +0.54
+               agent_type_mem: ppo-bc_opc_opt-strat      0.050337 0.224359 -1.00 +0.90 +1.00 +0.27 +0.69 +0.53 +1.00
+               agent_type_mem: dreamer-bc-all            0.050074 0.223773 -1.00 +0.89 +1.00 +0.27 +0.70 +0.54 +1.00 +1.00
+               agent_type_mem: dreamer-bc_opc-all        0.050274 0.224219 -1.00 +0.89 +1.00 +0.27 +0.70 +0.54 +1.00 +1.00 +1.00
+               agent_type_mem: dreamer-bc_opc-strat      0.050486 0.224690 -1.00 +0.89 +1.00 +0.27 +0.69 +0.54 +1.00 +1.00 +1.00 +1.00
+               agent_type_mem: dreamer-bc_opc_opt-all    0.050788 0.225363 -1.00 +0.90 +1.00 +0.27 +0.70 +0.53 +1.00 +1.00 +1.00 +1.00 +1.00
+               agent_type_mem: dreamer-bc_opc_opt-strat  0.050755 0.225289 -1.00 +0.90 +1.00 +0.27 +0.70 +0.53 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+               agent_type_mem: 4                         0.049199 0.221809 -1.00 +0.90 +1.00 +0.27 +0.70 +0.53 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00
+               agent_type_mem: 5                         0.734798 0.857203 -0.19 +0.28 +0.18 -0.20 +0.04 +0.25 +0.19 +0.19 +0.18 +0.18 +0.19 +0.19 +0.18 +0.18
+               agent_type_mem: 6                         0.834896 0.913726 +0.49 -0.40 -0.49 -0.32 -0.50 -0.40 -0.49 -0.49 -0.49 -0.49 -0.49 -0.48 -0.49 -0.48 -0.13
+               agent_type_mem: 7                         0.049596 0.222702 -1.00 +0.89 +1.00 +0.27 +0.70 +0.53 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +1.00 +0.18 -0.48
+
+ Number of obs: 7959; levels of grouping factors: 69
+
+Fixed-effects parameters:
+───────────────────────────────────────────────────────────────────────────────────
+                                                Coef.  Std. Error       z  Pr(>|z|)
+───────────────────────────────────────────────────────────────────────────────────
+(Intercept)                                -3.11248      0.108776  -28.61    <1e-99
+agent_type_mem: Random Action               0.752833     0.143328    5.25    <1e-06
+agent_type_mem: Braitenberg                 1.03688      0.149492    6.94    <1e-11
+agent_type_mem: ppo-bc-all                 -9.9671      50.0551     -0.20    0.8422
+agent_type_mem: ppo-bc_opc-all             -9.06618     31.8546     -0.28    0.7759
+agent_type_mem: ppo-bc_opc-strat          -11.2194      93.455      -0.12    0.9044
+agent_type_mem: ppo-bc_opc_opt-all          0.0904584    0.359785    0.25    0.8015
+agent_type_mem: ppo-bc_opc_opt-strat        0.306694     0.329716    0.93    0.3523
+agent_type_mem: dreamer-bc-all              0.213249     0.342238    0.62    0.5332
+agent_type_mem: dreamer-bc_opc-all          0.642912     0.290248    2.22    0.0268
+agent_type_mem: dreamer-bc_opc-strat       -0.179037     0.40309    -0.44    0.6569
+agent_type_mem: dreamer-bc_opc_opt-all     -1.0316       0.592285   -1.74    0.0816
+agent_type_mem: dreamer-bc_opc_opt-strat    0.568941     0.29822     1.91    0.0564
+agent_type_mem: 4                           3.68866      0.314107   11.74    <1e-31
+agent_type_mem: 5                           4.15654      0.316494   13.13    <1e-38
+agent_type_mem: 6                           4.44897      0.550683    8.08    <1e-15
+agent_type_mem: 7                           4.98526      0.548203    9.09    <1e-19
+───────────────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds Ratios)
+0.04449063369108481
+2.12300609271622
+2.8203955678328025
+4.691840155488036e-5
+0.00011550747467732253
+1.341092990697633e-5
+1.0946760011978578
+1.3589244051193758
+1.237692825905904
+1.9020109106937957
+0.8360747832597801
+0.3564346671987038
+1.766396189382259
+39.99128911004788
+63.8503733521002
+85.5384666014131
+146.24153583915617
