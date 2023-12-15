@@ -740,6 +740,8 @@ final_results <- final_results %>%
                                                               ifelse(agent_type_mem == "4", 5, 
                                                                      ifelse(agent_type_mem == "5", 6,
                                                                             ifelse(agent_type_mem == "6", 7, 8)))))))))
+final_results <- final_results %>%
+  mutate(agent_type_mem_noage = ifelse(is.na(age), agent_type_mem, "Child"))
 
 
 ###############################################################################################################################

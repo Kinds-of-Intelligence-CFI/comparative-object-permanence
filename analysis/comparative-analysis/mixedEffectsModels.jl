@@ -1,5 +1,6 @@
 ### Mixed Effects Models comparative-object-permanence
 ### Author: K. Voudouris, 2023 (c)
+### Julia Version: 1.8.2
 
 # Load packages
 using DataFrames
@@ -12,11 +13,11 @@ using CategoricalArrays
 
 data = CSV.read("./analysis/results_final_clean_long.csv", DataFrame)
 data = data[(data[!, :problem_flag] .== "N"),:]
-data = select(data, :InstanceName, :Suite, :SubSuite, :Instance, :basicTask, :opControlTask, :cvchickTask, :pctbGridTask, :pctb3CupTask, :agent_tag, :agent_tag_seed, :agent_type_mem, :agent_order_mem, :success, :correctChoice)
+data = select(data, :InstanceName, :Suite, :SubSuite, :Instance, :basicTask, :opControlTask, :cvchickTask, :pctbGridTask, :pctb3CupTask, :agent_tag, :agent_tag_seed, :agent_type_mem, :agent_type_mem_noage, :agent_order_mem, :success, :correctChoice)
 
 # Convert Predictor to a categorical variable
-data.agent_type_mem = categorical(data.agent_type_mem)
-levels!(data.agent_type_mem, ["Random Walker", 
+data.agent_type_mem_noage = categorical(data.agent_type_mem_noage)
+levels!(data.agent_type_mem_noage, ["Random Walker", 
              "Random Action",
              "Braitenberg",
              "ppo-bc-all",
@@ -29,10 +30,7 @@ levels!(data.agent_type_mem, ["Random Walker",
              "dreamer-bc_opc-strat",
              "dreamer-bc_opc_opt-all",
              "dreamer-bc_opc_opt-strat",
-             "4",
-             "5",
-             "6",
-             "7"])
+             "Child"])
 data = sort(data, :agent_order_mem)
 
 basic_tasks = data[(data[!, :basicTask] .== 1),:]
@@ -45,10 +43,7 @@ op_test_grid = data[(data[!, :opControlTask] .== 0).&(data[!, :pctbGridTask] .==
 
 ## Mixed Models
 
-
-data.agent_order_mem = categorical(data.agent_order_mem)
-
-successFormula = @formula(success ~ agent_type_mem + (1 + agent_type_mem | agent_tag_seed))
+successFormula = @formula(success ~ agent_type_mem_noage + (1 + agent_type_mem_noage | agent_tag_seed))
 
 basic_success = fit(MixedModel, successFormula, basic_tasks, Bernoulli(), fast = false)
 controlcv_success = fit(MixedModel, successFormula, op_control_cv, Bernoulli(), fast = false)
@@ -149,7 +144,7 @@ end
 
 
 
-correctChoiceFormula = @formula(correctChoice ~ agent_type_mem + (1 + agent_type_mem | agent_tag_seed))
+correctChoiceFormula = @formula(correctChoice ~ agent_type_mem_noage + (1 + agent_type_mem_noage | agent_tag_seed))
 
 basic_correctChoice = fit(MixedModel, correctChoiceFormula, basic_tasks, Bernoulli(), fast = false)
 controlcv_correctChoice = fit(MixedModel, correctChoiceFormula, op_control_cv, Bernoulli(), fast = false)
