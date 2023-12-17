@@ -76,10 +76,10 @@ open("./analysis/comparative-analysis/mixedModelsOutput/MixedModelsOutputSuccess
             println("─────────────────────────────────────────────────────────────────────────────────")
             print(basic_success)
             println()
-            println("Exponentiated Coefficients (Odds Ratios) with 95% Confidence intervals")
+            println("Exponentiated Coefficients (Odds) with 95% Confidence intervals")
             basic_exponentiated_coefs = confint95(fixef(basic_success), stderror(basic_success))
-            for or in 1:size(basic_exponentiated_coefs)[1]
-                println(basic_exponentiated_coefs[or,:])
+            for o in 1:size(basic_exponentiated_coefs)[1]
+                println(basic_exponentiated_coefs[o,:])
             end
             println("─────────────────────────────────────────────────────────────────────────────────")
             println()
@@ -88,10 +88,10 @@ open("./analysis/comparative-analysis/mixedModelsOutput/MixedModelsOutputSuccess
             println("─────────────────────────────────────────────────────────────────────────────────")
             print(controlcv_success)
             println()
-            println("Exponentiated Coefficients (Odds Ratios) with 95% Confidence intervals")
+            println("Exponentiated Coefficients (Odds) with 95% Confidence intervals")
             controlcv_exponentiated_coefs = confint95(fixef(controlcv_success), stderror(controlcv_success))
-            for or in 1:size(controlcv_exponentiated_coefs)[1]
-                println(controlcv_exponentiated_coefs[or,:])
+            for o in 1:size(controlcv_exponentiated_coefs)[1]
+                println(controlcv_exponentiated_coefs[o,:])
             end
             println("─────────────────────────────────────────────────────────────────────────────────")
             println()
@@ -100,10 +100,10 @@ open("./analysis/comparative-analysis/mixedModelsOutput/MixedModelsOutputSuccess
             println("─────────────────────────────────────────────────────────────────────────────────")
             print(controlcup_success)
             println()
-            println("Exponentiated Coefficients (Odds Ratios) with 95% Confidence intervals")
+            println("Exponentiated Coefficients (Odds) with 95% Confidence intervals")
             controlcup_exponentiated_coefs = confint95(fixef(controlcup_success), stderror(controlcup_success))
-            for or in 1:size(controlcup_exponentiated_coefs)[1]
-                println(controlcup_exponentiated_coefs[or,:])
+            for o in 1:size(controlcup_exponentiated_coefs)[1]
+                println(controlcup_exponentiated_coefs[o,:])
             end
             println("─────────────────────────────────────────────────────────────────────────────────")
             println()
@@ -112,10 +112,10 @@ open("./analysis/comparative-analysis/mixedModelsOutput/MixedModelsOutputSuccess
             println("─────────────────────────────────────────────────────────────────────────────────")
             print(controlgrid_success)
             println()
-            println("Exponentiated Coefficients (Odds Ratios) with 95% Confidence intervals")
+            println("Exponentiated Coefficients (Odds) with 95% Confidence intervals")
             controlgrid_exponentiated_coefs = confint95(fixef(controlgrid_success), stderror(controlgrid_success))
-            for or in 1:size(controlgrid_exponentiated_coefs)[1]
-                println(controlgrid_exponentiated_coefs[or,:])
+            for o in 1:size(controlgrid_exponentiated_coefs)[1]
+                println(controlgrid_exponentiated_coefs[o,:])
             end
             println("─────────────────────────────────────────────────────────────────────────────────")
             println()
@@ -124,10 +124,10 @@ open("./analysis/comparative-analysis/mixedModelsOutput/MixedModelsOutputSuccess
             println("─────────────────────────────────────────────────────────────────────────────────")
             print(testcv_success)
             println()
-            println("Exponentiated Coefficients (Odds Ratios) with 95% Confidence intervals")
+            println("Exponentiated Coefficients (Odds) with 95% Confidence intervals")
             testcv_exponentiated_coefs = confint95(fixef(testcv_success), stderror(testcv_success))
-            for or in 1:size(testcv_exponentiated_coefs)[1]
-                println(testcv_exponentiated_coefs[or,:])
+            for o in 1:size(testcv_exponentiated_coefs)[1]
+                println(testcv_exponentiated_coefs[o,:])
             end
             println("─────────────────────────────────────────────────────────────────────────────────")
             println()
@@ -136,10 +136,10 @@ open("./analysis/comparative-analysis/mixedModelsOutput/MixedModelsOutputSuccess
             println("─────────────────────────────────────────────────────────────────────────────────")
             print(testcup_success)
             println()
-            println("Exponentiated Coefficients (Odds Ratios) with 95% Confidence intervals")
+            println("Exponentiated Coefficients (Odds) with 95% Confidence intervals")
             testcup_exponentiated_coefs = confint95(fixef(testcup_success), stderror(testcup_success))
-            for or in 1:size(testcup_exponentiated_coefs)[1]
-                println(testcup_exponentiated_coefs[or,:])
+            for o in 1:size(testcup_exponentiated_coefs)[1]
+                println(testcup_exponentiated_coefs[o,:])
             end
             println("─────────────────────────────────────────────────────────────────────────────────")
             println()
@@ -148,10 +148,10 @@ open("./analysis/comparative-analysis/mixedModelsOutput/MixedModelsOutputSuccess
             println("─────────────────────────────────────────────────────────────────────────────────")
             print(testgrid_success)
             println()
-            println("Exponentiated Coefficients (Odds Ratios)")
+            println("Exponentiated Coefficients (Odds)")
             testgrid_exponentiated_coefs = confint95(fixef(testgrid_success), stderror(testgrid_success))
-            for or in 1:size(testgrid_exponentiated_coefs)[1]
-                println(testgrid_exponentiated_coefs[or,:])
+            for o in 1:size(testgrid_exponentiated_coefs)[1]
+                println(testgrid_exponentiated_coefs[o,:])
             end
         end
     end
@@ -177,10 +177,10 @@ open("./analysis/comparative-analysis/mixedModelsOutput/MixedModelsOutputChoice.
             println("─────────────────────────────────────────────────────────────────────────────────")
             print(basic_correctChoice)
             println()
-            println("Exponentiated Coefficients (Odds Ratios) with 95% Confidence intervals")
+            println("Exponentiated Coefficients (Odds) with 95% Confidence intervals")
             basic_exponentiated_coefs = confint95(fixef(basic_correctChoice), stderror(basic_correctChoice))
-            for or in 1:size(basic_exponentiated_coefs)[1]
-                println(basic_exponentiated_coefs[or,:])
+            for o in 1:size(basic_exponentiated_coefs)[1]
+                println(basic_exponentiated_coefs[o,:])
             end
             println("─────────────────────────────────────────────────────────────────────────────────")
             println()
@@ -189,10 +189,10 @@ open("./analysis/comparative-analysis/mixedModelsOutput/MixedModelsOutputChoice.
             println("─────────────────────────────────────────────────────────────────────────────────")
             print(controlcv_correctChoice)
             println()
-            println("Exponentiated Coefficients (Odds Ratios) with 95% Confidence intervals")
+            println("Exponentiated Coefficients (Odds) with 95% Confidence intervals")
             controlcv_exponentiated_coefs = confint95(fixef(controlcv_correctChoice), stderror(controlcv_correctChoice))
-            for or in 1:size(controlcv_exponentiated_coefs)[1]
-                println(controlcv_exponentiated_coefs[or,:])
+            for o in 1:size(controlcv_exponentiated_coefs)[1]
+                println(controlcv_exponentiated_coefs[o,:])
             end
             println("─────────────────────────────────────────────────────────────────────────────────")
             println()
@@ -201,10 +201,10 @@ open("./analysis/comparative-analysis/mixedModelsOutput/MixedModelsOutputChoice.
             println("─────────────────────────────────────────────────────────────────────────────────")
             print(controlcup_correctChoice)
             println()
-            println("Exponentiated Coefficients (Odds Ratios) with 95% Confidence intervals")
+            println("Exponentiated Coefficients (Odds) with 95% Confidence intervals")
             controlcup_exponentiated_coefs = confint95(fixef(controlcup_correctChoice), stderror(controlcup_correctChoice))
-            for or in 1:size(controlcup_exponentiated_coefs)[1]
-                println(controlcup_exponentiated_coefs[or,:])
+            for o in 1:size(controlcup_exponentiated_coefs)[1]
+                println(controlcup_exponentiated_coefs[o,:])
             end
             println("─────────────────────────────────────────────────────────────────────────────────")
             println()
@@ -213,10 +213,10 @@ open("./analysis/comparative-analysis/mixedModelsOutput/MixedModelsOutputChoice.
             println("─────────────────────────────────────────────────────────────────────────────────")
             print(controlgrid_correctChoice)
             println()
-            println("Exponentiated Coefficients (Odds Ratios) with 95% Confidence intervals")
+            println("Exponentiated Coefficients (Odds) with 95% Confidence intervals")
             controlgrid_exponentiated_coefs = confint95(fixef(controlgrid_correctChoice), stderror(controlgrid_correctChoice))
-            for or in 1:size(controlgrid_exponentiated_coefs)[1]
-                println(controlgrid_exponentiated_coefs[or,:])
+            for o in 1:size(controlgrid_exponentiated_coefs)[1]
+                println(controlgrid_exponentiated_coefs[o,:])
             end
             println("─────────────────────────────────────────────────────────────────────────────────")
             println()
@@ -225,10 +225,10 @@ open("./analysis/comparative-analysis/mixedModelsOutput/MixedModelsOutputChoice.
             println("─────────────────────────────────────────────────────────────────────────────────")
             print(testcv_correctChoice)
             println()
-            println("Exponentiated Coefficients (Odds Ratios) with 95% Confidence intervals")
+            println("Exponentiated Coefficients (Odds) with 95% Confidence intervals")
             testcv_exponentiated_coefs = confint95(fixef(testcv_correctChoice), stderror(testcv_correctChoice))
-            for or in 1:size(testcv_exponentiated_coefs)[1]
-                println(testcv_exponentiated_coefs[or,:])
+            for o in 1:size(testcv_exponentiated_coefs)[1]
+                println(testcv_exponentiated_coefs[o,:])
             end
             println("─────────────────────────────────────────────────────────────────────────────────")
             println()
@@ -237,10 +237,10 @@ open("./analysis/comparative-analysis/mixedModelsOutput/MixedModelsOutputChoice.
             println("─────────────────────────────────────────────────────────────────────────────────")
             print(testcup_correctChoice)
             println()
-            println("Exponentiated Coefficients (Odds Ratios) with 95% Confidence intervals")
+            println("Exponentiated Coefficients (Odds) with 95% Confidence intervals")
             testcup_exponentiated_coefs = confint95(fixef(testcup_correctChoice), stderror(testcup_correctChoice))
-            for or in 1:size(testcup_exponentiated_coefs)[1]
-                println(testcup_exponentiated_coefs[or,:])
+            for o in 1:size(testcup_exponentiated_coefs)[1]
+                println(testcup_exponentiated_coefs[o,:])
             end
             println("─────────────────────────────────────────────────────────────────────────────────")
             println()
@@ -249,10 +249,10 @@ open("./analysis/comparative-analysis/mixedModelsOutput/MixedModelsOutputChoice.
             println("─────────────────────────────────────────────────────────────────────────────────")
             print(testgrid_correctChoice)
             println()
-            println("Exponentiated Coefficients (Odds Ratios)")
+            println("Exponentiated Coefficients (Odds)")
             testgrid_exponentiated_coefs = confint95(fixef(testgrid_correctChoice), stderror(testgrid_correctChoice))
-            for or in 1:size(testgrid_exponentiated_coefs)[1]
-                println(testgrid_exponentiated_coefs[or,:])
+            for o in 1:size(testgrid_exponentiated_coefs)[1]
+                println(testgrid_exponentiated_coefs[o,:])
             end
         end
     end

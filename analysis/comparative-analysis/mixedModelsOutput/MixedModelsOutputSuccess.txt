@@ -46,7 +46,7 @@ agent_type_mem_noage: dreamer-bc_opc_opt-all    -1.4277      0.233182  -6.12    
 agent_type_mem_noage: dreamer-bc_opc_opt-strat  -1.29617     0.22316   -5.81    <1e-08
 agent_type_mem_noage: Child                      5.06025     0.459504  11.01    <1e-27
 ──────────────────────────────────────────────────────────────────────────────────────
-Exponentiated Coefficients (Odds Ratios) with 95% Confidence intervals
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
 [0.4506545967126504, -1.6950833140011587, 2.5963925074264598]
 [1.4113395234295036, -0.7643878335204066, 3.587066880379414]
 [149.4111328472421, 146.8840499029198, 151.9382157915644]
@@ -112,7 +112,7 @@ agent_type_mem_noage: dreamer-bc_opc_opt-all    -11.4328     33.5684     -0.34  
 agent_type_mem_noage: dreamer-bc_opc_opt-strat    1.85802     0.176946   10.50    <1e-25
 agent_type_mem_noage: Child                       3.76147     0.308553   12.19    <1e-33
 ────────────────────────────────────────────────────────────────────────────────────────
-Exponentiated Coefficients (Odds Ratios) with 95% Confidence intervals
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
 [0.0565822706067508, -2.2589547685998497, 2.3721193098133515]
 [1.7640653721762527, -0.6009449282015009, 4.1290756725540065]
 [38.21630658169806, 35.89637193547646, 40.53624122791967]
@@ -178,7 +178,7 @@ agent_type_mem_noage: dreamer-bc_opc_opt-all    -15.3868    331.101       -0.05 
 agent_type_mem_noage: dreamer-bc_opc_opt-strat   -0.38349     0.211927    -1.81    0.0704
 agent_type_mem_noage: Child                       2.17984     0.365439     5.96    <1e-08
 ─────────────────────────────────────────────────────────────────────────────────────────
-Exponentiated Coefficients (Odds Ratios) with 95% Confidence intervals
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
 [0.10163941222693174, -2.0255708598514452, 2.2288496843053087]
 [1.9748691594200067, -0.24406353219977217, 4.193801851039786]
 [7.054289957353566, 4.903765584729394, 9.204814329977738]
@@ -244,7 +244,7 @@ agent_type_mem_noage: dreamer-bc_opc_opt-all     0.454916    0.25555     1.78   
 agent_type_mem_noage: dreamer-bc_opc_opt-strat   1.34356     0.204636    6.57    <1e-10
 agent_type_mem_noage: Child                      4.99318     0.69027     7.23    <1e-12
 ───────────────────────────────────────────────────────────────────────────────────────
-Exponentiated Coefficients (Odds Ratios) with 95% Confidence intervals
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
 [0.0685921808852339, -2.159745388163532, 2.2969297499340002]
 [1.8932802027302444, -0.3738924107223345, 4.160452816182824]
 [20.12869276167281, 17.87187161328644, 22.385513910059178]
@@ -310,7 +310,7 @@ agent_type_mem_noage: dreamer-bc_opc_opt-all    -11.1173     200.666      -0.06 
 agent_type_mem_noage: dreamer-bc_opc_opt-strat    3.24514      0.298291   10.88    <1e-26
 agent_type_mem_noage: Child                       5.15932      0.27733    18.60    <1e-76
 ─────────────────────────────────────────────────────────────────────────────────────────
-Exponentiated Coefficients (Odds Ratios) with 95% Confidence intervals
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
 [0.013270830376218984, -2.4217663721779625, 2.4483080329304]
 [4.282177346593716, 1.7112020198929336, 6.853152673294499]
 [71.14620001584112, 68.65886087521817, 73.63353915646407]
@@ -376,7 +376,7 @@ agent_type_mem_noage: dreamer-bc_opc_opt-all    -11.5111     35.5616      -0.32 
 agent_type_mem_noage: dreamer-bc_opc_opt-strat    0.363144    0.133503     2.72    0.0065
 agent_type_mem_noage: Child                       3.39786     0.19667     17.28    <1e-66
 ─────────────────────────────────────────────────────────────────────────────────────────
-Exponentiated Coefficients (Odds Ratios) with 95% Confidence intervals
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
 [0.052421529260379574, -2.08704217334438, 2.1918852318651396]
 [1.8169984440694005, -0.36791919757127656, 4.001916085710078]
 [2.4677943401713702, 0.3129757749693667, 4.622612905373374]
@@ -442,7 +442,7 @@ agent_type_mem_noage: dreamer-bc_opc_opt-all     -0.507255    0.728725   -0.70  
 agent_type_mem_noage: dreamer-bc_opc_opt-strat    1.25617     0.342314    3.67    0.0002
 agent_type_mem_noage: Child                       4.96821     0.248473   19.99    <1e-88
 ────────────────────────────────────────────────────────────────────────────────────────
-Exponentiated Coefficients (Odds Ratios)
+Exponentiated Coefficients (Odds)
 [0.01730881152268875, -2.246468599563655, 2.2810862226090327]
 [3.431809500843369, 1.0920572618585602, 5.7715617398281776]
 [2.316840730560959, -0.128033429828458, 4.761714890950376]
