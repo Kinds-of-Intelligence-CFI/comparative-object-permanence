@@ -55,12 +55,13 @@ testgrid_success = fit(MixedModel, successFormula, op_test_grid, Bernoulli(), fa
 
 
 confint95 = function(fixedeffects, stderrors)
-    exp_fe = exp.(fixedeffects)
-    exp_se = exp.(stderrors)
-    ci_bound = exp_se .* 1.96
+    ci_bound = stderrors .* 1.96
+    log_LL = fixedeffects - ci_bound
+    log_UL = fixedeffects + ci_bound
 
-    LL = exp_fe - ci_bound
-    UL = exp_fe + ci_bound
+    exp_fe = exp.(fixedeffects)
+    LL = exp.(log_LL)
+    UL = exp.(log_UL)
 
     output = hcat(exp_fe, LL, UL)
 
