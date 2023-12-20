@@ -28,35 +28,15 @@ library(extrafont) # may need to run font_import();loadfonts() to get the fonts 
 library(irr)
 library(FSA)
 
-pal <- c("#1b9e77", "#d95f02", "#7570b3", "#4b7b16", "#59901a", "#66a61e", "#73bc22", "#81d126", "#c71670", "#de197d", "#e7298a", "#ea4097", "#ec57a3", "#e6ab02") # color palette for plots
+pal <- c("#d95f02", "#7570b3", "#4b7b16", "#59901a", "#66a61e", "#73bc22", "#81d126", "#c71670", "#de197d", "#e7298a", "#ea4097", "#ec57a3", "#e6ab02") # color palette for plots
 
 rounding <- 4
 
 options(scipen = 999) #turn of scientific notation
 
-## write a function for writing logistic output nicely
-
-prettyPrintLogisticOutput <- function(fitted.model){
-  coefficients <- summary(fitted.model)$coefficients
-  
-  coefficient_table <- coefficients %>%
-    data.frame() %>%
-    transmute(`Odds Ratio` = round(exp(Estimate), digits = rounding),
-              `Lower CI (95%)` = round(exp(Estimate - Std..Error * 1.96), digits = rounding),
-              `Upper CI (95%)` = round(exp(Estimate + Std..Error * 1.96), digits = rounding),
-              `Pr |z|` = round(Pr...z.., digits = rounding))
-  
-  posthoc_tests <- summary(glht(fitted.model, mcp(agent_type_age="Tukey")), test = adjusted("none"))
-  
-  output = list(Coefficients_OR = coefficient_table,
-                posthoc_tests = posthoc_tests)
-  
-  return(output)
-}
-
 ```
 
-This document presents the descriptive statistics and and comparative analytics for the agents studied in the `comparative-object-permanence` study. This document does not contain any psychometric analysis (measurement layouts). Below, '*agents*' refers to artificial agents like random walkers or deep reinforcement learners. '*children*' refers to human children (!). Note that all floats are reported to `r rounding` decimal places.
+This document presents the descriptive statistics and and comparative analytics for the agents studied in the `comparative-object-permanence` study. This document does not contain any psychometric analysis (measurement layouts). Below, '*agents*' refers to artificial agents like random agents or deep reinforcement learners. '*children*' refers to human children (!). Note that all floats are reported to `r rounding` decimal places.
 
 ```{r data import}
 
@@ -70,25 +50,22 @@ final_results <- read.csv("../results_final_clean_long.csv") %>%
 ```{r descriptives}
 
 agent_data <- final_results %>% 
-  dplyr::select(c(agent_tag, aai_seed, age, gender)) %>% distinct()
+  dplyr::select(c(agent_tag, agent_type, agent_type_gen, aai_seed, age, gender)) %>% distinct()
 
-random_walker_distinct <- agent_data %>% dplyr::select(agent_tag) %>%
-  filter(str_detect(agent_tag, "Random Walker")) %>% distinct()
+random_agent_distinct <- agent_data %>% dplyr::select(agent_tag, agent_type) %>%
+  filter(agent_type == "Random Agent") %>% distinct()
 
-random_action_distinct <- agent_data %>% dplyr::select(agent_tag) %>%
-  filter(str_detect(agent_tag, "Random Action Agent")) %>% distinct()
+heuristic_distinct <- agent_data %>% dplyr::select(agent_tag, agent_type) %>%
+  filter(agent_type == "Heuristic Agent") %>% distinct()
 
-vanilla_braitenberg_distinct <- agent_data %>% dplyr::select(agent_tag) %>%
-  filter(str_detect(agent_tag, "Vanilla")) %>% distinct()
+ppo_distinct <- agent_data %>% dplyr::select(agent_tag, agent_type_gen) %>%
+  filter(agent_type_gen == "PPO") %>% distinct()
 
-ppo_distinct <- agent_data %>% dplyr::select(agent_tag) %>%
-  filter(str_detect(agent_tag, "ppo")) %>% distinct()
+dreamer_distinct <- agent_data %>% dplyr::select(agent_tag, agent_type_gen) %>%
+  filter(agent_type_gen == "Dreamer") %>% distinct()
 
-dreamer_distinct <- agent_data %>% dplyr::select(agent_tag) %>%
-  filter(str_detect(agent_tag, "dreamer")) %>% distinct()
-
-children_distinct <- agent_data %>% dplyr::select(agent_tag) %>%
-  filter(str_detect(agent_tag, "_01")) %>% distinct()
+children_distinct <- agent_data %>% dplyr::select(agent_tag, agent_type) %>%
+  filter(agent_type == "Child") %>% distinct()
 
 age_table <- agent_data %>% dplyr::select(age) %>% group_by(age) %>%
   summarise(count = n())
@@ -99,16 +76,14 @@ gender_table <- agent_data %>% dplyr::select(gender) %>% group_by(gender) %>%
 gender_by_age_table <- agent_data %>% dplyr::select(gender, age) %>% group_by(gender, age) %>%
   summarise(Count = n()) %>% drop_na() %>% rename(Gender = gender, Age = age) %>% datatable(rownames = FALSE)
 
-seed_distinct <- agent_data %>% dplyr::select(aai_seed) %>% distinct() %>% drop_na()
-  
+
 
 ```
 
 #### Sample Sizes
 
--   `r nrow(random_walker_distinct)` types of random walker, tested on `r nrow(seed_distinct)` RNG seeds. Total sample size: `r nrow(random_walker_distinct) * nrow(seed_distinct)`.
--   `r nrow(random_action_distinct)` types of random action agent, tested on `r nrow(seed_distinct)` RNG seeds. Total sample size: `r nrow(random_action_distinct) * nrow(seed_distinct)`.
--   `r nrow(vanilla_braitenberg_distinct)` type of simple goal-directed rule-based agent, tested on `r nrow(seed_distinct)` RNG seeds. Total sample size: `r nrow(vanilla_braitenberg_distinct) * nrow(seed_distinct)`.
+-   `r nrow(random_agent_distinct)` types of random agent, tested on 5 RNG seeds each. Total sample size: 25.
+-   `r nrow(heuristic_distinct)` type of simple goal-directed rule-based agent, tested on 5 RNG seeds. Total sample size: 5.
 -   `r nrow(ppo_distinct)` types of PPO agent, tested on 1 RNG seed.
 -   `r nrow(dreamer_distinct)` types of dreamer agent, tested on 1 RNG seed.
 -   `r nrow(children_distinct)` children, aged between 4 and 7. We collected some data for `r age_table$count[1]` four year olds, `r age_table$count[2]` five year olds, `r age_table$count[3]` six year olds, `r age_table$count[4]` seven year-olds. Guardians identified participants' genders. `r gender_table$count[1]` were identified as *Female*, `r gender_table$count[2]` were identified as *Male*, 0 were identified as *Other*. Below is a table of gender by age.
@@ -123,13 +98,13 @@ gender_by_age_table
 
 ```{r instance counts}
 
-children_distinct_instances <- final_results %>% dplyr::select(c(InstanceName, SubSuite, agent_type)) %>% filter(agent_type == "child") %>%
+children_distinct_instances <- final_results %>% dplyr::select(c(InstanceName, SubSuite, agent_type)) %>% filter(agent_type == "Child") %>%
   distinct() %>% drop_na()
 
 children_instance_type_counts <- children_distinct_instances %>% dplyr::select(SubSuite) %>% group_by(SubSuite) %>% summarise(Count = n())
 
 
-agent_distinct_instances <- final_results %>% dplyr::select(c(InstanceName, SubSuite, agent_type)) %>% filter(agent_type != "child") %>%
+agent_distinct_instances <- final_results %>% dplyr::select(c(InstanceName, SubSuite, agent_type)) %>% filter(agent_type != "Child") %>%
   distinct(InstanceName, SubSuite) %>% drop_na()
 
 agent_instance_type_counts <- agent_distinct_instances %>% dplyr::select(SubSuite) %>% group_by(SubSuite) %>% summarise(Count = n())
@@ -137,18 +112,14 @@ agent_instance_type_counts <- agent_distinct_instances %>% dplyr::select(SubSuit
 
 ```
 
-Agents were tested on a total of `r nrow(agent_distinct_instances)` instances, consisting of `r agent_instance_type_counts$count[2]` basic tasks, `r agent_instance_type_counts$count[3]` object permanence control tasks, and `r agent_instance_type_counts$count[1]` object permanence test tasks.
+Agents were tested on a total of `r nrow(agent_distinct_instances)` instances, consisting of `r agent_instance_type_counts$Count[2]` basic tasks, `r agent_instance_type_counts$Count[3]` object permanence control tasks, and `r agent_instance_type_counts$Count[1]` object permanence test tasks.
 
-Children were tested on a total of `r nrow(children_distinct_instances)` instances, consisting of `r children_instance_type_counts$count[2]` basic tasks, `r children_instance_type_counts$count[3]` object permanence control tasks, and `r children_instance_type_counts$count[1]` object permanence test tasks. They were able to play some of those tasks more than once, namely the Chiandetti & Vallortigara (2011) object permanence tests. They could also play the basic tasks and the object permanence control tasks as many times as they wanted.
+Children were tested on a total of `r nrow(children_distinct_instances)` instances, consisting of `r children_instance_type_counts$Count[2]` basic tasks, `r children_instance_type_counts$Count[3]` object permanence control tasks, and `r children_instance_type_counts$Count[1]` object permanence test tasks. They were able to play some of those tasks more than once, namely the Chiandetti & Vallortigara (2011) object permanence tests. They could also play the basic tasks and the object permanence control tasks as many times as they wanted.
 
 ```{r overall success performances}
 
 performances_table <- final_results %>% 
   dplyr::select(c(agent_tag, agent_type, success)) %>%
-  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
-                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
-                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
-                                           ifelse(agent_type == "child", "Human Child", agent_tag))))) %>%
   group_by(agent_type) %>% 
   summarise(`Total Passes` = sum(success),
             `Total Instances` = n(),
@@ -158,11 +129,11 @@ performances_table <- final_results %>%
 
 ```
 
-For the `r nrow(performances_table)` kinds of agents, the number of instances that they passed, as well as the proportion of total instances that they passed, is provided in the table below. The behaviour of the random walkers and random action agents serve as a baseline for chance performance.
+For the `r nrow(performances_table)` kinds of agents, the number of instances that they passed, as well as the proportion of total instances that they passed, is provided in the table below. The behaviour of the random agents serve as a baseline for chance performance.
 
 ```{r overall success table}
 
-datatable(performances_table, rownames = FALSE)
+datatable(performances_table, rownames = FALSE, options = list(pageLength = nrow(performances_table)))
 
 ```
 
@@ -170,10 +141,6 @@ datatable(performances_table, rownames = FALSE)
 
 proportions <- final_results %>% 
   dplyr::select(c(agent_tag, agent_type, proportionSuccess)) %>%
-  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
-                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
-                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
-                                           ifelse(agent_type == "child", "Human Child", agent_tag))))) %>%
   group_by(agent_type) %>% 
   summarise_at(vars(proportionSuccess),
                list(Min=min, `10%`=~quantile(., probs = 0.1), `20%`=~quantile(., probs = 0.2), `30%`=~quantile(., probs = 0.3), `40%`=~quantile(., probs = 0.4), Median=median, `Arithmetic Mean`=mean, `60%`=~quantile(., probs = 0.6),  
@@ -188,7 +155,7 @@ For the `r nrow(proportions)` kinds of agents, we computed how many points they 
 
 ```{r proportion scores table}
 
-datatable(proportions, rownames = FALSE)
+datatable(proportions, rownames = FALSE, options = list(pageLength = nrow(proportions)))
 
 ```
 
@@ -198,11 +165,7 @@ We can present the distributions of these results in the following raincloud plo
 
 raincloud_data <- final_results %>%
   dplyr::select(c(agent_tag, agent_type, proportionSuccess)) %>%
-  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
-                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
-                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
-                                           ifelse(agent_type == "child", "Human Child", agent_tag)))),
-         agent_type = haven::as_factor(agent_type)) %>%
+  mutate(agent_type = haven::as_factor(agent_type)) %>%
   group_by(agent_type)
 
 #rainc
@@ -293,11 +256,7 @@ These are basic tasks that test fundamental capabilities required for interactin
 basic_tasks <- final_results %>% 
   filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "Basic") %>%
   dplyr::select(c(agent_tag, agent_type, proportionSuccess, success, episodeEndType, lavaPresence, numGoalsAll)) %>%
-  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
-                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
-                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
-                                           ifelse(agent_type == "child", "Human Child", agent_tag)))),
-         agent_type = haven::as_factor(agent_type))
+  mutate(agent_type = haven::as_factor(agent_type))
 
 ```
 
@@ -311,7 +270,7 @@ basic_tasks %>%
             `Total Instances` = n(),
             `Percentage Instances Passed` = round(`Total Passes`/`Total Instances`*100, digits = rounding)) %>%
   arrange(desc(`Percentage Instances Passed`)) %>%
-  rename(Agent = agent_type) %>% datatable(rownames = FALSE)
+  rename(Agent = agent_type) %>% datatable(rownames = FALSE, options = list(pageLength = nrow(.)))
 
 ```
 
@@ -326,7 +285,7 @@ basic_tasks %>%
                     `70%`=~quantile(., probs = 0.7), `80%`=~quantile(., probs = 0.8), `90%`=~quantile(., probs = 0.9), Max=max, `Standard Deviation` = sd)) %>%
   arrange(desc(Median)) %>%
   mutate(across(Min:`Standard Deviation`, ~round(.x, digits = rounding))) %>%
-  rename(Agent = agent_type) %>% datatable(rownames = FALSE)
+  rename(Agent = agent_type) %>% datatable(rownames = FALSE, options = list(pageLength = nrow(.)))
 
 ```
 
@@ -440,11 +399,7 @@ Now we look at the object permanence control tasks for our two paradigms.
 control_tasks <- final_results %>% 
   filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "OP Controls") %>%
   dplyr::select(c(agent_tag, agent_type, proportionSuccess, success, episodeEndType, lavaPresence, Paradigm, cvchickleftchoice, cvchickrightchoice, pctb3cupcorrectchoice, pctbgridcupchoice, pctbgridcorrectchoice, threecupleftchoice, threecupmidchoice, threecuprightchoice)) %>%
-  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
-                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
-                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
-                                           ifelse(agent_type == "child", "Human Child", agent_tag)))),
-         agent_type = haven::as_factor(agent_type))
+  mutate(agent_type = haven::as_factor(agent_type))
 
 ```
 
@@ -459,7 +414,7 @@ control_tasks %>%
             `Percentage Instances Passed` = round(`Total Passes`/`Total Instances`*100, digits = rounding)) %>%
   arrange(desc(`Percentage Instances Passed`)) %>% 
   rename(Agent = agent_type) %>%
-  datatable(rownames = FALSE)
+  datatable(rownames = FALSE, options = list(pageLength = nrow(.)))
 
 ```
 
@@ -474,7 +429,7 @@ control_tasks %>%
                     `70%`=~quantile(., probs = 0.7), `80%`=~quantile(., probs = 0.8), `90%`=~quantile(., probs = 0.9), Max=max, `Standard Deviation` = sd)) %>%
   arrange(desc(Median)) %>%
   mutate(across(Min:`Standard Deviation`, ~round(.x, digits = rounding))) %>%
-  rename(Agent = agent_type) %>% datatable(rownames = FALSE)
+  rename(Agent = agent_type) %>% datatable(rownames = FALSE, options = list(pageLength = nrow(.)))
 
 ```
 
@@ -583,11 +538,7 @@ Now we can look at the PCTB Grid, PCTB 3 Cup, and CVChick control tasks individu
 cv_control_tasks <- final_results %>% 
   filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "OP Controls" & Paradigm == "CVChick") %>%
   dplyr::select(c(agent_tag, agent_type, proportionSuccess, success, episodeEndType, lavaPresence, Paradigm, cvchickleftchoice, cvchickrightchoice, pctb3cupcorrectchoice, pctbgridcupchoice, pctbgridcorrectchoice, threecupleftchoice, threecupmidchoice, threecuprightchoice)) %>%
-  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
-                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
-                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
-                                           ifelse(agent_type == "child", "Human Child", agent_tag)))),
-         agent_type = haven::as_factor(agent_type))
+  mutate(agent_type = haven::as_factor(agent_type))
 
 ```
 
@@ -602,7 +553,7 @@ cv_control_tasks %>%
             `Percentage Instances Passed` = round(`Total Passes`/`Total Instances`*100, digits = rounding)) %>%
   arrange(desc(`Percentage Instances Passed`)) %>% 
   rename(Agent = agent_type) %>%
-  datatable(rownames = FALSE)
+  datatable(rownames = FALSE, options = list(pageLength = nrow(.)))
 
 ```
 
@@ -617,7 +568,7 @@ cv_control_tasks %>%
                     `70%`=~quantile(., probs = 0.7), `80%`=~quantile(., probs = 0.8), `90%`=~quantile(., probs = 0.9), Max=max, `Standard Deviation` = sd)) %>%
   arrange(desc(Median)) %>%
   mutate(across(Min:`Standard Deviation`, ~round(.x, digits = rounding))) %>%
-  rename(Agent = agent_type) %>% datatable(rownames = FALSE)
+  rename(Agent = agent_type) %>% datatable(rownames = FALSE, options = list(pageLength = nrow(.)))
 
 ```
 
@@ -722,10 +673,6 @@ In this task, the agent needs to search for a reward, while avoiding lava. They 
 ```{r CVChick control tasks overview}
 
 cvchick_choices <- final_results %>%
-  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
-                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
-                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
-                                           ifelse(agent_type == "child", "Human Child", agent_tag))))) %>% 
   filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "OP Controls" & Paradigm == "CVChick") %>%
   dplyr::select(c(agent_type, cvchickcorrectchoice, cvchickleftchoice, cvchickrightchoice, success)) %>% drop_na()
 
@@ -737,7 +684,7 @@ cvchick_choices_table <- cvchick_choices %>% group_by(agent_type) %>%
             `Percentage No Choice` = round(sum(cvchickleftchoice == FALSE & cvchickrightchoice == FALSE)/`Total Instances`*100, digits = rounding)) %>%
   rename(Agent = agent_type)
 
-datatable(cvchick_choices_table, rownames = FALSE)
+datatable(cvchick_choices_table, rownames = FALSE, options = list(pageLength = nrow(cvchick_choices_table)))
 
 #rowSums(cvchick_choices_table[4:6]) # should be ~100 within rounding error.
 ```
@@ -751,11 +698,7 @@ As can be seen, the random agents picked left over right at chance. The rule-bas
 cup_control_tasks <- final_results %>% 
   filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "OP Controls" & str_detect(Task, "3Cup")) %>%
   dplyr::select(c(agent_tag, agent_type, proportionSuccess, success, episodeEndType, lavaPresence, Paradigm, cvchickleftchoice, cvchickrightchoice, pctb3cupcorrectchoice, pctbgridcupchoice, pctbgridcorrectchoice, threecupleftchoice, threecupmidchoice, threecuprightchoice)) %>%
-  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
-                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
-                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
-                                           ifelse(agent_type == "child", "Human Child", agent_tag)))),
-         agent_type = haven::as_factor(agent_type))
+  mutate(agent_type = haven::as_factor(agent_type))
 
 ```
 
@@ -770,7 +713,7 @@ cup_control_tasks %>%
             `Percentage Instances Passed` = round(`Total Passes`/`Total Instances`*100, digits = rounding)) %>%
   arrange(desc(`Percentage Instances Passed`)) %>% 
   rename(Agent = agent_type) %>%
-  datatable(rownames = FALSE)
+  datatable(rownames = FALSE, options = list(pageLength = nrow(.)))
 
 ```
 
@@ -785,7 +728,7 @@ cup_control_tasks %>%
                     `70%`=~quantile(., probs = 0.7), `80%`=~quantile(., probs = 0.8), `90%`=~quantile(., probs = 0.9), Max=max, `Standard Deviation` = sd)) %>%
   arrange(desc(Median)) %>%
   mutate(across(Min:`Standard Deviation`, ~round(.x, digits = rounding))) %>%
-  rename(Agent = agent_type) %>% datatable(rownames = FALSE)
+  rename(Agent = agent_type) %>% datatable(rownames = FALSE, options = list(pageLength = nrow(.)))
 
 ```
 
@@ -891,10 +834,6 @@ In this task, the agent needs to search for a reward, while sometimes avoiding l
 ```{r PCTB 3 Cup control tasks overview}
 
 pctb3cup_choices <- final_results %>%
-  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
-                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
-                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
-                                           ifelse(agent_type == "child", "Human Child", agent_tag))))) %>% 
   filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "OP Controls" & str_detect(Task, "3Cup")) %>%
   dplyr::select(c(agent_type, threecupleftchoice, threecupmidchoice, threecuprightchoice, pctb3cupcorrectchoice, success)) %>% drop_na()
 
@@ -906,7 +845,7 @@ pctb3cup_choices_table <- pctb3cup_choices %>% group_by(agent_type) %>%
             `Percentage No Choice` = round(sum(threecupleftchoice == FALSE & threecupmidchoice == FALSE & threecuprightchoice == FALSE)/`Total Instances`*100, digits = rounding),
             `Percentage Adjacent Choice` = round(sum((pctb3cupcorrectchoice == "L" & threecupleftchoice == FALSE & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "R" & threecuprightchoice == FALSE & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "M" & threecupmidchoice == FALSE & (threecupleftchoice == TRUE | threecuprightchoice == TRUE)))/`Total Instances`*100, digits = rounding))
 
-datatable(pctb3cup_choices_table, rownames = FALSE)
+datatable(pctb3cup_choices_table, rownames = FALSE, options = list(pageLength = nrow(pctb3cup_choices_table)))
 
 #rowSums(pctb3cup_choices_table[4:6]) # should be ~100 within rounding error.
 ```
@@ -920,11 +859,7 @@ Note that some of these tasks are free choice, so the agent could visit multiple
 grid_control_tasks <- final_results %>% 
   filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "OP Controls" & str_detect(Task, "Grid")) %>%
   dplyr::select(c(agent_tag, agent_type, proportionSuccess, success, episodeEndType, lavaPresence, Paradigm, cvchickleftchoice, cvchickrightchoice, pctb3cupcorrectchoice, pctbgridcupchoice, pctbgridcorrectchoice, threecupleftchoice, threecupmidchoice, threecuprightchoice)) %>%
-  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
-                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
-                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
-                                           ifelse(agent_type == "child", "Human Child", agent_tag)))),
-         agent_type = haven::as_factor(agent_type))
+  mutate(agent_type = haven::as_factor(agent_type))
 
 ```
 
@@ -939,7 +874,7 @@ grid_control_tasks %>%
             `Percentage Instances Passed` = round(`Total Passes`/`Total Instances`*100, digits = rounding)) %>%
   arrange(desc(`Percentage Instances Passed`)) %>% 
   rename(Agent = agent_type) %>%
-  datatable(rownames = FALSE)
+  datatable(rownames = FALSE, options = list(pageLength = nrow(.)))
 
 ```
 
@@ -954,7 +889,7 @@ grid_control_tasks %>%
                     `70%`=~quantile(., probs = 0.7), `80%`=~quantile(., probs = 0.8), `90%`=~quantile(., probs = 0.9), Max=max, `Standard Deviation` = sd)) %>%
   arrange(desc(Median)) %>%
   mutate(across(Min:`Standard Deviation`, ~round(.x, digits = rounding))) %>%
-  rename(Agent = agent_type) %>% datatable(rownames = FALSE)
+  rename(Agent = agent_type) %>% datatable(rownames = FALSE, options = list(pageLength = nrow(.)))
 
 ```
 
@@ -1059,10 +994,6 @@ In this task, the agent needs to search for a reward in a grid. They might be ba
 ```{r PCTB Grid Control tasks overview}
 
 pctbgrid_choices <- final_results %>%
-  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
-                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
-                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
-                                           ifelse(agent_type == "child", "Human Child", agent_tag))))) %>% 
   filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "OP Controls" & str_detect(Task, "Grid")) %>%
   dplyr::select(c(agent_type, InstanceName, pctbgridcorrectchoice, pctbgridcupchoice, success, numChoices)) %>% drop_na()
 
@@ -1077,7 +1008,7 @@ pctbgrid_choices_table <- pctbgrid_choices %>% group_by(agent_type) %>%
             `Percentage Correct Row Choice` = round(sum((str_detect(pctbgridcorrectchoice, "RightClose") & str_detect(pctbgridcupchoice, "RightClose")) | (str_detect(pctbgridcorrectchoice, "LeftClose") & str_detect(pctbgridcupchoice, "LeftClose")) | (str_detect(pctbgridcorrectchoice, "LeftMid") & str_detect(pctbgridcupchoice, "LeftMid")) | (str_detect(pctbgridcorrectchoice, "RightMid") & str_detect(pctbgridcupchoice, "RightMid")) | (str_detect(pctbgridcorrectchoice, "LeftFar") & str_detect(pctbgridcupchoice, "LeftFar")) | (str_detect(pctbgridcorrectchoice, "RightFar") & str_detect(pctbgridcupchoice, "RightFar")))/`Total Instances`*100, digits = rounding)) %>% 
   rename(`Agent` = agent_type)
 
-datatable(pctbgrid_choices_table, rownames = FALSE)
+datatable(pctbgrid_choices_table, rownames = FALSE, options = list(pageLength = nrow(pctbgrid_choices_table)))
 
 ```
 
@@ -1087,10 +1018,6 @@ Broken down by number of cups:
 ```{r PCTB Grid Control tasks overview by cups}
 
 pctbgrid_choices <- final_results %>%
-  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
-                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
-                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
-                                           ifelse(agent_type == "child", "Human Child", agent_tag))))) %>% 
   filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "OP Controls" & str_detect(Task, "Grid")) %>%
   dplyr::select(c(agent_type, InstanceName, pctbgridcorrectchoice, pctbgridcupchoice, success, numChoices)) %>% drop_na()
 
@@ -1106,7 +1033,7 @@ pctbgrid_choices_table <- pctbgrid_choices %>% group_by(agent_type, numChoices) 
   rename(`Agent` = agent_type,
          `Number of Cups` = numChoices)
 
-datatable(pctbgrid_choices_table, rownames = FALSE)
+datatable(pctbgrid_choices_table, rownames = FALSE, options = list(pageLength = nrow(pctbgrid_choices_table)))
 
 ```
 ##### Object Permanence Tests
@@ -1120,11 +1047,7 @@ Next we turn to the descriptive statistics for the 3 types of object permanence 
 cv_tasks <- final_results %>% 
   filter(SubSuite == "Allocentric OP" & Paradigm == "CVChick") %>%
   dplyr::select(c(agent_tag, agent_type, proportionSuccess, success, episodeEndType, lavaPresence, Paradigm, cvchickleftchoice, cvchickrightchoice, cvchickcorrectchoice)) %>%
-  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
-                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
-                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
-                                           ifelse(agent_type == "child", "Human Child", agent_tag)))),
-         agent_type = haven::as_factor(agent_type))
+  mutate(agent_type = haven::as_factor(agent_type))
 
 ```
 
@@ -1139,7 +1062,7 @@ cv_tasks %>%
             `Percentage Instances Passed` = round(`Total Passes`/`Total Instances`*100, digits = rounding)) %>%
   arrange(desc(`Percentage Instances Passed`)) %>% 
   rename(Agent = agent_type) %>%
-  datatable(rownames = FALSE)
+  datatable(rownames = FALSE, options = list(pageLength = nrow(.)))
 
 ```
 
@@ -1154,7 +1077,7 @@ cv_tasks %>%
                     `70%`=~quantile(., probs = 0.7), `80%`=~quantile(., probs = 0.8), `90%`=~quantile(., probs = 0.9), Max=max, `Standard Deviation` = sd)) %>%
   arrange(desc(Median)) %>%
   mutate(across(Min:`Standard Deviation`, ~round(.x, digits = rounding))) %>%
-  rename(Agent = agent_type) %>% datatable(rownames = FALSE)
+  rename(Agent = agent_type) %>% datatable(rownames = FALSE, options = list(pageLength = nrow(.)))
 
 ```
 
@@ -1264,7 +1187,7 @@ cvchick_choices_table <- cv_tasks %>% group_by(agent_type) %>%
             `Percentage No Choice` = round(sum(cvchickleftchoice == FALSE & cvchickrightchoice == FALSE)/`Total Instances`*100, digits = rounding)) %>%
   rename(Agent = agent_type)
 
-datatable(cvchick_choices_table, rownames = FALSE)
+datatable(cvchick_choices_table, rownames = FALSE, options = list(pageLength = nrow(cvchick_choices_table)))
 
 #rowSums(cvchick_choices_table[4:6]) # should be ~100 within rounding error.
 ```
@@ -1276,11 +1199,7 @@ datatable(cvchick_choices_table, rownames = FALSE)
 threecup_tasks <- final_results %>% 
   filter(SubSuite == "Allocentric OP" & str_detect(Task, "3Cup")) %>%
   dplyr::select(c(agent_tag, agent_type, proportionSuccess, success, episodeEndType, lavaPresence, Paradigm, threecupleftchoice, threecupmidchoice, threecuprightchoice, pctb3cupcorrectchoice)) %>%
-  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
-                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
-                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
-                                           ifelse(agent_type == "child", "Human Child", agent_tag)))),
-         agent_type = haven::as_factor(agent_type))
+  mutate(agent_type = haven::as_factor(agent_type))
 
 ```
 
@@ -1295,7 +1214,7 @@ threecup_tasks %>%
             `Percentage Instances Passed` = round(`Total Passes`/`Total Instances`*100, digits = rounding)) %>%
   arrange(desc(`Percentage Instances Passed`)) %>% 
   rename(Agent = agent_type) %>%
-  datatable(rownames = FALSE)
+  datatable(rownames = FALSE, options = list(pageLength = nrow(.)))
 
 ```
 
@@ -1310,7 +1229,7 @@ threecup_tasks %>%
                     `70%`=~quantile(., probs = 0.7), `80%`=~quantile(., probs = 0.8), `90%`=~quantile(., probs = 0.9), Max=max, `Standard Deviation` = sd)) %>%
   arrange(desc(Median)) %>%
   mutate(across(Min:`Standard Deviation`, ~round(.x, digits = rounding))) %>%
-  rename(Agent = agent_type) %>% datatable(rownames = FALSE)
+  rename(Agent = agent_type) %>% datatable(rownames = FALSE, options = list(pageLength = nrow(.)))
 
 ```
 
@@ -1401,7 +1320,7 @@ pctb3cup_choices_table <- threecup_tasks %>% group_by(agent_type) %>%
             `Percentage Adjacent Choice` = round(sum((pctb3cupcorrectchoice == "L" & threecupleftchoice == FALSE & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "R" & threecuprightchoice == FALSE & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "M" & threecupmidchoice == FALSE & (threecupleftchoice == TRUE | threecuprightchoice == TRUE))|(pctb3cupcorrectchoice == "LM" & threecuprightchoice == TRUE)|(pctb3cupcorrectchoice == "LR" & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "MR" & threecupleftchoice == TRUE))/`Total Instances`*100, digits = rounding)) %>%
   rename(Agent = agent_type)
 
-datatable(pctb3cup_choices_table, rownames = FALSE)
+datatable(pctb3cup_choices_table, rownames = FALSE, options = list(pageLength = nrow(pctb3cup_choices_table)))
 
 #rowSums(pctb3cup_choices_table[4:6]) # should be ~100 within rounding error.
 ```
@@ -1413,11 +1332,7 @@ datatable(pctb3cup_choices_table, rownames = FALSE)
 grid_tasks <- final_results %>% 
   filter(SubSuite == "Allocentric OP" & str_detect(Task, "Grid")) %>%
   dplyr::select(c(agent_tag, agent_type, proportionSuccess, success, episodeEndType, Paradigm, pctbgridcorrectchoice, pctbgridcupchoice, numChoices)) %>%
-  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
-                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action Agent",
-                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-Directed Agent",
-                                           ifelse(agent_type == "child", "Human Child", agent_tag)))),
-         agent_type = haven::as_factor(agent_type))
+  mutate(agent_type = haven::as_factor(agent_type))
 
 ```
 
@@ -1432,7 +1347,7 @@ grid_tasks %>%
             `Percentage Instances Passed` = round(`Total Passes`/`Total Instances`*100, digits = rounding)) %>%
   arrange(desc(`Percentage Instances Passed`)) %>% 
   rename(Agent = agent_type) %>%
-  datatable(rownames = FALSE)
+  datatable(rownames = FALSE, options = list(pageLength = nrow(.)))
 
 ```
 
@@ -1447,7 +1362,7 @@ grid_tasks %>%
                     `70%`=~quantile(., probs = 0.7), `80%`=~quantile(., probs = 0.8), `90%`=~quantile(., probs = 0.9), Max=max, `Standard Deviation` = sd)) %>%
   arrange(desc(Median)) %>%
   mutate(across(Min:`Standard Deviation`, ~round(.x, digits = rounding))) %>%
-  rename(Agent = agent_type) %>% datatable(rownames = FALSE)
+  rename(Agent = agent_type) %>% datatable(rownames = FALSE, options = list(pageLength = nrow(.)))
 
 ```
 
@@ -1574,11 +1489,7 @@ Here is a plot of success by agent and task:
 
 barchart_success_data <- final_results %>%
   dplyr::select(c(agent_tag, agent_type, basicTask, opControlTask, cvchickTask, pctb3CupTask, pctbGridTask, success)) %>%
-  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
-                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action\nAgent",
-                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-\nDirected Agent",
-                                           ifelse(agent_type == "child", "Human Child", agent_tag)))),
-         agent_type = haven::as_factor(agent_type)) %>%
+  mutate(agent_type = haven::as_factor(agent_type)) %>%
   group_by(agent_type, basicTask, opControlTask, cvchickTask, pctb3CupTask, pctbGridTask) %>%
   summarise(`Percentage Instances Passed` = (sum(success)/n())) %>%
   mutate(`Task Type` = ifelse(basicTask == 1, "Basic",
@@ -1608,13 +1519,10 @@ And here is a plot where it is deconstructed by age:
 
 barchart_success_age_data <- final_results %>%
   dplyr::select(c(agent_tag, age, agent_type, basicTask, opControlTask, cvchickTask, pctb3CupTask, pctbGridTask, success)) %>%
-  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
-                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action\nAgent",
-                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-\nDirected Agent",
-                                           ifelse(agent_type == "child" & age == 4, "4 Year Old",
-                                                  ifelse(agent_type == "child" & age == 5, "5 Year Old",
-                                                         ifelse(agent_type == "child" & age == 6, "6 Year Old",
-                                                                ifelse(agent_type == "child" & age == 7, "7 Year Old", agent_tag))))))),
+  mutate(agent_type = ifelse(agent_type == "Child" & age == 4, "4 Year Old",
+                                                  ifelse(agent_type == "Child" & age == 5, "5 Year Old",
+                                                         ifelse(agent_type == "Child" & age == 6, "6 Year Old",
+                                                                ifelse(agent_type == "Child" & age == 7, "7 Year Old", agent_type)))),
          agent_type = haven::as_factor(agent_type)) %>%
   group_by(agent_type, basicTask, opControlTask, cvchickTask, pctb3CupTask, pctbGridTask) %>%
   summarise(`Percentage Instances Passed` = (sum(success)/n())) %>%
@@ -1647,11 +1555,7 @@ barchart_palette <- c("#C49A00", "#53B400", "#00C094", "#00B6EB", "#A58AFF", "#F
 barchart_choice_data <- final_results %>%
   filter(forcedChoice == 1 & basicTask == 0) %>%
   dplyr::select(c(agent_tag, agent_type, basicTask, opControlTask, cvchickTask, pctb3CupTask, pctbGridTask, correctChoice)) %>%
-  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
-                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action\nAgent",
-                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-\nDirected Agent",
-                                           ifelse(agent_type == "child", "Human Child", agent_tag)))),
-         agent_type = haven::as_factor(agent_type)) %>%
+  mutate(agent_type = haven::as_factor(agent_type)) %>%
   group_by(agent_type, basicTask, opControlTask, cvchickTask, pctb3CupTask, pctbGridTask) %>%
   summarise(`Percentage Correct Choice` = (sum(correctChoice)/n())) %>%
   mutate(`Task Type` = ifelse(basicTask == 0 & opControlTask == 1 & cvchickTask == 1, "CV Chick Control",
@@ -1682,13 +1586,10 @@ And now by age:
 barchart_choice_age_data <- final_results %>%
   filter(forcedChoice == 1 & basicTask == 0) %>%
   dplyr::select(c(agent_tag, agent_type, age, basicTask, opControlTask, cvchickTask, pctb3CupTask, pctbGridTask, correctChoice)) %>%
-  mutate(agent_type = ifelse(str_detect(agent_tag, "Random Walker"), "Random Walker",
-                             ifelse(str_detect(agent_tag, "Random Action"), "Random Action\nAgent",
-                                    ifelse(str_detect(agent_tag, "Vanilla"), "Simple Goal-\nDirected Agent",
-                                           ifelse(agent_type == "child" & age == 4, "4 Year Old",
-                                                  ifelse(agent_type == "child" & age == 5, "5 Year Old",
-                                                         ifelse(agent_type == "child" & age == 6, "6 Year Old",
-                                                                ifelse(agent_type == "child" & age == 7, "7 Year Old", agent_tag))))))),
+  mutate(agent_type = ifelse(agent_type == "Child" & age == 4, "4 Year Old",
+                                                  ifelse(agent_type == "Child" & age == 5, "5 Year Old",
+                                                         ifelse(agent_type == "Child" & age == 6, "6 Year Old",
+                                                                ifelse(agent_type == "Child" & age == 7, "7 Year Old", agent_type)))),
          agent_type = haven::as_factor(agent_type)) %>%
   group_by(agent_type, basicTask, opControlTask, cvchickTask, pctb3CupTask, pctbGridTask) %>%
   summarise(`Percentage Correct Choice` = (sum(correctChoice)/n())) %>%
@@ -1723,7 +1624,7 @@ The children played tutorial tasks with some minimal assistance from the experim
 ```{r children counterbalance data}
 
 children_results <- final_results %>%
-  filter(agent_type == "child")
+  filter(agent_type == "Child")
 
 children_counterbalance <- children_results %>%
   dplyr::select(task_order, agent_tag) %>%

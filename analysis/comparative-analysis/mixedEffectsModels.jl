@@ -13,13 +13,12 @@ using CategoricalArrays
 
 data = CSV.read("./analysis/results_final_clean_long.csv", DataFrame)
 data = data[(data[!, :problem_flag] .== "N"),:]
-data = select(data, :InstanceName, :Suite, :SubSuite, :Instance, :basicTask, :opControlTask, :cvchickTask, :pctbGridTask, :pctb3CupTask, :agent_tag, :agent_tag_seed, :agent_type_mem, :agent_type_mem_noage, :agent_order_mem, :success, :correctChoice)
+data = select(data, :InstanceName, :Suite, :SubSuite, :Instance, :basicTask, :opControlTask, :cvchickTask, :pctbGridTask, :pctb3CupTask, :agent_tag, :agent_tag_seed, :agent_type, :success, :correctChoice)
 
 # Convert Predictor to a categorical variable
-data.agent_type_mem_noage = categorical(data.agent_type_mem_noage)
-levels!(data.agent_type_mem_noage, ["Random Walker", 
-             "Random Action",
-             "Braitenberg",
+data.agent_type = categorical(data.agent_type)
+levels!(data.agent_type, ["Random Agent", 
+             "Heuristic Agent",
              "ppo-bc-all",
              "ppo-bc_opc-all",
              "ppo-bc_opc-strat",
@@ -31,7 +30,6 @@ levels!(data.agent_type_mem_noage, ["Random Walker",
              "dreamer-bc_opc_opt-all",
              "dreamer-bc_opc_opt-strat",
              "Child"])
-data = sort(data, :agent_order_mem)
 
 basic_tasks = data[(data[!, :basicTask] .== 1),:]
 op_control_cv = data[(data[!, :opControlTask] .== 1).&(data[!, :cvchickTask] .== 1),:]
@@ -43,7 +41,7 @@ op_test_grid = data[(data[!, :opControlTask] .== 0).&(data[!, :pctbGridTask] .==
 
 ## Mixed Models
 
-successFormula = @formula(success ~ agent_type_mem_noage + (1 + agent_type_mem_noage | agent_tag_seed))
+successFormula = @formula(success ~ agent_type + (1 + agent_type | agent_tag_seed))
 
 basic_success = fit(MixedModel, successFormula, basic_tasks, Bernoulli(), fast = false)
 controlcv_success = fit(MixedModel, successFormula, op_control_cv, Bernoulli(), fast = false)
@@ -160,7 +158,7 @@ end
 
 
 
-correctChoiceFormula = @formula(correctChoice ~ agent_type_mem_noage + (1 + agent_type_mem_noage | agent_tag_seed))
+correctChoiceFormula = @formula(correctChoice ~ agent_type + (1 + agent_type | agent_tag_seed))
 
 basic_correctChoice = fit(MixedModel, correctChoiceFormula, basic_tasks, Bernoulli(), fast = false)
 controlcv_correctChoice = fit(MixedModel, correctChoiceFormula, op_control_cv, Bernoulli(), fast = false)
