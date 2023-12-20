@@ -422,7 +422,7 @@ agent_type: dreamer-bc_opc_opt-all     -1.33206       0.591263   -2.25    0.0243
 agent_type: dreamer-bc_opc_opt-strat    0.267544      0.296808    0.90    0.3674
 agent_type: Child                       3.88708       0.222578   17.46    <1e-67
 ────────────────────────────────────────────────────────────────────────────────
-Exponentiated Coefficients (Odds)
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
 [0.06014919780851511, 0.04897099484836237, 0.07387895647639402]
 [2.085677540690045, 1.5644927559930417, 2.780486382615263]
 [2.5286727147371214e-7, 0.0, Inf]
