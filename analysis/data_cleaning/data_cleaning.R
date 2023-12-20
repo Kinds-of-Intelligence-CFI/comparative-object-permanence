@@ -92,10 +92,10 @@ children_trajectory_data <- read.csv("children/trajectory_data_children.csv") %>
 ## Create a dataframe with all results, tagged by the kind of agent
 
 combined_results <- bind_rows(randomwalkers, randomactionagents, vanillabraitenbergs, children, dreameragents, ppoagents) %>%
-  mutate(agent_type = ifelse(str_detect(agent_tag, "Random"), "random", 
-                             ifelse(str_detect(agent_tag, "Vanilla") | str_detect(agent_tag, "vision Braitenberg"), "Braitenberg",
-                                    ifelse(str_detect(agent_tag, "ppo"), "PPO", ifelse
-                                           (str_detect(agent_tag, "dreamer"), "Dreamer", "child")))))
+  mutate(agent_type = ifelse(str_detect(agent_tag, "Random"), "Random Agent", 
+                             ifelse(str_detect(agent_tag, "Vanilla"), "Heuristic Agent",
+                                    ifelse(str_detect(agent_tag, "ppo"), agent_tag, ifelse
+                                           (str_detect(agent_tag, "dreamer"), agent_tag, "Child")))))
 
 ## Add metadata information
 metadata_results_raw <- inner_join(metadata, combined_results, by = c("InstanceName" = "instancename"))
@@ -558,7 +558,7 @@ for (row in 1:nrow(final_results)){
     seed <- final_results$aai_seed[row]
     
     
-    if (final_results$agent_type[row] == "child"){
+    if (final_results$agent_type[row] == "Child"){
       filtered_df <- children_trajectory_data %>% 
         filter(instancename_child == instancenamestring & agent_tag == agentname)
       
@@ -631,7 +631,7 @@ for (row in 1:nrow(final_results)){
     agentname <- final_results$agent_tag[row]
     seed <- final_results$aai_seed[row]
     
-    if (final_results$agent_type[row] == "child"){
+    if (final_results$agent_type[row] == "Child"){
       
       next # there are no children with this as they only played instances with goal size of 2. This only applies to goal size 0.5 
       
@@ -724,24 +724,8 @@ final_results <- final_results %>%
   mutate(agent_tag_seed = paste0(agent_tag, ifelse(is.na(aai_seed) | aai_seed == 9999, "", paste0("_", aai_seed))))
 
 final_results <- final_results %>%
-  mutate(agent_type_mem = ifelse(is.na(age) & !str_detect(agent_tag, "dreamer|ppo|Random"), agent_type,
-                             ifelse(is.na(age) & str_detect(agent_tag, "dreamer|ppo"), agent_tag, 
-                                    ifelse(is.na(age) & str_detect(agent_tag, "Random Action"), "Random Action", 
-                                           ifelse(is.na(age) & str_detect(agent_tag, "Random Walker"), "Random Walker", age)))),
-         agent_type_mem = haven::as_factor(agent_type_mem),
-         agent_type = haven::as_factor(agent_type))
-
-final_results <- final_results %>%
-  mutate(agent_order_mem = ifelse(agent_type_mem == "Random Walker", 0,
-                                  ifelse(agent_type_mem == "Random Action", 1,
-                                         ifelse(agent_type_mem == "Braitenberg", 2, 
-                                                ifelse(agent_type == "PPO", 3, 
-                                                       ifelse(agent_type == "Dreamer", 4,
-                                                              ifelse(agent_type_mem == "4", 5, 
-                                                                     ifelse(agent_type_mem == "5", 6,
-                                                                            ifelse(agent_type_mem == "6", 7, 8)))))))))
-final_results <- final_results %>%
-  mutate(agent_type_mem_noage = ifelse(is.na(age), agent_type_mem, "Child"))
+  mutate(agent_type_gen = ifelse(str_detect(agent_type, "dreamer"), "Dreamer",
+                                 ifelse(str_detect(agent_type, "ppo"), "PPO", agent_type)))
 
 
 ###############################################################################################################################
@@ -751,7 +735,7 @@ final_results <- final_results %>%
 
 measurement_layout_agent_data <- final_results %>%
   filter(problem_flag == "N",
-         agent_type != "child") %>%
+         agent_type != "Child") %>%
   select(c("agent_tag",
            "aai_seed",
            "InstanceName",
@@ -826,7 +810,7 @@ check <- measurement_layout_agent_data %>%
 
 measurement_layout_children_data <- final_results %>%
   filter(problem_flag == "N",
-         agent_type == "child") %>%
+         agent_type == "Child") %>%
   select(c("agent_tag",
            "InstanceName",
            "instancename_child",
