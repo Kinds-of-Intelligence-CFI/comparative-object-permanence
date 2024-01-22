@@ -44,7 +44,7 @@ metadata_synthetic_examples <- metadata %>%
          lowVisualAcuityAgent_success = ifelse(mainGoalSize < 2, 0, 1),
          lowVisualAcuityAgent_choice = ifelse(mainGoalSize < 2, 0, 1),
          poorNavigationOPAgent_success = ifelse((minDistToGoal * minNumTurnsGoal) <= 135, 1, 0),
-         poorNavigationOPAgent_success = ifelse((minDistToCorrectChoice * minNumTurnsChoice) <= 135, 1, 0),
+         poorNavigationOPAgent_choice = ifelse((minDistToCorrectChoice * minNumTurnsChoice) <= 135, 1, 0),
          poorLavaOPAgent_success = ifelse(lavaPresence == 1, 0, 1),
          poorLavaOPAgent_choice = ifelse((lavaPresence == 1 & pctb3CupTask == 1) | (lavaPresence == 1 & basicTask == 1), 0, 1)) #specifically bad at the lava tasks when the lava is present before choice is made (only case for 3cup tasks with lava and with some of the basic tasks)
 
