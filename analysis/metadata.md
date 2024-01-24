@@ -174,11 +174,9 @@ An integer specifyig the blueness of the colour of the `Wall` objects in the ins
 
 A bool specifying if the colours of the `Wall` objects in the instance are randomised.
 
-## `cityBlockDistanceToGoal`
+## `minDistToGoal`
 
 A float specifying the shortest path to the goal(s) in the instance. This is calculated as though the agent takes steps in the 4 cardinal directions, and makes turns of 90 degrees. It takes into account any obstacles or holes in the floor that might be in the way. It serves as a proxy for the complexity of the navigation task, as well as for the amount of time we can expect an object to be occluded if this is an object permanence task, as the agent will likely take longer to get there. Most of the tasks are fairly intuitive to calculate distance in this way, but some are more involved. We provide schematics of the trickiest tasks to explain how certain values were arrived at. Varies from 9 to 118 inclusive. Units are in units of agent size, where the arena is of size 40x40x40.
-
-All of these count as travelling salesman problems. There are likely alternative paths that might be more optimal. However, these are the basis of the calculations for the metadata.
 
 ### `OP-Controls-Basic-MultiStationary-5Y-*.yml`
 
@@ -275,13 +273,21 @@ In this task, the agent has to obtain 1 `GoodGoal` that falls into one of the ho
 
 When there are fewer holes and they are closer to the agent, the path is shorter and takes fewer turns.
 
-## `minNumTurnsRequired`
+## `minNumTurnsGoal`
 
 An integer specifying the minimum number of turns that would be required to follow the route specified in the schematics above. Varies from 0 to 13 inclusive.
 
 ## `numChoices`
 
 The number of places that a reward could be in. For cases where are multiple visible goals (that are not allocentrically occluded), this is exactly the number of goals available. Otherwise, it is the number of identical positions (cups, holes, potential occluders) that could be hiding a goal.
+
+## `minDistToCorrectChoice`
+
+The minimum distance the agent has to travel to count as having made the choice. In cases where there is no forced choice, it is simply the distance to the goal. This is because, this is the first possible moment where the agent cannot reverse any decisions it made earlier in play. In the forced choice cases, it is the manhattan distance to making the correct choice. In the `CVChick` tasks, the value is `8`: the agent descends down the platform to the end of the `WallTransparent` and moves right or left by one unit to fall of the platform and count as having made a choice. In the `PCTBGrid` tasks, it is the minimum distance to correct hole in the floor, which happens to be identical to the `minDistToGoal` value. In the `PCTB3Cup` tasks, it is the minimum distance to the correct cup. In cases where there are multiple goals, it is the minimum distance the agent would have to travel to be counted as having entered both of the correct cups. These were calculated using the same process as the `minDistToGoal`.
+
+## `minNumTurnsChoice`
+
+An integer specifying the minimum number of turns that would be required to follow the route to the choice point.
 
 # Known Errors (Won't Fix)
 
