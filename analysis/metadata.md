@@ -289,6 +289,10 @@ The minimum distance the agent has to travel to count as having made the choice.
 
 An integer specifying the minimum number of turns that would be required to follow the route to the choice point.
 
+## `goalMaxDistEuclidean`
+
+The euclidean distance from the agent's starting position to the furthest main goal in the arena. It is calculated only for the $x$-$z$ plane, not including the vertical height.
+
 # Known Errors (Won't Fix)
 
 1. The pass_mark values for instances with 5 goals are inaccurate. It is impossible to know whether an agent has obtained all the goals very slowly or only some very quickly. For example, a slow successful agent might have the following trajectory: START (Reward: 0, Health: 100) > circuitously navigate to reward (Reward: -0.99, Health: 0.1) > OBTAIN REWARD (Reward: 0.01, Health: 100), repeat for 5 goals. This would mean that the agent would finish with a reward of 0.01. Now consider a very quick agent: START (Reward: 0, Health: 100) > navigate to first reward (Reward: -0.1, Health: 90) > OBTAIN REWARD (Reward: 0.9, Health: 100) > navigate to next reward (Reward: 0.8, Health: 90) > OBTAIN REWARD (Reward: 1.8, Health: 100) > TIMEOUT (Reward: 0.8, Health: 0). This agent only obtains 2 rewards, but very quickly, and hterefore has a higher final reward than the agent that obtained them all very slowly. As such, we cannot read success off final reward. We thus remove the 8 instances of this from the data set used in analysis.
