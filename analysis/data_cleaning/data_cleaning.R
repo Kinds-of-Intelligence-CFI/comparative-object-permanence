@@ -707,7 +707,7 @@ checking_episode_end_annotation <- final_results %>%
 
 ## Remaining unknowns are three children, and it corresponds to the episodes before they decided to stop playing. These results are likely mid-game rewards recorded while the environment shut down.
 ### Adding a flag to drop them from analysis.
-
+## CHECK logic here
 final_results <- final_results %>% mutate(correctChoice = ifelse((is.na(cvchickcorrectchoice) & is.na(pctbgridcorrectchoice) & is.na(pctb3cupcorrectchoice)), success,
                                                                  ifelse((is.na(pctbgridcorrectchoice) & is.na(pctb3cupcorrectchoice) & cvchickcorrectchoice == "R" & cvchickrightchoice == TRUE & cvchickleftchoice == FALSE)|
                                                                           (is.na(pctbgridcorrectchoice) & is.na(pctb3cupcorrectchoice) & cvchickcorrectchoice == "L" & cvchickleftchoice == TRUE & cvchickrightchoice == FALSE) | 

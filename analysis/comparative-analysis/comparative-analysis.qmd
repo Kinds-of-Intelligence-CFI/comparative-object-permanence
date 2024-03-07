@@ -41,7 +41,17 @@ This document presents the descriptive statistics and and comparative analytics 
 ```{r data import}
 
 final_results <- read.csv("../results_final_clean_long.csv") %>%
-  filter(problem_flag == "N") #remove the problematic data points.
+  filter(problem_flag == "N") %>% #remove the problematic data points.
+  mutate(agent_type = ifelse(agent_type == "dreamer-bc-all", "Dreamer 1",
+                             ifelse(agent_type == "dreamer-bc_opc-strat", "Dreamer 2",
+                                    ifelse(agent_type == "dreamer-bc_opc-all", "Dreamer 3",
+                                           ifelse(agent_type == "dreamer-bc_opc_opt-strat", "Dreamer 4",
+                                                  ifelse(agent_type == "dreamer-bc_opc_opt-all", "Dreamer 5",
+                                                         ifelse(agent_type == "ppo-bc-all", "PPO 1",
+                             ifelse(agent_type == "ppo-bc_opc-strat", "PPO 2",
+                                    ifelse(agent_type == "ppo-bc_opc-all", "PPO 3",
+                                           ifelse(agent_type == "ppo-bc_opc_opt-strat", "PPO 4",
+                                                  ifelse(agent_type == "ppo-bc_opc_opt-all", "PPO 5", agent_type)))))))))))
 
 ```
 
@@ -1614,6 +1624,148 @@ barchart_choice_age_data <- final_results %>%
 
 ```
 
+### Comparing OP Tests and Controls
+
+Here are some bar charts directly comparing the OP and Control tasks for each experimental paradigm.
+
+Chick tasks:
+
+```{r op-control-chick-task-success}
+
+barchart_op_control_chick_success <- final_results %>%
+  filter(cvchickTask == 1) %>%
+  dplyr::select(c(agent_tag, agent_type, opControlTask, success)) %>%
+  mutate(`Task Type` = ifelse(opControlTask == 1, "Control", "OP Test"),
+         agent_type = ifelse(agent_type == "Child", "Children", agent_type),
+         agent_type = factor(agent_type, levels = c("Random Agent", "Heuristic Agent", "Children", "PPO 1", "PPO 2", "PPO 3", "PPO 4", "PPO 5", "Dreamer 1", "Dreamer 2", "Dreamer 3", "Dreamer 4", "Dreamer 5"), ordered = TRUE)) %>%
+  group_by(agent_type, `Task Type`) %>%
+  summarise(`Percentage Success` = (sum(success)/n())*100)  %>%
+  rename(`Agent` = agent_type)
+
+(barchar_op_control_chick_success <- barchart_op_control_chick_success %>%
+  ggplot(aes(x = Agent, y = `Percentage Success`, fill = `Task Type`)) + geom_col(position = "dodge") +
+    ylim(0,100) +
+    #scale_fill_manual(values = barchart_palette) + 
+  theme_minimal(base_family = "Arial", base_size = 15) +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)
+  ))
+
+```
+
+```{r op-control-chick-task-choice}
+
+barchart_op_control_chick_choice <- final_results %>%
+  mutate(correctChoice = ifelse((cvchickleftchoice == TRUE & cvchickcorrectchoice == "L" & cvchickrightchoice == FALSE)|(cvchickrightchoice == TRUE & cvchickcorrectchoice == "R" & cvchickleftchoice == FALSE), 1, 0)) %>%
+  filter(cvchickTask == 1) %>%
+  dplyr::select(c(agent_tag, agent_type, opControlTask, correctChoice)) %>%
+  mutate(`Task Type` = ifelse(opControlTask == 1, "Control", "OP Test"),
+         agent_type = ifelse(agent_type == "Child", "Children", agent_type),
+         agent_type = factor(agent_type, levels = c("Random Agent", "Heuristic Agent", "Children", "PPO 1", "PPO 2", "PPO 3", "PPO 4", "PPO 5", "Dreamer 1", "Dreamer 2", "Dreamer 3", "Dreamer 4", "Dreamer 5"), ordered = TRUE)) %>%
+  group_by(agent_type, `Task Type`) %>%
+  summarise(`Percentage Correct Choice` = (sum(correctChoice)/n())*100)  %>%
+  rename(`Agent` = agent_type)
+
+(barchart_op_control_chick_choice <- barchart_op_control_chick_choice %>%
+  ggplot(aes(x = Agent, y = `Percentage Correct Choice`, fill = `Task Type`)) + geom_col(position = "dodge") +
+    ylim(0,100) +
+    #scale_fill_manual(values = barchart_palette) + 
+  theme_minimal(base_family = "Arial", base_size = 15) +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)
+  ))
+
+```
+Three-Cup Task:
+
+```{r op-control-cup-task-success}
+
+barchart_op_control_3cup_success <- final_results %>%
+  filter(pctb3CupTask == 1) %>%
+  dplyr::select(c(agent_tag, agent_type, opControlTask, success)) %>%
+  mutate(`Task Type` = ifelse(opControlTask == 1, "Control", "OP Test"),
+         agent_type = ifelse(agent_type == "Child", "Children", agent_type),
+         agent_type = factor(agent_type, levels = c("Random Agent", "Heuristic Agent", "Children", "PPO 1", "PPO 2", "PPO 3", "PPO 4", "PPO 5", "Dreamer 1", "Dreamer 2", "Dreamer 3", "Dreamer 4", "Dreamer 5"), ordered = TRUE)) %>%
+  group_by(agent_type, `Task Type`) %>%
+  summarise(`Percentage Success` = (sum(success)/n())*100)  %>%
+  rename(`Agent` = agent_type)
+
+(barchart_op_control_3cup_success <- barchart_op_control_3cup_success %>%
+  ggplot(aes(x = Agent, y = `Percentage Success`, fill = `Task Type`)) + geom_col(position = "dodge") +
+    ylim(0,100) +
+    #scale_fill_manual(values = barchart_palette) + 
+  theme_minimal(base_family = "Arial", base_size = 15) +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)
+  ))
+
+```
+
+```{r op-control-cup-task-choice}
+
+barchart_op_control_3cup_choice <- final_results %>%
+  mutate(correctChoice = ifelse((threecupleftchoice == TRUE & pctb3cupcorrectchoice == "L")|(pctb3cupcorrectchoice == "M" & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "R" & threecuprightchoice == TRUE)|(threecupleftchoice == TRUE & threecupmidchoice == TRUE & pctb3cupcorrectchoice == "LM") | (threecuprightchoice == TRUE & threecupmidchoice == TRUE & pctb3cupcorrectchoice == "MR")|(threecuprightchoice == TRUE & threecupleftchoice == TRUE & pctb3cupcorrectchoice == "LR"), 1, 0)) %>%
+  filter(pctb3CupTask == 1) %>%
+  dplyr::select(c(agent_tag, agent_type, opControlTask, correctChoice)) %>%
+  mutate(`Task Type` = ifelse(opControlTask == 1, "Control", "OP Test"),
+         agent_type = ifelse(agent_type == "Child", "Children", agent_type),
+         agent_type = factor(agent_type, levels = c("Random Agent", "Heuristic Agent", "Children", "PPO 1", "PPO 2", "PPO 3", "PPO 4", "PPO 5", "Dreamer 1", "Dreamer 2", "Dreamer 3", "Dreamer 4", "Dreamer 5"), ordered = TRUE)) %>%
+  group_by(agent_type, `Task Type`) %>%
+  summarise(`Percentage Correct Choice` = (sum(correctChoice)/n())*100)  %>%
+  rename(`Agent` = agent_type)
+
+(barchart_op_control_3cup_choice <- barchart_op_control_3cup_choice %>%
+  ggplot(aes(x = Agent, y = `Percentage Correct Choice`, fill = `Task Type`)) + geom_col(position = "dodge") +
+    ylim(0,100) +
+    #scale_fill_manual(values = barchart_palette) + 
+  theme_minimal(base_family = "Arial", base_size = 15) +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)
+  ))
+
+```
+Grid Task:
+
+```{r op-control-grid-task-success}
+
+barchart_op_control_grid_success <- final_results %>%
+  filter(pctbGridTask == 1) %>%
+  dplyr::select(c(agent_tag, agent_type, opControlTask, success)) %>%
+  mutate(`Task Type` = ifelse(opControlTask == 1, "Control", "OP Test"),
+         agent_type = ifelse(agent_type == "Child", "Children", agent_type),
+         agent_type = factor(agent_type, levels = c("Random Agent", "Heuristic Agent", "Children", "PPO 1", "PPO 2", "PPO 3", "PPO 4", "PPO 5", "Dreamer 1", "Dreamer 2", "Dreamer 3", "Dreamer 4", "Dreamer 5"), ordered = TRUE)) %>%
+  group_by(agent_type, `Task Type`) %>%
+  summarise(`Percentage Success` = (sum(success)/n())*100)  %>%
+  rename(`Agent` = agent_type)
+
+(barchart_op_control_grid_success <- barchart_op_control_grid_success %>%
+  ggplot(aes(x = Agent, y = `Percentage Success`, fill = `Task Type`)) + geom_col(position = "dodge") +
+    ylim(0,100) +
+    #scale_fill_manual(values = barchart_palette) + 
+  theme_minimal(base_family = "Arial", base_size = 15) +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)
+  ))
+
+```
+
+```{r op-control-grid-task-choice}
+
+barchart_op_control_grid_choice <- final_results %>%
+  mutate(correctChoice = ifelse(pctbgridcorrectchoice == pctbgridcupchoice, 1, 0)) %>%
+  filter(pctbGridTask == 1) %>%
+  dplyr::select(c(agent_tag, agent_type, opControlTask, correctChoice)) %>%
+  mutate(`Task Type` = ifelse(opControlTask == 1, "Control", "OP Test"),
+         agent_type = ifelse(agent_type == "Child", "Children", agent_type),
+         agent_type = factor(agent_type, levels = c("Random Agent", "Heuristic Agent", "Children", "PPO 1", "PPO 2", "PPO 3", "PPO 4", "PPO 5", "Dreamer 1", "Dreamer 2", "Dreamer 3", "Dreamer 4", "Dreamer 5"), ordered = TRUE)) %>%
+  group_by(agent_type, `Task Type`) %>%
+  summarise(`Percentage Correct Choice` = (sum(correctChoice)/n())*100)  %>%
+  rename(`Agent` = agent_type)
+
+(barchart_op_control_grid_choice <- barchart_op_control_grid_choice %>%
+  ggplot(aes(x = Agent, y = `Percentage Correct Choice`, fill = `Task Type`)) + geom_col(position = "dodge") +
+    ylim(0,100) +
+    #scale_fill_manual(values = barchart_palette) + 
+  theme_minimal(base_family = "Arial", base_size = 15) +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)
+  ))
+
+```
 
 ## Children-Specific Descriptives
 
@@ -1838,3 +1990,35 @@ child_genderage_table <- final_results %>%
 datatable(child_genderage_table, rownames = FALSE)
 
 ```
+
+
+## DRL-Specific Descriptives
+
+Finally, let's look at the differences between the curricula
+
+```{r curriculum comparisons}
+
+barchart_curriculum_comparisons <- final_results %>%
+  filter(str_detect(agent_tag, "ppo|dreamer")) %>%
+  transmute(success = success,
+            `Algorithm` = ifelse(str_detect(agent_tag, "ppo"), "PPO", "Dreamer"),
+            `Curriculum` = ifelse(str_detect(agent_tag, "bc-all"), "(1) All Basic",
+                                  ifelse(str_detect(agent_tag, "bc_opc-strat"), "(2) Basic + Strat.\nControl",
+                                         ifelse(str_detect(agent_tag, "bc_opc-all"), "(3) Basic + All\nControl",
+                                                ifelse(str_detect(agent_tag, "bc_opc_opt-strat"), "(4) Basic + Strat.\nControl + Strat\nOP",
+                                                       ifelse(str_detect(agent_tag, "bc_opc_opt-all"), "(5) Basic + All\nControl + Strat\nOP", agent_tag))))),
+            Algorithm = factor(Algorithm, levels = c("PPO", "Dreamer", ordered = TRUE)),
+            Curriculum = factor(Curriculum, levels = c("(1) All Basic", "(2) Basic + Strat.\nControl", "(3) Basic + All\nControl", "(4) Basic + Strat.\nControl + Strat\nOP", "(5) Basic + All\nControl + Strat\nOP"), ordered = TRUE)) %>%
+  group_by(Algorithm, Curriculum) %>%
+  summarise(`Percentage Success` = (sum(success)/n())*100)  
+
+(barchart_curriculum_comparisons_plot <- barchart_curriculum_comparisons %>%
+  ggplot(aes(x = Curriculum, y = `Percentage Success`, fill = Algorithm)) + geom_col(position = "dodge") +
+    ylim(0,100) +
+    #scale_fill_manual(values = barchart_palette) + 
+  theme_minimal(base_family = "Arial", base_size = 15) +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)
+  ))
+
+```
+
