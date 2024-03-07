@@ -1,0 +1,1054 @@
+CV Chick Tasks
+─────────────────────────────────────────────────────────────────────────────────
+Random Agent:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+ -9462.5766 18925.1532 18935.1532 18935.1547 18978.0735
+
+Variance components:
+                             Column               Variance Std.Dev.   Corr.
+agent_tag_seed (Intercept)                         0.361100 0.600916
+               goalBecomesAllocentricallyOccluded  0.342819 0.585508 -0.09
+
+ Number of obs: 39500; levels of grouping factors: 25
+
+Fixed-effects parameters:
+──────────────────────────────────────────────────────────────────────────
+                                       Coef.  Std. Error       z  Pr(>|z|)
+──────────────────────────────────────────────────────────────────────────
+(Intercept)                         -2.70834    0.122394  -22.13    <1e-99
+goalBecomesAllocentricallyOccluded  -1.02737    0.166722   -6.16    <1e-09
+──────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[0.06664702659871971, 0.0524320124032524, 0.08471591973789895]
+[0.3579455364374566, 0.25816693908015764, 0.4962874313496715]
+─────────────────────────────────────────────────────────────────────────────────
+
+CV Chick Tasks
+─────────────────────────────────────────────────────────────────────────────────
+Heuristic Agent:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+ -4972.5976  9945.1951  9955.1951  9955.2027  9990.0682
+
+Variance components:
+                             Column                Variance   Std.Dev.    Corr.
+agent_tag_seed (Intercept)                         0.00004543 0.00674051
+               goalBecomesAllocentricallyOccluded  0.01889599 0.13746270 -1.00
+
+ Number of obs: 7900; levels of grouping factors: 5
+
+Fixed-effects parameters:
+──────────────────────────────────────────────────────────────────────────
+                                        Coef.  Std. Error      z  Pr(>|z|)
+──────────────────────────────────────────────────────────────────────────
+(Intercept)                          0.771191   0.0254015  30.36    <1e-99
+goalBecomesAllocentricallyOccluded  -0.828664   0.103824   -7.98    <1e-14
+──────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[2.162341120992773, 2.057320777466317, 2.2727224527886416]
+[0.4366322945525202, 0.35623711929227, 0.5351709586720085]
+─────────────────────────────────────────────────────────────────────────────────
+
+CV Chick Tasks
+─────────────────────────────────────────────────────────────────────────────────
+ppo-bc-all:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+  -306.9113   613.8227   623.8227   623.8608   650.6486
+
+Variance components:
+                             Column               VarianceStd.Dev.  Corr.
+agent_tag_seed (Intercept)                         0.00000 0.00000
+               goalBecomesAllocentricallyOccluded  1.01537 1.00766  +NaN
+
+ Number of obs: 1580; levels of grouping factors: 1
+
+Fixed-effects parameters:
+───────────────────────────────────────────────────────────────────────────
+                                        Coef.  Std. Error       z  Pr(>|z|)
+───────────────────────────────────────────────────────────────────────────
+(Intercept)                          -2.85676    0.115696  -24.69    <1e-99
+goalBecomesAllocentricallyOccluded  -15.2911   777.275      -0.02    0.9843
+───────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[0.05745465640792909, 0.04579764306908255, 0.07207876479524945]
+[2.286421488011907e-7, 0.0, Inf]
+─────────────────────────────────────────────────────────────────────────────────
+
+CV Chick Tasks
+─────────────────────────────────────────────────────────────────────────────────
+ppo-bc_opc-all:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+  -556.6329  1113.2658  1123.2658  1123.3040  1150.0917
+
+Variance components:
+                             Column                Variance   Std.Dev.    Corr.
+agent_tag_seed (Intercept)                         0.00000000 0.00000000
+               goalBecomesAllocentricallyOccluded  0.00000000 0.00000008  +NaN
+
+ Number of obs: 1580; levels of grouping factors: 1
+
+Fixed-effects parameters:
+──────────────────────────────────────────────────────────────────────────
+                                       Coef.  Std. Error       z  Pr(>|z|)
+──────────────────────────────────────────────────────────────────────────
+(Intercept)                         -1.95064   0.0794381  -24.56    <1e-99
+goalBecomesAllocentricallyOccluded  -2.17651   0.717203    -3.03    0.0024
+──────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[0.14218361034430024, 0.12168315055601665, 0.16613786673146105]
+[0.11343669043970474, 0.027813625933337274, 0.46264671743104246]
+─────────────────────────────────────────────────────────────────────────────────
+
+CV Chick Tasks
+─────────────────────────────────────────────────────────────────────────────────
+ppo-bc_opc_opt-all:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+   -49.5990    99.1981   109.1981   109.2362   136.0240
+
+Variance components:
+                             Column               Variance Std.Dev.   Corr.
+agent_tag_seed (Intercept)                         0.000000 0.000000
+               goalBecomesAllocentricallyOccluded  0.998811 0.999405  +NaN
+
+ Number of obs: 1580; levels of grouping factors: 1
+
+Fixed-effects parameters:
+───────────────────────────────────────────────────────────────────────────
+                                        Coef.  Std. Error       z  Pr(>|z|)
+───────────────────────────────────────────────────────────────────────────
+(Intercept)                          -5.19711     0.35453  -14.66    <1e-47
+goalBecomesAllocentricallyOccluded  -10.2321    199.635     -0.05    0.9591
+───────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[0.005532514399023324, 0.0027614727953870154, 0.01108419957152272]
+[3.599615060664931e-5, 4.201069512758681e-175, 3.084269028544907e165]
+─────────────────────────────────────────────────────────────────────────────────
+
+CV Chick Tasks
+─────────────────────────────────────────────────────────────────────────────────
+ppo-bc_opc_opt-strat:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+   -21.5473    43.0946    53.0946    53.1327    79.9205
+
+Variance components:
+                             Column               Variance Std.Dev.   Corr.
+agent_tag_seed (Intercept)                         0.000000 0.000000
+               goalBecomesAllocentricallyOccluded  0.894309 0.945679  +NaN
+
+ Number of obs: 1580; levels of grouping factors: 1
+
+Fixed-effects parameters:
+───────────────────────────────────────────────────────────────────────────
+                                        Coef.  Std. Error       z  Pr(>|z|)
+───────────────────────────────────────────────────────────────────────────
+(Intercept)                          -6.18132    0.577925  -10.70    <1e-25
+goalBecomesAllocentricallyOccluded  -10.7941   432.493      -0.02    0.9801
+───────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[0.0020676976865917408, 0.0006661123914660813, 0.006418396922067377]
+[2.052054269876637e-5, 0.0, Inf]
+─────────────────────────────────────────────────────────────────────────────────
+
+CV Chick Tasks
+─────────────────────────────────────────────────────────────────────────────────
+dreamer-bc-all:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+  -595.2814  1190.5627  1200.5627  1200.6009  1227.3886
+
+Variance components:
+                             Column                Variance   Std.Dev.    Corr.
+agent_tag_seed (Intercept)                         0.00000000 0.00000000
+               goalBecomesAllocentricallyOccluded  0.00000000 0.00006574  +NaN
+
+ Number of obs: 1580; levels of grouping factors: 1
+
+Fixed-effects parameters:
+───────────────────────────────────────────────────────────────────────────
+                                        Coef.  Std. Error       z  Pr(>|z|)
+───────────────────────────────────────────────────────────────────────────
+(Intercept)                         -1.91328    0.0783377  -24.42    <1e-99
+goalBecomesAllocentricallyOccluded  -0.433923   0.325201    -1.33    0.1821
+───────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[0.14759501412824766, 0.12658706273381698, 0.17208937252399076]
+[0.6479620544984998, 0.3425572675033165, 1.2256485671139699]
+─────────────────────────────────────────────────────────────────────────────────
+
+CV Chick Tasks
+─────────────────────────────────────────────────────────────────────────────────
+dreamer-bc_opc-all:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+ -1047.3310  2094.6620  2104.6620  2104.7001  2131.4879
+
+Variance components:
+                             Column                Variance   Std.Dev.    Corr.
+agent_tag_seed (Intercept)                         0.00000000 0.00000000
+               goalBecomesAllocentricallyOccluded  0.00000000 0.00000303  +NaN
+
+ Number of obs: 1580; levels of grouping factors: 1
+
+Fixed-effects parameters:
+──────────────────────────────────────────────────────────────────────────
+                                        Coef.  Std. Error      z  Pr(>|z|)
+──────────────────────────────────────────────────────────────────────────
+(Intercept)                         -0.381452   0.0534071  -7.14    <1e-12
+goalBecomesAllocentricallyOccluded  -0.91783    0.223585   -4.11    <1e-04
+──────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[0.6828694091740066, 0.6150020678353703, 0.75822611723394]
+[0.39938493418663673, 0.2576749195777663, 0.6190293021790372]
+─────────────────────────────────────────────────────────────────────────────────
+
+CV Chick Tasks
+─────────────────────────────────────────────────────────────────────────────────
+dreamer-bc_opc-strat:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+  -754.7465  1509.4931  1519.4931  1519.5312  1546.3190
+
+Variance components:
+                             Column                Variance   Std.Dev.    Corr.
+agent_tag_seed (Intercept)                         0.00000000 0.00000000
+               goalBecomesAllocentricallyOccluded  0.00000000 0.00000375  +NaN
+
+ Number of obs: 1580; levels of grouping factors: 1
+
+Fixed-effects parameters:
+──────────────────────────────────────────────────────────────────────────
+                                       Coef.  Std. Error       z  Pr(>|z|)
+──────────────────────────────────────────────────────────────────────────
+(Intercept)                         -1.37687   0.0653781  -21.06    <1e-97
+goalBecomesAllocentricallyOccluded  -1.61886   0.423407    -3.82    0.0001
+──────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[0.2523684617619443, 0.22201591506371185, 0.28687060778418916]
+[0.1981241518103092, 0.08640247968899764, 0.454306168895207]
+─────────────────────────────────────────────────────────────────────────────────
+
+CV Chick Tasks
+─────────────────────────────────────────────────────────────────────────────────
+dreamer-bc_opc_opt-strat:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+  -913.8521  1827.7043  1837.7043  1837.7424  1864.5302
+
+Variance components:
+                             Column                 Variance    Std.Dev.    Corr.
+agent_tag_seed (Intercept)                         0.000000000 0.000000000
+               goalBecomesAllocentricallyOccluded  0.000000035 0.000186922  +NaN
+
+ Number of obs: 1580; levels of grouping factors: 1
+
+Fixed-effects parameters:
+────────────────────────────────────────────────────────────────────────────
+                                         Coef.  Std. Error       z  Pr(>|z|)
+────────────────────────────────────────────────────────────────────────────
+(Intercept)                         -1.01416     0.0593393  -17.09    <1e-64
+goalBecomesAllocentricallyOccluded  -0.0636966   0.213109    -0.30    0.7650
+────────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[0.3627075882820562, 0.3228836403264255, 0.4074433578126958]
+[0.9382896129940371, 0.6179233253516371, 1.4247518449825542]
+─────────────────────────────────────────────────────────────────────────────────
+
+CV Chick Tasks
+─────────────────────────────────────────────────────────────────────────────────
+Child:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+  -347.1739   694.3478   704.3478   704.4527   726.1457
+
+Variance components:
+                             Column               Variance Std.Dev.   Corr.
+agent_tag_seed (Intercept)                         0.330713 0.575076
+               goalBecomesAllocentricallyOccluded  0.033199 0.182205 +1.00
+
+ Number of obs: 578; levels of grouping factors: 30
+
+Fixed-effects parameters:
+──────────────────────────────────────────────────────────────────────────
+                                        Coef.  Std. Error      z  Pr(>|z|)
+──────────────────────────────────────────────────────────────────────────
+(Intercept)                          0.939675    0.285781   3.29    0.0010
+goalBecomesAllocentricallyOccluded  -0.121097    0.286367  -0.42    0.6724
+──────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[2.5591488182394313, 1.4616173011533284, 4.48081906852664]
+[0.8859484565189776, 0.5054152005319268, 1.5529898324828415]
+─────────────────────────────────────────────────────────────────────────────────
+
+Cup Tasks
+─────────────────────────────────────────────────────────────────────────────────
+Random Agent:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik     deviance      AIC         AICc        BIC     
+ -13068.3789  26136.7578  26146.7578  26146.7591  26190.7147
+
+Variance components:
+                             Column                Variance  Std.Dev.   Corr.
+agent_tag_seed (Intercept)                         0.1901728 0.4360880
+               goalBecomesAllocentricallyOccluded  0.0030689 0.0553978 -0.86
+
+ Number of obs: 48600; levels of grouping factors: 25
+
+Fixed-effects parameters:
+───────────────────────────────────────────────────────────────────────────
+                                        Coef.  Std. Error       z  Pr(>|z|)
+───────────────────────────────────────────────────────────────────────────
+(Intercept)                         -2.0162     0.0922234  -21.86    <1e-99
+goalBecomesAllocentricallyOccluded  -0.691077   0.0376808  -18.34    <1e-74
+───────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[0.13316015236716744, 0.11114043900100837, 0.15954252419577328]
+[0.5010361321629091, 0.4653658117414943, 0.5394405850170545]
+─────────────────────────────────────────────────────────────────────────────────
+
+Cup Tasks
+─────────────────────────────────────────────────────────────────────────────────
+Heuristic Agent:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+ -4158.5016  8317.0033  8327.0033  8327.0094  8362.9130
+
+Variance components:
+                             Column                Variance   Std.Dev.    Corr.
+agent_tag_seed (Intercept)                         0.00023053 0.01518313
+               goalBecomesAllocentricallyOccluded  0.00005660 0.00752334 +1.00
+
+ Number of obs: 9720; levels of grouping factors: 5
+
+Fixed-effects parameters:
+───────────────────────────────────────────────────────────────────────────
+                                        Coef.  Std. Error       z  Pr(>|z|)
+───────────────────────────────────────────────────────────────────────────
+(Intercept)                         -0.332689   0.0441552   -7.53    <1e-13
+goalBecomesAllocentricallyOccluded  -1.71259    0.0567379  -30.18    <1e-99
+───────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[0.7169933183974827, 0.6575510284256296, 0.7818091621839468]
+[0.18039733567898014, 0.16141125356662625, 0.20161666551112983]
+─────────────────────────────────────────────────────────────────────────────────
+
+Cup Tasks
+─────────────────────────────────────────────────────────────────────────────────
+ppo-bc-all:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+  -154.8080   309.6161   319.6161   319.6470   347.4786
+
+Variance components:
+                             Column               Variance Std.Dev.   Corr.
+agent_tag_seed (Intercept)                         0.000000 0.000000
+               goalBecomesAllocentricallyOccluded  0.958371 0.978964  +NaN
+
+ Number of obs: 1944; levels of grouping factors: 1
+
+Fixed-effects parameters:
+───────────────────────────────────────────────────────────────────────────
+                                       Coef.   Std. Error       z  Pr(>|z|)
+───────────────────────────────────────────────────────────────────────────
+(Intercept)                          -2.0334     0.150392  -13.52    <1e-40
+goalBecomesAllocentricallyOccluded  -19.6718  1328.77       -0.01    0.9882
+───────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[0.13089023036706396, 0.09747447619220738, 0.17576142057701782]
+[2.8618367986453283e-9, 0.0, Inf]
+─────────────────────────────────────────────────────────────────────────────────
+
+Cup Tasks
+─────────────────────────────────────────────────────────────────────────────────
+ppo-bc_opc-all:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+  -137.2370   274.4740   284.4740   284.5049   312.3365
+
+Variance components:
+                             Column                Variance   Std.Dev.    Corr.
+agent_tag_seed (Intercept)                         0.00000000 0.00000000
+               goalBecomesAllocentricallyOccluded  0.00000000 0.00002424  +NaN
+
+ Number of obs: 1944; levels of grouping factors: 1
+
+Fixed-effects parameters:
+──────────────────────────────────────────────────────────────────────────
+                                       Coef.  Std. Error       z  Pr(>|z|)
+──────────────────────────────────────────────────────────────────────────
+(Intercept)                         -2.66918    0.195419  -13.66    <1e-41
+goalBecomesAllocentricallyOccluded  -3.03922    0.488717   -6.22    <1e-09
+──────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[0.06930918746717096, 0.04725492625069307, 0.1016563530725856]
+[0.04787206795909721, 0.018368667519613774, 0.12476326267179386]
+─────────────────────────────────────────────────────────────────────────────────
+
+Cup Tasks
+─────────────────────────────────────────────────────────────────────────────────
+ppo-bc_opc-strat:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+  -304.6589   609.3179   619.3179   619.3488   647.1804
+
+Variance components:
+                             Column                 Variance    Std.Dev.    Corr.
+agent_tag_seed (Intercept)                         0.000000000 0.000000000
+               goalBecomesAllocentricallyOccluded  0.000000035 0.000186346  +NaN
+
+ Number of obs: 1944; levels of grouping factors: 1
+
+Fixed-effects parameters:
+────────────────────────────────────────────────────────────────────────────
+                                         Coef.  Std. Error       z  Pr(>|z|)
+────────────────────────────────────────────────────────────────────────────
+(Intercept)                         -3.32493      0.262789  -12.65    <1e-35
+goalBecomesAllocentricallyOccluded   0.0667535    0.295979    0.23    0.8216
+────────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[0.03597494454412426, 0.02149361936645345, 0.0602130619737668]
+[1.0690319013211556, 0.5984782075513257, 1.9095585964912771]
+─────────────────────────────────────────────────────────────────────────────────
+
+Cup Tasks
+─────────────────────────────────────────────────────────────────────────────────
+ppo-bc_opc_opt-strat:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+    -8.3209    16.6417    26.6417    26.6727    54.5042
+
+Variance components:
+                             Column               Variance Std.Dev.   Corr.
+agent_tag_seed (Intercept)                         0.634080 0.796291
+               goalBecomesAllocentricallyOccluded  0.633744 0.796081 -1.00
+
+ Number of obs: 1944; levels of grouping factors: 1
+
+Fixed-effects parameters:
+─────────────────────────────────────────────────────────────────────────
+                                       Coef.  Std. Error      z  Pr(>|z|)
+─────────────────────────────────────────────────────────────────────────
+(Intercept)                         -19.4224     793.919  -0.02    0.9805
+goalBecomesAllocentricallyOccluded   12.102      793.92    0.02    0.9878
+─────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[3.672524603573274e-9, 0.0, Inf]
+[180224.86655588195, 0.0, Inf]
+─────────────────────────────────────────────────────────────────────────────────
+
+Cup Tasks
+─────────────────────────────────────────────────────────────────────────────────
+dreamer-bc-all:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+  -229.8581   459.7162   469.7162   469.7472   497.5787
+
+Variance components:
+                             Column                Variance   Std.Dev.    Corr.
+agent_tag_seed (Intercept)                         0.00000000 0.00000000
+               goalBecomesAllocentricallyOccluded  0.00000000 0.00000577  +NaN
+
+ Number of obs: 1944; levels of grouping factors: 1
+
+Fixed-effects parameters:
+───────────────────────────────────────────────────────────────────────────
+                                        Coef.  Std. Error       z  Pr(>|z|)
+───────────────────────────────────────────────────────────────────────────
+(Intercept)                         -3.13549     0.240771  -13.02    <1e-38
+goalBecomesAllocentricallyOccluded  -0.698576    0.299828   -2.33    0.0198
+───────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[0.04347847617539726, 0.02712225319591014, 0.06969840878926843]
+[0.4972930711915241, 0.27630839471668606, 0.895015871337057]
+─────────────────────────────────────────────────────────────────────────────────
+
+Cup Tasks
+─────────────────────────────────────────────────────────────────────────────────
+dreamer-bc_opc-all:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+   -27.2659    54.5318    64.5318    64.5627    92.3943
+
+Variance components:
+                             Column               Variance Std.Dev.   Corr.
+agent_tag_seed (Intercept)                         0.000000 0.000000
+               goalBecomesAllocentricallyOccluded  0.879535 0.937835  +NaN
+
+ Number of obs: 1944; levels of grouping factors: 1
+
+Fixed-effects parameters:
+──────────────────────────────────────────────────────────────────────────
+                                        Coef.  Std. Error      z  Pr(>|z|)
+──────────────────────────────────────────────────────────────────────────
+(Intercept)                          -4.44738    0.449831  -9.89    <1e-22
+goalBecomesAllocentricallyOccluded  -16.2084   786.267     -0.02    0.9836
+──────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[0.011709255691784527, 0.004848702833339687, 0.028276979136119193]
+[9.136506388526913e-8, 0.0, Inf]
+─────────────────────────────────────────────────────────────────────────────────
+
+Cup Tasks
+─────────────────────────────────────────────────────────────────────────────────
+dreamer-bc_opc-strat:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+   -61.7818   123.5636   133.5636   133.5946   161.4261
+
+Variance components:
+                             Column               VarianceStd.Dev.  Corr.
+agent_tag_seed (Intercept)                         0.00000 0.00000
+               goalBecomesAllocentricallyOccluded  1.03464 1.01717  +NaN
+
+ Number of obs: 1944; levels of grouping factors: 1
+
+Fixed-effects parameters:
+────────────────────────────────────────────────────────────────────────────
+                                        Coef.   Std. Error       z  Pr(>|z|)
+────────────────────────────────────────────────────────────────────────────
+(Intercept)                          -3.39645     0.271703  -12.50    <1e-35
+goalBecomesAllocentricallyOccluded  -18.0897   1190.91       -0.02    0.9879
+────────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[0.03349209890569722, 0.019663656431089138, 0.05704537673550445]
+[1.3923584473086006e-8, 0.0, Inf]
+─────────────────────────────────────────────────────────────────────────────────
+
+Cup Tasks
+─────────────────────────────────────────────────────────────────────────────────
+dreamer-bc_opc_opt-strat:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+  -487.6023   975.2047   985.2047   985.2357  1013.0672
+
+Variance components:
+                             Column                Variance   Std.Dev.    Corr.
+agent_tag_seed (Intercept)                         0.00000000 0.00000000
+               goalBecomesAllocentricallyOccluded  0.00000000 0.00001143  +NaN
+
+ Number of obs: 1944; levels of grouping factors: 1
+
+Fixed-effects parameters:
+────────────────────────────────────────────────────────────────────────────
+                                         Coef.  Std. Error       z  Pr(>|z|)
+────────────────────────────────────────────────────────────────────────────
+(Intercept)                         -2.66921      0.195421  -13.66    <1e-41
+goalBecomesAllocentricallyOccluded   0.0841507    0.219851    0.38    0.7019
+────────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[0.06930697619466934, 0.04725316730979221, 0.10165365038404629]
+[1.0877928415239466, 0.706976317865863, 1.6737381948559868]
+─────────────────────────────────────────────────────────────────────────────────
+
+Cup Tasks
+─────────────────────────────────────────────────────────────────────────────────
+Child:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+  -211.0396   422.0793   432.0793   432.2710   450.9052
+
+Variance components:
+                             Column               Variance Std.Dev.   Corr.
+agent_tag_seed (Intercept)                         0.390754 0.625104
+               goalBecomesAllocentricallyOccluded  0.640627 0.800392 -0.58
+
+ Number of obs: 319; levels of grouping factors: 30
+
+Fixed-effects parameters:
+──────────────────────────────────────────────────────────────────────────
+                                        Coef.  Std. Error      z  Pr(>|z|)
+──────────────────────────────────────────────────────────────────────────
+(Intercept)                         -0.118503    0.356622  -0.33    0.7397
+goalBecomesAllocentricallyOccluded   0.566216    0.389159   1.45    0.1457
+──────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[0.8882492369040593, 0.44154186460440403, 1.7868899194134857]
+[1.761588503092442, 0.8215717724110092, 3.7771429818246363]
+─────────────────────────────────────────────────────────────────────────────────
+
+Grid Tasks
+─────────────────────────────────────────────────────────────────────────────────
+Random Agent:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+ -2426.8971  4853.7943  4863.7943  4863.7998  4900.2308
+
+Variance components:
+                             Column               Variance Std.Dev.   Corr.
+agent_tag_seed (Intercept)                         0.195355 0.441990
+               goalBecomesAllocentricallyOccluded  0.224672 0.473996 -0.01
+
+ Number of obs: 10800; levels of grouping factors: 25
+
+Fixed-effects parameters:
+──────────────────────────────────────────────────────────────────────────
+                                       Coef.  Std. Error       z  Pr(>|z|)
+──────────────────────────────────────────────────────────────────────────
+(Intercept)                         -2.42615    0.100458  -24.15    <1e-99
+goalBecomesAllocentricallyOccluded  -1.14717    0.137478   -8.34    <1e-16
+──────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[0.08837678666533876, 0.07258159236308373, 0.10760932857768678]
+[0.31753527435106527, 0.2425318044347025, 0.41573372487051546]
+─────────────────────────────────────────────────────────────────────────────────
+
+Grid Tasks
+─────────────────────────────────────────────────────────────────────────────────
+Heuristic Agent:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+  -973.1006  1946.2012  1956.2012  1956.2291  1984.5905
+
+Variance components:
+                             Column                Variance  Std.Dev.   Corr.
+agent_tag_seed (Intercept)                         0.0000000 0.0000000
+               goalBecomesAllocentricallyOccluded  0.0000000 0.0000033  +NaN
+
+ Number of obs: 2160; levels of grouping factors: 5
+
+Fixed-effects parameters:
+───────────────────────────────────────────────────────────────────────────
+                                        Coef.  Std. Error       z  Pr(>|z|)
+───────────────────────────────────────────────────────────────────────────
+(Intercept)                          0.322769   0.0584885    5.52    <1e-07
+goalBecomesAllocentricallyOccluded  -3.53947    0.17757    -19.93    <1e-87
+───────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[1.3809460082446503, 1.2313748304288943, 1.5486851205352405]
+[0.02902869332524084, 0.020496364903618496, 0.04111290173322954]
+─────────────────────────────────────────────────────────────────────────────────
+
+Grid Tasks
+─────────────────────────────────────────────────────────────────────────────────
+ppo-bc-all:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+  -143.0578   286.1155   296.1155   296.2564   316.4577
+
+Variance components:
+                             Column               Variance Std.Dev.   Corr.
+agent_tag_seed (Intercept)                         0.000000 0.000000
+               goalBecomesAllocentricallyOccluded  0.996566 0.998281  +NaN
+
+ Number of obs: 432; levels of grouping factors: 1
+
+Fixed-effects parameters:
+───────────────────────────────────────────────────────────────────────────
+                                        Coef.   Std. Error      z  Pr(>|z|)
+───────────────────────────────────────────────────────────────────────────
+(Intercept)                          -0.92799     0.143248  -6.48    <1e-10
+goalBecomesAllocentricallyOccluded  -19.168    1667.81      -0.01    0.9908
+───────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[0.3953476727657472, 0.29856878866160586, 0.5234967226880523]
+[4.736169687086061e-9, 0.0, Inf]
+─────────────────────────────────────────────────────────────────────────────────
+
+Grid Tasks
+─────────────────────────────────────────────────────────────────────────────────
+ppo-bc_opc-all:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+  -157.7179   315.4357   325.4357   325.5766   345.7779
+
+Variance components:
+                             Column               VarianceStd.Dev.  Corr.
+agent_tag_seed (Intercept)                         0.00000 0.00000
+               goalBecomesAllocentricallyOccluded  0.99806 0.99903  +NaN
+
+ Number of obs: 432; levels of grouping factors: 1
+
+Fixed-effects parameters:
+───────────────────────────────────────────────────────────────────────────
+                                         Coef.  Std. Error      z  Pr(>|z|)
+───────────────────────────────────────────────────────────────────────────
+(Intercept)                          -0.546545     0.13395  -4.08    <1e-04
+goalBecomesAllocentricallyOccluded  -20.9779    3406.59     -0.01    0.9951
+───────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[0.5789466089493979, 0.44526443969929486, 0.7527643039277224]
+[7.752113992043016e-10, 0.0, Inf]
+─────────────────────────────────────────────────────────────────────────────────
+
+Grid Tasks
+─────────────────────────────────────────────────────────────────────────────────
+ppo-bc_opc_opt-all:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+   -71.3538   142.7077   152.7077   152.8485   173.0498
+
+Variance components:
+                             Column                Variance   Std.Dev.    Corr.
+agent_tag_seed (Intercept)                         0.00000000 0.00000000
+               goalBecomesAllocentricallyOccluded  0.00000000 0.00005299  +NaN
+
+ Number of obs: 432; levels of grouping factors: 1
+
+Fixed-effects parameters:
+──────────────────────────────────────────────────────────────────────────
+                                        Coef.  Std. Error      z  Pr(>|z|)
+──────────────────────────────────────────────────────────────────────────
+(Intercept)                         -3.03592     0.30868   -9.84    <1e-22
+goalBecomesAllocentricallyOccluded  -0.398044    0.517032  -0.77    0.4414
+──────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[0.04803064545644269, 0.026227947411279425, 0.08795743207760093]
+[0.6716325998843975, 0.24379518704917616, 1.8502840629765396]
+─────────────────────────────────────────────────────────────────────────────────
+
+Grid Tasks
+─────────────────────────────────────────────────────────────────────────────────
+ppo-bc_opc_opt-strat:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+   -74.7080   149.4159   159.4159   159.5568   179.7580
+
+Variance components:
+                             Column                Variance   Std.Dev.    Corr.
+agent_tag_seed (Intercept)                         0.00000000 0.00000000
+               goalBecomesAllocentricallyOccluded  0.00000000 0.00000764  +NaN
+
+ Number of obs: 432; levels of grouping factors: 1
+
+Fixed-effects parameters:
+──────────────────────────────────────────────────────────────────────────
+                                        Coef.  Std. Error      z  Pr(>|z|)
+──────────────────────────────────────────────────────────────────────────
+(Intercept)                         -3.24507     0.339746  -9.55    <1e-20
+goalBecomesAllocentricallyOccluded   0.232632    0.481686   0.48    0.6291
+──────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[0.03896574143321731, 0.020020985716307914, 0.07583687571404672]
+[1.2619171173604846, 0.4909204898417939, 3.243773368678459]
+─────────────────────────────────────────────────────────────────────────────────
+
+Grid Tasks
+─────────────────────────────────────────────────────────────────────────────────
+dreamer-bc-all:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+  -194.7702   389.5404   399.5404   399.6812   419.8825
+
+Variance components:
+                             Column                Variance   Std.Dev.    Corr.
+agent_tag_seed (Intercept)                         0.00000000 0.00000000
+               goalBecomesAllocentricallyOccluded  0.00000000 0.00003261  +NaN
+
+ Number of obs: 432; levels of grouping factors: 1
+
+Fixed-effects parameters:
+──────────────────────────────────────────────────────────────────────────
+                                        Coef.  Std. Error      z  Pr(>|z|)
+──────────────────────────────────────────────────────────────────────────
+(Intercept)                         -0.234414    0.129987  -1.80    0.0713
+goalBecomesAllocentricallyOccluded  -3.04002     0.406396  -7.48    <1e-13
+──────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[0.7910339366494367, 0.613123222097622, 1.0205692206377968]
+[0.047833998521824725, 0.021567790607443085, 0.10608835444629666]
+─────────────────────────────────────────────────────────────────────────────────
+
+Grid Tasks
+─────────────────────────────────────────────────────────────────────────────────
+dreamer-bc_opc-all:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+  -187.8845   375.7690   385.7690   385.9098   406.1111
+
+Variance components:
+                             Column                Variance   Std.Dev.    Corr.
+agent_tag_seed (Intercept)                         0.00000000 0.00000000
+               goalBecomesAllocentricallyOccluded  0.00000000 0.00000894  +NaN
+
+ Number of obs: 432; levels of grouping factors: 1
+
+Fixed-effects parameters:
+───────────────────────────────────────────────────────────────────────────
+                                        Coef.  Std. Error       z  Pr(>|z|)
+───────────────────────────────────────────────────────────────────────────
+(Intercept)                          0.867217    0.141427    6.13    <1e-09
+goalBecomesAllocentricallyOccluded  -3.66781     0.341226  -10.75    <1e-26
+───────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[2.3802763450772852, 1.8040232526418687, 3.1406000286511975]
+[0.025532277259248837, 0.013080739209849647, 0.0498364176202125]
+─────────────────────────────────────────────────────────────────────────────────
+
+Grid Tasks
+─────────────────────────────────────────────────────────────────────────────────
+dreamer-bc_opc-strat:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+  -190.6385   381.2771   391.2771   391.4179   411.6192
+
+Variance components:
+                             Column                Variance   Std.Dev.    Corr.
+agent_tag_seed (Intercept)                         0.00000000 0.00000000
+               goalBecomesAllocentricallyOccluded  0.00000000 0.00000921  +NaN
+
+ Number of obs: 432; levels of grouping factors: 1
+
+Fixed-effects parameters:
+──────────────────────────────────────────────────────────────────────────
+                                        Coef.  Std. Error      z  Pr(>|z|)
+──────────────────────────────────────────────────────────────────────────
+(Intercept)                         -0.285253    0.130415  -2.19    0.0287
+goalBecomesAllocentricallyOccluded  -3.14875     0.434803  -7.24    <1e-12
+──────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[0.7518241209220494, 0.5822439285572835, 0.9707950243479473]
+[0.04290561303543998, 0.018297932114835224, 0.10060653949275489]
+─────────────────────────────────────────────────────────────────────────────────
+
+Grid Tasks
+─────────────────────────────────────────────────────────────────────────────────
+dreamer-bc_opc_opt-all:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+   -86.9175   173.8350   183.8350   183.9758   204.1771
+
+Variance components:
+                             Column                Variance   Std.Dev.    Corr.
+agent_tag_seed (Intercept)                         0.00000000 0.00000000
+               goalBecomesAllocentricallyOccluded  0.00000000 0.00000273  +NaN
+
+ Number of obs: 432; levels of grouping factors: 1
+
+Fixed-effects parameters:
+──────────────────────────────────────────────────────────────────────────
+                                       Coef.  Std. Error       z  Pr(>|z|)
+──────────────────────────────────────────────────────────────────────────
+(Intercept)                         -2.2444     0.219286  -10.24    <1e-23
+goalBecomesAllocentricallyOccluded  -2.30947    0.743874   -3.10    0.0019
+──────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[0.10599082852742164, 0.0689616918845679, 0.16290284395477875]
+[0.09931369273308993, 0.023110577392213186, 0.4267833467287531]
+─────────────────────────────────────────────────────────────────────────────────
+
+Grid Tasks
+─────────────────────────────────────────────────────────────────────────────────
+dreamer-bc_opc_opt-strat:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+  -164.9519   329.9038   339.9038   340.0447   360.2460
+
+Variance components:
+                             Column                Variance   Std.Dev.    Corr.
+agent_tag_seed (Intercept)                         0.00000000 0.00000000
+               goalBecomesAllocentricallyOccluded  0.00000000 0.00001596  +NaN
+
+ Number of obs: 432; levels of grouping factors: 1
+
+Fixed-effects parameters:
+─────────────────────────────────────────────────────────────────────────
+                                       Coef.  Std. Error      z  Pr(>|z|)
+─────────────────────────────────────────────────────────────────────────
+(Intercept)                         -1.33501    0.158944  -8.40    <1e-16
+goalBecomesAllocentricallyOccluded  -1.46557    0.348848  -4.20    <1e-04
+─────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[0.26315683595030875, 0.19271642596102065, 0.3593441501524354]
+[0.2309461595040524, 0.1165642311963181, 0.4575685700688252]
+─────────────────────────────────────────────────────────────────────────────────
+
+Grid Tasks
+─────────────────────────────────────────────────────────────────────────────────
+Child:
+─────────────────────────────────────────────────────────────────────────────────
+Generalized Linear Mixed Model fit by maximum likelihood (nAGQ = 1)
+  success ~ 1 + goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed)
+  Distribution: Bernoulli{Float64}
+  Link: LogitLink()
+
+   logLik    deviance     AIC       AICc        BIC    
+  -205.2947   410.5895   420.5895   420.7634   439.8934
+
+Variance components:
+                             Column               VarianceStd.Dev.  Corr.
+agent_tag_seed (Intercept)                         7.01584 2.64874
+               goalBecomesAllocentricallyOccluded  5.71640 2.39090 -0.95
+
+ Number of obs: 351; levels of grouping factors: 30
+
+Fixed-effects parameters:
+─────────────────────────────────────────────────────────────────────────
+                                       Coef.  Std. Error      z  Pr(>|z|)
+─────────────────────────────────────────────────────────────────────────
+(Intercept)                          2.00545    0.641013   3.13    0.0018
+goalBecomesAllocentricallyOccluded  -1.12079    0.621667  -1.80    0.0714
+─────────────────────────────────────────────────────────────────────────
+Exponentiated Coefficients (Odds) with 95% Confidence intervals
+[7.42946223109676, 2.1150286316174585, 26.097476042715158]
+[0.32602331916703964, 0.09639963124359922, 1.1026100750541097]
+─────────────────────────────────────────────────────────────────────────────────
+
