@@ -1,0 +1,640 @@
+[2023-11-30 13:24:25,946] [INFO    ] [train] Using AAI executable file: ../../env/env3.1.3/AAI.x86_64
+[2023-11-30 13:24:28,137] [INFO    ] [train] Creating DreamerV3 and AAI Environment
+[2023-11-30 13:24:28,140] [INFO    ] [train] Loading checkpoint from logdir/retry-a5-bc_opc_opt-all/checkpoint.ckpt
+[2023-11-30 13:24:30,841] [INFO    ] [utils] Initializing AAI environment for task 979: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5MFar-DarkGreen-0-OpLava.yml
+[2023-11-30 13:24:30,843] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:24:34,110] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:24:35,211] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:24:35,287] [INFO    ] [train] Using observation space {'extra': Space(dtype=float64, shape=(7,), low=-inf, high=inf), 'image': Space(dtype=uint8, shape=(64, 64, 3), low=0, high=255), 'raycast': Space(dtype=float64, shape=(70,), low=-inf, high=inf), 'reward': Space(dtype=float32, shape=(), low=-inf, high=inf), 'is_first': Space(dtype=bool, shape=(), low=False, high=True), 'is_last': Space(dtype=bool, shape=(), low=False, high=True), 'is_terminal': Space(dtype=bool, shape=(), low=False, high=True)}
+[2023-11-30 13:24:35,289] [INFO    ] [train] Using action space {'action': Space(dtype=int32, shape=(), low=0, high=9), 'reset': Space(dtype=bool, shape=(), low=False, high=True)}
+[2023-11-30 13:24:35,607] [INFO    ] [xla_bridge] Unable to initialize backend 'rocm': NOT_FOUND: Could not find registered platform with name: "rocm". Available platform names are: CUDA Interpreter
+[2023-11-30 13:24:35,609] [INFO    ] [xla_bridge] Unable to initialize backend 'tpu': module 'jaxlib.xla_extension' has no attribute 'get_tpu_client'
+[2023-11-30 13:24:51,955] [INFO    ] [train] Starting evaluation
+[2023-11-30 13:25:51,921] [INFO    ] [utils] Initializing AAI environment for task 980: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5MFar-Grey-0-OPQ.yml
+[2023-11-30 13:25:51,922] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:25:54,633] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:25:55,702] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:26:49,642] [INFO    ] [utils] Initializing AAI environment for task 981: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5MFar-Grey-0-OpLava.yml
+[2023-11-30 13:26:49,643] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:26:52,352] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:26:53,436] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:27:46,906] [INFO    ] [utils] Initializing AAI environment for task 982: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5MFar-OffWhite-0-OPQ.yml
+[2023-11-30 13:27:46,907] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:27:49,619] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:27:50,695] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:28:44,192] [INFO    ] [utils] Initializing AAI environment for task 983: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5MFar-OffWhite-0-OpLava.yml
+[2023-11-30 13:28:44,193] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:28:46,919] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:28:48,007] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:29:41,554] [INFO    ] [utils] Initializing AAI environment for task 984: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5MFar-RND-0-OPQ.yml
+[2023-11-30 13:29:41,554] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:29:44,281] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:29:45,337] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:30:38,810] [INFO    ] [utils] Initializing AAI environment for task 985: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5MFar-RND-0-OpLava.yml
+[2023-11-30 13:30:38,811] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:30:41,522] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:30:42,593] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:31:36,175] [INFO    ] [utils] Initializing AAI environment for task 986: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5RClose-Beige-0-OPQ.yml
+[2023-11-30 13:31:36,176] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:31:38,854] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:31:39,821] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:31:45,620] [INFO    ] [utils] Initializing AAI environment for task 987: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5RClose-Beige-0-OpLava.yml
+[2023-11-30 13:31:45,621] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:31:48,296] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:31:49,278] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:31:54,508] [INFO    ] [utils] Initializing AAI environment for task 988: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5RClose-Brown-0-OPQ.yml
+[2023-11-30 13:31:54,509] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:31:57,166] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:31:58,137] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:32:03,575] [INFO    ] [utils] Initializing AAI environment for task 989: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5RClose-Brown-0-OpLava.yml
+[2023-11-30 13:32:03,581] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:32:06,220] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:32:07,205] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:32:12,509] [INFO    ] [utils] Initializing AAI environment for task 990: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5RClose-DarkBlue-0-OPQ.yml
+[2023-11-30 13:32:12,510] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:32:15,166] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:32:16,142] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:32:20,963] [INFO    ] [utils] Initializing AAI environment for task 991: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5RClose-DarkBlue-0-OpLava.yml
+[2023-11-30 13:32:20,964] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:32:23,622] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:32:24,601] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:32:31,458] [INFO    ] [utils] Initializing AAI environment for task 992: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5RClose-DarkGreen-0-OPQ.yml
+[2023-11-30 13:32:31,459] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:32:34,121] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:32:35,095] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:32:40,099] [INFO    ] [utils] Initializing AAI environment for task 993: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5RClose-DarkGreen-0-OpLava.yml
+[2023-11-30 13:32:40,100] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:32:42,750] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:32:43,733] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:32:48,567] [INFO    ] [utils] Initializing AAI environment for task 994: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5RClose-Grey-0-OPQ.yml
+[2023-11-30 13:32:48,570] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:32:51,213] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:32:52,187] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:33:00,036] [INFO    ] [utils] Initializing AAI environment for task 995: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5RClose-Grey-0-OpLava.yml
+[2023-11-30 13:33:00,037] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:33:02,695] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:33:03,672] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:33:08,834] [INFO    ] [utils] Initializing AAI environment for task 996: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5RClose-OffWhite-0-OPQ.yml
+[2023-11-30 13:33:08,835] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:33:11,476] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:33:12,446] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:33:17,081] [INFO    ] [utils] Initializing AAI environment for task 997: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5RClose-OffWhite-0-OpLava.yml
+[2023-11-30 13:33:17,082] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:33:19,723] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:33:20,707] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:33:25,465] [INFO    ] [utils] Initializing AAI environment for task 998: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5RClose-RND-0-OPQ.yml
+[2023-11-30 13:33:25,466] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:33:28,126] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:33:29,101] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:33:34,497] [INFO    ] [utils] Initializing AAI environment for task 999: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5RClose-RND-0-OpLava.yml
+[2023-11-30 13:33:34,498] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:33:37,189] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:33:38,178] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:33:43,819] [INFO    ] [utils] Initializing AAI environment for task 1000: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5RFar-Beige-0-OPQ.yml
+[2023-11-30 13:33:43,820] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:33:46,482] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:33:47,485] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:33:52,747] [INFO    ] [utils] Initializing AAI environment for task 1001: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5RFar-Beige-0-OpLava.yml
+[2023-11-30 13:33:52,748] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:33:55,396] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:33:56,416] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:34:01,106] [INFO    ] [utils] Initializing AAI environment for task 1002: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5RFar-Brown-0-OPQ.yml
+[2023-11-30 13:34:01,107] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:34:03,761] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:34:04,777] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:34:10,031] [INFO    ] [utils] Initializing AAI environment for task 1003: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5RFar-Brown-0-OpLava.yml
+[2023-11-30 13:34:10,032] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:34:12,721] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:34:13,746] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:34:18,754] [INFO    ] [utils] Initializing AAI environment for task 1004: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5RFar-DarkBlue-0-OPQ.yml
+[2023-11-30 13:34:18,755] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:34:21,420] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:34:22,434] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:34:27,331] [INFO    ] [utils] Initializing AAI environment for task 1005: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5RFar-DarkBlue-0-OpLava.yml
+[2023-11-30 13:34:27,332] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:34:29,988] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:34:31,017] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:34:36,360] [INFO    ] [utils] Initializing AAI environment for task 1006: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5RFar-DarkGreen-0-OPQ.yml
+[2023-11-30 13:34:36,361] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:34:39,019] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:34:40,048] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:34:44,939] [INFO    ] [utils] Initializing AAI environment for task 1007: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5RFar-DarkGreen-0-OpLava.yml
+[2023-11-30 13:34:44,940] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:34:47,604] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:34:48,636] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:34:53,034] [INFO    ] [utils] Initializing AAI environment for task 1008: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5RFar-Grey-0-OPQ.yml
+[2023-11-30 13:34:53,035] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:34:55,705] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:34:56,677] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:35:01,016] [INFO    ] [utils] Initializing AAI environment for task 1009: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5RFar-Grey-0-OpLava.yml
+[2023-11-30 13:35:01,017] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:35:05,541] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:35:06,538] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:35:11,551] [INFO    ] [utils] Initializing AAI environment for task 1010: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5RFar-OffWhite-0-OPQ.yml
+[2023-11-30 13:35:11,552] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:35:15,781] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:35:16,768] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:35:21,347] [INFO    ] [utils] Initializing AAI environment for task 1011: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5RFar-OffWhite-0-OpLava.yml
+[2023-11-30 13:35:21,348] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:35:24,142] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:35:25,393] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:35:30,031] [INFO    ] [utils] Initializing AAI environment for task 1012: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5RFar-RND-0-OPQ.yml
+[2023-11-30 13:35:30,032] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:35:32,834] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:35:33,814] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:35:39,084] [INFO    ] [utils] Initializing AAI environment for task 1013: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2.5RFar-RND-0-OpLava.yml
+[2023-11-30 13:35:39,086] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:35:41,745] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:35:42,732] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:35:47,444] [INFO    ] [utils] Initializing AAI environment for task 1014: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2LClose-Beige-0-OPQ.yml
+[2023-11-30 13:35:47,445] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:35:50,104] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:35:51,078] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:36:41,752] [INFO    ] [utils] Initializing AAI environment for task 1015: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2LClose-Beige-0-OpLava.yml
+[2023-11-30 13:36:41,753] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:36:44,410] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:36:45,393] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:37:35,737] [INFO    ] [utils] Initializing AAI environment for task 1016: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2LClose-Brown-0-OPQ.yml
+[2023-11-30 13:37:35,739] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:37:38,391] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:37:39,365] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:38:32,867] [INFO    ] [utils] Initializing AAI environment for task 1017: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2LClose-Brown-0-OpLava.yml
+[2023-11-30 13:38:32,869] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:38:35,520] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:38:36,501] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:39:29,890] [INFO    ] [utils] Initializing AAI environment for task 1018: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2LClose-DarkBlue-0-OPQ.yml
+[2023-11-30 13:39:29,891] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:39:32,525] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:39:33,495] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:40:26,923] [INFO    ] [utils] Initializing AAI environment for task 1019: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2LClose-DarkBlue-0-OpLava.yml
+[2023-11-30 13:40:26,924] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:40:29,576] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:40:30,540] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:41:23,923] [INFO    ] [utils] Initializing AAI environment for task 1020: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2LClose-DarkGreen-0-OPQ.yml
+[2023-11-30 13:41:23,924] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:41:26,610] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:41:27,575] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:42:20,926] [INFO    ] [utils] Initializing AAI environment for task 1021: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2LClose-DarkGreen-0-OpLava.yml
+[2023-11-30 13:42:20,927] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:42:23,576] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:42:24,551] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:43:17,922] [INFO    ] [utils] Initializing AAI environment for task 1022: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2LClose-Grey-0-OPQ.yml
+[2023-11-30 13:43:17,923] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:43:20,578] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:43:21,552] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:44:14,883] [INFO    ] [utils] Initializing AAI environment for task 1023: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2LClose-Grey-0-OpLava.yml
+[2023-11-30 13:44:14,883] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:44:17,545] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:44:18,520] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:45:11,869] [INFO    ] [utils] Initializing AAI environment for task 1024: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2LClose-OffWhite-0-OPQ.yml
+[2023-11-30 13:45:11,870] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:45:14,639] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:45:15,609] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:46:08,996] [INFO    ] [utils] Initializing AAI environment for task 1025: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2LClose-OffWhite-0-OpLava.yml
+[2023-11-30 13:46:08,997] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:46:11,642] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:46:12,621] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:47:05,994] [INFO    ] [utils] Initializing AAI environment for task 1026: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2LClose-RND-0-OPQ.yml
+[2023-11-30 13:47:05,995] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:47:08,655] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:47:09,637] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:48:03,022] [INFO    ] [utils] Initializing AAI environment for task 1027: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2LClose-RND-0-OpLava.yml
+[2023-11-30 13:48:03,022] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:48:05,668] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:48:06,649] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:49:00,042] [INFO    ] [utils] Initializing AAI environment for task 1028: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2LFar-Beige-0-OPQ.yml
+[2023-11-30 13:49:00,043] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:49:02,696] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:49:03,654] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:49:57,020] [INFO    ] [utils] Initializing AAI environment for task 1029: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2LFar-Beige-0-OpLava.yml
+[2023-11-30 13:49:57,021] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:49:59,691] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:50:00,665] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:50:51,248] [INFO    ] [utils] Initializing AAI environment for task 1030: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2LFar-Brown-0-OPQ.yml
+[2023-11-30 13:50:51,249] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:50:53,894] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:50:54,871] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:51:48,851] [INFO    ] [utils] Initializing AAI environment for task 1031: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2LFar-Brown-0-OpLava.yml
+[2023-11-30 13:51:48,852] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:51:51,498] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:51:52,477] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:52:45,944] [INFO    ] [utils] Initializing AAI environment for task 1032: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2LFar-DarkBlue-0-OPQ.yml
+[2023-11-30 13:52:45,945] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:52:48,576] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:52:49,546] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:53:42,986] [INFO    ] [utils] Initializing AAI environment for task 1033: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2LFar-DarkBlue-0-OpLava.yml
+[2023-11-30 13:53:42,986] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:53:45,642] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:53:46,614] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:54:40,032] [INFO    ] [utils] Initializing AAI environment for task 1034: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2LFar-DarkGreen-0-OPQ.yml
+[2023-11-30 13:54:40,033] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:54:42,703] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:54:43,681] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:55:37,155] [INFO    ] [utils] Initializing AAI environment for task 1035: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2LFar-DarkGreen-0-OpLava.yml
+[2023-11-30 13:55:37,156] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:55:39,814] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:55:40,795] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:56:34,190] [INFO    ] [utils] Initializing AAI environment for task 1036: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2LFar-Grey-0-OPQ.yml
+[2023-11-30 13:56:34,190] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:56:36,845] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:56:37,818] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:57:31,300] [INFO    ] [utils] Initializing AAI environment for task 1037: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2LFar-Grey-0-OpLava.yml
+[2023-11-30 13:57:31,300] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:57:33,963] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:57:34,940] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:58:28,382] [INFO    ] [utils] Initializing AAI environment for task 1038: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2LFar-OffWhite-0-OPQ.yml
+[2023-11-30 13:58:28,383] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:58:31,048] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:58:32,021] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:59:25,443] [INFO    ] [utils] Initializing AAI environment for task 1039: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2LFar-OffWhite-0-OpLava.yml
+[2023-11-30 13:59:25,445] [INFO    ] [utils] Using port 5982
+[2023-11-30 13:59:28,101] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:59:29,085] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:00:22,516] [INFO    ] [utils] Initializing AAI environment for task 1040: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2LFar-RND-0-OPQ.yml
+[2023-11-30 14:00:22,516] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:00:25,163] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:00:26,119] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:01:19,669] [INFO    ] [utils] Initializing AAI environment for task 1041: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2LFar-RND-0-OpLava.yml
+[2023-11-30 14:01:19,669] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:01:22,500] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:01:23,478] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:02:16,868] [INFO    ] [utils] Initializing AAI environment for task 1042: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2MClose-Beige-0-OPQ.yml
+[2023-11-30 14:02:16,869] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:02:19,530] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:02:20,507] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:03:10,843] [INFO    ] [utils] Initializing AAI environment for task 1043: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2MClose-Beige-0-OpLava.yml
+[2023-11-30 14:03:10,844] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:03:13,491] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:03:14,465] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:04:07,943] [INFO    ] [utils] Initializing AAI environment for task 1044: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2MClose-Brown-0-OPQ.yml
+[2023-11-30 14:04:07,944] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:04:10,610] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:04:11,564] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:05:05,066] [INFO    ] [utils] Initializing AAI environment for task 1045: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2MClose-Brown-0-OpLava.yml
+[2023-11-30 14:05:05,066] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:05:07,806] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:05:09,068] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:06:02,589] [INFO    ] [utils] Initializing AAI environment for task 1046: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2MClose-DarkBlue-0-OPQ.yml
+[2023-11-30 14:06:02,590] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:06:05,240] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:06:06,200] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:06:59,612] [INFO    ] [utils] Initializing AAI environment for task 1047: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2MClose-DarkBlue-0-OpLava.yml
+[2023-11-30 14:06:59,613] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:07:02,276] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:07:03,263] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:07:56,690] [INFO    ] [utils] Initializing AAI environment for task 1048: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2MClose-DarkGreen-0-OPQ.yml
+[2023-11-30 14:07:56,691] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:07:59,351] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:08:00,323] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:08:53,791] [INFO    ] [utils] Initializing AAI environment for task 1049: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2MClose-DarkGreen-0-OpLava.yml
+[2023-11-30 14:08:53,792] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:08:56,440] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:08:57,420] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:09:50,799] [INFO    ] [utils] Initializing AAI environment for task 1050: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2MClose-Grey-0-OPQ.yml
+[2023-11-30 14:09:50,800] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:09:53,441] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:09:54,417] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:10:47,800] [INFO    ] [utils] Initializing AAI environment for task 1051: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2MClose-Grey-0-OpLava.yml
+[2023-11-30 14:10:47,800] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:10:50,615] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:10:51,596] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:11:45,012] [INFO    ] [utils] Initializing AAI environment for task 1052: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2MClose-OffWhite-0-OPQ.yml
+[2023-11-30 14:11:45,013] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:11:47,655] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:11:48,626] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:12:42,073] [INFO    ] [utils] Initializing AAI environment for task 1053: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2MClose-OffWhite-0-OpLava.yml
+[2023-11-30 14:12:42,073] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:12:44,730] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:12:45,711] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:12:48,665] [INFO    ] [utils] Initializing AAI environment for task 1054: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2MClose-RND-0-OPQ.yml
+[2023-11-30 14:12:48,665] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:12:51,310] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:12:52,269] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:13:42,719] [INFO    ] [utils] Initializing AAI environment for task 1055: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2MClose-RND-0-OpLava.yml
+[2023-11-30 14:13:42,720] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:13:45,375] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:13:46,357] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:14:39,735] [INFO    ] [utils] Initializing AAI environment for task 1056: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2MFar-Beige-0-OPQ.yml
+[2023-11-30 14:14:39,737] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:14:42,391] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:14:43,362] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:15:33,832] [INFO    ] [utils] Initializing AAI environment for task 1057: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2MFar-Beige-0-OpLava.yml
+[2023-11-30 14:15:33,834] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:15:36,483] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:15:37,463] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:16:30,927] [INFO    ] [utils] Initializing AAI environment for task 1058: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2MFar-Brown-0-OPQ.yml
+[2023-11-30 14:16:30,927] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:16:33,583] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:16:34,559] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:17:28,104] [INFO    ] [utils] Initializing AAI environment for task 1059: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2MFar-Brown-0-OpLava.yml
+[2023-11-30 14:17:28,105] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:17:30,759] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:17:31,751] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:18:25,194] [INFO    ] [utils] Initializing AAI environment for task 1060: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2MFar-DarkBlue-0-OPQ.yml
+[2023-11-30 14:18:25,194] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:18:27,846] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:18:28,806] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:19:22,238] [INFO    ] [utils] Initializing AAI environment for task 1061: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2MFar-DarkBlue-0-OpLava.yml
+[2023-11-30 14:19:22,238] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:19:24,898] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:19:25,885] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:20:19,322] [INFO    ] [utils] Initializing AAI environment for task 1062: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2MFar-DarkGreen-0-OPQ.yml
+[2023-11-30 14:20:19,323] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:20:22,009] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:20:22,987] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:21:16,393] [INFO    ] [utils] Initializing AAI environment for task 1063: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2MFar-DarkGreen-0-OpLava.yml
+[2023-11-30 14:21:16,394] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:21:19,046] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:21:20,026] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:22:13,414] [INFO    ] [utils] Initializing AAI environment for task 1064: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2MFar-Grey-0-OPQ.yml
+[2023-11-30 14:22:13,415] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:22:16,088] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:22:17,061] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:23:10,447] [INFO    ] [utils] Initializing AAI environment for task 1065: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2MFar-Grey-0-OpLava.yml
+[2023-11-30 14:23:10,448] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:23:13,100] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:23:14,077] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:24:07,501] [INFO    ] [utils] Initializing AAI environment for task 1066: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2MFar-OffWhite-0-OPQ.yml
+[2023-11-30 14:24:07,501] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:24:10,154] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:24:11,132] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:25:04,515] [INFO    ] [utils] Initializing AAI environment for task 1067: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2MFar-OffWhite-0-OpLava.yml
+[2023-11-30 14:25:04,516] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:25:07,178] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:25:08,157] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:26:01,548] [INFO    ] [utils] Initializing AAI environment for task 1068: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2MFar-RND-0-OPQ.yml
+[2023-11-30 14:26:01,549] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:26:04,209] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:26:05,182] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:26:58,604] [INFO    ] [utils] Initializing AAI environment for task 1069: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2MFar-RND-0-OpLava.yml
+[2023-11-30 14:26:58,605] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:27:01,246] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:27:02,228] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:27:55,586] [INFO    ] [utils] Initializing AAI environment for task 1070: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2RClose-Beige-0-OPQ.yml
+[2023-11-30 14:27:55,587] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:27:58,249] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:27:59,222] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:28:04,643] [INFO    ] [utils] Initializing AAI environment for task 1071: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2RClose-Beige-0-OpLava.yml
+[2023-11-30 14:28:04,644] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:28:07,317] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:28:08,299] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:28:13,606] [INFO    ] [utils] Initializing AAI environment for task 1072: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2RClose-Brown-0-OPQ.yml
+[2023-11-30 14:28:13,607] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:28:16,273] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:28:17,245] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:28:22,645] [INFO    ] [utils] Initializing AAI environment for task 1073: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2RClose-Brown-0-OpLava.yml
+[2023-11-30 14:28:22,645] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:28:25,305] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:28:26,285] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:28:31,742] [INFO    ] [utils] Initializing AAI environment for task 1074: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2RClose-DarkBlue-0-OPQ.yml
+[2023-11-30 14:28:31,743] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:28:34,407] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:28:35,379] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:28:40,514] [INFO    ] [utils] Initializing AAI environment for task 1075: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2RClose-DarkBlue-0-OpLava.yml
+[2023-11-30 14:28:40,514] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:28:43,175] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:28:44,154] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:28:49,211] [INFO    ] [utils] Initializing AAI environment for task 1076: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2RClose-DarkGreen-0-OPQ.yml
+[2023-11-30 14:28:49,211] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:28:51,867] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:28:52,835] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:28:57,777] [INFO    ] [utils] Initializing AAI environment for task 1077: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2RClose-DarkGreen-0-OpLava.yml
+[2023-11-30 14:28:57,777] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:29:00,431] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:29:01,393] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:29:06,970] [INFO    ] [utils] Initializing AAI environment for task 1078: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2RClose-Grey-0-OPQ.yml
+[2023-11-30 14:29:06,970] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:29:09,609] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:29:10,573] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:29:15,730] [INFO    ] [utils] Initializing AAI environment for task 1079: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2RClose-Grey-0-OpLava.yml
+[2023-11-30 14:29:15,730] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:29:18,407] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:29:19,388] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:29:24,622] [INFO    ] [utils] Initializing AAI environment for task 1080: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2RClose-OffWhite-0-OPQ.yml
+[2023-11-30 14:29:24,622] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:29:27,274] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:29:28,241] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:29:33,061] [INFO    ] [utils] Initializing AAI environment for task 1081: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2RClose-OffWhite-0-OpLava.yml
+[2023-11-30 14:29:33,062] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:29:35,708] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:29:36,688] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:29:41,491] [INFO    ] [utils] Initializing AAI environment for task 1082: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2RClose-RND-0-OPQ.yml
+[2023-11-30 14:29:41,492] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:29:44,155] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:29:45,128] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:29:50,476] [INFO    ] [utils] Initializing AAI environment for task 1083: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2RClose-RND-0-OpLava.yml
+[2023-11-30 14:29:50,477] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:29:53,133] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:29:54,111] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:29:59,300] [INFO    ] [utils] Initializing AAI environment for task 1084: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2RFar-Beige-0-OPQ.yml
+[2023-11-30 14:29:59,301] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:30:01,961] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:30:02,935] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:30:08,659] [INFO    ] [utils] Initializing AAI environment for task 1085: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2RFar-Beige-0-OpLava.yml
+[2023-11-30 14:30:08,661] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:30:11,300] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:30:12,276] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:30:17,038] [INFO    ] [utils] Initializing AAI environment for task 1086: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2RFar-Brown-0-OPQ.yml
+[2023-11-30 14:30:17,039] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:30:19,702] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:30:20,678] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:30:25,842] [INFO    ] [utils] Initializing AAI environment for task 1087: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2RFar-Brown-0-OpLava.yml
+[2023-11-30 14:30:25,842] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:30:28,496] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:30:29,474] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:30:34,715] [INFO    ] [utils] Initializing AAI environment for task 1088: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2RFar-DarkBlue-0-OPQ.yml
+[2023-11-30 14:30:34,715] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:30:37,368] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:30:38,343] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:30:43,422] [INFO    ] [utils] Initializing AAI environment for task 1089: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2RFar-DarkBlue-0-OpLava.yml
+[2023-11-30 14:30:43,423] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:30:46,095] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:30:47,068] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:30:52,177] [INFO    ] [utils] Initializing AAI environment for task 1090: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2RFar-DarkGreen-0-OPQ.yml
+[2023-11-30 14:30:52,178] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:30:54,831] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:30:55,811] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:31:00,619] [INFO    ] [utils] Initializing AAI environment for task 1091: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2RFar-DarkGreen-0-OpLava.yml
+[2023-11-30 14:31:00,620] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:31:03,280] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:31:04,256] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:31:09,041] [INFO    ] [utils] Initializing AAI environment for task 1092: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2RFar-Grey-0-OPQ.yml
+[2023-11-30 14:31:09,042] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:31:11,717] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:31:12,699] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:31:17,655] [INFO    ] [utils] Initializing AAI environment for task 1093: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2RFar-Grey-0-OpLava.yml
+[2023-11-30 14:31:17,656] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:31:20,314] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:31:21,287] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:31:25,816] [INFO    ] [utils] Initializing AAI environment for task 1094: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2RFar-OffWhite-0-OPQ.yml
+[2023-11-30 14:31:25,816] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:31:28,486] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:31:29,451] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:31:34,154] [INFO    ] [utils] Initializing AAI environment for task 1095: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2RFar-OffWhite-0-OpLava.yml
+[2023-11-30 14:31:34,154] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:31:36,819] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:31:37,800] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:31:42,704] [INFO    ] [utils] Initializing AAI environment for task 1096: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2RFar-RND-0-OPQ.yml
+[2023-11-30 14:31:42,704] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:31:45,358] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:31:46,328] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:31:51,097] [INFO    ] [utils] Initializing AAI environment for task 1097: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y2RFar-RND-0-OpLava.yml
+[2023-11-30 14:31:51,098] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:31:54,086] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:31:55,064] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:31:59,728] [INFO    ] [utils] Initializing AAI environment for task 1098: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3LClose-Beige-0-OPQ.yml
+[2023-11-30 14:31:59,729] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:32:02,403] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:32:03,373] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:32:53,966] [INFO    ] [utils] Initializing AAI environment for task 1099: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3LClose-Beige-0-OpLava.yml
+[2023-11-30 14:32:53,967] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:32:56,636] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:32:57,618] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:33:51,032] [INFO    ] [utils] Initializing AAI environment for task 1100: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3LClose-Brown-0-OPQ.yml
+[2023-11-30 14:33:51,032] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:33:53,710] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:33:54,682] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:34:48,132] [INFO    ] [utils] Initializing AAI environment for task 1101: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3LClose-Brown-0-OpLava.yml
+[2023-11-30 14:34:48,132] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:34:50,792] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:34:51,769] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:35:45,322] [INFO    ] [utils] Initializing AAI environment for task 1102: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3LClose-DarkBlue-0-OPQ.yml
+[2023-11-30 14:35:45,323] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:35:47,972] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:35:49,220] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:36:43,083] [INFO    ] [utils] Initializing AAI environment for task 1103: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3LClose-DarkBlue-0-OpLava.yml
+[2023-11-30 14:36:43,083] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:36:45,753] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:36:46,742] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:37:40,140] [INFO    ] [utils] Initializing AAI environment for task 1104: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3LClose-DarkGreen-0-OPQ.yml
+[2023-11-30 14:37:40,141] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:37:42,796] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:37:43,768] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:38:37,157] [INFO    ] [utils] Initializing AAI environment for task 1105: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3LClose-DarkGreen-0-OpLava.yml
+[2023-11-30 14:38:37,157] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:38:39,814] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:38:40,785] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:39:34,149] [INFO    ] [utils] Initializing AAI environment for task 1106: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3LClose-Grey-0-OPQ.yml
+[2023-11-30 14:39:34,150] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:39:36,813] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:39:37,790] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:40:31,184] [INFO    ] [utils] Initializing AAI environment for task 1107: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3LClose-Grey-0-OpLava.yml
+[2023-11-30 14:40:31,185] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:40:33,851] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:40:34,826] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:41:25,174] [INFO    ] [utils] Initializing AAI environment for task 1108: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3LClose-OffWhite-0-OPQ.yml
+[2023-11-30 14:41:25,175] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:41:27,864] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:41:28,834] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:42:22,324] [INFO    ] [utils] Initializing AAI environment for task 1109: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3LClose-OffWhite-0-OpLava.yml
+[2023-11-30 14:42:22,325] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:42:24,995] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:42:25,969] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:43:19,513] [INFO    ] [utils] Initializing AAI environment for task 1110: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3LClose-RND-0-OPQ.yml
+[2023-11-30 14:43:19,513] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:43:22,185] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:43:23,164] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:44:16,723] [INFO    ] [utils] Initializing AAI environment for task 1111: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3LClose-RND-0-OpLava.yml
+[2023-11-30 14:44:16,724] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:44:19,388] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:44:20,364] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:45:13,794] [INFO    ] [utils] Initializing AAI environment for task 1112: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3LFar-Beige-0-OPQ.yml
+[2023-11-30 14:45:13,794] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:45:16,442] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:45:17,420] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:46:10,914] [INFO    ] [utils] Initializing AAI environment for task 1113: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3LFar-Beige-0-OpLava.yml
+[2023-11-30 14:46:10,915] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:46:13,587] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:46:14,556] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:47:08,014] [INFO    ] [utils] Initializing AAI environment for task 1114: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3LFar-Brown-0-OPQ.yml
+[2023-11-30 14:47:08,015] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:47:10,685] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:47:11,657] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:48:05,076] [INFO    ] [utils] Initializing AAI environment for task 1115: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3LFar-Brown-0-OpLava.yml
+[2023-11-30 14:48:05,076] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:48:07,731] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:48:08,709] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:49:02,110] [INFO    ] [utils] Initializing AAI environment for task 1116: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3LFar-DarkBlue-0-OPQ.yml
+[2023-11-30 14:49:02,111] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:49:04,803] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:49:05,770] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:49:59,133] [INFO    ] [utils] Initializing AAI environment for task 1117: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3LFar-DarkBlue-0-OpLava.yml
+[2023-11-30 14:49:59,134] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:50:01,811] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:50:02,796] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:50:56,196] [INFO    ] [utils] Initializing AAI environment for task 1118: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3LFar-DarkGreen-0-OPQ.yml
+[2023-11-30 14:50:56,196] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:50:58,948] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:50:59,911] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:51:53,287] [INFO    ] [utils] Initializing AAI environment for task 1119: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3LFar-DarkGreen-0-OpLava.yml
+[2023-11-30 14:51:53,288] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:51:55,936] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:51:57,038] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:52:50,403] [INFO    ] [utils] Initializing AAI environment for task 1120: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3LFar-Grey-0-OPQ.yml
+[2023-11-30 14:52:50,404] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:52:53,080] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:52:54,054] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:53:47,450] [INFO    ] [utils] Initializing AAI environment for task 1121: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3LFar-Grey-0-OpLava.yml
+[2023-11-30 14:53:47,453] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:53:50,125] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:53:51,110] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:54:41,453] [INFO    ] [utils] Initializing AAI environment for task 1122: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3LFar-OffWhite-0-OPQ.yml
+[2023-11-30 14:54:41,454] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:54:44,109] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:54:45,087] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:55:38,583] [INFO    ] [utils] Initializing AAI environment for task 1123: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3LFar-OffWhite-0-OpLava.yml
+[2023-11-30 14:55:38,584] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:55:41,255] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:55:42,220] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:56:35,746] [INFO    ] [utils] Initializing AAI environment for task 1124: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3LFar-RND-0-OPQ.yml
+[2023-11-30 14:56:35,746] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:56:38,399] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:56:39,373] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:57:32,895] [INFO    ] [utils] Initializing AAI environment for task 1125: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3LFar-RND-0-OpLava.yml
+[2023-11-30 14:57:32,895] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:57:35,567] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:57:36,548] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:58:29,966] [INFO    ] [utils] Initializing AAI environment for task 1126: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3MClose-Beige-0-OPQ.yml
+[2023-11-30 14:58:29,967] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:58:32,644] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:58:33,612] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:59:27,055] [INFO    ] [utils] Initializing AAI environment for task 1127: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3MClose-Beige-0-OpLava.yml
+[2023-11-30 14:59:27,055] [INFO    ] [utils] Using port 5982
+[2023-11-30 14:59:29,731] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:59:30,711] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 15:00:24,148] [INFO    ] [utils] Initializing AAI environment for task 1128: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3MClose-Brown-0-OPQ.yml
+[2023-11-30 15:00:24,149] [INFO    ] [utils] Using port 5982
+[2023-11-30 15:00:26,945] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 15:00:27,896] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 15:01:21,447] [INFO    ] [utils] Initializing AAI environment for task 1129: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3MClose-Brown-0-OpLava.yml
+[2023-11-30 15:01:21,447] [INFO    ] [utils] Using port 5982
+[2023-11-30 15:01:24,187] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 15:01:25,270] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 15:02:19,488] [INFO    ] [utils] Initializing AAI environment for task 1130: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3MClose-DarkBlue-0-OPQ.yml
+[2023-11-30 15:02:19,489] [INFO    ] [utils] Using port 5982
+[2023-11-30 15:02:22,288] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 15:02:23,348] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 15:03:17,744] [INFO    ] [utils] Initializing AAI environment for task 1131: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3MClose-DarkBlue-0-OpLava.yml
+[2023-11-30 15:03:17,744] [INFO    ] [utils] Using port 5982
+[2023-11-30 15:03:20,527] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 15:03:21,581] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 15:04:15,321] [INFO    ] [utils] Initializing AAI environment for task 1132: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3MClose-DarkGreen-0-OPQ.yml
+[2023-11-30 15:04:15,321] [INFO    ] [utils] Using port 5982
+[2023-11-30 15:04:17,994] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 15:04:19,015] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 15:05:12,848] [INFO    ] [utils] Initializing AAI environment for task 1133: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3MClose-DarkGreen-0-OpLava.yml
+[2023-11-30 15:05:12,848] [INFO    ] [utils] Using port 5982
+[2023-11-30 15:05:15,632] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 15:05:16,663] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 15:06:10,752] [INFO    ] [utils] Initializing AAI environment for task 1134: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3MClose-Grey-0-OPQ.yml
+[2023-11-30 15:06:10,752] [INFO    ] [utils] Using port 5982
+[2023-11-30 15:06:14,052] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 15:06:15,101] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 15:07:06,920] [INFO    ] [utils] Initializing AAI environment for task 1135: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3MClose-Grey-0-OpLava.yml
+[2023-11-30 15:07:06,920] [INFO    ] [utils] Using port 5982
+[2023-11-30 15:07:09,691] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 15:07:10,933] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 15:09:04,361] [INFO    ] [utils] Initializing AAI environment for task 1136: ../../configs/tests_agents/op_tests/OP-STC-Allo-PCTB-3CupFC-1Y3MClose-OffWhite-0-OPQ.yml
+[2023-11-30 15:09:04,364] [INFO    ] [utils] Using port 5982
+[2023-11-30 15:09:09,113] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 15:09:10,311] [INFO    ] [environment] Connected new brain: AnimalAI?team=0

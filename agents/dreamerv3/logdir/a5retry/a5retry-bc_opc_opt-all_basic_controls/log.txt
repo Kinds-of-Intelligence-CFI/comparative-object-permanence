@@ -1,0 +1,1566 @@
+[2023-11-29 14:48:30,172] [INFO    ] [train] Using AAI executable file: ../../env/env3.1.3/AAI.x86_64
+[2023-11-29 14:48:30,674] [INFO    ] [train] Creating DreamerV3 and AAI Environment
+[2023-11-29 14:48:30,677] [INFO    ] [train] Loading checkpoint from logdir/retry-a5-bc_opc_opt-all/checkpoint.ckpt
+[2023-11-29 14:48:33,432] [INFO    ] [utils] Initializing AAI environment for task -1: ../../configs/tests_agents/basic_controls/tutorial_5_multi-2Y2-left_timelimit.yml
+[2023-11-29 14:48:33,432] [INFO    ] [utils] Using port 5121
+[2023-11-29 14:48:36,122] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 14:48:37,090] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 14:48:37,139] [INFO    ] [train] Using observation space {'extra': Space(dtype=float64, shape=(7,), low=-inf, high=inf), 'image': Space(dtype=uint8, shape=(64, 64, 3), low=0, high=255), 'raycast': Space(dtype=float64, shape=(70,), low=-inf, high=inf), 'reward': Space(dtype=float32, shape=(), low=-inf, high=inf), 'is_first': Space(dtype=bool, shape=(), low=False, high=True), 'is_last': Space(dtype=bool, shape=(), low=False, high=True), 'is_terminal': Space(dtype=bool, shape=(), low=False, high=True)}
+[2023-11-29 14:48:37,140] [INFO    ] [train] Using action space {'action': Space(dtype=int32, shape=(), low=0, high=9), 'reset': Space(dtype=bool, shape=(), low=False, high=True)}
+[2023-11-29 14:48:37,403] [INFO    ] [xla_bridge] Unable to initialize backend 'rocm': NOT_FOUND: Could not find registered platform with name: "rocm". Available platform names are: Interpreter CUDA
+[2023-11-29 14:48:37,404] [INFO    ] [xla_bridge] Unable to initialize backend 'tpu': module 'jaxlib.xla_extension' has no attribute 'get_tpu_client'
+[2023-11-29 14:48:51,788] [INFO    ] [train] Starting evaluation
+[2023-11-29 14:49:54,607] [INFO    ] [utils] Initializing AAI environment for task 0: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-LavaMedium-Single-0.5-NA-0-Lava.yml
+[2023-11-29 14:49:54,608] [INFO    ] [utils] Using port 5121
+[2023-11-29 14:49:57,203] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 14:49:58,268] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 14:50:52,169] [INFO    ] [utils] Initializing AAI environment for task 1: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-LavaMedium-Single-1-NA-0-Lava.yml
+[2023-11-29 14:50:52,170] [INFO    ] [utils] Using port 5121
+[2023-11-29 14:50:54,779] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 14:50:55,893] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 14:51:49,555] [INFO    ] [utils] Initializing AAI environment for task 2: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-LavaMedium-Single-2-NA-0-Lava.yml
+[2023-11-29 14:51:49,556] [INFO    ] [utils] Using port 5121
+[2023-11-29 14:51:52,160] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 14:51:53,156] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 14:52:46,537] [INFO    ] [utils] Initializing AAI environment for task 3: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-LavaMedium-Single-4-NA-0-Lava.yml
+[2023-11-29 14:52:46,538] [INFO    ] [utils] Using port 5121
+[2023-11-29 14:52:49,148] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 14:52:50,177] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 14:53:43,587] [INFO    ] [utils] Initializing AAI environment for task 4: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-LeftLong-0.5-NA-0-NA.yml
+[2023-11-29 14:53:43,587] [INFO    ] [utils] Using port 5121
+[2023-11-29 14:53:46,186] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 14:53:47,167] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 14:54:04,975] [INFO    ] [utils] Initializing AAI environment for task 5: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-LeftLong-1-NA-0-NA.yml
+[2023-11-29 14:54:04,975] [INFO    ] [utils] Using port 5121
+[2023-11-29 14:54:07,596] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 14:54:08,616] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 14:54:17,413] [INFO    ] [utils] Initializing AAI environment for task 6: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-LeftLong-2-NA-0-NA.yml
+[2023-11-29 14:54:17,413] [INFO    ] [utils] Using port 5121
+[2023-11-29 14:54:20,053] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 14:54:21,238] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 14:54:26,096] [INFO    ] [utils] Initializing AAI environment for task 7: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-LeftLong-4-NA-0-NA.yml
+[2023-11-29 14:54:26,096] [INFO    ] [utils] Using port 5121
+[2023-11-29 14:54:28,880] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 14:54:30,184] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 14:54:35,205] [INFO    ] [utils] Initializing AAI environment for task 8: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-LeftMedium-0.5-NA-0-NA.yml
+[2023-11-29 14:54:35,205] [INFO    ] [utils] Using port 5121
+[2023-11-29 14:54:37,828] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 14:54:38,846] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 14:55:29,269] [INFO    ] [utils] Initializing AAI environment for task 9: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-LeftMedium-1-NA-0-NA.yml
+[2023-11-29 14:55:29,270] [INFO    ] [utils] Using port 5121
+[2023-11-29 14:55:31,896] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 14:55:32,857] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 14:56:26,350] [INFO    ] [utils] Initializing AAI environment for task 10: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-LeftMedium-2-NA-0-NA.yml
+[2023-11-29 14:56:26,350] [INFO    ] [utils] Using port 5121
+[2023-11-29 14:56:29,089] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 14:56:30,053] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 14:57:23,576] [INFO    ] [utils] Initializing AAI environment for task 11: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-LeftMedium-4-NA-0-NA.yml
+[2023-11-29 14:57:23,577] [INFO    ] [utils] Using port 5121
+[2023-11-29 14:57:26,183] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 14:57:27,152] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 14:58:20,794] [INFO    ] [utils] Initializing AAI environment for task 12: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-LeftShort-0.5-NA-0-NA.yml
+[2023-11-29 14:58:20,795] [INFO    ] [utils] Using port 5121
+[2023-11-29 14:58:23,396] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 14:58:24,365] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 14:59:18,149] [INFO    ] [utils] Initializing AAI environment for task 13: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-LeftShort-1-NA-0-NA.yml
+[2023-11-29 14:59:18,149] [INFO    ] [utils] Using port 5121
+[2023-11-29 14:59:20,762] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 14:59:21,722] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:00:15,892] [INFO    ] [utils] Initializing AAI environment for task 14: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-LeftShort-2-NA-0-NA.yml
+[2023-11-29 15:00:15,893] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:00:18,522] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:00:19,487] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:01:13,092] [INFO    ] [utils] Initializing AAI environment for task 15: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-LeftShort-4-NA-0-NA.yml
+[2023-11-29 15:01:13,092] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:01:15,732] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:01:16,702] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:02:11,635] [INFO    ] [utils] Initializing AAI environment for task 16: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-RightLong-0.5-NA-0-NA.yml
+[2023-11-29 15:02:11,635] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:02:15,332] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:02:16,346] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:03:09,823] [INFO    ] [utils] Initializing AAI environment for task 17: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-RightLong-1-NA-0-NA.yml
+[2023-11-29 15:03:09,823] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:03:12,430] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:03:13,392] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:04:06,765] [INFO    ] [utils] Initializing AAI environment for task 18: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-RightLong-2-NA-0-NA.yml
+[2023-11-29 15:04:06,766] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:04:09,383] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:04:10,356] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:05:03,906] [INFO    ] [utils] Initializing AAI environment for task 19: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-RightLong-4-NA-0-NA.yml
+[2023-11-29 15:05:03,906] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:05:07,669] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:05:08,760] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:06:02,689] [INFO    ] [utils] Initializing AAI environment for task 20: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-RightMedium-0.5-NA-0-NA.yml
+[2023-11-29 15:06:02,690] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:06:05,303] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:06:06,349] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:06:59,955] [INFO    ] [utils] Initializing AAI environment for task 21: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-RightMedium-1-NA-0-NA.yml
+[2023-11-29 15:06:59,955] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:07:02,848] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:07:03,843] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:07:57,363] [INFO    ] [utils] Initializing AAI environment for task 22: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-RightMedium-2-NA-0-NA.yml
+[2023-11-29 15:07:57,364] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:08:00,074] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:08:01,083] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:08:51,528] [INFO    ] [utils] Initializing AAI environment for task 23: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-RightMedium-4-NA-0-NA.yml
+[2023-11-29 15:08:51,528] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:08:54,235] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:08:55,200] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:09:48,885] [INFO    ] [utils] Initializing AAI environment for task 24: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-RightShort-0.5-NA-0-NA.yml
+[2023-11-29 15:09:48,886] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:09:51,725] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:09:52,695] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:10:46,245] [INFO    ] [utils] Initializing AAI environment for task 25: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-RightShort-1-NA-0-NA.yml
+[2023-11-29 15:10:46,246] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:10:48,994] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:10:49,963] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:11:43,577] [INFO    ] [utils] Initializing AAI environment for task 26: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-RightShort-2-NA-0-NA.yml
+[2023-11-29 15:11:43,577] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:11:46,231] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:11:47,231] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:12:40,870] [INFO    ] [utils] Initializing AAI environment for task 27: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-RightShort-4-NA-0-NA.yml
+[2023-11-29 15:12:40,870] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:12:43,502] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:12:44,474] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:12:46,077] [INFO    ] [utils] Initializing AAI environment for task 28: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-LeftLong-0.5-NA-0-NA.yml
+[2023-11-29 15:12:46,078] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:12:48,727] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:12:49,703] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:13:07,250] [INFO    ] [utils] Initializing AAI environment for task 29: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-LeftLong-1-NA-0-NA.yml
+[2023-11-29 15:13:07,251] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:13:09,878] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:13:10,846] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:14:02,488] [INFO    ] [utils] Initializing AAI environment for task 30: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-LeftLong-2-NA-0-NA.yml
+[2023-11-29 15:14:02,489] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:14:05,129] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:14:06,104] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:14:14,307] [INFO    ] [utils] Initializing AAI environment for task 31: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-LeftLong-4-NA-0-NA.yml
+[2023-11-29 15:14:14,308] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:14:17,225] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:14:18,186] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:14:24,881] [INFO    ] [utils] Initializing AAI environment for task 32: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-LeftMedium-0.5-NA-0-NA.yml
+[2023-11-29 15:14:24,881] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:14:27,501] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:14:28,473] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:15:19,217] [INFO    ] [utils] Initializing AAI environment for task 33: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-LeftMedium-1-NA-0-NA.yml
+[2023-11-29 15:15:19,218] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:15:21,839] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:15:22,885] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:16:13,313] [INFO    ] [utils] Initializing AAI environment for task 34: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-LeftMedium-2-NA-0-NA.yml
+[2023-11-29 15:16:13,313] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:16:15,938] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:16:16,912] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:17:10,598] [INFO    ] [utils] Initializing AAI environment for task 35: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-LeftMedium-4-NA-0-NA.yml
+[2023-11-29 15:17:10,599] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:17:13,229] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:17:14,197] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:18:07,950] [INFO    ] [utils] Initializing AAI environment for task 36: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-LeftShort-0.5-NA-0-NA.yml
+[2023-11-29 15:18:07,950] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:18:10,560] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:18:11,514] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:19:05,306] [INFO    ] [utils] Initializing AAI environment for task 37: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-LeftShort-1-NA-0-NA.yml
+[2023-11-29 15:19:05,307] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:19:07,919] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:19:08,888] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:20:02,527] [INFO    ] [utils] Initializing AAI environment for task 38: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-LeftShort-2-NA-0-NA.yml
+[2023-11-29 15:20:02,527] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:20:05,504] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:20:06,463] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:21:00,048] [INFO    ] [utils] Initializing AAI environment for task 39: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-LeftShort-4-NA-0-NA.yml
+[2023-11-29 15:21:00,049] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:21:02,667] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:21:03,641] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:21:57,130] [INFO    ] [utils] Initializing AAI environment for task 40: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-RightLong-0.5-NA-0-NA.yml
+[2023-11-29 15:21:57,130] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:21:59,767] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:22:00,747] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:22:54,202] [INFO    ] [utils] Initializing AAI environment for task 41: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-RightLong-1-NA-0-NA.yml
+[2023-11-29 15:22:54,202] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:22:56,864] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:22:57,839] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:23:51,236] [INFO    ] [utils] Initializing AAI environment for task 42: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-RightLong-2-NA-0-NA.yml
+[2023-11-29 15:23:51,237] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:23:53,852] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:23:54,828] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:24:48,290] [INFO    ] [utils] Initializing AAI environment for task 43: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-RightLong-4-NA-0-NA.yml
+[2023-11-29 15:24:48,291] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:24:51,649] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:24:52,719] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:25:46,223] [INFO    ] [utils] Initializing AAI environment for task 44: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-RightMedium-0.5-NA-0-NA.yml
+[2023-11-29 15:25:46,224] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:25:48,848] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:25:49,824] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:26:43,206] [INFO    ] [utils] Initializing AAI environment for task 45: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-RightMedium-1-NA-0-NA.yml
+[2023-11-29 15:26:43,207] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:26:45,832] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:26:46,821] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:27:40,296] [INFO    ] [utils] Initializing AAI environment for task 46: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-RightMedium-2-NA-0-NA.yml
+[2023-11-29 15:27:40,297] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:27:42,932] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:27:43,918] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:28:37,469] [INFO    ] [utils] Initializing AAI environment for task 47: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-RightMedium-4-NA-0-NA.yml
+[2023-11-29 15:28:37,469] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:28:40,114] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:28:41,244] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:29:31,707] [INFO    ] [utils] Initializing AAI environment for task 48: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-RightShort-0.5-NA-0-NA.yml
+[2023-11-29 15:29:31,708] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:29:34,332] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:29:35,293] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:30:28,940] [INFO    ] [utils] Initializing AAI environment for task 49: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-RightShort-1-NA-0-NA.yml
+[2023-11-29 15:30:28,941] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:30:31,576] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:30:32,552] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:31:26,192] [INFO    ] [utils] Initializing AAI environment for task 50: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-RightShort-2-NA-0-NA.yml
+[2023-11-29 15:31:26,193] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:31:28,850] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:31:29,823] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:32:23,752] [INFO    ] [utils] Initializing AAI environment for task 51: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-RightShort-4-NA-0-NA.yml
+[2023-11-29 15:32:23,753] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:32:26,381] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:32:27,346] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:32:28,881] [INFO    ] [utils] Initializing AAI environment for task 52: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MultiStationary-5Y-0.5-NA-0-NA.yml
+[2023-11-29 15:32:28,882] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:32:31,493] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:32:32,482] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:33:47,845] [INFO    ] [utils] Initializing AAI environment for task 53: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MultiStationary-5Y-1-NA-0-NA.yml
+[2023-11-29 15:33:47,846] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:33:50,468] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:33:51,445] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:35:13,012] [INFO    ] [utils] Initializing AAI environment for task 54: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MultiStationary-5Y-2-NA-0-NA.yml
+[2023-11-29 15:35:13,013] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:35:15,656] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:35:16,629] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:36:38,282] [INFO    ] [utils] Initializing AAI environment for task 55: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MultiStationary-5Y-4-NA-0-NA.yml
+[2023-11-29 15:36:38,283] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:36:40,912] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:36:41,876] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:38:02,175] [INFO    ] [utils] Initializing AAI environment for task 56: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-OpaqueWMedium-Short-0.5-Grey-0-Opaque.yml
+[2023-11-29 15:38:02,175] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:38:04,803] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:38:05,773] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:38:56,110] [INFO    ] [utils] Initializing AAI environment for task 57: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-OpaqueWMedium-Short-1-Grey-0-Opaque.yml
+[2023-11-29 15:38:56,110] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:38:58,727] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:38:59,702] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:39:53,260] [INFO    ] [utils] Initializing AAI environment for task 58: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-OpaqueWMedium-Short-2-Grey-0-Opaque.yml
+[2023-11-29 15:39:53,261] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:39:55,906] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:39:56,886] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:40:50,501] [INFO    ] [utils] Initializing AAI environment for task 59: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-OpaqueWMedium-Short-4-Grey-0-Opaque.yml
+[2023-11-29 15:40:50,501] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:40:53,135] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:40:54,112] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:41:47,750] [INFO    ] [utils] Initializing AAI environment for task 60: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-RampDown-G5-Centre-NA-0-NA.yml
+[2023-11-29 15:41:47,750] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:41:50,381] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:41:51,356] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:42:44,974] [INFO    ] [utils] Initializing AAI environment for task 61: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-RampDown-G5-Left-NA-0-NA.yml
+[2023-11-29 15:42:44,975] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:42:47,587] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:42:48,562] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:43:41,421] [INFO    ] [utils] Initializing AAI environment for task 62: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-RampDown-G5-Right-NA-0-NA.yml
+[2023-11-29 15:43:41,422] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:43:44,055] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:43:45,044] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:44:37,849] [INFO    ] [utils] Initializing AAI environment for task 63: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-RampDown-Y5-Centre-NA-0-NA.yml
+[2023-11-29 15:44:37,849] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:44:40,476] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:44:41,509] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:45:34,255] [INFO    ] [utils] Initializing AAI environment for task 64: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-RampDown-Y5-Left-NA-0-NA.yml
+[2023-11-29 15:45:34,255] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:45:36,898] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:45:37,883] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:46:30,834] [INFO    ] [utils] Initializing AAI environment for task 65: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-RampDown-Y5-Right-NA-0-NA.yml
+[2023-11-29 15:46:30,835] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:46:33,460] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:46:34,441] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:47:27,237] [INFO    ] [utils] Initializing AAI environment for task 66: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-RampUp-G5-Centre-NA-0-NA.yml
+[2023-11-29 15:47:27,237] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:47:29,871] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:47:30,845] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:48:23,635] [INFO    ] [utils] Initializing AAI environment for task 67: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-RampUp-G5-Left-NA-0-NA.yml
+[2023-11-29 15:48:23,636] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:48:26,270] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:48:27,241] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:49:19,708] [INFO    ] [utils] Initializing AAI environment for task 68: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-RampUp-G5-Right-NA-0-NA.yml
+[2023-11-29 15:49:19,709] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:49:22,340] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:49:23,313] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:50:16,588] [INFO    ] [utils] Initializing AAI environment for task 69: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-RampUp-Y5-Centre-NA-0-NA.yml
+[2023-11-29 15:50:16,589] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:50:19,214] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:50:20,191] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:51:12,742] [INFO    ] [utils] Initializing AAI environment for task 70: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-RampUp-Y5-Left-NA-0-NA.yml
+[2023-11-29 15:51:12,743] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:51:15,387] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:51:16,506] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:52:06,902] [INFO    ] [utils] Initializing AAI environment for task 71: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-RampUp-Y5-Right-NA-0-NA.yml
+[2023-11-29 15:52:06,902] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:52:09,564] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:52:10,542] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:53:03,223] [INFO    ] [utils] Initializing AAI environment for task 72: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityGreen-Long-0.5-NA-0-NA.yml
+[2023-11-29 15:53:03,223] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:53:05,870] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:53:06,836] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:53:59,443] [INFO    ] [utils] Initializing AAI environment for task 73: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityGreen-Long-1-NA-0-NA.yml
+[2023-11-29 15:53:59,444] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:54:02,095] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:54:03,059] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:54:57,392] [INFO    ] [utils] Initializing AAI environment for task 74: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityGreen-Long-2-NA-0-NA.yml
+[2023-11-29 15:54:57,393] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:55:00,005] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:55:00,968] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:55:54,447] [INFO    ] [utils] Initializing AAI environment for task 75: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityGreen-Long-4-NA-0-NA.yml
+[2023-11-29 15:55:54,447] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:55:57,072] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:55:58,041] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:56:51,810] [INFO    ] [utils] Initializing AAI environment for task 76: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityGreen-Medium-0.5-NA-0-NA.yml
+[2023-11-29 15:56:51,810] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:56:54,437] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:56:55,403] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:57:49,006] [INFO    ] [utils] Initializing AAI environment for task 77: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityGreen-Medium-1-NA-0-NA.yml
+[2023-11-29 15:57:49,007] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:57:51,649] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:57:52,617] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:58:46,296] [INFO    ] [utils] Initializing AAI environment for task 78: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityGreen-Medium-2-NA-0-NA.yml
+[2023-11-29 15:58:46,296] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:58:48,908] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:58:49,970] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 15:59:43,731] [INFO    ] [utils] Initializing AAI environment for task 79: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityGreen-Medium-4-NA-0-NA.yml
+[2023-11-29 15:59:43,731] [INFO    ] [utils] Using port 5121
+[2023-11-29 15:59:46,360] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 15:59:47,339] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:00:40,999] [INFO    ] [utils] Initializing AAI environment for task 80: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityGreen-Short-0.5-NA-0-NA.yml
+[2023-11-29 16:00:40,999] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:00:43,616] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:00:44,575] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:01:38,382] [INFO    ] [utils] Initializing AAI environment for task 81: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityGreen-Short-1-NA-0-NA.yml
+[2023-11-29 16:01:38,383] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:01:41,355] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:01:42,484] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:02:35,989] [INFO    ] [utils] Initializing AAI environment for task 82: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityGreen-Short-2-NA-0-NA.yml
+[2023-11-29 16:02:35,990] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:02:39,380] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:02:40,470] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:03:34,819] [INFO    ] [utils] Initializing AAI environment for task 83: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityGreen-Short-4-NA-0-NA.yml
+[2023-11-29 16:03:34,820] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:03:37,924] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:03:39,002] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:04:30,111] [INFO    ] [utils] Initializing AAI environment for task 84: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityYellow-Long-0.5-NA-0-NA.yml
+[2023-11-29 16:04:30,111] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:04:33,063] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:04:34,110] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:05:32,281] [INFO    ] [utils] Initializing AAI environment for task 85: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityYellow-Long-1-NA-0-NA.yml
+[2023-11-29 16:05:32,282] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:05:35,134] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:05:36,175] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:06:29,755] [INFO    ] [utils] Initializing AAI environment for task 86: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityYellow-Long-2-NA-0-NA.yml
+[2023-11-29 16:06:29,756] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:06:32,458] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:06:33,426] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:07:27,114] [INFO    ] [utils] Initializing AAI environment for task 87: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityYellow-Long-4-NA-0-NA.yml
+[2023-11-29 16:07:27,114] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:07:29,792] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:07:30,762] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:08:24,376] [INFO    ] [utils] Initializing AAI environment for task 88: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityYellow-Medium-0.5-NA-0-NA.yml
+[2023-11-29 16:08:24,376] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:08:27,030] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:08:28,015] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:09:21,563] [INFO    ] [utils] Initializing AAI environment for task 89: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityYellow-Medium-1-NA-0-NA.yml
+[2023-11-29 16:09:21,564] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:09:24,213] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:09:25,180] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:10:18,754] [INFO    ] [utils] Initializing AAI environment for task 90: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityYellow-Medium-2-NA-0-NA.yml
+[2023-11-29 16:10:18,754] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:10:21,388] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:10:22,357] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:11:15,854] [INFO    ] [utils] Initializing AAI environment for task 91: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityYellow-Medium-4-NA-0-NA.yml
+[2023-11-29 16:11:15,854] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:11:18,497] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:11:19,478] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:12:13,076] [INFO    ] [utils] Initializing AAI environment for task 92: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityYellow-Short-0.5-NA-0-NA.yml
+[2023-11-29 16:12:13,077] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:12:15,712] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:12:16,677] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:13:10,240] [INFO    ] [utils] Initializing AAI environment for task 93: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityYellow-Short-1-NA-0-NA.yml
+[2023-11-29 16:13:10,240] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:13:12,856] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:13:13,816] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:14:07,211] [INFO    ] [utils] Initializing AAI environment for task 94: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityYellow-Short-2-NA-0-NA.yml
+[2023-11-29 16:14:07,212] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:14:09,826] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:14:10,789] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:15:05,506] [INFO    ] [utils] Initializing AAI environment for task 95: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityYellow-Short-4-NA-0-NA.yml
+[2023-11-29 16:15:05,507] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:15:08,152] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:15:09,120] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:16:02,907] [INFO    ] [utils] Initializing AAI environment for task 96: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TransparentWMedium-Short-0.5-NA-0-Transparent.yml
+[2023-11-29 16:16:02,908] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:16:05,690] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:16:06,789] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:17:00,379] [INFO    ] [utils] Initializing AAI environment for task 97: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TransparentWMedium-Short-1-NA-0-Transparent.yml
+[2023-11-29 16:17:00,380] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:17:03,045] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:17:04,147] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:17:54,847] [INFO    ] [utils] Initializing AAI environment for task 98: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TransparentWMedium-Short-2-NA-0-Transparent.yml
+[2023-11-29 16:17:54,848] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:17:57,478] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:17:58,561] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:18:52,375] [INFO    ] [utils] Initializing AAI environment for task 99: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TransparentWMedium-Short-4-NA-0-Transparent.yml
+[2023-11-29 16:18:52,376] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:18:55,052] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:18:56,151] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:19:49,873] [INFO    ] [utils] Initializing AAI environment for task 100: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurnAround-Green-0.5-NA-180-NA.yml
+[2023-11-29 16:19:49,873] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:19:52,508] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:19:53,478] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:20:47,768] [INFO    ] [utils] Initializing AAI environment for task 101: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurnAround-Green-1-NA-180-NA.yml
+[2023-11-29 16:20:47,768] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:20:50,422] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:20:51,386] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:21:45,201] [INFO    ] [utils] Initializing AAI environment for task 102: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurnAround-Green-2-NA-180-NA.yml
+[2023-11-29 16:21:45,201] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:21:47,840] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:21:48,808] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:22:42,526] [INFO    ] [utils] Initializing AAI environment for task 103: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurnAround-Green-4-NA-180-NA.yml
+[2023-11-29 16:22:42,527] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:22:45,163] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:22:46,131] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:23:39,853] [INFO    ] [utils] Initializing AAI environment for task 104: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurnAround-Yellow-0.5-NA-180-NA.yml
+[2023-11-29 16:23:39,853] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:23:42,541] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:23:43,508] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:24:37,207] [INFO    ] [utils] Initializing AAI environment for task 105: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurnAround-Yellow-1-NA-180-NA.yml
+[2023-11-29 16:24:37,208] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:24:39,836] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:24:40,877] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:25:34,536] [INFO    ] [utils] Initializing AAI environment for task 106: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurnAround-Yellow-2-NA-180-NA.yml
+[2023-11-29 16:25:34,536] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:25:37,172] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:25:38,143] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:26:31,673] [INFO    ] [utils] Initializing AAI environment for task 107: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurnAround-Yellow-4-NA-180-NA.yml
+[2023-11-29 16:26:31,673] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:26:34,315] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:26:35,288] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:27:28,958] [INFO    ] [utils] Initializing AAI environment for task 108: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurningGreen-Left-0.5-NA-0-NA.yml
+[2023-11-29 16:27:28,958] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:27:31,585] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:27:32,560] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:28:26,098] [INFO    ] [utils] Initializing AAI environment for task 109: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurningGreen-Left-1-NA-0-NA.yml
+[2023-11-29 16:28:26,098] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:28:28,789] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:28:29,766] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:29:23,530] [INFO    ] [utils] Initializing AAI environment for task 110: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurningGreen-Left-2-NA-0-NA.yml
+[2023-11-29 16:29:23,530] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:29:26,365] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:29:27,359] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:30:20,724] [INFO    ] [utils] Initializing AAI environment for task 111: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurningGreen-Left-4-NA-0-NA.yml
+[2023-11-29 16:30:20,724] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:30:23,364] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:30:24,335] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:31:14,663] [INFO    ] [utils] Initializing AAI environment for task 112: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurningGreen-Right-0.5-NA-0-NA.yml
+[2023-11-29 16:31:14,664] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:31:17,296] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:31:18,255] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:32:11,843] [INFO    ] [utils] Initializing AAI environment for task 113: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurningGreen-Right-1-NA-0-NA.yml
+[2023-11-29 16:32:11,843] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:32:14,519] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:32:15,474] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:32:17,568] [INFO    ] [utils] Initializing AAI environment for task 114: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurningGreen-Right-2-NA-0-NA.yml
+[2023-11-29 16:32:17,568] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:32:20,211] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:32:21,178] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:32:23,161] [INFO    ] [utils] Initializing AAI environment for task 115: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurningGreen-Right-4-NA-0-NA.yml
+[2023-11-29 16:32:23,162] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:32:25,796] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:32:26,753] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:33:17,250] [INFO    ] [utils] Initializing AAI environment for task 116: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurningYellow-Left-0.5-NA-0-NA.yml
+[2023-11-29 16:33:17,250] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:33:19,897] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:33:20,883] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:34:14,798] [INFO    ] [utils] Initializing AAI environment for task 117: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurningYellow-Left-1-NA-0-NA.yml
+[2023-11-29 16:34:14,798] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:34:17,427] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:34:18,537] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:35:12,085] [INFO    ] [utils] Initializing AAI environment for task 118: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurningYellow-Left-2-NA-0-NA.yml
+[2023-11-29 16:35:12,085] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:35:14,770] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:35:15,765] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:36:09,418] [INFO    ] [utils] Initializing AAI environment for task 119: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurningYellow-Left-4-NA-0-NA.yml
+[2023-11-29 16:36:09,419] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:36:12,111] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:36:13,122] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:37:06,674] [INFO    ] [utils] Initializing AAI environment for task 120: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurningYellow-Right-0.5-NA-0-NA.yml
+[2023-11-29 16:37:06,674] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:37:09,302] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:37:10,274] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:37:12,246] [INFO    ] [utils] Initializing AAI environment for task 121: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurningYellow-Right-1-NA-0-NA.yml
+[2023-11-29 16:37:12,246] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:37:14,876] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:37:15,845] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:37:17,661] [INFO    ] [utils] Initializing AAI environment for task 122: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurningYellow-Right-2-NA-0-NA.yml
+[2023-11-29 16:37:17,661] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:37:20,285] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:37:21,257] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:38:11,628] [INFO    ] [utils] Initializing AAI environment for task 123: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurningYellow-Right-4-NA-0-NA.yml
+[2023-11-29 16:38:11,629] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:38:14,250] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:38:15,215] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:39:08,765] [INFO    ] [utils] Initializing AAI environment for task 124: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-LavaMedium-Single-0.5-NA-0-Lava.yml
+[2023-11-29 16:39:08,765] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:39:11,391] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:39:12,360] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:40:05,911] [INFO    ] [utils] Initializing AAI environment for task 125: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-LavaMedium-Single-1-NA-0-Lava.yml
+[2023-11-29 16:40:05,911] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:40:08,678] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:40:09,971] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:41:02,054] [INFO    ] [utils] Initializing AAI environment for task 126: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-LavaMedium-Single-2-NA-0-Lava.yml
+[2023-11-29 16:41:02,054] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:41:04,698] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:41:05,676] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:41:57,634] [INFO    ] [utils] Initializing AAI environment for task 127: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-LavaMedium-Single-4-NA-0-Lava.yml
+[2023-11-29 16:41:57,635] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:42:00,285] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:42:01,260] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:42:51,683] [INFO    ] [utils] Initializing AAI environment for task 128: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingGreen-LeftLong-0.5-NA-0-NA.yml
+[2023-11-29 16:42:51,684] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:42:54,341] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:42:55,313] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:43:47,609] [INFO    ] [utils] Initializing AAI environment for task 129: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingGreen-LeftLong-1-NA-0-NA.yml
+[2023-11-29 16:43:47,610] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:43:50,238] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:43:51,191] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:44:43,463] [INFO    ] [utils] Initializing AAI environment for task 130: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingGreen-LeftLong-2-NA-0-NA.yml
+[2023-11-29 16:44:43,464] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:44:46,101] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:44:47,073] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:44:51,729] [INFO    ] [utils] Initializing AAI environment for task 131: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingGreen-LeftLong-4-NA-0-NA.yml
+[2023-11-29 16:44:51,730] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:44:54,369] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:44:55,369] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:45:00,034] [INFO    ] [utils] Initializing AAI environment for task 132: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingGreen-LeftMedium-0.5-NA-0-NA.yml
+[2023-11-29 16:45:00,035] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:45:02,681] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:45:03,667] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:45:54,394] [INFO    ] [utils] Initializing AAI environment for task 133: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingGreen-LeftMedium-1-NA-0-NA.yml
+[2023-11-29 16:45:54,394] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:45:57,133] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:45:58,094] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:46:50,421] [INFO    ] [utils] Initializing AAI environment for task 134: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingGreen-LeftMedium-2-NA-0-NA.yml
+[2023-11-29 16:46:50,422] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:46:53,072] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:46:54,056] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:47:46,190] [INFO    ] [utils] Initializing AAI environment for task 135: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingGreen-LeftMedium-4-NA-0-NA.yml
+[2023-11-29 16:47:46,191] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:47:48,835] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:47:49,815] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:47:53,350] [INFO    ] [utils] Initializing AAI environment for task 136: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingGreen-LeftShort-0.5-NA-0-NA.yml
+[2023-11-29 16:47:53,350] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:47:56,038] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:47:56,995] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:48:47,482] [INFO    ] [utils] Initializing AAI environment for task 137: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingGreen-LeftShort-1-NA-0-NA.yml
+[2023-11-29 16:48:47,482] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:48:50,118] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:48:51,094] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:49:43,166] [INFO    ] [utils] Initializing AAI environment for task 138: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingGreen-LeftShort-2-NA-0-NA.yml
+[2023-11-29 16:49:43,166] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:49:46,094] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:49:47,054] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:50:39,325] [INFO    ] [utils] Initializing AAI environment for task 139: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingGreen-LeftShort-4-NA-0-NA.yml
+[2023-11-29 16:50:39,326] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:50:41,970] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:50:42,940] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:51:37,734] [INFO    ] [utils] Initializing AAI environment for task 140: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingGreen-RightLong-0.5-NA-0-NA.yml
+[2023-11-29 16:51:37,735] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:51:40,387] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:51:41,359] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:52:31,778] [INFO    ] [utils] Initializing AAI environment for task 141: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingGreen-RightLong-1-NA-0-NA.yml
+[2023-11-29 16:52:31,779] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:52:34,444] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:52:35,415] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:53:27,494] [INFO    ] [utils] Initializing AAI environment for task 142: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingGreen-RightLong-2-NA-0-NA.yml
+[2023-11-29 16:53:27,495] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:53:30,160] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:53:31,128] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:54:23,272] [INFO    ] [utils] Initializing AAI environment for task 143: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingGreen-RightLong-4-NA-0-NA.yml
+[2023-11-29 16:54:23,273] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:54:25,912] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:54:26,871] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:55:19,041] [INFO    ] [utils] Initializing AAI environment for task 144: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingGreen-RightMedium-0.5-NA-0-NA.yml
+[2023-11-29 16:55:19,042] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:55:21,672] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:55:22,637] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:56:14,665] [INFO    ] [utils] Initializing AAI environment for task 145: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingGreen-RightMedium-1-NA-0-NA.yml
+[2023-11-29 16:56:14,666] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:56:17,300] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:56:18,267] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:57:10,345] [INFO    ] [utils] Initializing AAI environment for task 146: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingGreen-RightMedium-2-NA-0-NA.yml
+[2023-11-29 16:57:10,345] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:57:13,013] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:57:13,972] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:58:07,051] [INFO    ] [utils] Initializing AAI environment for task 147: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingGreen-RightMedium-4-NA-0-NA.yml
+[2023-11-29 16:58:07,052] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:58:09,700] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:58:10,670] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:59:01,147] [INFO    ] [utils] Initializing AAI environment for task 148: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingGreen-RightShort-0.5-NA-0-NA.yml
+[2023-11-29 16:59:01,147] [INFO    ] [utils] Using port 5121
+[2023-11-29 16:59:03,830] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 16:59:04,903] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 16:59:57,245] [INFO    ] [utils] Initializing AAI environment for task 149: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingGreen-RightShort-1-NA-0-NA.yml
+[2023-11-29 16:59:57,246] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:00:01,372] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:00:02,352] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:00:54,873] [INFO    ] [utils] Initializing AAI environment for task 150: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingGreen-RightShort-2-NA-0-NA.yml
+[2023-11-29 17:00:54,874] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:00:57,558] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:00:58,521] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:01:50,584] [INFO    ] [utils] Initializing AAI environment for task 151: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingGreen-RightShort-4-NA-0-NA.yml
+[2023-11-29 17:01:50,584] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:01:53,220] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:01:54,198] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:02:46,330] [INFO    ] [utils] Initializing AAI environment for task 152: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingYellow-LeftLong-0.5-NA-0-NA.yml
+[2023-11-29 17:02:46,330] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:02:48,982] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:02:49,955] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:03:42,093] [INFO    ] [utils] Initializing AAI environment for task 153: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingYellow-LeftLong-1-NA-0-NA.yml
+[2023-11-29 17:03:42,094] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:03:44,736] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:03:45,710] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:03:54,690] [INFO    ] [utils] Initializing AAI environment for task 154: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingYellow-LeftLong-2-NA-0-NA.yml
+[2023-11-29 17:03:54,691] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:03:57,356] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:03:58,328] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:04:02,952] [INFO    ] [utils] Initializing AAI environment for task 155: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingYellow-LeftLong-4-NA-0-NA.yml
+[2023-11-29 17:04:02,953] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:04:05,596] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:04:06,560] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:04:11,746] [INFO    ] [utils] Initializing AAI environment for task 156: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingYellow-LeftMedium-0.5-NA-0-NA.yml
+[2023-11-29 17:04:11,746] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:04:14,380] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:04:15,341] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:05:05,809] [INFO    ] [utils] Initializing AAI environment for task 157: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingYellow-LeftMedium-1-NA-0-NA.yml
+[2023-11-29 17:05:05,810] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:05:08,447] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:05:09,402] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:06:01,473] [INFO    ] [utils] Initializing AAI environment for task 158: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingYellow-LeftMedium-2-NA-0-NA.yml
+[2023-11-29 17:06:01,473] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:06:04,124] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:06:05,085] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:06:57,112] [INFO    ] [utils] Initializing AAI environment for task 159: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingYellow-LeftMedium-4-NA-0-NA.yml
+[2023-11-29 17:06:57,113] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:06:59,780] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:07:00,755] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:07:04,905] [INFO    ] [utils] Initializing AAI environment for task 160: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingYellow-LeftShort-0.5-NA-0-NA.yml
+[2023-11-29 17:07:04,906] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:07:07,544] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:07:08,516] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:07:59,161] [INFO    ] [utils] Initializing AAI environment for task 161: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingYellow-LeftShort-1-NA-0-NA.yml
+[2023-11-29 17:07:59,161] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:08:01,785] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:08:02,747] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:08:54,835] [INFO    ] [utils] Initializing AAI environment for task 162: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingYellow-LeftShort-2-NA-0-NA.yml
+[2023-11-29 17:08:54,836] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:08:57,471] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:08:58,445] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:09:48,875] [INFO    ] [utils] Initializing AAI environment for task 163: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingYellow-LeftShort-4-NA-0-NA.yml
+[2023-11-29 17:09:48,876] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:09:51,509] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:09:52,473] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:10:44,674] [INFO    ] [utils] Initializing AAI environment for task 164: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingYellow-RightLong-0.5-NA-0-NA.yml
+[2023-11-29 17:10:44,674] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:10:47,424] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:10:48,391] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:11:40,540] [INFO    ] [utils] Initializing AAI environment for task 165: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingYellow-RightLong-1-NA-0-NA.yml
+[2023-11-29 17:11:40,541] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:11:43,176] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:11:44,147] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:12:36,672] [INFO    ] [utils] Initializing AAI environment for task 166: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingYellow-RightLong-2-NA-0-NA.yml
+[2023-11-29 17:12:36,673] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:12:39,348] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:12:40,330] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:13:32,470] [INFO    ] [utils] Initializing AAI environment for task 167: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingYellow-RightLong-4-NA-0-NA.yml
+[2023-11-29 17:13:32,471] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:13:35,108] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:13:36,075] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:14:28,393] [INFO    ] [utils] Initializing AAI environment for task 168: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingYellow-RightMedium-0.5-NA-0-NA.yml
+[2023-11-29 17:14:28,393] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:14:31,053] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:14:32,027] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:15:24,195] [INFO    ] [utils] Initializing AAI environment for task 169: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingYellow-RightMedium-1-NA-0-NA.yml
+[2023-11-29 17:15:24,196] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:15:26,830] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:15:27,797] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:16:18,228] [INFO    ] [utils] Initializing AAI environment for task 170: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingYellow-RightMedium-2-NA-0-NA.yml
+[2023-11-29 17:16:18,228] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:16:20,865] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:16:21,824] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:17:14,011] [INFO    ] [utils] Initializing AAI environment for task 171: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingYellow-RightMedium-4-NA-0-NA.yml
+[2023-11-29 17:17:14,012] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:17:16,629] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:17:17,597] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:18:09,737] [INFO    ] [utils] Initializing AAI environment for task 172: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingYellow-RightShort-0.5-NA-0-NA.yml
+[2023-11-29 17:18:09,738] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:18:12,373] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:18:13,342] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:19:05,362] [INFO    ] [utils] Initializing AAI environment for task 173: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingYellow-RightShort-1-NA-0-NA.yml
+[2023-11-29 17:19:05,363] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:19:08,008] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:19:08,978] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:20:01,086] [INFO    ] [utils] Initializing AAI environment for task 174: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingYellow-RightShort-2-NA-0-NA.yml
+[2023-11-29 17:20:01,086] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:20:03,727] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:20:04,697] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:20:56,696] [INFO    ] [utils] Initializing AAI environment for task 175: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingYellow-RightShort-4-NA-0-NA.yml
+[2023-11-29 17:20:56,697] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:20:59,338] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:21:00,298] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:21:01,810] [INFO    ] [utils] Initializing AAI environment for task 176: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MultiStationary-5Y-0.5-NA-0-NA.yml
+[2023-11-29 17:21:01,810] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:21:04,465] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:21:05,441] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:22:22,417] [INFO    ] [utils] Initializing AAI environment for task 177: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MultiStationary-5Y-1-NA-0-NA.yml
+[2023-11-29 17:22:22,418] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:22:25,052] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:22:26,024] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:23:45,570] [INFO    ] [utils] Initializing AAI environment for task 178: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MultiStationary-5Y-2-NA-0-NA.yml
+[2023-11-29 17:23:45,570] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:23:48,200] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:23:49,174] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:25:08,689] [INFO    ] [utils] Initializing AAI environment for task 179: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MultiStationary-5Y-4-NA-0-NA.yml
+[2023-11-29 17:25:08,689] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:25:11,476] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:25:12,442] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:26:30,455] [INFO    ] [utils] Initializing AAI environment for task 180: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-OpaqueWMedium-Short-0.5-Grey-0-Opaque.yml
+[2023-11-29 17:26:30,455] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:26:33,089] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:26:34,066] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:27:27,085] [INFO    ] [utils] Initializing AAI environment for task 181: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-OpaqueWMedium-Short-1-Grey-0-Opaque.yml
+[2023-11-29 17:27:27,086] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:27:29,705] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:27:30,676] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:28:22,809] [INFO    ] [utils] Initializing AAI environment for task 182: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-OpaqueWMedium-Short-2-Grey-0-Opaque.yml
+[2023-11-29 17:28:22,810] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:28:25,430] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:28:26,397] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:29:18,630] [INFO    ] [utils] Initializing AAI environment for task 183: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-OpaqueWMedium-Short-4-Grey-0-Opaque.yml
+[2023-11-29 17:29:18,631] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:29:21,368] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:29:22,463] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:30:12,910] [INFO    ] [utils] Initializing AAI environment for task 184: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-RampDown-G5-Centre-NA-0-NA.yml
+[2023-11-29 17:30:12,911] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:30:15,558] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:30:16,538] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:31:08,634] [INFO    ] [utils] Initializing AAI environment for task 185: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-RampDown-G5-Left-NA-0-NA.yml
+[2023-11-29 17:31:08,634] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:31:11,290] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:31:12,258] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:32:03,985] [INFO    ] [utils] Initializing AAI environment for task 186: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-RampDown-G5-Right-NA-0-NA.yml
+[2023-11-29 17:32:03,985] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:32:06,610] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:32:07,591] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:32:59,345] [INFO    ] [utils] Initializing AAI environment for task 187: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-RampDown-Y5-Centre-NA-0-NA.yml
+[2023-11-29 17:32:59,346] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:33:01,981] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:33:03,084] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:33:07,334] [INFO    ] [utils] Initializing AAI environment for task 188: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-RampDown-Y5-Left-NA-0-NA.yml
+[2023-11-29 17:33:07,335] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:33:09,965] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:33:10,930] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:34:01,349] [INFO    ] [utils] Initializing AAI environment for task 189: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-RampDown-Y5-Right-NA-0-NA.yml
+[2023-11-29 17:34:01,349] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:34:03,978] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:34:04,957] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:34:15,151] [INFO    ] [utils] Initializing AAI environment for task 190: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-RampUp-G5-Centre-NA-0-NA.yml
+[2023-11-29 17:34:15,152] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:34:17,774] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:34:18,746] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:35:09,459] [INFO    ] [utils] Initializing AAI environment for task 191: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-RampUp-G5-Left-NA-0-NA.yml
+[2023-11-29 17:35:09,460] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:35:12,095] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:35:13,076] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:36:04,929] [INFO    ] [utils] Initializing AAI environment for task 192: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-RampUp-G5-Right-NA-0-NA.yml
+[2023-11-29 17:36:04,930] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:36:07,557] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:36:08,529] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:37:00,450] [INFO    ] [utils] Initializing AAI environment for task 193: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-RampUp-Y5-Centre-NA-0-NA.yml
+[2023-11-29 17:37:00,450] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:37:03,087] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:37:04,062] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:37:55,940] [INFO    ] [utils] Initializing AAI environment for task 194: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-RampUp-Y5-Left-NA-0-NA.yml
+[2023-11-29 17:37:55,940] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:37:58,578] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:37:59,548] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:38:49,977] [INFO    ] [utils] Initializing AAI environment for task 195: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-RampUp-Y5-Right-NA-0-NA.yml
+[2023-11-29 17:38:49,977] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:38:52,593] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:38:53,565] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:39:45,511] [INFO    ] [utils] Initializing AAI environment for task 196: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-SanityGreen-Long-0.5-NA-0-NA.yml
+[2023-11-29 17:39:45,512] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:39:48,140] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:39:49,112] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:40:41,005] [INFO    ] [utils] Initializing AAI environment for task 197: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-SanityGreen-Long-1-NA-0-NA.yml
+[2023-11-29 17:40:41,005] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:40:43,644] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:40:44,610] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:41:36,944] [INFO    ] [utils] Initializing AAI environment for task 198: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-SanityGreen-Long-2-NA-0-NA.yml
+[2023-11-29 17:41:36,945] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:41:39,578] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:41:40,545] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:42:33,597] [INFO    ] [utils] Initializing AAI environment for task 199: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-SanityGreen-Long-4-NA-0-NA.yml
+[2023-11-29 17:42:33,598] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:42:36,266] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:42:37,237] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:43:29,343] [INFO    ] [utils] Initializing AAI environment for task 200: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-SanityGreen-Medium-0.5-NA-0-NA.yml
+[2023-11-29 17:43:29,344] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:43:31,992] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:43:32,961] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:44:25,025] [INFO    ] [utils] Initializing AAI environment for task 201: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-SanityGreen-Medium-1-NA-0-NA.yml
+[2023-11-29 17:44:25,026] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:44:27,757] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:44:28,733] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:45:19,154] [INFO    ] [utils] Initializing AAI environment for task 202: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-SanityGreen-Medium-2-NA-0-NA.yml
+[2023-11-29 17:45:19,154] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:45:21,777] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:45:22,736] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:46:14,914] [INFO    ] [utils] Initializing AAI environment for task 203: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-SanityGreen-Medium-4-NA-0-NA.yml
+[2023-11-29 17:46:14,914] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:46:17,550] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:46:18,527] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:47:10,687] [INFO    ] [utils] Initializing AAI environment for task 204: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-SanityGreen-Short-0.5-NA-0-NA.yml
+[2023-11-29 17:47:10,687] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:47:13,383] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:47:14,340] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:48:06,648] [INFO    ] [utils] Initializing AAI environment for task 205: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-SanityGreen-Short-1-NA-0-NA.yml
+[2023-11-29 17:48:06,649] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:48:09,286] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:48:10,254] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:49:02,371] [INFO    ] [utils] Initializing AAI environment for task 206: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-SanityGreen-Short-2-NA-0-NA.yml
+[2023-11-29 17:49:02,372] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:49:05,012] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:49:05,979] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:49:57,995] [INFO    ] [utils] Initializing AAI environment for task 207: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-SanityGreen-Short-4-NA-0-NA.yml
+[2023-11-29 17:49:57,995] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:50:00,626] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:50:01,595] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:50:52,077] [INFO    ] [utils] Initializing AAI environment for task 208: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-SanityYellow-Long-0.5-NA-0-NA.yml
+[2023-11-29 17:50:52,078] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:50:54,687] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:50:55,643] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:51:47,737] [INFO    ] [utils] Initializing AAI environment for task 209: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-SanityYellow-Long-1-NA-0-NA.yml
+[2023-11-29 17:51:47,737] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:51:50,378] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:51:51,347] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:52:43,490] [INFO    ] [utils] Initializing AAI environment for task 210: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-SanityYellow-Long-2-NA-0-NA.yml
+[2023-11-29 17:52:43,490] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:52:46,122] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:52:47,084] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:53:39,243] [INFO    ] [utils] Initializing AAI environment for task 211: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-SanityYellow-Long-4-NA-0-NA.yml
+[2023-11-29 17:53:39,243] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:53:41,882] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:53:42,848] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:54:34,985] [INFO    ] [utils] Initializing AAI environment for task 212: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-SanityYellow-Medium-0.5-NA-0-NA.yml
+[2023-11-29 17:54:34,986] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:54:37,624] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:54:38,590] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:55:30,826] [INFO    ] [utils] Initializing AAI environment for task 213: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-SanityYellow-Medium-1-NA-0-NA.yml
+[2023-11-29 17:55:30,826] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:55:33,611] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:55:34,937] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:56:27,316] [INFO    ] [utils] Initializing AAI environment for task 214: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-SanityYellow-Medium-2-NA-0-NA.yml
+[2023-11-29 17:56:27,317] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:56:29,965] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:56:30,959] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:57:21,352] [INFO    ] [utils] Initializing AAI environment for task 215: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-SanityYellow-Medium-4-NA-0-NA.yml
+[2023-11-29 17:57:21,353] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:57:24,374] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:57:25,394] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:58:17,519] [INFO    ] [utils] Initializing AAI environment for task 216: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-SanityYellow-Short-0.5-NA-0-NA.yml
+[2023-11-29 17:58:17,520] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:58:20,163] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:58:21,151] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 17:59:13,276] [INFO    ] [utils] Initializing AAI environment for task 217: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-SanityYellow-Short-1-NA-0-NA.yml
+[2023-11-29 17:59:13,277] [INFO    ] [utils] Using port 5121
+[2023-11-29 17:59:15,962] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 17:59:16,925] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:00:08,985] [INFO    ] [utils] Initializing AAI environment for task 218: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-SanityYellow-Short-2-NA-0-NA.yml
+[2023-11-29 18:00:08,985] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:00:11,688] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:00:12,649] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:01:04,762] [INFO    ] [utils] Initializing AAI environment for task 219: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-SanityYellow-Short-4-NA-0-NA.yml
+[2023-11-29 18:01:04,763] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:01:07,418] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:01:08,392] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:02:00,562] [INFO    ] [utils] Initializing AAI environment for task 220: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-TransparentWMedium-Short-0.5-NA-0-Transparent.yml
+[2023-11-29 18:02:00,562] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:02:03,190] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:02:04,287] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:02:54,826] [INFO    ] [utils] Initializing AAI environment for task 221: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-TransparentWMedium-Short-1-NA-0-Transparent.yml
+[2023-11-29 18:02:54,826] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:02:57,596] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:02:58,688] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:03:50,963] [INFO    ] [utils] Initializing AAI environment for task 222: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-TransparentWMedium-Short-2-NA-0-Transparent.yml
+[2023-11-29 18:03:50,963] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:03:53,599] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:03:54,691] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:04:47,274] [INFO    ] [utils] Initializing AAI environment for task 223: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-TransparentWMedium-Short-4-NA-0-Transparent.yml
+[2023-11-29 18:04:47,274] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:04:50,355] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:04:51,580] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:05:44,931] [INFO    ] [utils] Initializing AAI environment for task 224: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-TurnAround-Green-0.5-NA-180-NA.yml
+[2023-11-29 18:05:44,931] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:05:48,117] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:05:49,173] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:06:41,728] [INFO    ] [utils] Initializing AAI environment for task 225: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-TurnAround-Green-1-NA-180-NA.yml
+[2023-11-29 18:06:41,728] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:06:44,865] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:06:45,936] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:07:39,393] [INFO    ] [utils] Initializing AAI environment for task 226: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-TurnAround-Green-2-NA-180-NA.yml
+[2023-11-29 18:07:39,393] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:07:42,321] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:07:43,343] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:08:35,470] [INFO    ] [utils] Initializing AAI environment for task 227: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-TurnAround-Green-4-NA-180-NA.yml
+[2023-11-29 18:08:35,470] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:08:38,163] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:08:39,170] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:09:31,196] [INFO    ] [utils] Initializing AAI environment for task 228: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-TurnAround-Yellow-0.5-NA-180-NA.yml
+[2023-11-29 18:09:31,197] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:09:33,914] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:09:34,909] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:10:27,116] [INFO    ] [utils] Initializing AAI environment for task 229: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-TurnAround-Yellow-1-NA-180-NA.yml
+[2023-11-29 18:10:27,116] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:10:29,966] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:10:31,258] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:11:23,328] [INFO    ] [utils] Initializing AAI environment for task 230: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-TurnAround-Yellow-2-NA-180-NA.yml
+[2023-11-29 18:11:23,328] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:11:25,954] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:11:26,916] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:12:19,205] [INFO    ] [utils] Initializing AAI environment for task 231: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-TurnAround-Yellow-4-NA-180-NA.yml
+[2023-11-29 18:12:19,205] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:12:21,825] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:12:22,774] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:13:14,890] [INFO    ] [utils] Initializing AAI environment for task 232: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-TurningGreen-Left-0.5-NA-0-NA.yml
+[2023-11-29 18:13:14,890] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:13:17,572] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:13:18,532] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:14:10,620] [INFO    ] [utils] Initializing AAI environment for task 233: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-TurningGreen-Left-1-NA-0-NA.yml
+[2023-11-29 18:14:10,621] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:14:13,260] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:14:14,235] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:15:09,101] [INFO    ] [utils] Initializing AAI environment for task 234: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-TurningGreen-Left-2-NA-0-NA.yml
+[2023-11-29 18:15:09,102] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:15:13,207] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:15:14,903] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:16:07,052] [INFO    ] [utils] Initializing AAI environment for task 235: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-TurningGreen-Left-4-NA-0-NA.yml
+[2023-11-29 18:16:07,053] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:16:09,686] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:16:10,655] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:17:03,731] [INFO    ] [utils] Initializing AAI environment for task 236: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-TurningGreen-Right-0.5-NA-0-NA.yml
+[2023-11-29 18:17:03,731] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:17:06,375] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:17:07,338] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:17:09,217] [INFO    ] [utils] Initializing AAI environment for task 237: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-TurningGreen-Right-1-NA-0-NA.yml
+[2023-11-29 18:17:09,218] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:17:11,866] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:17:12,833] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:17:14,710] [INFO    ] [utils] Initializing AAI environment for task 238: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-TurningGreen-Right-2-NA-0-NA.yml
+[2023-11-29 18:17:14,710] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:17:17,364] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:17:18,327] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:17:20,331] [INFO    ] [utils] Initializing AAI environment for task 239: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-TurningGreen-Right-4-NA-0-NA.yml
+[2023-11-29 18:17:20,332] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:17:22,976] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:17:23,942] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:18:14,311] [INFO    ] [utils] Initializing AAI environment for task 240: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-TurningYellow-Left-0.5-NA-0-NA.yml
+[2023-11-29 18:18:14,311] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:18:16,957] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:18:17,927] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:19:08,255] [INFO    ] [utils] Initializing AAI environment for task 241: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-TurningYellow-Left-1-NA-0-NA.yml
+[2023-11-29 18:19:08,256] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:19:10,914] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:19:11,875] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:20:03,956] [INFO    ] [utils] Initializing AAI environment for task 242: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-TurningYellow-Left-2-NA-0-NA.yml
+[2023-11-29 18:20:03,957] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:20:06,598] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:20:07,582] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:21:00,125] [INFO    ] [utils] Initializing AAI environment for task 243: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-TurningYellow-Left-4-NA-0-NA.yml
+[2023-11-29 18:21:00,126] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:21:02,772] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:21:03,771] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:21:55,967] [INFO    ] [utils] Initializing AAI environment for task 244: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-TurningYellow-Right-0.5-NA-0-NA.yml
+[2023-11-29 18:21:55,968] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:21:58,592] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:21:59,549] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:22:52,439] [INFO    ] [utils] Initializing AAI environment for task 245: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-TurningYellow-Right-1-NA-0-NA.yml
+[2023-11-29 18:22:52,439] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:22:55,058] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:22:56,019] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:23:48,162] [INFO    ] [utils] Initializing AAI environment for task 246: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-TurningYellow-Right-2-NA-0-NA.yml
+[2023-11-29 18:23:48,163] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:23:50,809] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:23:51,774] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:24:44,001] [INFO    ] [utils] Initializing AAI environment for task 247: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-TurningYellow-Right-4-NA-0-NA.yml
+[2023-11-29 18:24:44,002] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:24:46,638] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:24:47,600] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:25:39,657] [INFO    ] [utils] Initializing AAI environment for task 248: ../../configs/tests_agents/basic_controls/tutorial_0_ready-G2-sanity_timelimit.yml
+[2023-11-29 18:25:39,658] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:25:42,418] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:25:43,672] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:26:34,171] [INFO    ] [utils] Initializing AAI environment for task 249: ../../configs/tests_agents/basic_controls/tutorial_1_turning-G2-rightfar_timelimit.yml
+[2023-11-29 18:26:34,171] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:26:36,784] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:26:37,755] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:26:43,622] [INFO    ] [utils] Initializing AAI environment for task 250: ../../configs/tests_agents/basic_controls/tutorial_2_forcedchoice-lavaleft-G2-right_timelimit.yml
+[2023-11-29 18:26:43,622] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:26:46,254] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:26:47,234] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:27:37,674] [INFO    ] [utils] Initializing AAI environment for task 251: ../../configs/tests_agents/basic_controls/tutorial_3_3choicecylinder-G1.5-left_timelimit.yml
+[2023-11-29 18:27:37,674] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:27:41,307] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:27:42,281] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:28:35,978] [INFO    ] [utils] Initializing AAI environment for task 252: ../../configs/tests_agents/basic_controls/tutorial_4_3choicecylinder-G1.5-right_timelimit.yml
+[2023-11-29 18:28:35,979] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:28:38,607] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:28:39,573] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:29:33,235] [INFO    ] [utils] Initializing AAI environment for task 253: ../../configs/tests_agents/basic_controls/tutorial_5_multi-2Y2-left_timelimit.yml
+[2023-11-29 18:29:33,235] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:29:35,848] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:29:36,821] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:30:30,867] [INFO    ] [utils] Initializing AAI environment for task 0: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-LavaMedium-Single-0.5-NA-0-Lava.yml
+[2023-11-29 18:30:30,867] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:30:33,492] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:30:34,463] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:31:28,005] [INFO    ] [utils] Initializing AAI environment for task 1: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-LavaMedium-Single-1-NA-0-Lava.yml
+[2023-11-29 18:31:28,006] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:31:30,629] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:31:31,596] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:32:25,215] [INFO    ] [utils] Initializing AAI environment for task 2: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-LavaMedium-Single-2-NA-0-Lava.yml
+[2023-11-29 18:32:25,216] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:32:27,843] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:32:28,812] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:33:22,352] [INFO    ] [utils] Initializing AAI environment for task 3: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-LavaMedium-Single-4-NA-0-Lava.yml
+[2023-11-29 18:33:22,353] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:33:24,959] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:33:25,926] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:34:22,174] [INFO    ] [utils] Initializing AAI environment for task 4: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-LeftLong-0.5-NA-0-NA.yml
+[2023-11-29 18:34:22,174] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:34:24,808] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:34:25,773] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:35:19,503] [INFO    ] [utils] Initializing AAI environment for task 5: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-LeftLong-1-NA-0-NA.yml
+[2023-11-29 18:35:19,504] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:35:22,144] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:35:23,160] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:36:17,407] [INFO    ] [utils] Initializing AAI environment for task 6: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-LeftLong-2-NA-0-NA.yml
+[2023-11-29 18:36:17,407] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:36:20,333] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:36:21,358] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:36:26,202] [INFO    ] [utils] Initializing AAI environment for task 7: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-LeftLong-4-NA-0-NA.yml
+[2023-11-29 18:36:26,203] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:36:28,851] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:36:29,898] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:36:36,729] [INFO    ] [utils] Initializing AAI environment for task 8: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-LeftMedium-0.5-NA-0-NA.yml
+[2023-11-29 18:36:36,729] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:36:39,364] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:36:40,322] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:37:30,937] [INFO    ] [utils] Initializing AAI environment for task 9: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-LeftMedium-1-NA-0-NA.yml
+[2023-11-29 18:37:30,938] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:37:33,560] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:37:34,523] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:38:27,979] [INFO    ] [utils] Initializing AAI environment for task 10: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-LeftMedium-2-NA-0-NA.yml
+[2023-11-29 18:38:27,980] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:38:30,600] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:38:31,567] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:39:25,040] [INFO    ] [utils] Initializing AAI environment for task 11: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-LeftMedium-4-NA-0-NA.yml
+[2023-11-29 18:39:25,041] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:39:27,660] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:39:28,620] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:40:22,139] [INFO    ] [utils] Initializing AAI environment for task 12: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-LeftShort-0.5-NA-0-NA.yml
+[2023-11-29 18:40:22,140] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:40:24,843] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:40:25,809] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:41:19,322] [INFO    ] [utils] Initializing AAI environment for task 13: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-LeftShort-1-NA-0-NA.yml
+[2023-11-29 18:41:19,322] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:41:21,965] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:41:22,929] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:42:16,343] [INFO    ] [utils] Initializing AAI environment for task 14: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-LeftShort-2-NA-0-NA.yml
+[2023-11-29 18:42:16,343] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:42:18,996] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:42:20,020] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:43:10,701] [INFO    ] [utils] Initializing AAI environment for task 15: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-LeftShort-4-NA-0-NA.yml
+[2023-11-29 18:43:10,702] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:43:13,327] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:43:14,295] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:44:07,943] [INFO    ] [utils] Initializing AAI environment for task 16: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-RightLong-0.5-NA-0-NA.yml
+[2023-11-29 18:44:07,943] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:44:10,576] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:44:11,543] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:45:05,147] [INFO    ] [utils] Initializing AAI environment for task 17: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-RightLong-1-NA-0-NA.yml
+[2023-11-29 18:45:05,148] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:45:07,804] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:45:08,771] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:46:02,748] [INFO    ] [utils] Initializing AAI environment for task 18: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-RightLong-2-NA-0-NA.yml
+[2023-11-29 18:46:02,749] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:46:05,383] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:46:06,366] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:47:00,010] [INFO    ] [utils] Initializing AAI environment for task 19: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-RightLong-4-NA-0-NA.yml
+[2023-11-29 18:47:00,011] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:47:02,690] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:47:03,662] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:47:57,191] [INFO    ] [utils] Initializing AAI environment for task 20: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-RightMedium-0.5-NA-0-NA.yml
+[2023-11-29 18:47:57,192] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:47:59,930] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:48:00,891] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:48:02,700] [INFO    ] [utils] Initializing AAI environment for task 21: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-RightMedium-1-NA-0-NA.yml
+[2023-11-29 18:48:02,701] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:48:05,350] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:48:06,302] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:48:08,068] [INFO    ] [utils] Initializing AAI environment for task 22: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-RightMedium-2-NA-0-NA.yml
+[2023-11-29 18:48:08,069] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:48:10,708] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:48:11,687] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:49:02,055] [INFO    ] [utils] Initializing AAI environment for task 23: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-RightMedium-4-NA-0-NA.yml
+[2023-11-29 18:49:02,055] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:49:04,697] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:49:05,664] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:49:59,333] [INFO    ] [utils] Initializing AAI environment for task 24: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-RightShort-0.5-NA-0-NA.yml
+[2023-11-29 18:49:59,333] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:50:01,992] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:50:02,951] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:50:56,434] [INFO    ] [utils] Initializing AAI environment for task 25: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-RightShort-1-NA-0-NA.yml
+[2023-11-29 18:50:56,434] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:50:59,084] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:51:00,080] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:51:54,112] [INFO    ] [utils] Initializing AAI environment for task 26: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-RightShort-2-NA-0-NA.yml
+[2023-11-29 18:51:54,112] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:51:56,746] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:51:57,704] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:52:51,299] [INFO    ] [utils] Initializing AAI environment for task 27: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingGreen-RightShort-4-NA-0-NA.yml
+[2023-11-29 18:52:51,299] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:52:53,969] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:52:54,928] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:53:48,557] [INFO    ] [utils] Initializing AAI environment for task 28: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-LeftLong-0.5-NA-0-NA.yml
+[2023-11-29 18:53:48,558] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:53:51,183] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:53:52,151] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:54:09,273] [INFO    ] [utils] Initializing AAI environment for task 29: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-LeftLong-1-NA-0-NA.yml
+[2023-11-29 18:54:09,274] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:54:11,904] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:54:12,868] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:54:21,357] [INFO    ] [utils] Initializing AAI environment for task 30: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-LeftLong-2-NA-0-NA.yml
+[2023-11-29 18:54:21,358] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:54:23,996] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:54:24,975] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:55:15,782] [INFO    ] [utils] Initializing AAI environment for task 31: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-LeftLong-4-NA-0-NA.yml
+[2023-11-29 18:55:15,783] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:55:18,416] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:55:19,383] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:55:25,465] [INFO    ] [utils] Initializing AAI environment for task 32: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-LeftMedium-0.5-NA-0-NA.yml
+[2023-11-29 18:55:25,465] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:55:28,122] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:55:29,093] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:56:19,743] [INFO    ] [utils] Initializing AAI environment for task 33: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-LeftMedium-1-NA-0-NA.yml
+[2023-11-29 18:56:19,743] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:56:22,385] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:56:23,358] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:57:17,014] [INFO    ] [utils] Initializing AAI environment for task 34: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-LeftMedium-2-NA-0-NA.yml
+[2023-11-29 18:57:17,014] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:57:19,642] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:57:20,597] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:58:14,254] [INFO    ] [utils] Initializing AAI environment for task 35: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-LeftMedium-4-NA-0-NA.yml
+[2023-11-29 18:58:14,255] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:58:16,891] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:58:17,855] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 18:59:11,449] [INFO    ] [utils] Initializing AAI environment for task 36: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-LeftShort-0.5-NA-0-NA.yml
+[2023-11-29 18:59:11,449] [INFO    ] [utils] Using port 5121
+[2023-11-29 18:59:14,094] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 18:59:15,062] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:00:08,700] [INFO    ] [utils] Initializing AAI environment for task 37: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-LeftShort-1-NA-0-NA.yml
+[2023-11-29 19:00:08,701] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:00:11,536] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:00:12,511] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:01:06,089] [INFO    ] [utils] Initializing AAI environment for task 38: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-LeftShort-2-NA-0-NA.yml
+[2023-11-29 19:01:06,089] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:01:08,733] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:01:09,688] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:02:03,230] [INFO    ] [utils] Initializing AAI environment for task 39: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-LeftShort-4-NA-0-NA.yml
+[2023-11-29 19:02:03,231] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:02:05,870] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:02:06,836] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:03:00,404] [INFO    ] [utils] Initializing AAI environment for task 40: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-RightLong-0.5-NA-0-NA.yml
+[2023-11-29 19:03:00,404] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:03:03,050] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:03:04,021] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:03:57,563] [INFO    ] [utils] Initializing AAI environment for task 41: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-RightLong-1-NA-0-NA.yml
+[2023-11-29 19:03:57,564] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:04:00,193] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:04:01,156] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:04:51,574] [INFO    ] [utils] Initializing AAI environment for task 42: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-RightLong-2-NA-0-NA.yml
+[2023-11-29 19:04:51,574] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:04:54,208] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:04:55,171] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:05:48,748] [INFO    ] [utils] Initializing AAI environment for task 43: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-RightLong-4-NA-0-NA.yml
+[2023-11-29 19:05:48,748] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:05:51,384] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:05:52,351] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:06:46,020] [INFO    ] [utils] Initializing AAI environment for task 44: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-RightMedium-0.5-NA-0-NA.yml
+[2023-11-29 19:06:46,021] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:06:48,666] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:06:49,628] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:07:43,270] [INFO    ] [utils] Initializing AAI environment for task 45: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-RightMedium-1-NA-0-NA.yml
+[2023-11-29 19:07:43,270] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:07:45,937] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:07:46,905] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:08:40,509] [INFO    ] [utils] Initializing AAI environment for task 46: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-RightMedium-2-NA-0-NA.yml
+[2023-11-29 19:08:40,510] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:08:43,142] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:08:44,114] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:09:37,749] [INFO    ] [utils] Initializing AAI environment for task 47: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-RightMedium-4-NA-0-NA.yml
+[2023-11-29 19:09:37,749] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:09:40,391] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:09:41,364] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:10:34,974] [INFO    ] [utils] Initializing AAI environment for task 48: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-RightShort-0.5-NA-0-NA.yml
+[2023-11-29 19:10:34,975] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:10:37,609] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:10:38,580] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:11:32,200] [INFO    ] [utils] Initializing AAI environment for task 49: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-RightShort-1-NA-0-NA.yml
+[2023-11-29 19:11:32,200] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:11:34,840] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:11:35,813] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:12:29,403] [INFO    ] [utils] Initializing AAI environment for task 50: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-RightShort-2-NA-0-NA.yml
+[2023-11-29 19:12:29,403] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:12:32,037] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:12:33,007] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:13:26,596] [INFO    ] [utils] Initializing AAI environment for task 51: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MovingYellow-RightShort-4-NA-0-NA.yml
+[2023-11-29 19:13:26,597] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:13:29,229] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:13:30,189] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:13:31,635] [INFO    ] [utils] Initializing AAI environment for task 52: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MultiStationary-5Y-0.5-NA-0-NA.yml
+[2023-11-29 19:13:31,636] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:13:34,278] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:13:35,245] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:14:52,243] [INFO    ] [utils] Initializing AAI environment for task 53: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MultiStationary-5Y-1-NA-0-NA.yml
+[2023-11-29 19:14:52,247] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:14:54,912] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:14:56,104] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:16:18,114] [INFO    ] [utils] Initializing AAI environment for task 54: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MultiStationary-5Y-2-NA-0-NA.yml
+[2023-11-29 19:16:18,114] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:16:20,748] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:16:21,716] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:17:42,082] [INFO    ] [utils] Initializing AAI environment for task 55: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-MultiStationary-5Y-4-NA-0-NA.yml
+[2023-11-29 19:17:42,082] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:17:44,703] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:17:45,667] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:19:05,878] [INFO    ] [utils] Initializing AAI environment for task 56: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-OpaqueWMedium-Short-0.5-Grey-0-Opaque.yml
+[2023-11-29 19:19:05,879] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:19:08,513] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:19:09,483] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:20:04,741] [INFO    ] [utils] Initializing AAI environment for task 57: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-OpaqueWMedium-Short-1-Grey-0-Opaque.yml
+[2023-11-29 19:20:04,742] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:20:07,379] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:20:08,347] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:21:01,982] [INFO    ] [utils] Initializing AAI environment for task 58: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-OpaqueWMedium-Short-2-Grey-0-Opaque.yml
+[2023-11-29 19:21:01,983] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:21:04,616] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:21:05,590] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:21:59,153] [INFO    ] [utils] Initializing AAI environment for task 59: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-OpaqueWMedium-Short-4-Grey-0-Opaque.yml
+[2023-11-29 19:21:59,154] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:22:01,792] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:22:02,763] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:22:56,938] [INFO    ] [utils] Initializing AAI environment for task 60: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-RampDown-G5-Centre-NA-0-NA.yml
+[2023-11-29 19:22:56,939] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:22:59,611] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:23:00,597] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:23:54,196] [INFO    ] [utils] Initializing AAI environment for task 61: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-RampDown-G5-Left-NA-0-NA.yml
+[2023-11-29 19:23:54,197] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:23:56,834] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:23:57,816] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:24:50,601] [INFO    ] [utils] Initializing AAI environment for task 62: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-RampDown-G5-Right-NA-0-NA.yml
+[2023-11-29 19:24:50,602] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:24:53,236] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:24:54,346] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:25:44,774] [INFO    ] [utils] Initializing AAI environment for task 63: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-RampDown-Y5-Centre-NA-0-NA.yml
+[2023-11-29 19:25:44,774] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:25:47,421] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:25:48,572] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:26:41,525] [INFO    ] [utils] Initializing AAI environment for task 64: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-RampDown-Y5-Left-NA-0-NA.yml
+[2023-11-29 19:26:41,525] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:26:44,171] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:26:45,149] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:27:37,922] [INFO    ] [utils] Initializing AAI environment for task 65: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-RampDown-Y5-Right-NA-0-NA.yml
+[2023-11-29 19:27:37,922] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:27:40,563] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:27:41,549] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:28:34,394] [INFO    ] [utils] Initializing AAI environment for task 66: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-RampUp-G5-Centre-NA-0-NA.yml
+[2023-11-29 19:28:34,395] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:28:37,051] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:28:38,032] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:29:30,946] [INFO    ] [utils] Initializing AAI environment for task 67: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-RampUp-G5-Left-NA-0-NA.yml
+[2023-11-29 19:29:30,946] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:29:33,599] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:29:34,573] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:30:27,188] [INFO    ] [utils] Initializing AAI environment for task 68: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-RampUp-G5-Right-NA-0-NA.yml
+[2023-11-29 19:30:27,188] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:30:29,825] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:30:30,795] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:31:23,467] [INFO    ] [utils] Initializing AAI environment for task 69: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-RampUp-Y5-Centre-NA-0-NA.yml
+[2023-11-29 19:31:23,467] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:31:26,098] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:31:27,076] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:32:20,351] [INFO    ] [utils] Initializing AAI environment for task 70: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-RampUp-Y5-Left-NA-0-NA.yml
+[2023-11-29 19:32:20,352] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:32:22,989] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:32:23,963] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:33:16,602] [INFO    ] [utils] Initializing AAI environment for task 71: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-RampUp-Y5-Right-NA-0-NA.yml
+[2023-11-29 19:33:16,603] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:33:19,236] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:33:20,210] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:34:12,824] [INFO    ] [utils] Initializing AAI environment for task 72: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityGreen-Long-0.5-NA-0-NA.yml
+[2023-11-29 19:34:12,825] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:34:15,488] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:34:16,463] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:35:09,387] [INFO    ] [utils] Initializing AAI environment for task 73: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityGreen-Long-1-NA-0-NA.yml
+[2023-11-29 19:35:09,387] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:35:12,042] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:35:13,029] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:36:06,540] [INFO    ] [utils] Initializing AAI environment for task 74: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityGreen-Long-2-NA-0-NA.yml
+[2023-11-29 19:36:06,540] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:36:09,192] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:36:10,165] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:37:03,857] [INFO    ] [utils] Initializing AAI environment for task 75: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityGreen-Long-4-NA-0-NA.yml
+[2023-11-29 19:37:03,858] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:37:06,488] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:37:07,444] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:38:01,022] [INFO    ] [utils] Initializing AAI environment for task 76: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityGreen-Medium-0.5-NA-0-NA.yml
+[2023-11-29 19:38:01,022] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:38:03,660] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:38:04,634] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:38:55,071] [INFO    ] [utils] Initializing AAI environment for task 77: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityGreen-Medium-1-NA-0-NA.yml
+[2023-11-29 19:38:55,072] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:38:57,708] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:38:58,687] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:39:52,573] [INFO    ] [utils] Initializing AAI environment for task 78: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityGreen-Medium-2-NA-0-NA.yml
+[2023-11-29 19:39:52,573] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:39:55,221] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:39:56,204] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:40:50,165] [INFO    ] [utils] Initializing AAI environment for task 79: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityGreen-Medium-4-NA-0-NA.yml
+[2023-11-29 19:40:50,165] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:40:52,958] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:40:54,146] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:41:47,961] [INFO    ] [utils] Initializing AAI environment for task 80: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityGreen-Short-0.5-NA-0-NA.yml
+[2023-11-29 19:41:47,962] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:41:50,608] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:41:51,615] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:42:45,674] [INFO    ] [utils] Initializing AAI environment for task 81: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityGreen-Short-1-NA-0-NA.yml
+[2023-11-29 19:42:45,675] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:42:48,622] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:42:49,582] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:43:43,153] [INFO    ] [utils] Initializing AAI environment for task 82: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityGreen-Short-2-NA-0-NA.yml
+[2023-11-29 19:43:43,153] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:43:45,788] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:43:46,750] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:44:40,410] [INFO    ] [utils] Initializing AAI environment for task 83: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityGreen-Short-4-NA-0-NA.yml
+[2023-11-29 19:44:40,411] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:44:43,052] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:44:44,021] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:45:37,574] [INFO    ] [utils] Initializing AAI environment for task 84: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityYellow-Long-0.5-NA-0-NA.yml
+[2023-11-29 19:45:37,575] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:45:40,205] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:45:41,169] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:46:34,749] [INFO    ] [utils] Initializing AAI environment for task 85: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityYellow-Long-1-NA-0-NA.yml
+[2023-11-29 19:46:34,750] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:46:37,381] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:46:38,351] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:47:31,910] [INFO    ] [utils] Initializing AAI environment for task 86: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityYellow-Long-2-NA-0-NA.yml
+[2023-11-29 19:47:31,911] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:47:34,543] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:47:35,511] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:48:28,993] [INFO    ] [utils] Initializing AAI environment for task 87: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityYellow-Long-4-NA-0-NA.yml
+[2023-11-29 19:48:28,994] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:48:31,623] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:48:32,579] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:49:26,122] [INFO    ] [utils] Initializing AAI environment for task 88: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityYellow-Medium-0.5-NA-0-NA.yml
+[2023-11-29 19:49:26,123] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:49:28,765] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:49:29,740] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:50:23,340] [INFO    ] [utils] Initializing AAI environment for task 89: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityYellow-Medium-1-NA-0-NA.yml
+[2023-11-29 19:50:23,340] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:50:25,974] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:50:26,950] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:51:20,526] [INFO    ] [utils] Initializing AAI environment for task 90: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityYellow-Medium-2-NA-0-NA.yml
+[2023-11-29 19:51:20,526] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:51:23,167] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:51:24,137] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:52:14,552] [INFO    ] [utils] Initializing AAI environment for task 91: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityYellow-Medium-4-NA-0-NA.yml
+[2023-11-29 19:52:14,553] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:52:17,174] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:52:18,137] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:53:11,725] [INFO    ] [utils] Initializing AAI environment for task 92: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityYellow-Short-0.5-NA-0-NA.yml
+[2023-11-29 19:53:11,725] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:53:14,348] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:53:15,373] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:54:09,008] [INFO    ] [utils] Initializing AAI environment for task 93: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityYellow-Short-1-NA-0-NA.yml
+[2023-11-29 19:54:09,009] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:54:11,634] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:54:12,619] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:55:06,248] [INFO    ] [utils] Initializing AAI environment for task 94: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityYellow-Short-2-NA-0-NA.yml
+[2023-11-29 19:55:06,248] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:55:08,873] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:55:09,877] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:56:03,502] [INFO    ] [utils] Initializing AAI environment for task 95: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-SanityYellow-Short-4-NA-0-NA.yml
+[2023-11-29 19:56:03,502] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:56:06,119] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:56:07,129] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:57:00,690] [INFO    ] [utils] Initializing AAI environment for task 96: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TransparentWMedium-Short-0.5-NA-0-Transparent.yml
+[2023-11-29 19:57:00,690] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:57:03,318] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:57:04,457] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:57:58,161] [INFO    ] [utils] Initializing AAI environment for task 97: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TransparentWMedium-Short-1-NA-0-Transparent.yml
+[2023-11-29 19:57:58,161] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:58:00,791] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:58:01,933] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:58:55,697] [INFO    ] [utils] Initializing AAI environment for task 98: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TransparentWMedium-Short-2-NA-0-Transparent.yml
+[2023-11-29 19:58:55,697] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:58:58,339] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:58:59,499] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 19:59:53,284] [INFO    ] [utils] Initializing AAI environment for task 99: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TransparentWMedium-Short-4-NA-0-Transparent.yml
+[2023-11-29 19:59:53,285] [INFO    ] [utils] Using port 5121
+[2023-11-29 19:59:56,124] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 19:59:57,363] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:00:51,077] [INFO    ] [utils] Initializing AAI environment for task 100: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurnAround-Green-0.5-NA-180-NA.yml
+[2023-11-29 20:00:51,077] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:00:53,702] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:00:54,653] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:01:48,665] [INFO    ] [utils] Initializing AAI environment for task 101: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurnAround-Green-1-NA-180-NA.yml
+[2023-11-29 20:01:48,665] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:01:51,594] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:01:52,602] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:02:46,196] [INFO    ] [utils] Initializing AAI environment for task 102: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurnAround-Green-2-NA-180-NA.yml
+[2023-11-29 20:02:46,197] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:02:48,805] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:02:49,816] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:03:43,371] [INFO    ] [utils] Initializing AAI environment for task 103: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurnAround-Green-4-NA-180-NA.yml
+[2023-11-29 20:03:43,371] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:03:46,027] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:03:47,030] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:04:37,463] [INFO    ] [utils] Initializing AAI environment for task 104: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurnAround-Yellow-0.5-NA-180-NA.yml
+[2023-11-29 20:04:37,463] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:04:40,090] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:04:41,066] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:05:35,833] [INFO    ] [utils] Initializing AAI environment for task 105: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurnAround-Yellow-1-NA-180-NA.yml
+[2023-11-29 20:05:35,834] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:05:38,832] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:05:39,857] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:06:33,504] [INFO    ] [utils] Initializing AAI environment for task 106: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurnAround-Yellow-2-NA-180-NA.yml
+[2023-11-29 20:06:33,505] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:06:36,538] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:06:37,545] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:07:31,133] [INFO    ] [utils] Initializing AAI environment for task 107: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurnAround-Yellow-4-NA-180-NA.yml
+[2023-11-29 20:07:31,134] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:07:34,472] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:07:35,494] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:08:29,076] [INFO    ] [utils] Initializing AAI environment for task 108: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurningGreen-Left-0.5-NA-0-NA.yml
+[2023-11-29 20:08:29,076] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:08:31,763] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:08:32,756] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:09:26,336] [INFO    ] [utils] Initializing AAI environment for task 109: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurningGreen-Left-1-NA-0-NA.yml
+[2023-11-29 20:09:26,337] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:09:29,066] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:09:30,045] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:10:23,577] [INFO    ] [utils] Initializing AAI environment for task 110: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurningGreen-Left-2-NA-0-NA.yml
+[2023-11-29 20:10:23,578] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:10:26,207] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:10:27,298] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:11:22,082] [INFO    ] [utils] Initializing AAI environment for task 111: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurningGreen-Left-4-NA-0-NA.yml
+[2023-11-29 20:11:22,083] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:11:24,750] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:11:25,780] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:12:19,510] [INFO    ] [utils] Initializing AAI environment for task 112: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurningGreen-Right-0.5-NA-0-NA.yml
+[2023-11-29 20:12:19,511] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:12:22,152] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:12:23,179] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:13:16,882] [INFO    ] [utils] Initializing AAI environment for task 113: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurningGreen-Right-1-NA-0-NA.yml
+[2023-11-29 20:13:16,882] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:13:19,510] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:13:20,499] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:14:14,161] [INFO    ] [utils] Initializing AAI environment for task 114: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurningGreen-Right-2-NA-0-NA.yml
+[2023-11-29 20:14:14,161] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:14:16,804] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:14:17,828] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:14:19,943] [INFO    ] [utils] Initializing AAI environment for task 115: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurningGreen-Right-4-NA-0-NA.yml
+[2023-11-29 20:14:19,944] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:14:22,575] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:14:23,571] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:15:15,472] [INFO    ] [utils] Initializing AAI environment for task 116: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurningYellow-Left-0.5-NA-0-NA.yml
+[2023-11-29 20:15:15,473] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:15:19,848] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:15:20,886] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:16:14,435] [INFO    ] [utils] Initializing AAI environment for task 117: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurningYellow-Left-1-NA-0-NA.yml
+[2023-11-29 20:16:14,436] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:16:17,099] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:16:18,135] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:17:11,697] [INFO    ] [utils] Initializing AAI environment for task 118: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurningYellow-Left-2-NA-0-NA.yml
+[2023-11-29 20:17:11,698] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:17:14,356] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:17:15,404] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:18:05,799] [INFO    ] [utils] Initializing AAI environment for task 119: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurningYellow-Left-4-NA-0-NA.yml
+[2023-11-29 20:18:05,799] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:18:08,456] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:18:09,488] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:19:03,299] [INFO    ] [utils] Initializing AAI environment for task 120: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurningYellow-Right-0.5-NA-0-NA.yml
+[2023-11-29 20:19:03,299] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:19:05,939] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:19:06,956] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:19:09,084] [INFO    ] [utils] Initializing AAI environment for task 121: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurningYellow-Right-1-NA-0-NA.yml
+[2023-11-29 20:19:09,084] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:19:11,740] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:19:12,755] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:20:03,195] [INFO    ] [utils] Initializing AAI environment for task 122: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurningYellow-Right-2-NA-0-NA.yml
+[2023-11-29 20:20:03,195] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:20:05,961] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:20:07,002] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:21:00,666] [INFO    ] [utils] Initializing AAI environment for task 123: ../../configs/tests_agents/basic_controls/OP-Controls-Basic-TurningYellow-Right-4-NA-0-NA.yml
+[2023-11-29 20:21:00,667] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:21:03,320] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:21:04,492] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:21:58,160] [INFO    ] [utils] Initializing AAI environment for task 124: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-LavaMedium-Single-0.5-NA-0-Lava.yml
+[2023-11-29 20:21:58,161] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:22:00,804] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:22:01,816] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:22:55,420] [INFO    ] [utils] Initializing AAI environment for task 125: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-LavaMedium-Single-1-NA-0-Lava.yml
+[2023-11-29 20:22:55,421] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:22:58,075] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:22:59,104] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:23:51,224] [INFO    ] [utils] Initializing AAI environment for task 126: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-LavaMedium-Single-2-NA-0-Lava.yml
+[2023-11-29 20:23:51,225] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:23:53,865] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:23:54,875] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:24:47,010] [INFO    ] [utils] Initializing AAI environment for task 127: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-LavaMedium-Single-4-NA-0-Lava.yml
+[2023-11-29 20:24:47,010] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:24:49,643] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:24:50,645] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:25:42,835] [INFO    ] [utils] Initializing AAI environment for task 128: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingGreen-LeftLong-0.5-NA-0-NA.yml
+[2023-11-29 20:25:42,835] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:25:45,478] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:25:46,470] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:26:03,174] [INFO    ] [utils] Initializing AAI environment for task 129: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingGreen-LeftLong-1-NA-0-NA.yml
+[2023-11-29 20:26:03,174] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:26:05,792] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:26:07,033] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:26:49,706] [INFO    ] [utils] Initializing AAI environment for task 130: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingGreen-LeftLong-2-NA-0-NA.yml
+[2023-11-29 20:26:49,707] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:26:52,343] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:26:53,373] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:27:43,766] [INFO    ] [utils] Initializing AAI environment for task 131: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingGreen-LeftLong-4-NA-0-NA.yml
+[2023-11-29 20:27:43,767] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:27:46,424] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:27:47,419] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:27:53,716] [INFO    ] [utils] Initializing AAI environment for task 132: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingGreen-LeftMedium-0.5-NA-0-NA.yml
+[2023-11-29 20:27:53,716] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:27:56,612] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:27:57,652] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:28:48,035] [INFO    ] [utils] Initializing AAI environment for task 133: ../../configs/tests_agents/basic_controls/OP-Controls-Basic15LO-MovingGreen-LeftMedium-1-NA-0-NA.yml
+[2023-11-29 20:28:48,035] [INFO    ] [utils] Using port 5121
+[2023-11-29 20:28:50,656] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-29 20:28:51,670] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-29 20:29:29,943] [INFO    ] [train] Closing environment
+[2023-11-29 20:29:30,288] [INFO    ] [train] Environment closed.
