@@ -34,6 +34,82 @@ rounding <- 4
 
 options(scipen = 999) #turn of scientific notation
 
+
+density_bar_plotter <- function(task_data){
+  
+plot <- task_data %>% 
+  ggplot(aes(x = agent_type, y = proportionSuccess)) + 
+  ggdist::stat_halfeye(
+    aes(color = agent_type,
+        fill = after_scale(lighten(color, .5))),
+    adjust = 10, 
+    width = .6, 
+    .width = 0,
+    #normalize = "all",
+    justification = -0.5, 
+    point_color = NA) + 
+  geom_boxplot(
+    aes(color = agent_type,
+        color = after_scale(darken(color, .1, space = "HLS")),
+        fill = after_scale(desaturate(lighten(color, .8), .4))),
+    width = .42, 
+    outlier.shape = 4
+  ) +
+  # geom_point(
+  #   aes(color = agent_type,
+  #       color = after_scale(darken(color, .1, space = "HLS")),
+  #       fill = agent_type),
+  #   # fill = "white",
+  #   shape = 21,
+  #   stroke = .4,
+  #   size = 2,
+  #   #position = position_jitter(seed = 1, width = .12)
+  #   position = position_dodgejust(width = 1, justification = 1.1)
+  # ) + 
+  # geom_point(
+  #   aes(fill = agent_type),
+  #   color = "transparent",
+  #   shape = 21,
+  #   stroke = .4,
+  #   size = 2,
+  #   alpha = .3,
+  #   position = position_jitter(seed = 1, width = .12)
+  # )  +
+  coord_flip(xlim = c(1.2, NA), clip = "off") +
+   scale_color_manual(values = pal, guide = "none") +
+   scale_fill_manual(values = pal, guide = "none") +
+  labs(
+    x = NULL,
+    y = "Proportion Points Obtained",
+    title = "Proportion of Points Obtained By Agent Type",
+  ) +
+  theme_minimal(base_family = "Arial", base_size = 10) +
+  theme(
+    panel.grid.minor = element_blank(),
+    panel.grid.major.y = element_blank(),
+    axis.ticks = element_blank(),
+    axis.text.y = element_text(
+      color = darken(pal, .1, space = "HLS"),
+      size = 10
+    ),
+    axis.title.x = element_text(margin = margin(t = 10),
+                                size = 10),
+    plot.title = element_markdown(face = "bold", size = 15),
+    plot.subtitle = element_text(
+      color = "grey40", hjust = 0,
+      margin = margin(0, 0, 20, 0)
+    ),
+    plot.title.position = "plot",
+    plot.caption = element_markdown(
+      color = "grey40", lineheight = 1.2,
+      margin = margin(20, 0, 0, 0)),
+    plot.margin = margin(15, 15, 10, 15)
+  )
+return(plot)
+
+# adapted from: https://gist.github.com/z3tt/8b2a06d05e8fae308abbf027ce357f01
+}
+
 ```
 
 This document presents the descriptive statistics and and comparative analytics for the agents studied in the `comparative-object-permanence` study. This document does not contain any psychometric analysis (measurement layouts). Below, '*agents*' refers to artificial agents like random agents or deep reinforcement learners. '*children*' refers to human children (!). Note that all floats are reported to `r rounding` decimal places.
@@ -178,79 +254,9 @@ raincloud_data <- final_results %>%
   mutate(agent_type = haven::as_factor(agent_type)) %>%
   group_by(agent_type)
 
-#rainc
-
-raincloud_data %>% 
-  ggplot(aes(x = agent_type, y = proportionSuccess)) + 
-  ggdist::stat_halfeye(
-    aes(color = agent_type,
-        fill = after_scale(lighten(color, .5))),
-    adjust = 10, 
-    width = .6, 
-    .width = 0,
-    normalize = "all",
-    justification = -0.5, 
-    point_color = NA) + 
-  geom_boxplot(
-    aes(color = agent_type,
-        color = after_scale(darken(color, .1, space = "HLS")),
-        fill = after_scale(desaturate(lighten(color, .8), .4))),
-    width = .42, 
-    outlier.shape = 4
-  ) +
-  # geom_point(
-  #   aes(color = agent_type,
-  #       color = after_scale(darken(color, .1, space = "HLS")),
-  #       fill = agent_type),
-  #   # fill = "white",
-  #   shape = 21,
-  #   stroke = .4,
-  #   size = 2,
-  #   #position = position_jitter(seed = 1, width = .12)
-  #   position = position_dodgejust(width = 1, justification = 1.1)
-  # ) + 
-  # geom_point(
-  #   aes(fill = agent_type),
-  #   color = "transparent",
-  #   shape = 21,
-  #   stroke = .4,
-  #   size = 2,
-  #   alpha = .3,
-  #   position = position_jitter(seed = 1, width = .12)
-  # )  +
-  coord_flip(xlim = c(1.2, NA), clip = "off") +
-   scale_color_manual(values = pal, guide = "none") +
-   scale_fill_manual(values = pal, guide = "none") +
-  labs(
-    x = NULL,
-    y = "Proportion Points Obtained",
-    title = "Proportion of Points Obtained By Agent Type",
-  ) +
-  theme_minimal(base_family = "Arial", base_size = 10) +
-  theme(
-    panel.grid.minor = element_blank(),
-    panel.grid.major.y = element_blank(),
-    axis.ticks = element_blank(),
-    axis.text.y = element_text(
-      color = darken(pal, .1, space = "HLS"),
-      size = 10
-    ),
-    axis.title.x = element_text(margin = margin(t = 10),
-                                size = 10),
-    plot.title = element_markdown(face = "bold", size = 15),
-    plot.subtitle = element_text(
-      color = "grey40", hjust = 0,
-      margin = margin(0, 0, 20, 0)
-    ),
-    plot.title.position = "plot",
-    plot.caption = element_markdown(
-      color = "grey40", lineheight = 1.2,
-      margin = margin(20, 0, 0, 0)),
-    plot.margin = margin(15, 15, 10, 15)
-  )
+density_bar_plotter(raincloud_data)
 
 
-# adapted from: https://gist.github.com/z3tt/8b2a06d05e8fae308abbf027ce357f01
 ```
 
 #### Task-Specific Performances
@@ -301,77 +307,8 @@ basic_tasks %>%
 
 ```{r proportion scores graph basic tasks}
 
-basic_tasks %>% 
-  ggplot(aes(x = agent_type, y = proportionSuccess)) + 
-  ggdist::stat_halfeye(
-    aes(color = agent_type,
-        fill = after_scale(lighten(color, .5))),
-    adjust = 10, 
-    width = .6, 
-    .width = 0,
-    #normalize = "all",
-    justification = -0.5, 
-    point_color = NA) + 
-  geom_boxplot(
-    aes(color = agent_type,
-        color = after_scale(darken(color, .1, space = "HLS")),
-        fill = after_scale(desaturate(lighten(color, .8), .4))),
-    width = .42, 
-    outlier.shape = 4
-  ) +
-  # geom_point(
-  #   aes(color = agent_type,
-  #       color = after_scale(darken(color, .1, space = "HLS")),
-  #       fill = agent_type),
-  #   # fill = "white",
-  #   shape = 21,
-  #   stroke = .4,
-  #   size = 2,
-  #   #position = position_jitter(seed = 1, width = .12)
-  #   position = position_dodgejust(width = 1, justification = 1.1)
-  # ) + 
-  # geom_point(
-  #   aes(fill = agent_type),
-  #   color = "transparent",
-  #   shape = 21,
-  #   stroke = .4,
-  #   size = 2,
-  #   alpha = .3,
-  #   position = position_jitter(seed = 1, width = .12)
-  # )  +
-  coord_flip(xlim = c(1.2, NA), clip = "off") +
-   scale_color_manual(values = pal, guide = "none") +
-   scale_fill_manual(values = pal, guide = "none") +
-  labs(
-    x = NULL,
-    y = "Proportion Points Obtained",
-    title = "Proportion of Points Obtained By Agent Type",
-  ) +
-  theme_minimal(base_family = "Arial", base_size = 10) +
-  theme(
-    panel.grid.minor = element_blank(),
-    panel.grid.major.y = element_blank(),
-    axis.ticks = element_blank(),
-    axis.text.y = element_text(
-      color = darken(pal, .1, space = "HLS"),
-      size = 10
-    ),
-    axis.title.x = element_text(margin = margin(t = 10),
-                                size = 10),
-    plot.title = element_markdown(face = "bold", size = 15),
-    plot.subtitle = element_text(
-      color = "grey40", hjust = 0,
-      margin = margin(0, 0, 20, 0)
-    ),
-    plot.title.position = "plot",
-    plot.caption = element_markdown(
-      color = "grey40", lineheight = 1.2,
-      margin = margin(20, 0, 0, 0)),
-    plot.margin = margin(15, 15, 10, 15)
-  )
+density_bar_plotter(basic_tasks)
 
-
-# adapted from: https://gist.github.com/z3tt/8b2a06d05e8fae308abbf027ce357f01
 ```
 
 We can also examine the way that the agents failed these tasks. In the table, we provide the percentage of tasks that ended in certain ways for each agent:
@@ -445,77 +382,8 @@ control_tasks %>%
 
 ```{r proportion scores graph control tasks}
 
-control_tasks %>% 
-  ggplot(aes(x = agent_type, y = proportionSuccess)) + 
-  ggdist::stat_halfeye(
-    aes(color = agent_type,
-        fill = after_scale(lighten(color, .5))),
-    adjust = 10, 
-    width = .6, 
-    .width = 0,
-    #normalize = "all",
-    justification = -0.5, 
-    point_color = NA) + 
-  geom_boxplot(
-    aes(color = agent_type,
-        color = after_scale(darken(color, .1, space = "HLS")),
-        fill = after_scale(desaturate(lighten(color, .8), .4))),
-    width = .42, 
-    outlier.shape = 4
-  ) +
-  # geom_point(
-  #   aes(color = agent_type,
-  #       color = after_scale(darken(color, .1, space = "HLS")),
-  #       fill = agent_type),
-  #   # fill = "white",
-  #   shape = 21,
-  #   stroke = .4,
-  #   size = 2,
-  #   #position = position_jitter(seed = 1, width = .12)
-  #   position = position_dodgejust(width = 1, justification = 1.1)
-  # ) + 
-  # geom_point(
-  #   aes(fill = agent_type),
-  #   color = "transparent",
-  #   shape = 21,
-  #   stroke = .4,
-  #   size = 2,
-  #   alpha = .3,
-  #   position = position_jitter(seed = 1, width = .12)
-  # )  +
-  coord_flip(xlim = c(1.2, NA), clip = "off") +
-   scale_color_manual(values = pal, guide = "none") +
-   scale_fill_manual(values = pal, guide = "none") +
-  labs(
-    x = NULL,
-    y = "Proportion Points Obtained",
-    title = "Proportion of Points Obtained By Agent Type",
-  ) +
-  theme_minimal(base_family = "Arial", base_size = 10) +
-  theme(
-    panel.grid.minor = element_blank(),
-    panel.grid.major.y = element_blank(),
-    axis.ticks = element_blank(),
-    axis.text.y = element_text(
-      color = darken(pal, .1, space = "HLS"),
-      size = 10
-    ),
-    axis.title.x = element_text(margin = margin(t = 10),
-                                size = 10),
-    plot.title = element_markdown(face = "bold", size = 15),
-    plot.subtitle = element_text(
-      color = "grey40", hjust = 0,
-      margin = margin(0, 0, 20, 0)
-    ),
-    plot.title.position = "plot",
-    plot.caption = element_markdown(
-      color = "grey40", lineheight = 1.2,
-      margin = margin(20, 0, 0, 0)),
-    plot.margin = margin(15, 15, 10, 15)
-  )
+density_bar_plotter(control_tasks)
 
-
-# adapted from: https://gist.github.com/z3tt/8b2a06d05e8fae308abbf027ce357f01
 ```
 
 We can also examine the way that the agents failed these tasks. In the table, we provide the percentage of tasks that ended in certain ways for each agent:
@@ -584,77 +452,8 @@ cv_control_tasks %>%
 
 ```{r proportion scores graph cv control tasks}
 
-cv_control_tasks %>% 
-  ggplot(aes(x = agent_type, y = proportionSuccess)) + 
-  ggdist::stat_halfeye(
-    aes(color = agent_type,
-        fill = after_scale(lighten(color, .5))),
-    adjust = 10, 
-    width = .6, 
-    .width = 0,
-    #normalize = "all",
-    justification = -0.5, 
-    point_color = NA) + 
-  geom_boxplot(
-    aes(color = agent_type,
-        color = after_scale(darken(color, .1, space = "HLS")),
-        fill = after_scale(desaturate(lighten(color, .8), .4))),
-    width = .42, 
-    outlier.shape = 4
-  ) +
-  # geom_point(
-  #   aes(color = agent_type,
-  #       color = after_scale(darken(color, .1, space = "HLS")),
-  #       fill = agent_type),
-  #   # fill = "white",
-  #   shape = 21,
-  #   stroke = .4,
-  #   size = 2,
-  #   #position = position_jitter(seed = 1, width = .12)
-  #   position = position_dodgejust(width = 1, justification = 1.1)
-  # ) + 
-  # geom_point(
-  #   aes(fill = agent_type),
-  #   color = "transparent",
-  #   shape = 21,
-  #   stroke = .4,
-  #   size = 2,
-  #   alpha = .3,
-  #   position = position_jitter(seed = 1, width = .12)
-  # )  +
-  coord_flip(xlim = c(1.2, NA), clip = "off") +
-   scale_color_manual(values = pal, guide = "none") +
-   scale_fill_manual(values = pal, guide = "none") +
-  labs(
-    x = NULL,
-    y = "Proportion Points Obtained",
-    title = "Proportion of Points Obtained By Agent Type",
-  ) +
-  theme_minimal(base_family = "Arial", base_size = 10) +
-  theme(
-    panel.grid.minor = element_blank(),
-    panel.grid.major.y = element_blank(),
-    axis.ticks = element_blank(),
-    axis.text.y = element_text(
-      color = darken(pal, .1, space = "HLS"),
-      size = 10
-    ),
-    axis.title.x = element_text(margin = margin(t = 10),
-                                size = 10),
-    plot.title = element_markdown(face = "bold", size = 15),
-    plot.subtitle = element_text(
-      color = "grey40", hjust = 0,
-      margin = margin(0, 0, 20, 0)
-    ),
-    plot.title.position = "plot",
-    plot.caption = element_markdown(
-      color = "grey40", lineheight = 1.2,
-      margin = margin(20, 0, 0, 0)),
-    plot.margin = margin(15, 15, 10, 15)
-  )
+density_bar_plotter(cv_control_tasks)
 
-
-# adapted from: https://gist.github.com/z3tt/8b2a06d05e8fae308abbf027ce357f01
 ```
 
 We can also examine the way that the agents failed these tasks. In the table, we provide the percentage of tasks that ended in certain ways for each agent:
@@ -684,12 +483,12 @@ In this task, the agent needs to search for a reward, while avoiding lava. They 
 
 cvchick_choices <- final_results %>%
   filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "OP Controls" & Paradigm == "CVChick") %>%
-  dplyr::select(c(agent_type, cvchickcorrectchoice, cvchickleftchoice, cvchickrightchoice, success)) %>% drop_na()
+  dplyr::select(c(agent_type, cvchickcorrectchoice, cvchickleftchoice, cvchickrightchoice, success, correctChoice)) %>% drop_na()
 
 cvchick_choices_table <- cvchick_choices %>% group_by(agent_type) %>%
   summarise(`Total Instances` = n(),
             `Percentage Instances Passed` = round(sum(success)/`Total Instances`*100, digits = rounding),
-            `Percentage Correct Choice` = round(sum((cvchickleftchoice == TRUE & cvchickcorrectchoice == "L" & cvchickrightchoice == FALSE)|(cvchickrightchoice == TRUE & cvchickcorrectchoice == "R" & cvchickleftchoice == FALSE))/`Total Instances`*100, digits = rounding),
+            `Percentage Correct Choice` = round(sum(correctChoice)/`Total Instances`*100, digits = rounding),
             `Percentage Incorrect Choice` = round(sum((cvchickleftchoice == FALSE & cvchickcorrectchoice == "L" & cvchickrightchoice == TRUE)|(cvchickrightchoice == FALSE & cvchickcorrectchoice == "R" & cvchickleftchoice == TRUE))/`Total Instances`*100, digits = rounding),
             `Percentage No Choice` = round(sum(cvchickleftchoice == FALSE & cvchickrightchoice == FALSE)/`Total Instances`*100, digits = rounding)) %>%
   rename(Agent = agent_type)
@@ -744,77 +543,8 @@ cup_control_tasks %>%
 
 ```{r proportion scores graph cup control tasks}
 
-cup_control_tasks %>% 
-  ggplot(aes(x = agent_type, y = proportionSuccess)) + 
-  ggdist::stat_halfeye(
-    aes(color = agent_type,
-        fill = after_scale(lighten(color, .5))),
-    adjust = 10, 
-    width = .6, 
-    .width = 0,
-    #normalize = "all",
-    justification = -0.5, 
-    point_color = NA) + 
-  geom_boxplot(
-    aes(color = agent_type,
-        color = after_scale(darken(color, .1, space = "HLS")),
-        fill = after_scale(desaturate(lighten(color, .8), .4))),
-    width = .42, 
-    outlier.shape = 4
-  ) +
-  # geom_point(
-  #   aes(color = agent_type,
-  #       color = after_scale(darken(color, .1, space = "HLS")),
-  #       fill = agent_type),
-  #   # fill = "white",
-  #   shape = 21,
-  #   stroke = .4,
-  #   size = 2,
-  #   #position = position_jitter(seed = 1, width = .12)
-  #   position = position_dodgejust(width = 1, justification = 1.1)
-  # ) + 
-  # geom_point(
-  #   aes(fill = agent_type),
-  #   color = "transparent",
-  #   shape = 21,
-  #   stroke = .4,
-  #   size = 2,
-  #   alpha = .3,
-  #   position = position_jitter(seed = 1, width = .12)
-  # )  +
-  coord_flip(xlim = c(1.2, NA), clip = "off") +
-   scale_color_manual(values = pal, guide = "none") +
-   scale_fill_manual(values = pal, guide = "none") +
-  labs(
-    x = NULL,
-    y = "Proportion Points Obtained",
-    title = "Proportion of Points Obtained By Agent Type",
-  ) +
-  theme_minimal(base_family = "Arial", base_size = 10) +
-  theme(
-    panel.grid.minor = element_blank(),
-    panel.grid.major.y = element_blank(),
-    axis.ticks = element_blank(),
-    axis.text.y = element_text(
-      color = darken(pal, .1, space = "HLS"),
-      size = 10
-    ),
-    axis.title.x = element_text(margin = margin(t = 10),
-                                size = 10),
-    plot.title = element_markdown(face = "bold", size = 15),
-    plot.subtitle = element_text(
-      color = "grey40", hjust = 0,
-      margin = margin(0, 0, 20, 0)
-    ),
-    plot.title.position = "plot",
-    plot.caption = element_markdown(
-      color = "grey40", lineheight = 1.2,
-      margin = margin(20, 0, 0, 0)),
-    plot.margin = margin(15, 15, 10, 15)
-  )
+density_bar_plotter(cup_control_tasks)
 
-
-# adapted from: https://gist.github.com/z3tt/8b2a06d05e8fae308abbf027ce357f01
 ```
 
 We can also examine the way that the agents failed these tasks. In the table, we provide the percentage of tasks that ended in certain ways for each agent:
@@ -845,12 +575,12 @@ In this task, the agent needs to search for a reward, while sometimes avoiding l
 
 pctb3cup_choices <- final_results %>%
   filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "OP Controls" & str_detect(Task, "3Cup")) %>%
-  dplyr::select(c(agent_type, threecupleftchoice, threecupmidchoice, threecuprightchoice, pctb3cupcorrectchoice, success)) %>% drop_na()
+  dplyr::select(c(agent_type, threecupleftchoice, threecupmidchoice, threecuprightchoice, pctb3cupcorrectchoice, success, correctChoice)) %>% drop_na()
 
 pctb3cup_choices_table <- pctb3cup_choices %>% group_by(agent_type) %>%
   summarise(`Total Instances` = n(),
             `Percentage Instances Passed` = round(sum(success)/`Total Instances`*100, digits = rounding),
-            `Percentage Correct Choice` = round(sum((threecupleftchoice == TRUE & pctb3cupcorrectchoice == "L")|(pctb3cupcorrectchoice == "M" & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "R" & threecuprightchoice == TRUE))/`Total Instances`*100, digits = rounding),
+            `Percentage Correct Choice` = round(sum(correctChoice)/`Total Instances`*100, digits = rounding),
             `Percentage Incorrect Choice` = round(sum((threecupleftchoice == FALSE & pctb3cupcorrectchoice == "L" & (threecuprightchoice == TRUE | threecupmidchoice == TRUE))|(threecupmidchoice == FALSE & pctb3cupcorrectchoice == "M" & (threecupleftchoice == TRUE | threecuprightchoice == TRUE))|(threecuprightchoice == FALSE & pctb3cupcorrectchoice == "R" & (threecupleftchoice == TRUE | threecupmidchoice == TRUE)))/`Total Instances`*100, digits = rounding),
             `Percentage No Choice` = round(sum(threecupleftchoice == FALSE & threecupmidchoice == FALSE & threecuprightchoice == FALSE)/`Total Instances`*100, digits = rounding),
             `Percentage Adjacent Choice` = round(sum((pctb3cupcorrectchoice == "L" & threecupleftchoice == FALSE & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "R" & threecuprightchoice == FALSE & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "M" & threecupmidchoice == FALSE & (threecupleftchoice == TRUE | threecuprightchoice == TRUE)))/`Total Instances`*100, digits = rounding))
@@ -905,77 +635,8 @@ grid_control_tasks %>%
 
 ```{r proportion scores graph grid control tasks}
 
-grid_control_tasks %>% 
-  ggplot(aes(x = agent_type, y = proportionSuccess)) + 
-  ggdist::stat_halfeye(
-    aes(color = agent_type,
-        fill = after_scale(lighten(color, .5))),
-    adjust = 10, 
-    width = .6, 
-    .width = 0,
-    #normalize = "all",
-    justification = -0.5, 
-    point_color = NA) + 
-  geom_boxplot(
-    aes(color = agent_type,
-        color = after_scale(darken(color, .1, space = "HLS")),
-        fill = after_scale(desaturate(lighten(color, .8), .4))),
-    width = .42, 
-    outlier.shape = 4
-  ) +
-  # geom_point(
-  #   aes(color = agent_type,
-  #       color = after_scale(darken(color, .1, space = "HLS")),
-  #       fill = agent_type),
-  #   # fill = "white",
-  #   shape = 21,
-  #   stroke = .4,
-  #   size = 2,
-  #   #position = position_jitter(seed = 1, width = .12)
-  #   position = position_dodgejust(width = 1, justification = 1.1)
-  # ) + 
-  # geom_point(
-  #   aes(fill = agent_type),
-  #   color = "transparent",
-  #   shape = 21,
-  #   stroke = .4,
-  #   size = 2,
-  #   alpha = .3,
-  #   position = position_jitter(seed = 1, width = .12)
-  # )  +
-  coord_flip(xlim = c(1.2, NA), clip = "off") +
-   scale_color_manual(values = pal, guide = "none") +
-   scale_fill_manual(values = pal, guide = "none") +
-  labs(
-    x = NULL,
-    y = "Proportion Points Obtained",
-    title = "Proportion of Points Obtained By Agent Type",
-  ) +
-  theme_minimal(base_family = "Arial", base_size = 10) +
-  theme(
-    panel.grid.minor = element_blank(),
-    panel.grid.major.y = element_blank(),
-    axis.ticks = element_blank(),
-    axis.text.y = element_text(
-      color = darken(pal, .1, space = "HLS"),
-      size = 10
-    ),
-    axis.title.x = element_text(margin = margin(t = 10),
-                                size = 10),
-    plot.title = element_markdown(face = "bold", size = 15),
-    plot.subtitle = element_text(
-      color = "grey40", hjust = 0,
-      margin = margin(0, 0, 20, 0)
-    ),
-    plot.title.position = "plot",
-    plot.caption = element_markdown(
-      color = "grey40", lineheight = 1.2,
-      margin = margin(20, 0, 0, 0)),
-    plot.margin = margin(15, 15, 10, 15)
-  )
+density_bar_plotter(grid_control_tasks)
 
-
-# adapted from: https://gist.github.com/z3tt/8b2a06d05e8fae308abbf027ce357f01
 ```
 
 We can also examine the way that the agents failed these tasks. In the table, we provide the percentage of tasks that ended in certain ways for each agent:
@@ -1005,12 +666,12 @@ In this task, the agent needs to search for a reward in a grid. They might be ba
 
 pctbgrid_choices <- final_results %>%
   filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "OP Controls" & str_detect(Task, "Grid")) %>%
-  dplyr::select(c(agent_type, InstanceName, pctbgridcorrectchoice, pctbgridcupchoice, success, numChoices)) %>% drop_na()
+  dplyr::select(c(agent_type, InstanceName, pctbgridcorrectchoice, pctbgridcupchoice, success, correctChoice, numChoices)) %>% drop_na()
 
 pctbgrid_choices_table <- pctbgrid_choices %>% group_by(agent_type) %>%
   summarise(`Total Instances` = n(),
             `Percentage Instances Passed` = round(sum(success)/`Total Instances`*100, digits = rounding),
-            `Percentage Correct Choice` = round(sum(pctbgridcorrectchoice == pctbgridcupchoice)/`Total Instances`*100, digits = rounding),
+            `Percentage Correct Choice` = round(sum(correctChoice)/`Total Instances`*100, digits = rounding),
             `Percentage Incorrect Choice` = round(sum(pctbgridcorrectchoice != pctbgridcupchoice & pctbgridcupchoice != "NoChoiceMade")/`Total Instances`*100, digits = rounding),
             `Percentage No Choice` = round(sum(pctbgridcupchoice == "NoChoiceMade")/`Total Instances`*100, digits = rounding),
             `Percentage Correct Side Choice` = round(sum((str_detect(pctbgridcorrectchoice, "Right") & str_detect(pctbgridcupchoice, "Right")) | (str_detect(pctbgridcorrectchoice, "Left") & str_detect(pctbgridcupchoice, "Left")))/`Total Instances`*100, digits = rounding),
@@ -1029,12 +690,12 @@ Broken down by number of cups:
 
 pctbgrid_choices <- final_results %>%
   filter((Suite == "Controls" | Suite == "Tutorial") & SubSuite == "OP Controls" & str_detect(Task, "Grid")) %>%
-  dplyr::select(c(agent_type, InstanceName, pctbgridcorrectchoice, pctbgridcupchoice, success, numChoices)) %>% drop_na()
+  dplyr::select(c(agent_type, InstanceName, pctbgridcorrectchoice, pctbgridcupchoice, success, correctChoice, numChoices)) %>% drop_na()
 
 pctbgrid_choices_table <- pctbgrid_choices %>% group_by(agent_type, numChoices) %>%
   summarise(`Total Instances` = n(),
             `Percentage Instances Passed` = round(sum(success)/`Total Instances`*100, digits = rounding),
-            `Percentage Correct Choice` = round(sum(pctbgridcorrectchoice == pctbgridcupchoice)/`Total Instances`*100, digits = rounding),
+            `Percentage Correct Choice` = round(sum(correctChoice)/`Total Instances`*100, digits = rounding),
             `Percentage Incorrect Choice` = round(sum(pctbgridcorrectchoice != pctbgridcupchoice & pctbgridcupchoice != "NoChoiceMade")/`Total Instances`*100, digits = rounding),
             `Percentage No Choice` = round(sum(pctbgridcupchoice == "NoChoiceMade")/`Total Instances`*100, digits = rounding),
             `Percentage Correct Side Choice` = round(sum((str_detect(pctbgridcorrectchoice, "Right") & str_detect(pctbgridcupchoice, "Right")) | (str_detect(pctbgridcorrectchoice, "Left") & str_detect(pctbgridcupchoice, "Left")))/`Total Instances`*100, digits = rounding),
@@ -1056,7 +717,7 @@ Next we turn to the descriptive statistics for the 3 types of object permanence 
 
 cv_tasks <- final_results %>% 
   filter(SubSuite == "Allocentric OP" & Paradigm == "CVChick") %>%
-  dplyr::select(c(agent_tag, agent_type, proportionSuccess, success, episodeEndType, lavaPresence, Paradigm, cvchickleftchoice, cvchickrightchoice, cvchickcorrectchoice)) %>%
+  dplyr::select(c(agent_tag, agent_type, proportionSuccess, success, correctChoice, episodeEndType, lavaPresence, Paradigm, cvchickleftchoice, cvchickrightchoice, cvchickcorrectchoice)) %>%
   mutate(agent_type = haven::as_factor(agent_type))
 
 ```
@@ -1093,77 +754,8 @@ cv_tasks %>%
 
 ```{r proportion scores graph cvchick OP tasks}
 
-cv_tasks %>% 
-  ggplot(aes(x = agent_type, y = proportionSuccess)) + 
-  ggdist::stat_halfeye(
-    aes(color = agent_type,
-        fill = after_scale(lighten(color, .5))),
-    adjust = 10, 
-    width = .6, 
-    .width = 0,
-    #normalize = "all",
-    justification = -0.5, 
-    point_color = NA) + 
-  geom_boxplot(
-    aes(color = agent_type,
-        color = after_scale(darken(color, .1, space = "HLS")),
-        fill = after_scale(desaturate(lighten(color, .8), .4))),
-    width = .42, 
-    outlier.shape = 4
-  ) +
-  # geom_point(
-  #   aes(color = agent_type,
-  #       color = after_scale(darken(color, .1, space = "HLS")),
-  #       fill = agent_type),
-  #   # fill = "white",
-  #   shape = 21,
-  #   stroke = .4,
-  #   size = 2,
-  #   #position = position_jitter(seed = 1, width = .12)
-  #   position = position_dodgejust(width = 1, justification = 1.1)
-  # ) + 
-  # geom_point(
-  #   aes(fill = agent_type),
-  #   color = "transparent",
-  #   shape = 21,
-  #   stroke = .4,
-  #   size = 2,
-  #   alpha = .3,
-  #   position = position_jitter(seed = 1, width = .12)
-  # )  +
-  coord_flip(xlim = c(1.2, NA), clip = "off") +
-   scale_color_manual(values = pal, guide = "none") +
-   scale_fill_manual(values = pal, guide = "none") +
-  labs(
-    x = NULL,
-    y = "Proportion Points Obtained",
-    title = "Proportion of Points Obtained By Agent Type",
-  ) +
-  theme_minimal(base_family = "Arial", base_size = 10) +
-  theme(
-    panel.grid.minor = element_blank(),
-    panel.grid.major.y = element_blank(),
-    axis.ticks = element_blank(),
-    axis.text.y = element_text(
-      color = darken(pal, .1, space = "HLS"),
-      size = 10
-    ),
-    axis.title.x = element_text(margin = margin(t = 10),
-                                size = 10),
-    plot.title = element_markdown(face = "bold", size = 15),
-    plot.subtitle = element_text(
-      color = "grey40", hjust = 0,
-      margin = margin(0, 0, 20, 0)
-    ),
-    plot.title.position = "plot",
-    plot.caption = element_markdown(
-      color = "grey40", lineheight = 1.2,
-      margin = margin(20, 0, 0, 0)),
-    plot.margin = margin(15, 15, 10, 15)
-  )
+density_bar_plotter(cv_tasks)
 
-
-# adapted from: https://gist.github.com/z3tt/8b2a06d05e8fae308abbf027ce357f01
 ```
 
 We can also examine the way that the agents failed these tasks. In the table, we provide the percentage of tasks that ended in certain ways for each agent:
@@ -1192,7 +784,7 @@ Now we can look at the choices the agents made.
 cvchick_choices_table <- cv_tasks %>% group_by(agent_type) %>%
   summarise(`Total Instances` = n(),
             `Percentage Instances Passed` = round(sum(success)/`Total Instances`*100, digits = rounding),
-            `Percentage Correct Choice` = round(sum((cvchickleftchoice == TRUE & cvchickcorrectchoice == "L" & cvchickrightchoice == FALSE)|(cvchickrightchoice == TRUE & cvchickcorrectchoice == "R" & cvchickleftchoice == FALSE))/`Total Instances`*100, digits = rounding),
+            `Percentage Correct Choice` = round(sum(correctChoice)/`Total Instances`*100, digits = rounding),
             `Percentage Incorrect Choice` = round(sum((cvchickleftchoice == FALSE & cvchickcorrectchoice == "L" & cvchickrightchoice == TRUE)|(cvchickrightchoice == FALSE & cvchickcorrectchoice == "R" & cvchickleftchoice == TRUE))/`Total Instances`*100, digits = rounding),
             `Percentage No Choice` = round(sum(cvchickleftchoice == FALSE & cvchickrightchoice == FALSE)/`Total Instances`*100, digits = rounding)) %>%
   rename(Agent = agent_type)
@@ -1208,7 +800,7 @@ datatable(cvchick_choices_table, rownames = FALSE, options = list(pageLength = n
 
 threecup_tasks <- final_results %>% 
   filter(SubSuite == "Allocentric OP" & str_detect(Task, "3Cup")) %>%
-  dplyr::select(c(agent_tag, agent_type, proportionSuccess, success, episodeEndType, lavaPresence, Paradigm, threecupleftchoice, threecupmidchoice, threecuprightchoice, pctb3cupcorrectchoice)) %>%
+  dplyr::select(c(agent_tag, agent_type, proportionSuccess, success, correctChoice, episodeEndType, lavaPresence, Paradigm, threecupleftchoice, threecupmidchoice, threecuprightchoice, pctb3cupcorrectchoice)) %>%
   mutate(agent_type = haven::as_factor(agent_type))
 
 ```
@@ -1245,77 +837,8 @@ threecup_tasks %>%
 
 ```{r proportion scores graph 3 cup OP tasks}
 
-threecup_tasks %>% 
-  ggplot(aes(x = agent_type, y = proportionSuccess)) + 
-  ggdist::stat_halfeye(
-    aes(color = agent_type,
-        fill = after_scale(lighten(color, .5))),
-    adjust = 10, 
-    width = .6, 
-    .width = 0,
-    #normalize = "all",
-    justification = -0.5, 
-    point_color = NA) + 
-  geom_boxplot(
-    aes(color = agent_type,
-        color = after_scale(darken(color, .1, space = "HLS")),
-        fill = after_scale(desaturate(lighten(color, .8), .4))),
-    width = .42, 
-    outlier.shape = 4
-  ) +
-  # geom_point(
-  #   aes(color = agent_type,
-  #       color = after_scale(darken(color, .1, space = "HLS")),
-  #       fill = agent_type),
-  #   # fill = "white",
-  #   shape = 21,
-  #   stroke = .4,
-  #   size = 2,
-  #   #position = position_jitter(seed = 1, width = .12)
-  #   position = position_dodgejust(width = 1, justification = 1.1)
-  # ) + 
-  # geom_point(
-  #   aes(fill = agent_type),
-  #   color = "transparent",
-  #   shape = 21,
-  #   stroke = .4,
-  #   size = 2,
-  #   alpha = .3,
-  #   position = position_jitter(seed = 1, width = .12)
-  # )  +
-  coord_flip(xlim = c(1.2, NA), clip = "off") +
-   scale_color_manual(values = pal, guide = "none") +
-   scale_fill_manual(values = pal, guide = "none") +
-  labs(
-    x = NULL,
-    y = "Proportion Points Obtained",
-    title = "Proportion of Points Obtained By Agent Type",
-  ) +
-  theme_minimal(base_family = "Arial", base_size = 10) +
-  theme(
-    panel.grid.minor = element_blank(),
-    panel.grid.major.y = element_blank(),
-    axis.ticks = element_blank(),
-    axis.text.y = element_text(
-      color = darken(pal, .1, space = "HLS"),
-      size = 10
-    ),
-    axis.title.x = element_text(margin = margin(t = 10),
-                                size = 10),
-    plot.title = element_markdown(face = "bold", size = 15),
-    plot.subtitle = element_text(
-      color = "grey40", hjust = 0,
-      margin = margin(0, 0, 20, 0)
-    ),
-    plot.title.position = "plot",
-    plot.caption = element_markdown(
-      color = "grey40", lineheight = 1.2,
-      margin = margin(20, 0, 0, 0)),
-    plot.margin = margin(15, 15, 10, 15)
-  )
+density_bar_plotter(threecup_tasks)
 
-
-# adapted from: https://gist.github.com/z3tt/8b2a06d05e8fae308abbf027ce357f01
 ```
 
 Now we can look at the choices they made:
@@ -1324,7 +847,7 @@ Now we can look at the choices they made:
 pctb3cup_choices_table <- threecup_tasks %>% group_by(agent_type) %>%
   summarise(`Total Instances` = n(),
             `Percentage Instances Passed` = round(sum(success)/`Total Instances`*100, digits = rounding),
-            `Percentage Correct Choice` = round(sum((threecupleftchoice == TRUE & pctb3cupcorrectchoice == "L")|(pctb3cupcorrectchoice == "M" & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "R" & threecuprightchoice == TRUE)|(threecupleftchoice == TRUE & threecupmidchoice == TRUE & pctb3cupcorrectchoice == "LM") | (threecuprightchoice == TRUE & threecupmidchoice == TRUE & pctb3cupcorrectchoice == "MR")|(threecuprightchoice == TRUE & threecupleftchoice == TRUE & pctb3cupcorrectchoice == "LR"))/`Total Instances`*100, digits = rounding),
+            `Percentage Correct Choice` = round(sum(correctChoice)/`Total Instances`*100, digits = rounding),
             `Percentage Incorrect Choice` = round(sum((threecupleftchoice == FALSE & pctb3cupcorrectchoice == "L" & (threecuprightchoice == TRUE | threecupmidchoice == TRUE))|(threecupmidchoice == FALSE & pctb3cupcorrectchoice == "M" & (threecupleftchoice == TRUE | threecuprightchoice == TRUE))|(threecuprightchoice == FALSE & pctb3cupcorrectchoice == "R" & (threecupleftchoice == TRUE | threecupmidchoice == TRUE))|(threecupleftchoice == TRUE & pctb3cupcorrectchoice == "MR")|(threecuprightchoice == TRUE & pctb3cupcorrectchoice == "LM")|(threecupmidchoice == TRUE & pctb3cupcorrectchoice == "LR"))/`Total Instances`*100, digits = rounding),
             `Percentage No Choice` = round(sum(threecupleftchoice == FALSE & threecupmidchoice == FALSE & threecuprightchoice == FALSE)/`Total Instances`*100, digits = rounding),
             `Percentage Adjacent Choice` = round(sum((pctb3cupcorrectchoice == "L" & threecupleftchoice == FALSE & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "R" & threecuprightchoice == FALSE & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "M" & threecupmidchoice == FALSE & (threecupleftchoice == TRUE | threecuprightchoice == TRUE))|(pctb3cupcorrectchoice == "LM" & threecuprightchoice == TRUE)|(pctb3cupcorrectchoice == "LR" & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "MR" & threecupleftchoice == TRUE))/`Total Instances`*100, digits = rounding)) %>%
@@ -1341,7 +864,7 @@ datatable(pctb3cup_choices_table, rownames = FALSE, options = list(pageLength = 
 
 grid_tasks <- final_results %>% 
   filter(SubSuite == "Allocentric OP" & str_detect(Task, "Grid")) %>%
-  dplyr::select(c(agent_tag, agent_type, proportionSuccess, success, episodeEndType, Paradigm, pctbgridcorrectchoice, pctbgridcupchoice, numChoices)) %>%
+  dplyr::select(c(agent_tag, agent_type, proportionSuccess, success, correctChoice, episodeEndType, Paradigm, pctbgridcorrectchoice, pctbgridcupchoice, numChoices)) %>%
   mutate(agent_type = haven::as_factor(agent_type))
 
 ```
@@ -1378,77 +901,8 @@ grid_tasks %>%
 
 ```{r proportion scores graph Grid OP tasks}
 
-grid_tasks %>% 
-  ggplot(aes(x = agent_type, y = proportionSuccess)) + 
-  ggdist::stat_halfeye(
-    aes(color = agent_type,
-        fill = after_scale(lighten(color, .5))),
-    adjust = 10, 
-    width = .6, 
-    .width = 0,
-    #normalize = "all",
-    justification = -0.5, 
-    point_color = NA) + 
-  geom_boxplot(
-    aes(color = agent_type,
-        color = after_scale(darken(color, .1, space = "HLS")),
-        fill = after_scale(desaturate(lighten(color, .8), .4))),
-    width = .42, 
-    outlier.shape = 4
-  ) +
-  # geom_point(
-  #   aes(color = agent_type,
-  #       color = after_scale(darken(color, .1, space = "HLS")),
-  #       fill = agent_type),
-  #   # fill = "white",
-  #   shape = 21,
-  #   stroke = .4,
-  #   size = 2,
-  #   #position = position_jitter(seed = 1, width = .12)
-  #   position = position_dodgejust(width = 1, justification = 1.1)
-  # ) + 
-  # geom_point(
-  #   aes(fill = agent_type),
-  #   color = "transparent",
-  #   shape = 21,
-  #   stroke = .4,
-  #   size = 2,
-  #   alpha = .3,
-  #   position = position_jitter(seed = 1, width = .12)
-  # )  +
-  coord_flip(xlim = c(1.2, NA), clip = "off") +
-   scale_color_manual(values = pal, guide = "none") +
-   scale_fill_manual(values = pal, guide = "none") +
-  labs(
-    x = NULL,
-    y = "Proportion Points Obtained",
-    title = "Proportion of Points Obtained By Agent Type",
-  ) +
-  theme_minimal(base_family = "Arial", base_size = 10) +
-  theme(
-    panel.grid.minor = element_blank(),
-    panel.grid.major.y = element_blank(),
-    axis.ticks = element_blank(),
-    axis.text.y = element_text(
-      color = darken(pal, .1, space = "HLS"),
-      size = 10
-    ),
-    axis.title.x = element_text(margin = margin(t = 10),
-                                size = 10),
-    plot.title = element_markdown(face = "bold", size = 15),
-    plot.subtitle = element_text(
-      color = "grey40", hjust = 0,
-      margin = margin(0, 0, 20, 0)
-    ),
-    plot.title.position = "plot",
-    plot.caption = element_markdown(
-      color = "grey40", lineheight = 1.2,
-      margin = margin(20, 0, 0, 0)),
-    plot.margin = margin(15, 15, 10, 15)
-  )
+density_bar_plotter(grid_tasks)
 
-
-# adapted from: https://gist.github.com/z3tt/8b2a06d05e8fae308abbf027ce357f01
 ```
 
 Now we can look at the choices they made:
@@ -1458,7 +912,7 @@ Now we can look at the choices they made:
 pctbgrid_choices_table <- grid_tasks %>% group_by(agent_type) %>%
   summarise(`Total Instances` = n(),
             `Percentage Instances Passed` = round(sum(success)/`Total Instances`*100, digits = rounding),
-            `Percentage Correct Choice` = round(sum(pctbgridcorrectchoice == pctbgridcupchoice)/`Total Instances`*100, digits = rounding),
+            `Percentage Correct Choice` = round(sum(correctChoice)/`Total Instances`*100, digits = rounding),
             `Percentage Incorrect Choice` = round(sum(pctbgridcorrectchoice != pctbgridcupchoice & pctbgridcupchoice != "NoChoiceMade")/`Total Instances`*100, digits = rounding),
             `Percentage No Choice` = round(sum(pctbgridcupchoice == "NoChoiceMade")/`Total Instances`*100, digits = rounding),
             `Percentage Correct Side Choice` = round(sum((str_detect(pctbgridcorrectchoice, "Right") & str_detect(pctbgridcupchoice, "Right")) | (str_detect(pctbgridcorrectchoice, "Left") & str_detect(pctbgridcupchoice, "Left")))/`Total Instances`*100, digits = rounding),
@@ -1477,7 +931,7 @@ Broken down by number of cups
 pctbgrid_choices_table <- grid_tasks %>% group_by(agent_type, numChoices) %>%
   summarise(`Total Instances` = n(),
             `Percentage Instances Passed` = round(sum(success)/`Total Instances`*100, digits = rounding),
-            `Percentage Correct Choice` = round(sum(pctbgridcorrectchoice == pctbgridcupchoice)/`Total Instances`*100, digits = rounding),
+            `Percentage Correct Choice` = round(sum(correctChoice)/`Total Instances`*100, digits = rounding),
             `Percentage Incorrect Choice` = round(sum(pctbgridcorrectchoice != pctbgridcupchoice & pctbgridcupchoice != "NoChoiceMade")/`Total Instances`*100, digits = rounding),
             `Percentage No Choice` = round(sum(pctbgridcupchoice == "NoChoiceMade")/`Total Instances`*100, digits = rounding),
             `Percentage Correct Side Choice` = round(sum((str_detect(pctbgridcorrectchoice, "Right") & str_detect(pctbgridcupchoice, "Right")) | (str_detect(pctbgridcorrectchoice, "Left") & str_detect(pctbgridcupchoice, "Left")))/`Total Instances`*100, digits = rounding),
@@ -1655,7 +1109,6 @@ barchart_op_control_chick_success <- final_results %>%
 ```{r op-control-chick-task-choice}
 
 barchart_op_control_chick_choice <- final_results %>%
-  mutate(correctChoice = ifelse((cvchickleftchoice == TRUE & cvchickcorrectchoice == "L" & cvchickrightchoice == FALSE)|(cvchickrightchoice == TRUE & cvchickcorrectchoice == "R" & cvchickleftchoice == FALSE), 1, 0)) %>%
   filter(cvchickTask == 1) %>%
   dplyr::select(c(agent_tag, agent_type, opControlTask, correctChoice)) %>%
   mutate(`Task Type` = ifelse(opControlTask == 1, "Control", "OP Test"),
@@ -1701,7 +1154,6 @@ barchart_op_control_3cup_success <- final_results %>%
 ```{r op-control-cup-task-choice}
 
 barchart_op_control_3cup_choice <- final_results %>%
-  mutate(correctChoice = ifelse((threecupleftchoice == TRUE & pctb3cupcorrectchoice == "L")|(pctb3cupcorrectchoice == "M" & threecupmidchoice == TRUE)|(pctb3cupcorrectchoice == "R" & threecuprightchoice == TRUE)|(threecupleftchoice == TRUE & threecupmidchoice == TRUE & pctb3cupcorrectchoice == "LM") | (threecuprightchoice == TRUE & threecupmidchoice == TRUE & pctb3cupcorrectchoice == "MR")|(threecuprightchoice == TRUE & threecupleftchoice == TRUE & pctb3cupcorrectchoice == "LR"), 1, 0)) %>%
   filter(pctb3CupTask == 1) %>%
   dplyr::select(c(agent_tag, agent_type, opControlTask, correctChoice)) %>%
   mutate(`Task Type` = ifelse(opControlTask == 1, "Control", "OP Test"),
@@ -1718,6 +1170,7 @@ barchart_op_control_3cup_choice <- final_results %>%
   theme_minimal(base_family = "Arial", base_size = 15) +
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)
   ))
+
 
 ```
 Grid Task:
@@ -1747,7 +1200,6 @@ barchart_op_control_grid_success <- final_results %>%
 ```{r op-control-grid-task-choice}
 
 barchart_op_control_grid_choice <- final_results %>%
-  mutate(correctChoice = ifelse(pctbgridcorrectchoice == pctbgridcupchoice, 1, 0)) %>%
   filter(pctbGridTask == 1) %>%
   dplyr::select(c(agent_tag, agent_type, opControlTask, correctChoice)) %>%
   mutate(`Task Type` = ifelse(opControlTask == 1, "Control", "OP Test"),
@@ -1764,6 +1216,7 @@ barchart_op_control_grid_choice <- final_results %>%
   theme_minimal(base_family = "Arial", base_size = 15) +
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)
   ))
+
 
 ```
 
