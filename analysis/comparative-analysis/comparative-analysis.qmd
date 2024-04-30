@@ -1078,6 +1078,28 @@ barchart_choice_age_data <- final_results %>%
 
 ```
 
+```{r basic-success-barchart}
+
+barchart_basic_success <- final_results %>%
+  filter(basicTask == 1) %>%
+  dplyr::select(c(agent_tag, agent_type, basicTask, success)) %>%
+  mutate(`Task Type` = ifelse(basicTask == 1, "Control", "OP Test"),
+         agent_type = ifelse(agent_type == "Child", "Children", agent_type),
+         agent_type = factor(agent_type, levels = c("Random Agent", "Heuristic Agent", "Children", "PPO 1", "PPO 2", "PPO 3", "PPO 4", "PPO 5", "Dreamer 1", "Dreamer 2", "Dreamer 3", "Dreamer 4", "Dreamer 5"), ordered = TRUE)) %>%
+  group_by(agent_type, `Task Type`) %>%
+  summarise(`Percentage Success` = (sum(success)/n())*100)  %>%
+  rename(`Agent` = agent_type)
+
+(barchart_basic_success <- barchart_basic_success %>%
+  ggplot(aes(x = Agent, y = `Percentage Success`, fill = `Task Type`)) + geom_col(position = "dodge", width = 0.5) +
+    ylim(0,100)  + 
+  theme_minimal(base_family = "Arial", base_size = 15) +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust=1)
+  )
+  )
+
+```
+
 ### Comparing OP Tests and Controls
 
 Here are some bar charts directly comparing the OP and Control tasks for each experimental paradigm.
