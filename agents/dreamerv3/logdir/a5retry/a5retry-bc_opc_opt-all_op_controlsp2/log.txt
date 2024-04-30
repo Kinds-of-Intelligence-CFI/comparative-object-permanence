@@ -1,0 +1,544 @@
+[2023-11-30 13:23:03,491] [INFO    ] [train] Using AAI executable file: ../../env/env3.1.3/AAI.x86_64
+[2023-11-30 13:23:07,189] [INFO    ] [train] Creating DreamerV3 and AAI Environment
+[2023-11-30 13:23:07,192] [INFO    ] [train] Loading checkpoint from logdir/retry-a5-bc_opc_opt-all/checkpoint.ckpt
+[2023-11-30 13:23:09,694] [INFO    ] [utils] Initializing AAI environment for task 979: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG12XtraLow-Left-Brown-0-OPQ.yml
+[2023-11-30 13:23:09,694] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:23:12,394] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:23:13,509] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:23:13,692] [INFO    ] [train] Using observation space {'extra': Space(dtype=float64, shape=(7,), low=-inf, high=inf), 'image': Space(dtype=uint8, shape=(64, 64, 3), low=0, high=255), 'raycast': Space(dtype=float64, shape=(70,), low=-inf, high=inf), 'reward': Space(dtype=float32, shape=(), low=-inf, high=inf), 'is_first': Space(dtype=bool, shape=(), low=False, high=True), 'is_last': Space(dtype=bool, shape=(), low=False, high=True), 'is_terminal': Space(dtype=bool, shape=(), low=False, high=True)}
+[2023-11-30 13:23:13,693] [INFO    ] [train] Using action space {'action': Space(dtype=int32, shape=(), low=0, high=9), 'reset': Space(dtype=bool, shape=(), low=False, high=True)}
+[2023-11-30 13:23:13,948] [INFO    ] [xla_bridge] Unable to initialize backend 'rocm': NOT_FOUND: Could not find registered platform with name: "rocm". Available platform names are: CUDA Interpreter
+[2023-11-30 13:23:13,949] [INFO    ] [xla_bridge] Unable to initialize backend 'tpu': module 'jaxlib.xla_extension' has no attribute 'get_tpu_client'
+[2023-11-30 13:23:27,962] [INFO    ] [train] Starting evaluation
+[2023-11-30 13:24:37,778] [INFO    ] [utils] Initializing AAI environment for task 980: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG12XtraLow-Left-DarkBlue-0-OPQ.yml
+[2023-11-30 13:24:37,779] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:24:40,549] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:24:41,690] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:25:46,014] [INFO    ] [utils] Initializing AAI environment for task 981: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG12XtraLow-Left-DarkGreen-0-OPQ.yml
+[2023-11-30 13:25:46,016] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:25:48,722] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:25:49,924] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:26:53,742] [INFO    ] [utils] Initializing AAI environment for task 982: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG12XtraLow-Left-Grey-0-OPQ.yml
+[2023-11-30 13:26:53,744] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:26:56,439] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:26:57,650] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:28:01,576] [INFO    ] [utils] Initializing AAI environment for task 983: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG12XtraLow-Left-OffWhite-0-OPQ.yml
+[2023-11-30 13:28:01,577] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:28:04,293] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:28:05,500] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:29:09,501] [INFO    ] [utils] Initializing AAI environment for task 984: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG12XtraLow-Left-RND-0-OPQ.yml
+[2023-11-30 13:29:09,502] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:29:12,205] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:29:13,478] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:30:17,390] [INFO    ] [utils] Initializing AAI environment for task 985: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG12XtraLow-Right-Beige-0-OPQ.yml
+[2023-11-30 13:30:17,391] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:30:20,066] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:30:21,229] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:31:25,160] [INFO    ] [utils] Initializing AAI environment for task 986: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG12XtraLow-Right-Brown-0-OPQ.yml
+[2023-11-30 13:31:25,160] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:31:29,759] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:31:30,911] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:32:34,756] [INFO    ] [utils] Initializing AAI environment for task 987: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG12XtraLow-Right-DarkBlue-0-OPQ.yml
+[2023-11-30 13:32:34,756] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:32:37,414] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:32:38,525] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:33:42,471] [INFO    ] [utils] Initializing AAI environment for task 988: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG12XtraLow-Right-DarkGreen-0-OPQ.yml
+[2023-11-30 13:33:42,472] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:33:45,106] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:33:46,242] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:34:50,023] [INFO    ] [utils] Initializing AAI environment for task 989: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG12XtraLow-Right-Grey-0-OPQ.yml
+[2023-11-30 13:34:50,023] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:34:52,691] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:34:53,773] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:35:57,663] [INFO    ] [utils] Initializing AAI environment for task 990: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG12XtraLow-Right-OffWhite-0-OPQ.yml
+[2023-11-30 13:35:57,665] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:36:00,342] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:36:01,444] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:37:05,309] [INFO    ] [utils] Initializing AAI environment for task 991: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG12XtraLow-Right-RND-0-OPQ.yml
+[2023-11-30 13:37:05,310] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:37:07,985] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:37:09,079] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:38:13,126] [INFO    ] [utils] Initializing AAI environment for task 992: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG1NoOccluder-Left-NA-0-NA.yml
+[2023-11-30 13:38:13,126] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:38:15,779] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:38:16,876] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:39:20,738] [INFO    ] [utils] Initializing AAI environment for task 993: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG1NoOccluder-Right-NA-0-NA.yml
+[2023-11-30 13:39:20,739] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:39:23,391] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:39:24,489] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:40:28,215] [INFO    ] [utils] Initializing AAI environment for task 994: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51OccluderContra-Left-Beige-0-OPQ.yml
+[2023-11-30 13:40:28,216] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:40:30,864] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:40:31,957] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:41:35,729] [INFO    ] [utils] Initializing AAI environment for task 995: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51OccluderContra-Left-Brown-0-OPQ.yml
+[2023-11-30 13:41:35,730] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:41:38,404] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:41:39,504] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:42:43,358] [INFO    ] [utils] Initializing AAI environment for task 996: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51OccluderContra-Left-DarkBlue-0-OPQ.yml
+[2023-11-30 13:42:43,358] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:42:46,020] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:42:47,110] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:43:50,740] [INFO    ] [utils] Initializing AAI environment for task 997: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51OccluderContra-Left-DarkGreen-0-OPQ.yml
+[2023-11-30 13:43:50,741] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:43:53,404] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:43:54,497] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:44:58,064] [INFO    ] [utils] Initializing AAI environment for task 998: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51OccluderContra-Left-Grey-0-OPQ.yml
+[2023-11-30 13:44:58,066] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:45:00,725] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:45:01,825] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:46:05,540] [INFO    ] [utils] Initializing AAI environment for task 999: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51OccluderContra-Left-OffWhite-0-OPQ.yml
+[2023-11-30 13:46:05,541] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:46:08,217] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:46:09,304] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:47:13,123] [INFO    ] [utils] Initializing AAI environment for task 1000: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51OccluderContra-Left-RND-0-OPQ.yml
+[2023-11-30 13:47:13,123] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:47:15,799] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:47:16,889] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:48:20,814] [INFO    ] [utils] Initializing AAI environment for task 1001: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51OccluderContra-Right-Beige-0-OPQ.yml
+[2023-11-30 13:48:20,815] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:48:23,513] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:48:24,620] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:48:42,342] [INFO    ] [utils] Initializing AAI environment for task 1002: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51OccluderContra-Right-Brown-0-OPQ.yml
+[2023-11-30 13:48:42,343] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:48:45,017] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:48:46,108] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:49:01,789] [INFO    ] [utils] Initializing AAI environment for task 1003: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51OccluderContra-Right-DarkBlue-0-OPQ.yml
+[2023-11-30 13:49:01,790] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:49:04,465] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:49:05,556] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:49:21,297] [INFO    ] [utils] Initializing AAI environment for task 1004: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51OccluderContra-Right-DarkGreen-0-OPQ.yml
+[2023-11-30 13:49:21,298] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:49:23,959] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:49:25,054] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:49:41,209] [INFO    ] [utils] Initializing AAI environment for task 1005: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51OccluderContra-Right-Grey-0-OPQ.yml
+[2023-11-30 13:49:41,209] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:49:43,882] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:49:44,971] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:50:00,547] [INFO    ] [utils] Initializing AAI environment for task 1006: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51OccluderContra-Right-OffWhite-0-OPQ.yml
+[2023-11-30 13:50:00,547] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:50:03,209] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:50:04,308] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:50:19,867] [INFO    ] [utils] Initializing AAI environment for task 1007: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51OccluderContra-Right-RND-0-OPQ.yml
+[2023-11-30 13:50:19,867] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:50:23,422] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:50:24,845] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:50:40,530] [INFO    ] [utils] Initializing AAI environment for task 1008: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51OccluderIpsi-Left-Beige-0-OPQ.yml
+[2023-11-30 13:50:40,530] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:50:43,193] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:50:44,298] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:51:45,235] [INFO    ] [utils] Initializing AAI environment for task 1009: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51OccluderIpsi-Left-Brown-0-OPQ.yml
+[2023-11-30 13:51:45,235] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:51:47,909] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:51:49,002] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:52:52,749] [INFO    ] [utils] Initializing AAI environment for task 1010: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51OccluderIpsi-Left-DarkBlue-0-OPQ.yml
+[2023-11-30 13:52:52,750] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:52:55,424] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:52:56,516] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:54:00,235] [INFO    ] [utils] Initializing AAI environment for task 1011: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51OccluderIpsi-Left-DarkGreen-0-OPQ.yml
+[2023-11-30 13:54:00,235] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:54:02,898] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:54:03,978] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:55:07,743] [INFO    ] [utils] Initializing AAI environment for task 1012: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51OccluderIpsi-Left-Grey-0-OPQ.yml
+[2023-11-30 13:55:07,744] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:55:10,419] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:55:11,512] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:56:15,251] [INFO    ] [utils] Initializing AAI environment for task 1013: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51OccluderIpsi-Left-OffWhite-0-OPQ.yml
+[2023-11-30 13:56:15,251] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:56:17,924] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:56:19,018] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:57:22,803] [INFO    ] [utils] Initializing AAI environment for task 1014: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51OccluderIpsi-Left-RND-0-OPQ.yml
+[2023-11-30 13:57:22,804] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:57:25,476] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:57:26,570] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:58:30,607] [INFO    ] [utils] Initializing AAI environment for task 1015: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51OccluderIpsi-Right-Beige-0-OPQ.yml
+[2023-11-30 13:58:30,608] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:58:33,346] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:58:34,441] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:58:50,261] [INFO    ] [utils] Initializing AAI environment for task 1016: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51OccluderIpsi-Right-Brown-0-OPQ.yml
+[2023-11-30 13:58:50,261] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:58:52,922] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:58:54,008] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:59:15,146] [INFO    ] [utils] Initializing AAI environment for task 1017: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51OccluderIpsi-Right-DarkBlue-0-OPQ.yml
+[2023-11-30 13:59:15,146] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:59:17,810] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:59:18,901] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 13:59:41,703] [INFO    ] [utils] Initializing AAI environment for task 1018: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51OccluderIpsi-Right-DarkGreen-0-OPQ.yml
+[2023-11-30 13:59:41,704] [INFO    ] [utils] Using port 5664
+[2023-11-30 13:59:44,368] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 13:59:45,465] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:00:05,545] [INFO    ] [utils] Initializing AAI environment for task 1019: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51OccluderIpsi-Right-Grey-0-OPQ.yml
+[2023-11-30 14:00:05,545] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:00:08,208] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:00:09,291] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:00:24,308] [INFO    ] [utils] Initializing AAI environment for task 1020: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51OccluderIpsi-Right-OffWhite-0-OPQ.yml
+[2023-11-30 14:00:24,308] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:00:26,962] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:00:28,045] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:00:46,003] [INFO    ] [utils] Initializing AAI environment for task 1021: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51OccluderIpsi-Right-RND-0-OPQ.yml
+[2023-11-30 14:00:46,004] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:00:48,670] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:00:49,762] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:01:33,611] [INFO    ] [utils] Initializing AAI environment for task 1022: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51ThinContra-Left-Beige-0-OPQ.yml
+[2023-11-30 14:01:33,612] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:01:36,452] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:01:37,893] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:02:40,580] [INFO    ] [utils] Initializing AAI environment for task 1023: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51ThinContra-Left-Brown-0-OPQ.yml
+[2023-11-30 14:02:40,580] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:02:43,246] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:02:44,343] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:03:48,213] [INFO    ] [utils] Initializing AAI environment for task 1024: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51ThinContra-Left-DarkBlue-0-OPQ.yml
+[2023-11-30 14:03:48,214] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:03:50,886] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:03:51,984] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:04:55,862] [INFO    ] [utils] Initializing AAI environment for task 1025: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51ThinContra-Left-DarkGreen-0-OPQ.yml
+[2023-11-30 14:04:55,863] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:04:58,544] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:04:59,637] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:06:03,511] [INFO    ] [utils] Initializing AAI environment for task 1026: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51ThinContra-Left-Grey-0-OPQ.yml
+[2023-11-30 14:06:03,512] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:06:06,154] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:06:07,250] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:07:11,112] [INFO    ] [utils] Initializing AAI environment for task 1027: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51ThinContra-Left-OffWhite-0-OPQ.yml
+[2023-11-30 14:07:11,112] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:07:13,788] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:07:14,887] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:08:18,741] [INFO    ] [utils] Initializing AAI environment for task 1028: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51ThinContra-Left-RND-0-OPQ.yml
+[2023-11-30 14:08:18,743] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:08:21,420] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:08:22,511] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:09:26,346] [INFO    ] [utils] Initializing AAI environment for task 1029: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51ThinContra-Right-Beige-0-OPQ.yml
+[2023-11-30 14:09:26,346] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:09:29,024] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:09:30,125] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:09:48,383] [INFO    ] [utils] Initializing AAI environment for task 1030: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51ThinContra-Right-Brown-0-OPQ.yml
+[2023-11-30 14:09:48,384] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:09:51,056] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:09:52,137] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:10:06,545] [INFO    ] [utils] Initializing AAI environment for task 1031: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51ThinContra-Right-DarkBlue-0-OPQ.yml
+[2023-11-30 14:10:06,546] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:10:09,214] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:10:10,314] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:10:24,954] [INFO    ] [utils] Initializing AAI environment for task 1032: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51ThinContra-Right-DarkGreen-0-OPQ.yml
+[2023-11-30 14:10:24,954] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:10:27,610] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:10:28,699] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:10:43,635] [INFO    ] [utils] Initializing AAI environment for task 1033: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51ThinContra-Right-Grey-0-OPQ.yml
+[2023-11-30 14:10:43,635] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:10:46,306] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:10:47,401] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:11:02,377] [INFO    ] [utils] Initializing AAI environment for task 1034: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51ThinContra-Right-OffWhite-0-OPQ.yml
+[2023-11-30 14:11:02,378] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:11:05,052] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:11:06,149] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:11:20,673] [INFO    ] [utils] Initializing AAI environment for task 1035: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51ThinContra-Right-RND-0-OPQ.yml
+[2023-11-30 14:11:20,674] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:11:23,337] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:11:24,433] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:11:39,323] [INFO    ] [utils] Initializing AAI environment for task 1036: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51ThinIpsi-Left-Beige-0-OPQ.yml
+[2023-11-30 14:11:39,324] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:11:42,085] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:11:43,176] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:12:44,080] [INFO    ] [utils] Initializing AAI environment for task 1037: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51ThinIpsi-Left-Brown-0-OPQ.yml
+[2023-11-30 14:12:44,080] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:12:46,824] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:12:47,916] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:13:51,761] [INFO    ] [utils] Initializing AAI environment for task 1038: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51ThinIpsi-Left-DarkBlue-0-OPQ.yml
+[2023-11-30 14:13:51,762] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:13:54,443] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:13:55,544] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:14:59,439] [INFO    ] [utils] Initializing AAI environment for task 1039: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51ThinIpsi-Left-DarkGreen-0-OPQ.yml
+[2023-11-30 14:14:59,442] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:15:02,122] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:15:03,221] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:16:07,116] [INFO    ] [utils] Initializing AAI environment for task 1040: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51ThinIpsi-Left-Grey-0-OPQ.yml
+[2023-11-30 14:16:07,118] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:16:09,795] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:16:10,890] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:17:14,748] [INFO    ] [utils] Initializing AAI environment for task 1041: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51ThinIpsi-Left-OffWhite-0-OPQ.yml
+[2023-11-30 14:17:14,748] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:17:17,420] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:17:18,514] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:18:22,416] [INFO    ] [utils] Initializing AAI environment for task 1042: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51ThinIpsi-Left-RND-0-OPQ.yml
+[2023-11-30 14:18:22,416] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:18:25,081] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:18:26,178] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:19:30,044] [INFO    ] [utils] Initializing AAI environment for task 1043: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51ThinIpsi-Right-Beige-0-OPQ.yml
+[2023-11-30 14:19:30,044] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:19:32,723] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:19:33,824] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:19:51,666] [INFO    ] [utils] Initializing AAI environment for task 1044: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51ThinIpsi-Right-Brown-0-OPQ.yml
+[2023-11-30 14:19:51,666] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:19:54,349] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:19:55,451] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:20:10,081] [INFO    ] [utils] Initializing AAI environment for task 1045: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51ThinIpsi-Right-DarkBlue-0-OPQ.yml
+[2023-11-30 14:20:10,082] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:20:12,754] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:20:13,851] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:20:28,377] [INFO    ] [utils] Initializing AAI environment for task 1046: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51ThinIpsi-Right-DarkGreen-0-OPQ.yml
+[2023-11-30 14:20:28,378] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:20:31,082] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:20:32,500] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:20:47,435] [INFO    ] [utils] Initializing AAI environment for task 1047: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51ThinIpsi-Right-Grey-0-OPQ.yml
+[2023-11-30 14:20:47,435] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:20:50,095] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:20:51,203] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:21:05,619] [INFO    ] [utils] Initializing AAI environment for task 1048: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51ThinIpsi-Right-OffWhite-0-OPQ.yml
+[2023-11-30 14:21:05,619] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:21:08,291] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:21:09,386] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:21:23,982] [INFO    ] [utils] Initializing AAI environment for task 1049: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51ThinIpsi-Right-RND-0-OPQ.yml
+[2023-11-30 14:21:23,982] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:21:26,657] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:21:27,756] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:21:42,767] [INFO    ] [utils] Initializing AAI environment for task 1050: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51TransContra-Left-NA-0-Trans.yml
+[2023-11-30 14:21:42,767] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:21:45,443] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:21:46,640] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:22:47,620] [INFO    ] [utils] Initializing AAI environment for task 1051: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51TransContra-Right-NA-0-Trans.yml
+[2023-11-30 14:22:47,621] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:22:50,284] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:22:51,381] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:23:06,547] [INFO    ] [utils] Initializing AAI environment for task 1052: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51TransIpsi-Left-NA-0-Trans.yml
+[2023-11-30 14:23:06,548] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:23:09,223] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:23:10,309] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:24:11,205] [INFO    ] [utils] Initializing AAI environment for task 1053: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51TransIpsi-Right-NA-0-Trans.yml
+[2023-11-30 14:24:11,205] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:24:13,878] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:24:14,976] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:24:30,638] [INFO    ] [utils] Initializing AAI environment for task 1054: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51XtraLowContra-Left-Beige-0-OPQ.yml
+[2023-11-30 14:24:30,639] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:24:33,311] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:24:34,410] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:25:35,398] [INFO    ] [utils] Initializing AAI environment for task 1055: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51XtraLowContra-Left-Brown-0-OPQ.yml
+[2023-11-30 14:25:35,399] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:25:38,080] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:25:39,177] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:26:43,043] [INFO    ] [utils] Initializing AAI environment for task 1056: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51XtraLowContra-Left-DarkBlue-0-OPQ.yml
+[2023-11-30 14:26:43,044] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:26:45,710] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:26:46,813] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:27:50,703] [INFO    ] [utils] Initializing AAI environment for task 1057: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51XtraLowContra-Left-DarkGreen-0-OPQ.yml
+[2023-11-30 14:27:50,704] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:27:53,368] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:27:54,452] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:28:58,303] [INFO    ] [utils] Initializing AAI environment for task 1058: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51XtraLowContra-Left-Grey-0-OPQ.yml
+[2023-11-30 14:28:58,304] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:29:00,956] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:29:02,048] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:30:05,963] [INFO    ] [utils] Initializing AAI environment for task 1059: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51XtraLowContra-Left-OffWhite-0-OPQ.yml
+[2023-11-30 14:30:05,964] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:30:08,616] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:30:09,710] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:31:13,621] [INFO    ] [utils] Initializing AAI environment for task 1060: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51XtraLowContra-Left-RND-0-OPQ.yml
+[2023-11-30 14:31:13,622] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:31:16,292] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:31:17,383] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:32:21,256] [INFO    ] [utils] Initializing AAI environment for task 1061: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51XtraLowContra-Right-Beige-0-OPQ.yml
+[2023-11-30 14:32:21,257] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:32:23,904] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:32:24,998] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:32:42,942] [INFO    ] [utils] Initializing AAI environment for task 1062: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51XtraLowContra-Right-Brown-0-OPQ.yml
+[2023-11-30 14:32:42,943] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:32:45,610] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:32:46,710] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:33:01,286] [INFO    ] [utils] Initializing AAI environment for task 1063: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51XtraLowContra-Right-DarkBlue-0-OPQ.yml
+[2023-11-30 14:33:01,286] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:33:03,948] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:33:05,042] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:33:19,611] [INFO    ] [utils] Initializing AAI environment for task 1064: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51XtraLowContra-Right-DarkGreen-0-OPQ.yml
+[2023-11-30 14:33:19,612] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:33:22,274] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:33:23,444] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:33:38,876] [INFO    ] [utils] Initializing AAI environment for task 1065: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51XtraLowContra-Right-Grey-0-OPQ.yml
+[2023-11-30 14:33:38,877] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:33:41,540] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:33:42,635] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:33:57,152] [INFO    ] [utils] Initializing AAI environment for task 1066: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51XtraLowContra-Right-OffWhite-0-OPQ.yml
+[2023-11-30 14:33:57,152] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:33:59,822] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:34:00,915] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:34:15,428] [INFO    ] [utils] Initializing AAI environment for task 1067: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51XtraLowContra-Right-RND-0-OPQ.yml
+[2023-11-30 14:34:15,429] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:34:18,127] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:34:19,221] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:34:33,632] [INFO    ] [utils] Initializing AAI environment for task 1068: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51XtraLowIpsi-Left-Beige-0-OPQ.yml
+[2023-11-30 14:34:33,633] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:34:36,314] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:34:37,406] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:35:38,325] [INFO    ] [utils] Initializing AAI environment for task 1069: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51XtraLowIpsi-Left-Brown-0-OPQ.yml
+[2023-11-30 14:35:38,326] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:35:41,168] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:35:42,599] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:36:46,509] [INFO    ] [utils] Initializing AAI environment for task 1070: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51XtraLowIpsi-Left-DarkBlue-0-OPQ.yml
+[2023-11-30 14:36:46,509] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:36:49,176] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:36:50,278] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:37:54,307] [INFO    ] [utils] Initializing AAI environment for task 1071: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51XtraLowIpsi-Left-DarkGreen-0-OPQ.yml
+[2023-11-30 14:37:54,307] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:37:56,979] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:37:58,078] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:39:01,948] [INFO    ] [utils] Initializing AAI environment for task 1072: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51XtraLowIpsi-Left-Grey-0-OPQ.yml
+[2023-11-30 14:39:01,949] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:39:04,623] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:39:05,714] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:40:09,613] [INFO    ] [utils] Initializing AAI environment for task 1073: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51XtraLowIpsi-Left-OffWhite-0-OPQ.yml
+[2023-11-30 14:40:09,614] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:40:12,281] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:40:13,377] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:41:17,214] [INFO    ] [utils] Initializing AAI environment for task 1074: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51XtraLowIpsi-Left-RND-0-OPQ.yml
+[2023-11-30 14:41:17,214] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:41:19,894] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:41:20,999] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:42:24,870] [INFO    ] [utils] Initializing AAI environment for task 1075: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51XtraLowIpsi-Right-Beige-0-OPQ.yml
+[2023-11-30 14:42:24,870] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:42:27,522] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:42:28,640] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:42:49,349] [INFO    ] [utils] Initializing AAI environment for task 1076: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51XtraLowIpsi-Right-Brown-0-OPQ.yml
+[2023-11-30 14:42:49,350] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:42:52,301] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:42:53,400] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:43:13,796] [INFO    ] [utils] Initializing AAI environment for task 1077: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51XtraLowIpsi-Right-DarkBlue-0-OPQ.yml
+[2023-11-30 14:43:13,797] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:43:16,461] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:43:17,553] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:43:36,419] [INFO    ] [utils] Initializing AAI environment for task 1078: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51XtraLowIpsi-Right-DarkGreen-0-OPQ.yml
+[2023-11-30 14:43:36,420] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:43:39,084] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:43:40,182] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:43:59,092] [INFO    ] [utils] Initializing AAI environment for task 1079: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51XtraLowIpsi-Right-Grey-0-OPQ.yml
+[2023-11-30 14:43:59,093] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:44:01,772] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:44:02,876] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:44:20,527] [INFO    ] [utils] Initializing AAI environment for task 1080: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51XtraLowIpsi-Right-OffWhite-0-OPQ.yml
+[2023-11-30 14:44:20,527] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:44:23,183] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:44:24,286] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:44:41,542] [INFO    ] [utils] Initializing AAI environment for task 1081: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.51XtraLowIpsi-Right-RND-0-OPQ.yml
+[2023-11-30 14:44:41,542] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:44:44,255] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:44:45,363] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:45:06,812] [INFO    ] [utils] Initializing AAI environment for task 1082: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.52Occluder-Left-Beige-0-OPQ.yml
+[2023-11-30 14:45:06,813] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:45:09,473] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:45:10,570] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:46:11,882] [INFO    ] [utils] Initializing AAI environment for task 1083: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.52Occluder-Left-Brown-0-OPQ.yml
+[2023-11-30 14:46:11,883] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:46:14,534] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:46:15,627] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:47:19,497] [INFO    ] [utils] Initializing AAI environment for task 1084: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.52Occluder-Left-DarkBlue-0-OPQ.yml
+[2023-11-30 14:47:19,498] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:47:22,155] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:47:23,250] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:48:26,914] [INFO    ] [utils] Initializing AAI environment for task 1085: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.52Occluder-Left-DarkGreen-0-OPQ.yml
+[2023-11-30 14:48:26,914] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:48:29,592] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:48:30,693] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:49:34,262] [INFO    ] [utils] Initializing AAI environment for task 1086: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.52Occluder-Left-Grey-0-OPQ.yml
+[2023-11-30 14:49:34,263] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:49:36,938] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:49:38,034] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:50:41,742] [INFO    ] [utils] Initializing AAI environment for task 1087: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.52Occluder-Left-OffWhite-0-OPQ.yml
+[2023-11-30 14:50:41,743] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:50:44,407] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:50:46,042] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:51:50,042] [INFO    ] [utils] Initializing AAI environment for task 1088: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.52Occluder-Left-RND-0-OPQ.yml
+[2023-11-30 14:51:50,042] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:51:52,719] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:51:53,814] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:52:57,893] [INFO    ] [utils] Initializing AAI environment for task 1089: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.52Occluder-Right-Beige-0-OPQ.yml
+[2023-11-30 14:52:57,894] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:53:00,568] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:53:01,660] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:53:20,884] [INFO    ] [utils] Initializing AAI environment for task 1090: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.52Occluder-Right-Brown-0-OPQ.yml
+[2023-11-30 14:53:20,884] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:53:23,555] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:53:24,645] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:53:40,384] [INFO    ] [utils] Initializing AAI environment for task 1091: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.52Occluder-Right-DarkBlue-0-OPQ.yml
+[2023-11-30 14:53:40,386] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:53:43,052] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:53:44,142] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:54:04,546] [INFO    ] [utils] Initializing AAI environment for task 1092: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.52Occluder-Right-DarkGreen-0-OPQ.yml
+[2023-11-30 14:54:04,547] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:54:07,220] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:54:08,321] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:54:38,819] [INFO    ] [utils] Initializing AAI environment for task 1093: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.52Occluder-Right-Grey-0-OPQ.yml
+[2023-11-30 14:54:38,820] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:54:41,489] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:54:42,573] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:54:58,254] [INFO    ] [utils] Initializing AAI environment for task 1094: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.52Occluder-Right-OffWhite-0-OPQ.yml
+[2023-11-30 14:54:58,255] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:55:00,924] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:55:02,018] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:55:18,265] [INFO    ] [utils] Initializing AAI environment for task 1095: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.52Occluder-Right-RND-0-OPQ.yml
+[2023-11-30 14:55:18,266] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:55:20,927] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:55:22,026] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:55:40,207] [INFO    ] [utils] Initializing AAI environment for task 1096: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.52Thin-Left-Beige-0-OPQ.yml
+[2023-11-30 14:55:40,207] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:55:43,052] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:55:44,149] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:56:45,285] [INFO    ] [utils] Initializing AAI environment for task 1097: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.52Thin-Left-Brown-0-OPQ.yml
+[2023-11-30 14:56:45,285] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:56:47,960] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:56:49,056] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:57:52,830] [INFO    ] [utils] Initializing AAI environment for task 1098: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.52Thin-Left-DarkBlue-0-OPQ.yml
+[2023-11-30 14:57:52,831] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:57:55,490] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:57:56,586] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 14:59:00,428] [INFO    ] [utils] Initializing AAI environment for task 1099: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.52Thin-Left-DarkGreen-0-OPQ.yml
+[2023-11-30 14:59:00,429] [INFO    ] [utils] Using port 5664
+[2023-11-30 14:59:03,101] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 14:59:04,197] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 15:00:07,993] [INFO    ] [utils] Initializing AAI environment for task 1100: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.52Thin-Left-Grey-0-OPQ.yml
+[2023-11-30 15:00:07,993] [INFO    ] [utils] Using port 5664
+[2023-11-30 15:00:10,739] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 15:00:11,841] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 15:01:15,711] [INFO    ] [utils] Initializing AAI environment for task 1101: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.52Thin-Left-OffWhite-0-OPQ.yml
+[2023-11-30 15:01:15,712] [INFO    ] [utils] Using port 5664
+[2023-11-30 15:01:18,578] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 15:01:19,794] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 15:02:24,869] [INFO    ] [utils] Initializing AAI environment for task 1102: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.52Thin-Left-RND-0-OPQ.yml
+[2023-11-30 15:02:24,869] [INFO    ] [utils] Using port 5664
+[2023-11-30 15:02:27,766] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 15:02:28,971] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 15:03:33,240] [INFO    ] [utils] Initializing AAI environment for task 1103: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.52Thin-Right-Beige-0-OPQ.yml
+[2023-11-30 15:03:33,240] [INFO    ] [utils] Using port 5664
+[2023-11-30 15:03:35,957] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 15:03:37,152] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 15:03:55,756] [INFO    ] [utils] Initializing AAI environment for task 1104: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.52Thin-Right-Brown-0-OPQ.yml
+[2023-11-30 15:03:55,756] [INFO    ] [utils] Using port 5664
+[2023-11-30 15:03:58,641] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 15:03:59,826] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 15:04:14,301] [INFO    ] [utils] Initializing AAI environment for task 1105: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.52Thin-Right-DarkBlue-0-OPQ.yml
+[2023-11-30 15:04:14,302] [INFO    ] [utils] Using port 5664
+[2023-11-30 15:04:17,000] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 15:04:18,141] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 15:04:32,727] [INFO    ] [utils] Initializing AAI environment for task 1106: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.52Thin-Right-DarkGreen-0-OPQ.yml
+[2023-11-30 15:04:32,727] [INFO    ] [utils] Using port 5664
+[2023-11-30 15:04:35,418] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 15:04:36,563] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 15:04:52,088] [INFO    ] [utils] Initializing AAI environment for task 1107: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.52Thin-Right-Grey-0-OPQ.yml
+[2023-11-30 15:04:52,089] [INFO    ] [utils] Using port 5664
+[2023-11-30 15:04:54,752] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 15:04:55,917] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 15:05:10,321] [INFO    ] [utils] Initializing AAI environment for task 1108: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.52Thin-Right-OffWhite-0-OPQ.yml
+[2023-11-30 15:05:10,322] [INFO    ] [utils] Using port 5664
+[2023-11-30 15:05:13,035] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 15:05:14,193] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 15:05:29,584] [INFO    ] [utils] Initializing AAI environment for task 1109: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.52Thin-Right-RND-0-OPQ.yml
+[2023-11-30 15:05:29,585] [INFO    ] [utils] Using port 5664
+[2023-11-30 15:05:32,275] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 15:05:33,452] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 15:05:49,409] [INFO    ] [utils] Initializing AAI environment for task 1110: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.52Trans-Left-NA-0-Trans.yml
+[2023-11-30 15:05:49,410] [INFO    ] [utils] Using port 5664
+[2023-11-30 15:05:53,291] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 15:05:54,958] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 15:06:57,476] [INFO    ] [utils] Initializing AAI environment for task 1111: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.52Trans-Right-NA-0-Trans.yml
+[2023-11-30 15:06:57,476] [INFO    ] [utils] Using port 5664
+[2023-11-30 15:07:00,399] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 15:07:01,613] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
+[2023-11-30 15:07:19,676] [INFO    ] [utils] Initializing AAI environment for task 1112: ../../configs/tests_agents/op_controls/OP-RP-Allo-CVChick-LOG2.52XtraLow-Left-Beige-0-OPQ.yml
+[2023-11-30 15:07:19,677] [INFO    ] [utils] Using port 5664
+[2023-11-30 15:07:22,563] [INFO    ] [environment] Connected to Unity environment with package version 2.3.0-exp.3 and communication version 1.5.0
+[2023-11-30 15:07:23,773] [INFO    ] [environment] Connected new brain: AnimalAI?team=0
