@@ -223,7 +223,7 @@ trajectory_query_builder <- function(reference_df, agentname, seed, instanceidst
     
   } else if (paradigmtype == "3Cup") {
     
-    query_list <- paste0("SELECT EXISTS (SELECT 1 FROM ", agent_intraresults_table_name, " LEFT JOIN ", agent_table_name, " ON ", agent_intraresults_table_name, ".agentid = ", agent_table_name, ".agentid WHERE ", agent_table_name, ".agent_tag = '", agentname, "' AND ", agent_table_name, ".aai_seed = ", seed, " AND ", agent_intraresults_table_name, ".instanceid = ", instanceidstring, " AND ", agent_intraresults_table_name, ".xpos BETWEEN ", reference_df$min_x_coord, " AND ", reference_df$max_x_coord, " AND ", agent_intraresults_table_name, ".zpos BETWEEN ", reference_df$min_z_coord, " AND ", reference_df$max_z_coord, " AND ", agent_intraresults_table_name, ".ypos <= 0.5) AS result;") #make sure y = 0 so that they have fully entered the cup.
+    query_list <- paste0("SELECT EXISTS (SELECT 1 FROM ", agent_intraresults_table_name, " LEFT JOIN ", agent_table_name, " ON ", agent_intraresults_table_name, ".agentid = ", agent_table_name, ".agentid WHERE ", agent_table_name, ".agent_tag = '", agentname, "' AND ", agent_table_name, ".aai_seed = ", seed, " AND ", agent_intraresults_table_name, ".instanceid = ", instanceidstring, " AND ", agent_intraresults_table_name, ".xpos BETWEEN ", reference_df$min_x_coord, " AND ", reference_df$max_x_coord, " AND ", agent_intraresults_table_name, ".zpos BETWEEN ", reference_df$min_z_coord, " AND ", reference_df$max_z_coord, " AND ", agent_intraresults_table_name, ".ypos <= 0.5) AS result;") #make sure y <= 0.5 so that they have fully entered the cup.
     
     return(query_list) # returns a list of 2 queries, one for left cup, one for mid cup, and one for right cup.
     
@@ -720,12 +720,53 @@ final_results <- final_results %>% mutate(correctChoice = ifelse((is.na(cvchickc
                                                                           (is.na(cvchickcorrectchoice) & is.na(pctbgridcorrectchoice) & pctb3cupcorrectchoice == "MR" & threecupmidchoice == TRUE & threecuprightchoice == TRUE), 1, 0)),
                                           problem_flag = ifelse(episodeEndType == "unknown", "Y", "N"))
 
+check <- filter(final_results, success == 1 & correctChoice == 0)
+check <- check %>% select(c(agent_tag, aai_seed, InstanceName, pass_mark, finalreward, success, correctChoice))
+
+#There are some cases where the agent is passing the instance but not being recorded as choosing the correct choice.
+# In all these cases, it is the PCTB 3 cup tasks involved.
+# The reason is that the agent moves quickly off the ramp and is still above ypos=0.5 when it obtains the reward (i.e., it falls from above).
+# The logic with using the y value is still useful for making sure that agents get off the ramp. We don't want to mistakenly label an agent as choosing the correct choice when they did not fully empty the cup.
+# HOWEVER, if they obtain the full reward, they clearly made the correct choice.
+# To fix, if success == 1 and correctChoice == 0, change correctChoice <- 1.
+
+final_results <- final_results %>%
+  mutate(correctChoice = ifelse(success == 1 & correctChoice == 0, 1, correctChoice))
+
+## Add categorical output variable with three levels (wrong choice, failure (0); right choice, failure (1); right choice, success (2))
+
+final_results <- final_results %>%
+  mutate(choiceSuccessCategorical = ifelse(success == 0 & correctChoice == 0, 0,
+                                           ifelse(success == 0 & correctChoice == 1, 1,
+                                                  ifelse(success == 1 & correctChoice == 1, 2, NA))))
+
+## Final instance-level demand for measurement layout - random agent baseline for each instance to define chance performance
+
+random_agent_baseline_variant <- final_results %>% select(c(InstanceName, agent_type_gen, success, correctChoice)) %>%
+  filter(agent_type_gen == "Random Agent") %>%
+  group_by(InstanceName) %>%
+  summarise(successBaselineInstanceVariant = sum(success)/n(),
+            correctChoiceBaselineInstanceVariant = sum(correctChoice)/n())
+
+
+random_agent_baseline_instance <- final_results %>% select(c(Suite, SubSuite, Paradigm, Task, Instance, agent_type_gen, success, correctChoice)) %>%
+  filter(agent_type_gen == "Random Agent") %>%
+  group_by(Suite, SubSuite, Paradigm, Task, Instance) %>%
+  summarise(successBaselineTaskVariant = sum(success)/n(),
+            correctChoiceBaselineTaskVariant = sum(correctChoice)/n())
+
+final_results <- final_results %>% left_join(., random_agent_baseline_instance) %>%
+  left_join(., random_agent_baseline_variant) 
+
+## Tidy up
+
 final_results <- final_results %>% 
   mutate(agent_tag_seed = paste0(agent_tag, ifelse(is.na(aai_seed) | aai_seed == 9999, "", paste0("_", aai_seed))))
 
 final_results <- final_results %>%
   mutate(agent_type_gen = ifelse(str_detect(agent_type, "dreamer"), "Dreamer",
                                  ifelse(str_detect(agent_type, "ppo"), "PPO", agent_type)))
+
 
 
 ###############################################################################################################################
