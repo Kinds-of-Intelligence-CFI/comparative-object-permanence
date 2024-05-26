@@ -13,7 +13,7 @@ using CategoricalArrays
 
 data = CSV.read("./analysis/results_final_clean_long.csv", DataFrame)
 data = data[(data[!, :problem_flag] .== "N"),:]
-data = select(data, :InstanceName, :Suite, :SubSuite, :Instance, :basicTask, :opControlTask, :cvchickTask, :pctbGridTask, :pctb3CupTask, :agent_tag, :agent_tag_seed, :agent_type, :success, :correctChoice)
+data = select(data, :InstanceName, :Suite, :SubSuite, :Instance, :basicTask, :opControlTask, :goalBecomesAllocentricallyOccluded, :cvchickTask, :pctbGridTask, :pctb3CupTask, :agent_tag, :agent_tag_seed, :agent_type, :success, :correctChoice)
 
 # Convert Predictor to a categorical variable
 data.agent_type = categorical(data.agent_type)
@@ -30,6 +30,8 @@ levels!(data.agent_type, ["Random Agent",
              "dreamer-bc_opc_opt-all",
              "dreamer-bc_opc_opt-strat",
              "Child"])
+
+## Mixed models by separate task type, comparing to the random agent
 
 basic_tasks = data[(data[!, :basicTask] .== 1),:]
 op_control_cv = data[(data[!, :opControlTask] .== 1).&(data[!, :cvchickTask] .== 1),:]
@@ -254,5 +256,203 @@ open("./analysis/comparative-analysis/mixedModelsOutput/MixedModelsOutputChoice.
                 println(testgrid_exponentiated_coefs[o,:])
             end
         end
+    end
+end
+
+## Mixed models comparing tests and controls
+
+cv_tasks = data[(data[!, :cvchickTask] .== 1),:]
+cup_tasks = data[(data[!, :pctb3CupTask] .== 1),:]
+grid_tasks = data[(data[!, :pctbGridTask] .== 1),:]
+
+successFormula = @formula(success ~ goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed))
+
+agents = ["Random Agent", 
+"Heuristic Agent",
+"ppo-bc-all",
+"ppo-bc_opc-all",
+"ppo-bc_opc-strat",
+"ppo-bc_opc_opt-all",
+"ppo-bc_opc_opt-strat",
+"dreamer-bc-all",
+"dreamer-bc_opc-all",
+"dreamer-bc_opc-strat",
+"dreamer-bc_opc_opt-all",
+"dreamer-bc_opc_opt-strat",
+"Child"]
+
+for agent in agents
+    agent_data = cv_tasks[(cv_tasks[!, :agent_type] .== agent), :]
+    try
+        cv_fit = fit(MixedModel, successFormula, agent_data, Bernoulli(), fast = false)
+        open("./analysis/comparative-analysis/mixedModelsOutput/MixedModelsOPControlComparisonOutputSuccess.txt", "a") do io
+            # Redirect standard output and standard error to the file
+            redirect_stdout(io) do
+                redirect_stderr(io) do
+                    println("CV Chick Tasks")
+                    println("─────────────────────────────────────────────────────────────────────────────────")
+                    println(agent, ":")
+                    println("─────────────────────────────────────────────────────────────────────────────────")
+                    print(cv_fit)
+                    println()
+                    println("Exponentiated Coefficients (Odds) with 95% Confidence intervals")
+                    cv_exponentiated_coefs = confint95(fixef(cv_fit), stderror(cv_fit))
+                    for o in 1:size(cv_exponentiated_coefs)[1]
+                        println(cv_exponentiated_coefs[o,:])
+                    end
+                    println("─────────────────────────────────────────────────────────────────────────────────")
+                    println()
+                end
+            end
+        end
+    catch
+        println("Error with fit")
+    end
+end
+
+for agent in agents
+    agent_data = cup_tasks[(cup_tasks[!, :agent_type] .== agent), :]
+    try
+        cv_fit = fit(MixedModel, successFormula, agent_data, Bernoulli(), fast = false)
+        open("./analysis/comparative-analysis/mixedModelsOutput/MixedModelsOPControlComparisonOutputSuccess.txt", "a") do io
+            # Redirect standard output and standard error to the file
+            redirect_stdout(io) do
+                redirect_stderr(io) do
+                    println("Cup Tasks")
+                    println("─────────────────────────────────────────────────────────────────────────────────")
+                    println(agent, ":")
+                    println("─────────────────────────────────────────────────────────────────────────────────")
+                    print(cv_fit)
+                    println()
+                    println("Exponentiated Coefficients (Odds) with 95% Confidence intervals")
+                    cv_exponentiated_coefs = confint95(fixef(cv_fit), stderror(cv_fit))
+                    for o in 1:size(cv_exponentiated_coefs)[1]
+                        println(cv_exponentiated_coefs[o,:])
+                    end
+                    println("─────────────────────────────────────────────────────────────────────────────────")
+                    println()
+                end
+            end
+        end
+    catch
+        println("Error with fit")
+    end
+end
+
+for agent in agents
+    agent_data = grid_tasks[(grid_tasks[!, :agent_type] .== agent), :]
+    try
+        cv_fit = fit(MixedModel, successFormula, agent_data, Bernoulli(), fast = false)
+        open("./analysis/comparative-analysis/mixedModelsOutput/MixedModelsOPControlComparisonOutputSuccess.txt", "a") do io
+            # Redirect standard output and standard error to the file
+            redirect_stdout(io) do
+                redirect_stderr(io) do
+                    println("Grid Tasks")
+                    println("─────────────────────────────────────────────────────────────────────────────────")
+                    println(agent, ":")
+                    println("─────────────────────────────────────────────────────────────────────────────────")
+                    print(cv_fit)
+                    println()
+                    println("Exponentiated Coefficients (Odds) with 95% Confidence intervals")
+                    cv_exponentiated_coefs = confint95(fixef(cv_fit), stderror(cv_fit))
+                    for o in 1:size(cv_exponentiated_coefs)[1]
+                        println(cv_exponentiated_coefs[o,:])
+                    end
+                    println("─────────────────────────────────────────────────────────────────────────────────")
+                    println()
+                end
+            end
+        end
+    catch
+        println("Error with fit")
+    end
+end
+
+choiceFormula = @formula(correctChoice ~ goalBecomesAllocentricallyOccluded + (1 + goalBecomesAllocentricallyOccluded | agent_tag_seed))
+
+for agent in agents
+    agent_data = cv_tasks[(cv_tasks[!, :agent_type] .== agent), :]
+    try
+        cv_fit = fit(MixedModel, choiceFormula, agent_data, Bernoulli(), fast = false)
+        open("./analysis/comparative-analysis/mixedModelsOutput/MixedModelsOPControlComparisonOutputChoice.txt", "a") do io
+            # Redirect standard output and standard error to the file
+            redirect_stdout(io) do
+                redirect_stderr(io) do
+                    println("CV Chick Tasks")
+                    println("─────────────────────────────────────────────────────────────────────────────────")
+                    println(agent, ":")
+                    println("─────────────────────────────────────────────────────────────────────────────────")
+                    print(cv_fit)
+                    println()
+                    println("Exponentiated Coefficients (Odds) with 95% Confidence intervals")
+                    cv_exponentiated_coefs = confint95(fixef(cv_fit), stderror(cv_fit))
+                    for o in 1:size(cv_exponentiated_coefs)[1]
+                        println(cv_exponentiated_coefs[o,:])
+                    end
+                    println("─────────────────────────────────────────────────────────────────────────────────")
+                    println()
+                end
+            end
+        end
+    catch
+        println("Error with fit")
+    end
+end
+
+for agent in agents
+    agent_data = cup_tasks[(cup_tasks[!, :agent_type] .== agent), :]
+    try
+        cv_fit = fit(MixedModel, choiceFormula, agent_data, Bernoulli(), fast = false)
+        open("./analysis/comparative-analysis/mixedModelsOutput/MixedModelsOPControlComparisonOutputChoice.txt", "a") do io
+            # Redirect standard output and standard error to the file
+            redirect_stdout(io) do
+                redirect_stderr(io) do
+                    println("Cup Tasks")
+                    println("─────────────────────────────────────────────────────────────────────────────────")
+                    println(agent, ":")
+                    println("─────────────────────────────────────────────────────────────────────────────────")
+                    print(cv_fit)
+                    println()
+                    println("Exponentiated Coefficients (Odds) with 95% Confidence intervals")
+                    cv_exponentiated_coefs = confint95(fixef(cv_fit), stderror(cv_fit))
+                    for o in 1:size(cv_exponentiated_coefs)[1]
+                        println(cv_exponentiated_coefs[o,:])
+                    end
+                    println("─────────────────────────────────────────────────────────────────────────────────")
+                    println()
+                end
+            end
+        end
+    catch
+        println("Error with fit")
+    end
+end
+
+for agent in agents
+    agent_data = grid_tasks[(grid_tasks[!, :agent_type] .== agent), :]
+    try
+        cv_fit = fit(MixedModel, choiceFormula, agent_data, Bernoulli(), fast = false)
+        open("./analysis/comparative-analysis/mixedModelsOutput/MixedModelsOPControlComparisonOutputChoice.txt", "a") do io
+            # Redirect standard output and standard error to the file
+            redirect_stdout(io) do
+                redirect_stderr(io) do
+                    println("Grid Tasks")
+                    println("─────────────────────────────────────────────────────────────────────────────────")
+                    println(agent, ":")
+                    println("─────────────────────────────────────────────────────────────────────────────────")
+                    print(cv_fit)
+                    println()
+                    println("Exponentiated Coefficients (Odds) with 95% Confidence intervals")
+                    cv_exponentiated_coefs = confint95(fixef(cv_fit), stderror(cv_fit))
+                    for o in 1:size(cv_exponentiated_coefs)[1]
+                        println(cv_exponentiated_coefs[o,:])
+                    end
+                    println("─────────────────────────────────────────────────────────────────────────────────")
+                    println()
+                end
+            end
+        end
+    catch
+        println("Error with fit")
     end
 end
